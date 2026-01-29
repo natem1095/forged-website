@@ -96,24 +96,59 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function typeText(element, text, cursor, callback) {
-        let index = 0;
         const typingSpeed = 120; // ms per character
+        const backspaceSpeed = 80; // ms per backspace
+        const pauseDuration = 1500; // 1.5 second pause
+
+        // Typo sequence: type wrong text, pause, backspace, type correct
+        const typoText = 'More thna just';
+        const backspaceTo = 'More t';
+        const correctText = text; // "More than just working code"
 
         // Show cursor when typing starts
         if (cursor) cursor.style.opacity = '1';
 
-        function type() {
-            if (index < text.length) {
-                element.textContent += text.charAt(index);
+        let index = 0;
+
+        function typeTypo() {
+            if (index < typoText.length) {
+                element.textContent += typoText.charAt(index);
                 index++;
-                setTimeout(type, typingSpeed);
+                setTimeout(typeTypo, typingSpeed);
+            } else {
+                // Pause before correcting
+                setTimeout(startBackspace, pauseDuration);
+            }
+        }
+
+        function startBackspace() {
+            backspace();
+        }
+
+        function backspace() {
+            const currentText = element.textContent;
+            if (currentText.length > backspaceTo.length) {
+                element.textContent = currentText.slice(0, -1);
+                setTimeout(backspace, backspaceSpeed);
+            } else {
+                // Start typing the correct remainder
+                index = backspaceTo.length;
+                typeCorrect();
+            }
+        }
+
+        function typeCorrect() {
+            if (index < correctText.length) {
+                element.textContent += correctText.charAt(index);
+                index++;
+                setTimeout(typeCorrect, typingSpeed);
             } else {
                 // Typing complete
                 if (callback) callback();
             }
         }
 
-        type();
+        typeTypo();
     }
 
     // Scroll indicators - show/hide based on position

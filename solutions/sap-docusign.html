@@ -139,7 +139,7 @@
                 <p>
                     The solution follows a clean separation of concerns: a reusable core API package
                     (Integration Framework) that handles all DocuSign communication, and business-specific
-                    implementations (Z_MM_DS_INT) that define the workflows.
+                    implementations (Workflow Engine) that define the workflows.
                 </p>
 
                 <!-- SAP-DocuSign Architecture Diagram -->
@@ -158,9 +158,9 @@
                         <line x1="180" y1="65" x2="230" y2="65" stroke="#606060" stroke-width="2"/>
                         <polygon points="225,60 235,65 225,70" fill="#606060"/>
 
-                        <!-- ZCL_DS_API (Core) -->
+                        <!-- API Core -->
                         <rect x="235" y="30" width="160" height="70" rx="6" fill="#353535" stroke="#909090" stroke-width="2"/>
-                        <text x="315" y="55" fill="#e0e0e0" font-size="13" font-weight="600" text-anchor="middle">ZCL_DS_API</text>
+                        <text x="315" y="55" fill="#e0e0e0" font-size="13" font-weight="600" text-anchor="middle">API Core</text>
                         <text x="315" y="73" fill="#808080" font-size="9" text-anchor="middle">OAuth Token | HTTP Client</text>
                         <text x="315" y="88" fill="#808080" font-size="9" text-anchor="middle">JSON Builder</text>
 
@@ -186,18 +186,18 @@
                         <line x1="450" y1="177" x2="400" y2="177" stroke="#505050" stroke-width="1.5"/>
                         <polygon points="405,172 395,177 405,182" fill="#505050"/>
 
-                        <!-- ZCL_DS_WEBHOOK -->
+                        <!-- Webhook Handler -->
                         <rect x="235" y="150" width="160" height="55" rx="6" fill="#353535" stroke="#909090" stroke-width="2"/>
-                        <text x="315" y="172" fill="#e0e0e0" font-size="12" font-weight="600" text-anchor="middle">ZCL_DS_WEBHOOK</text>
+                        <text x="315" y="172" fill="#e0e0e0" font-size="12" font-weight="600" text-anchor="middle">Webhook Handler</text>
                         <text x="315" y="190" fill="#808080" font-size="9" text-anchor="middle">Parse XML | Validate HMAC</text>
 
                         <!-- Arrow from Webhook to Callback -->
                         <line x1="315" y1="205" x2="315" y2="240" stroke="#606060" stroke-width="1.5"/>
                         <polygon points="310,235 315,245 320,235" fill="#606060"/>
 
-                        <!-- ZIF_DS_CALLBACK -->
+                        <!-- Callback Interface -->
                         <rect x="235" y="245" width="160" height="60" rx="6" fill="#404040" stroke="#707070" stroke-width="1.5"/>
-                        <text x="315" y="268" fill="#e0e0e0" font-size="12" font-weight="600" text-anchor="middle">ZIF_DS_CALLBACK</text>
+                        <text x="315" y="268" fill="#e0e0e0" font-size="12" font-weight="600" text-anchor="middle">Callback Interface</text>
                         <text x="315" y="288" fill="#707070" font-size="9" text-anchor="middle">on_completed() on_declined()</text>
 
                         <!-- Arrow from Callback back to SAP -->
@@ -207,12 +207,12 @@
                         <!-- Database -->
                         <rect x="20" y="150" width="160" height="155" rx="6" fill="#252525" stroke="#404040" stroke-width="1"/>
                         <text x="100" y="175" fill="#e0e0e0" font-size="12" font-weight="600" text-anchor="middle">Database</text>
-                        <text x="100" y="200" fill="#606060" font-size="10" text-anchor="middle">ZDS_CONFIG</text>
-                        <text x="100" y="218" fill="#606060" font-size="10" text-anchor="middle">ZDS_ENVELOPES</text>
-                        <text x="100" y="236" fill="#606060" font-size="10" text-anchor="middle">ZDS_APPS</text>
-                        <text x="100" y="254" fill="#606060" font-size="10" text-anchor="middle">ZDS_SIGNERS</text>
-                        <text x="100" y="272" fill="#606060" font-size="10" text-anchor="middle">ZDS_PO_REL</text>
-                        <text x="100" y="290" fill="#505050" font-size="9" text-anchor="middle">+ more tables</text>
+                        <text x="100" y="200" fill="#606060" font-size="10" text-anchor="middle">Config</text>
+                        <text x="100" y="218" fill="#606060" font-size="10" text-anchor="middle">Envelopes</text>
+                        <text x="100" y="236" fill="#606060" font-size="10" text-anchor="middle">Apps Registry</text>
+                        <text x="100" y="254" fill="#606060" font-size="10" text-anchor="middle">Signers</text>
+                        <text x="100" y="272" fill="#606060" font-size="10" text-anchor="middle">PO Tracking</text>
+                        <text x="100" y="290" fill="#505050" font-size="9" text-anchor="middle">+ audit tables</text>
 
                         <!-- Dashed line from API to Database -->
                         <path d="M235 85 L180 130" stroke="#404040" stroke-width="1" stroke-dasharray="4"/>
@@ -222,16 +222,16 @@
                 <h3>Package Structure</h3>
                 <div class="code-block">
 <pre>Integration Framework/       # Core API package
-├── ZCL_DS_API              # Main API class (OAuth, envelopes, documents)
-├── ZCL_DS_WEBHOOK          # Webhook processor (XML parsing, HMAC)
-├── ZIF_DS_CALLBACK         # Interface for business callbacks
+├── API Core                # Main API class (OAuth, envelopes, documents)
+├── Webhook Handler         # Webhook processor (XML parsing, HMAC validation)
+├── Callback Interface      # Interface for business callbacks
 └── Database Tables         # Configuration, envelope tracking, audit logs
 
-Z_MM_DS_INT/                 # Business integration package
-├── ZCL_PO_PDF_GENERATOR    # SmartForm-based PDF generation
-├── ZCL_PO_REL_DS_CALLBACK  # PO release callback implementation
-├── ZCL_IM_ME_PO_DS_REL     # BADI for ME21N integration
-└── ZCL_IM_MB_DOC_DS_CHECK  # BADI for GR blocking</pre>
+Workflow Engine/             # Business integration package
+├── PDF Generator           # SmartForm-based PDF generation
+├── Release Callback        # PO release callback implementation
+├── PO Trigger              # BADI for ME21N integration
+└── GR Block Check          # BADI for goods receipt blocking</pre>
                 </div>
             </div>
 
@@ -265,7 +265,7 @@ Z_MM_DS_INT/                 # Business integration package
 
                 <h3>Callback Architecture</h3>
                 <p>
-                    The <code>ZIF_DS_CALLBACK</code> interface enables clean separation between
+                    The <code>Callback Interface</code> enables clean separation between
                     the API layer and business logic. New integrations simply implement the
                     interface and register with the framework:
                 </p>

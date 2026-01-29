@@ -66,6 +66,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Back to top button
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+        // Show/hide based on scroll position (after first section)
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > window.innerHeight * 0.8) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Scroll to top on click
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
     // ========================================
     // SMOOTH FULL-PAGE SCROLL SNAP
     // Apple-style smooth section transitions

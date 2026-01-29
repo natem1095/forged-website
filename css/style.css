@@ -2365,6 +2365,45 @@ section {
 }
 
 /* ========================================
+   BACK TO TOP BUTTON
+   ======================================== */
+
+.back-to-top {
+    position: fixed;
+    bottom: var(--space-xl);
+    right: var(--space-xl);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, color 0.2s ease;
+    z-index: 100;
+}
+
+.back-to-top:hover {
+    color: var(--text-secondary);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: var(--space-lg);
+        right: var(--space-lg);
+        font-size: 0.6875rem;
+    }
+}
+
+/* ========================================
    SCROLL INDICATOR
    ======================================== */
 

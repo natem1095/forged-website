@@ -2446,11 +2446,13 @@ section {
 
 .typewriter__text {
     display: inline;
+    font-family: 'Cascadia Code', 'Consolas', monospace;
+    font-weight: 300;
 }
 
 .terminal-cursor {
     display: inline-block;
-    font-family: var(--font-mono);
+    font-family: 'Cascadia Code', 'Consolas', monospace;
     color: var(--accent-primary);
     margin-left: 0.05em;
     animation: cursor-blink 1s step-end infinite;

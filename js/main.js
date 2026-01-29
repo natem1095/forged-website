@@ -96,12 +96,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function typeText(element, text, cursor, callback) {
-        const typingSpeed = 120; // ms per character
+        const initialTypingSpeed = 100; // ms per character (slightly faster for typo)
+        const correctionTypingSpeed = 120; // ms per character
         const backspaceSpeed = 80; // ms per backspace
         const pauseDuration = 1500; // 1.5 second pause
 
         // Typo sequence: type wrong text, pause, backspace, type correct
-        const typoText = 'More thna just';
+        const typoText = 'More thna just ';
         const backspaceTo = 'More t';
         const correctText = text; // "More than just working code"
 
@@ -114,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (index < typoText.length) {
                 element.textContent += typoText.charAt(index);
                 index++;
-                setTimeout(typeTypo, typingSpeed);
+                setTimeout(typeTypo, initialTypingSpeed);
             } else {
                 // Pause before correcting
                 setTimeout(startBackspace, pauseDuration);
@@ -141,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (index < correctText.length) {
                 element.textContent += correctText.charAt(index);
                 index++;
-                setTimeout(typeCorrect, typingSpeed);
+                setTimeout(typeCorrect, correctionTypingSpeed);
             } else {
                 // Typing complete
                 if (callback) callback();

@@ -1741,3 +1741,330 @@ section {
         gap: var(--space-sm);
     }
 }
+
+/* ========================================
+   FLOW DIAGRAM (Enterprise Integration Hub)
+   ======================================== */
+
+.flow-diagram {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: var(--space-xl);
+    margin: var(--space-xl) 0;
+}
+
+.flow-diagram__title {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+.flow-diagram__layer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+    border-radius: 8px;
+    margin-bottom: var(--space-md);
+}
+
+.flow-diagram__layer:last-child {
+    margin-bottom: 0;
+}
+
+.flow-diagram__layer--top {
+    background: rgba(96, 96, 96, 0.15);
+    border: 1px solid rgba(96, 96, 96, 0.3);
+}
+
+.flow-diagram__layer--middle {
+    background: rgba(144, 144, 144, 0.2);
+    border: 2px solid var(--accent-primary);
+    position: relative;
+}
+
+.flow-diagram__layer--bottom {
+    background: rgba(64, 64, 64, 0.15);
+    border: 1px solid rgba(64, 64, 64, 0.3);
+}
+
+.flow-diagram__layer-label {
+    width: 100%;
+    text-align: center;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: var(--space-sm);
+    color: var(--text-muted);
+}
+
+.flow-diagram__layer--middle .flow-diagram__layer-label {
+    color: var(--accent-primary);
+}
+
+.flow-diagram__node {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    transition: all var(--transition-fast);
+}
+
+.flow-diagram__node:hover {
+    border-color: var(--accent-primary);
+    color: var(--text-primary);
+}
+
+.flow-diagram__node--highlight {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: white;
+}
+
+.flow-diagram__connector {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-sm) 0;
+    color: var(--text-muted);
+}
+
+.flow-diagram__connector svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* ========================================
+   SECTION CARDS (Expertise Grid)
+   ======================================== */
+
+.section-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+    margin: var(--space-xl) 0;
+}
+
+.section-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: var(--space-lg);
+}
+
+.section-card__icon {
+    width: 40px;
+    height: 40px;
+    background: var(--accent-glow);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-primary);
+    margin-bottom: var(--space-md);
+    font-size: 1.25rem;
+}
+
+.section-card__title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.section-card__items {
+    list-style: none;
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+}
+
+.section-card__items li {
+    padding: var(--space-xs) 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.section-card__items li:last-child {
+    border-bottom: none;
+}
+
+/* ========================================
+   SAP TABLE (Technical Documentation)
+   ======================================== */
+
+.sap-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-lg) 0;
+    font-size: 0.875rem;
+}
+
+.sap-table th {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    font-weight: 600;
+    text-align: left;
+    padding: var(--space-md);
+    border: 1px solid var(--border-color);
+}
+
+.sap-table td {
+    padding: var(--space-md);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    vertical-align: top;
+}
+
+.sap-table tr:hover td {
+    background: var(--bg-secondary);
+}
+
+.sap-table code {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    background: var(--bg-tertiary);
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+/* ========================================
+   METHOD SIGNATURE (API Display)
+   ======================================== */
+
+.method-signature {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: var(--space-md);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    margin: var(--space-md) 0;
+    overflow-x: auto;
+}
+
+.method-signature__name {
+    color: #c9a0dc;
+    font-weight: 500;
+}
+
+.method-signature__param {
+    color: #9cdcfe;
+}
+
+.method-signature__type {
+    color: #4ec9b0;
+}
+
+.method-signature__keyword {
+    color: #569cd6;
+}
+
+.method-signature__comment {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* ========================================
+   CODE BLOCK ENHANCEMENTS
+   ======================================== */
+
+.code-block--enhanced {
+    position: relative;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin: var(--space-lg) 0;
+    overflow: hidden;
+}
+
+.code-block__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.code-block__language {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-primary);
+}
+
+.code-block__copy {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: var(--space-xs);
+    border-radius: 4px;
+    transition: all var(--transition-fast);
+}
+
+.code-block__copy:hover {
+    color: var(--text-primary);
+    background: var(--bg-tertiary);
+}
+
+.code-block--enhanced pre {
+    margin: 0;
+    padding: var(--space-lg);
+    overflow-x: auto;
+}
+
+.code-block--enhanced code {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    line-height: 1.6;
+}
+
+/* ========================================
+   FLOW DIAGRAM RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+    .flow-diagram__layer {
+        padding: var(--space-md);
+    }
+
+    .flow-diagram__node {
+        font-size: 0.6875rem;
+        padding: 4px 8px;
+    }
+
+    .section-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .flow-diagram {
+        padding: var(--space-md);
+    }
+
+    .flow-diagram__layer {
+        padding: var(--space-sm);
+        gap: 4px;
+    }
+
+    .flow-diagram__node {
+        font-size: 0.625rem;
+        padding: 3px 6px;
+    }
+
+    .section-cards {
+        grid-template-columns: 1fr;
+    }
+}

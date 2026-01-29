@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Wizard state
         const wizardState = {
             currentStep: 1,
-            totalSteps: 5,
+            totalSteps: 6,
             data: loadWizardData()
         };
 
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Step 1: Selection cards
+        // Step 1: Project Type Selection cards
         const selectionCards = document.querySelectorAll('.selection-card');
         selectionCards.forEach(card => {
             card.addEventListener('click', () => {
@@ -122,8 +122,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 const nextBtn = document.querySelector('[data-step="1"] .wizard-next');
                 if (nextBtn) nextBtn.disabled = false;
 
-                // Update fields visibility for step 2
-                updateSystemFields();
+                // Update fields visibility based on project type
+                updateConditionalFields();
+            });
+        });
+
+        // Step 2: Industry cards
+        const industryCards = document.querySelectorAll('.industry-card');
+        industryCards.forEach(card => {
+            card.addEventListener('click', () => {
+                industryCards.forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                wizardState.data.industry = card.dataset.value;
+                saveWizardData(wizardState.data);
+
+                // Enable next button for step 2
+                const nextBtn = document.querySelector('[data-step="2"] .wizard-next');
+                if (nextBtn) nextBtn.disabled = false;
+
+                // Pre-check compliance for certain industries
+                preSelectCompliance(card.dataset.value);
+
+                updateSummary();
             });
         });
 
@@ -172,28 +192,54 @@ document.addEventListener('DOMContentLoaded', function() {
 
         document.querySelectorAll('.wizard-skip').forEach(btn => {
             btn.addEventListener('click', () => {
-                // For "Not Sure" on step 1, skip step 2
-                if (wizardState.currentStep === 1 && !wizardState.data.projectType) {
-                    wizardState.data.projectType = 'notsure';
-                    saveWizardData(wizardState.data);
-                    goToStep(3); // Skip to step 3
-                } else if (wizardState.currentStep === 1 && wizardState.data.projectType === 'notsure') {
-                    goToStep(3); // Skip step 2
-                } else {
-                    goToStep(wizardState.currentStep + 1);
+                // Skip logic based on project type
+                const projectType = wizardState.data.projectType;
+
+                if (wizardState.currentStep === 1) {
+                    if (!projectType) {
+                        wizardState.data.projectType = 'notsure';
+                        saveWizardData(wizardState.data);
+                    }
+                    // notsure skips to step 5 (Timeline)
+                    if (wizardState.data.projectType === 'notsure') {
+                        goToStep(5);
+                        return;
+                    }
+                    // assessment skips to step 4 (Challenge)
+                    if (wizardState.data.projectType === 'assessment') {
+                        goToStep(4);
+                        return;
+                    }
                 }
+
+                goToStep(wizardState.currentStep + 1);
             });
         });
 
         function goToStep(step) {
-            // Handle "Not Sure" skipping step 2
-            if (step === 2 && wizardState.data.projectType === 'notsure') {
-                step = 3;
+            const projectType = wizardState.data.projectType;
+
+            // Handle conditional skipping based on project type
+            // notsure: skip steps 2,3,4 -> go directly to step 5
+            if (projectType === 'notsure') {
+                if (step > 1 && step < 5) {
+                    step = 5;
+                }
+                // Going back from step 5 with notsure goes to step 1
+                if (wizardState.currentStep === 5 && step < 5) {
+                    step = 1;
+                }
             }
 
-            // Going back from step 3 with "Not Sure" should go to step 1
-            if (step === 2 && wizardState.currentStep === 3 && wizardState.data.projectType === 'notsure') {
-                step = 1;
+            // assessment: skip steps 2,3 -> go to step 4
+            if (projectType === 'assessment') {
+                if (step > 1 && step < 4) {
+                    step = 4;
+                }
+                // Going back from step 4 with assessment goes to step 1
+                if (wizardState.currentStep === 4 && step < 4 && step > 1) {
+                    step = 1;
+                }
             }
 
             if (step < 1 || step > wizardState.totalSteps) return;
@@ -211,6 +257,7 @@ document.addEventListener('DOMContentLoaded', function() {
             wizardState.currentStep = step;
             updateProgress();
             updateSummary();
+            updateConditionalFields();
 
             // Scroll to top of wizard
             projectWizard.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -237,24 +284,120 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
-        function updateSystemFields() {
+        function updateConditionalFields() {
             const projectType = wizardState.data.projectType;
+            const industry = wizardState.data.industry;
+            const systems = wizardState.data.systems || [];
 
-            // Hide all field sets
-            document.querySelectorAll('.wizard-fields').forEach(f => f.style.display = 'none');
+            // Check if any SAP system is selected
+            const hasSAP = systems.some(s => s.startsWith('sap-') || s.startsWith('s4hana'));
 
-            // Show appropriate field set
-            if (projectType === 'integration') {
-                const fields = document.querySelector('.wizard-fields--integration');
-                if (fields) fields.style.display = 'block';
-            } else if (projectType === 'automation') {
-                const fields = document.querySelector('.wizard-fields--automation');
-                if (fields) fields.style.display = 'block';
-            } else if (projectType === 'custom') {
-                const fields = document.querySelector('.wizard-fields--custom');
-                if (fields) fields.style.display = 'block';
+            // Show/hide volume field (for integration/esignature)
+            const volumeField = document.querySelector('.wizard-fields--volume');
+            if (volumeField) {
+                volumeField.style.display = (projectType === 'integration' || projectType === 'esignature') ? 'block' : 'none';
             }
+
+            // Show/hide SAP modules (when SAP selected)
+            const sapModulesField = document.querySelector('.wizard-fields--sap-modules');
+            if (sapModulesField) {
+                sapModulesField.style.display = hasSAP ? 'block' : 'none';
+            }
+
+            // Show/hide esignature fields
+            const esignatureFields = document.querySelectorAll('.wizard-fields--esignature');
+            esignatureFields.forEach(f => {
+                f.style.display = (projectType === 'esignature') ? 'block' : 'none';
+            });
+
+            // Show/hide compliance (for esignature, or pharma/food industries)
+            const complianceField = document.querySelector('.wizard-fields--compliance');
+            if (complianceField) {
+                const showCompliance = projectType === 'esignature' ||
+                    industry === 'pharma-life-sciences' ||
+                    industry === 'food-manufacturing';
+                complianceField.style.display = showCompliance ? 'block' : 'none';
+            }
+
+            // Show/hide pain points based on project type
+            const painpointsEsig = document.querySelector('.wizard-fields--painpoints-esignature');
+            const painpointsInt = document.querySelector('.wizard-fields--painpoints-integration');
+            const painpointsAuto = document.querySelector('.wizard-fields--painpoints-automation');
+
+            if (painpointsEsig) painpointsEsig.style.display = (projectType === 'esignature') ? 'block' : 'none';
+            if (painpointsInt) painpointsInt.style.display = (projectType === 'integration') ? 'block' : 'none';
+            if (painpointsAuto) painpointsAuto.style.display = (projectType === 'automation') ? 'block' : 'none';
         }
+
+        function preSelectCompliance(industry) {
+            // Pre-check relevant compliance options for certain industries
+            if (industry === 'food-manufacturing') {
+                const fsmaCheckbox = document.querySelector('input[name="compliance"][value="fsma-204"]');
+                if (fsmaCheckbox && !fsmaCheckbox.checked) {
+                    fsmaCheckbox.checked = true;
+                    if (!wizardState.data.compliance) wizardState.data.compliance = [];
+                    if (!wizardState.data.compliance.includes('fsma-204')) {
+                        wizardState.data.compliance.push('fsma-204');
+                    }
+                }
+            }
+
+            if (industry === 'pharma-life-sciences') {
+                const fda21Checkbox = document.querySelector('input[name="compliance"][value="fda-21cfr11"]');
+                const gxpCheckbox = document.querySelector('input[name="compliance"][value="gxp"]');
+                if (fda21Checkbox && !fda21Checkbox.checked) {
+                    fda21Checkbox.checked = true;
+                    if (!wizardState.data.compliance) wizardState.data.compliance = [];
+                    if (!wizardState.data.compliance.includes('fda-21cfr11')) {
+                        wizardState.data.compliance.push('fda-21cfr11');
+                    }
+                }
+                if (gxpCheckbox && !gxpCheckbox.checked) {
+                    gxpCheckbox.checked = true;
+                    if (!wizardState.data.compliance.includes('gxp')) {
+                        wizardState.data.compliance.push('gxp');
+                    }
+                }
+            }
+
+            saveWizardData(wizardState.data);
+        }
+
+        // Listen for system checkbox changes to show/hide SAP modules
+        document.querySelectorAll('input[name="systems"]').forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                // Update systems in state
+                if (!wizardState.data.systems) wizardState.data.systems = [];
+                if (checkbox.checked) {
+                    if (!wizardState.data.systems.includes(checkbox.value)) {
+                        wizardState.data.systems.push(checkbox.value);
+                    }
+                } else {
+                    wizardState.data.systems = wizardState.data.systems.filter(v => v !== checkbox.value);
+                }
+                saveWizardData(wizardState.data);
+                updateConditionalFields();
+                updateSummary();
+            });
+        });
+
+        // Listen for other checkbox changes
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            if (checkbox.name && checkbox.name !== 'systems') {
+                checkbox.addEventListener('change', () => {
+                    if (!wizardState.data[checkbox.name]) wizardState.data[checkbox.name] = [];
+                    if (checkbox.checked) {
+                        if (!wizardState.data[checkbox.name].includes(checkbox.value)) {
+                            wizardState.data[checkbox.name].push(checkbox.value);
+                        }
+                    } else {
+                        wizardState.data[checkbox.name] = wizardState.data[checkbox.name].filter(v => v !== checkbox.value);
+                    }
+                    saveWizardData(wizardState.data);
+                    updateSummary();
+                });
+            }
+        });
 
         function collectStepData(step) {
             const stepEl = document.querySelector(`.wizard-step[data-step="${step}"]`);
@@ -294,52 +437,106 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.projectType) {
                 const typeLabels = {
                     'integration': 'System Integration',
+                    'esignature': 'eSignature & Approvals',
                     'automation': 'Workflow Automation',
                     'custom': 'Custom Application',
-                    'notsure': 'Not Sure Yet'
+                    'assessment': 'Technical Assessment',
+                    'notsure': 'Discovery / Not Sure'
                 };
                 html += createSummaryItem('Project Type', typeLabels[data.projectType] || data.projectType, 1);
             }
 
-            // Systems (integration)
-            if (data.projectType === 'integration' && (data.sourceSystem || data.targetSystem)) {
-                let systemsText = '';
-                if (data.sourceSystem) systemsText += formatSystemName(data.sourceSystem);
-                if (data.sourceSystem && data.targetSystem) systemsText += ' → ';
-                if (data.targetSystem) systemsText += formatSystemName(data.targetSystem);
-                if (systemsText) html += createSummaryItem('Systems', systemsText, 2);
+            // Industry
+            if (data.industry) {
+                const industryLabels = {
+                    'food-manufacturing': 'Food & Beverage Manufacturing',
+                    'manufacturing': 'Manufacturing',
+                    'pharma-life-sciences': 'Pharma & Life Sciences',
+                    'distribution': 'Distribution & Logistics',
+                    'energy-utilities': 'Energy & Utilities',
+                    'other': 'Other Industry'
+                };
+                html += createSummaryItem('Industry', industryLabels[data.industry] || data.industry, 2);
             }
 
-            // Systems (automation)
-            if (data.projectType === 'automation' && data.primarySystem) {
-                html += createSummaryItem('Primary System', formatSystemName(data.primarySystem), 2);
+            // Company size
+            if (data.companySize) {
+                html += createSummaryItem('Company Size', data.companySize + ' employees', 2);
             }
 
-            // Systems (custom - checkboxes)
-            if (data.projectType === 'custom' && data.systems && data.systems.length > 0) {
+            // Systems (checkboxes)
+            if (data.systems && data.systems.length > 0) {
                 const systemNames = data.systems.map(formatSystemName).join(', ');
-                html += createSummaryItem('Connected Systems', systemNames, 2);
+                html += createSummaryItem('Systems', systemNames, 3);
             }
 
-            // Challenge
-            if (data.currentSituation || data.desiredOutcome) {
-                let challengeText = '';
-                if (data.currentSituation) {
-                    challengeText = data.currentSituation.substring(0, 100);
-                    if (data.currentSituation.length > 100) challengeText += '...';
-                }
-                if (challengeText) html += createSummaryItem('Current Situation', challengeText, 3);
+            // SAP Modules
+            if (data.sapModules && data.sapModules.length > 0) {
+                const moduleLabels = {
+                    'mm': 'MM', 'sd': 'SD', 'qm': 'QM', 'pp': 'PP',
+                    'pm': 'PM', 'fi-co': 'FI/CO', 'hr': 'HCM/HR'
+                };
+                const moduleNames = data.sapModules.map(m => moduleLabels[m] || m).join(', ');
+                html += createSummaryItem('SAP Modules', moduleNames, 3);
+            }
+
+            // Document Types (for esignature)
+            if (data.documentTypes && data.documentTypes.length > 0) {
+                const docLabels = {
+                    'purchase-orders': 'Purchase Orders',
+                    'contracts': 'Contracts',
+                    'invoices': 'Invoices',
+                    'quality': 'Quality Documents',
+                    'hr': 'HR Documents',
+                    'engineering': 'Engineering Documents'
+                };
+                const docNames = data.documentTypes.map(d => docLabels[d] || d).join(', ');
+                html += createSummaryItem('Document Types', docNames, 3);
+            }
+
+            // Compliance
+            if (data.compliance && data.compliance.length > 0) {
+                const complianceLabels = {
+                    'fda-21cfr11': 'FDA 21 CFR Part 11',
+                    'sox': 'SOX',
+                    'hipaa': 'HIPAA',
+                    'gdpr': 'GDPR',
+                    'fsma-204': 'FSMA 204',
+                    'gxp': 'GxP'
+                };
+                const complianceNames = data.compliance.map(c => complianceLabels[c] || c).join(', ');
+                html += createSummaryItem('Compliance', complianceNames, 3);
+            }
+
+            // Pain Points
+            if (data.painPoints && data.painPoints.length > 0) {
+                html += createSummaryItem('Challenges', data.painPoints.length + ' identified', 4);
+            }
+
+            // Success Metrics
+            if (data.successMetrics && data.successMetrics.length > 0) {
+                const metricLabels = {
+                    'reduce-cycle-time': 'Reduce cycle time',
+                    'reduce-errors': 'Reduce errors',
+                    'achieve-compliance': 'Achieve compliance',
+                    'reduce-costs': 'Reduce costs',
+                    'improve-visibility': 'Improve visibility',
+                    'audit-ready': 'Be audit-ready'
+                };
+                const metricNames = data.successMetrics.map(m => metricLabels[m] || m).join(', ');
+                html += createSummaryItem('Success Metrics', metricNames, 4);
             }
 
             // Timeline
             if (data.timeline) {
                 const timelineLabels = {
-                    'asap': 'ASAP',
+                    'urgent': 'Urgent (< 1 month)',
                     'soon': '1-2 months',
-                    'planning': '3+ months',
+                    'planning': '3-6 months',
+                    'future': '6+ months',
                     'exploring': 'Just exploring'
                 };
-                html += createSummaryItem('Timeline', timelineLabels[data.timeline] || data.timeline, 4);
+                html += createSummaryItem('Timeline', timelineLabels[data.timeline] || data.timeline, 5);
             }
 
             // Budget
@@ -348,10 +545,24 @@ document.addEventListener('DOMContentLoaded', function() {
                     'under10k': 'Under $10K',
                     '10-25k': '$10K - $25K',
                     '25-50k': '$25K - $50K',
-                    '50k+': '$50K+',
+                    '50-100k': '$50K - $100K',
+                    '100k+': '$100K+',
                     'discuss': 'Let\'s discuss'
                 };
-                html += createSummaryItem('Budget', budgetLabels[data.budget] || data.budget, 4);
+                html += createSummaryItem('Budget', budgetLabels[data.budget] || data.budget, 5);
+            }
+
+            // Decision Makers
+            if (data.decisionMakers && data.decisionMakers.length > 0) {
+                const dmLabels = {
+                    'just-me': 'Just me',
+                    'it-team': 'IT team',
+                    'business': 'Business stakeholders',
+                    'procurement': 'Procurement',
+                    'executive': 'Executive sponsor'
+                };
+                const dmNames = data.decisionMakers.map(d => dmLabels[d] || d).join(', ');
+                html += createSummaryItem('Decision Makers', dmNames, 5);
             }
 
             if (html) {
@@ -376,12 +587,23 @@ document.addEventListener('DOMContentLoaded', function() {
         function formatSystemName(value) {
             const names = {
                 'sap-ecc': 'SAP ECC',
-                's4hana': 'S/4HANA',
+                's4hana-onprem': 'S/4HANA (On-Premise)',
+                's4hana-cloud': 'S/4HANA Cloud',
+                'sap-bw': 'SAP BW/BW4HANA',
+                'oracle-ebs': 'Oracle E-Business Suite',
+                'oracle-cloud': 'Oracle Cloud ERP',
+                'workday': 'Workday',
+                'netsuite': 'NetSuite',
+                'dynamics365': 'Microsoft Dynamics 365',
                 'salesforce': 'Salesforce',
                 'servicenow': 'ServiceNow',
-                'sharepoint': 'SharePoint',
                 'docusign': 'DocuSign',
+                'adobesign': 'Adobe Sign',
+                'sharepoint': 'SharePoint',
                 'teams': 'Microsoft Teams',
+                'power-platform': 'Power Platform',
+                'aws': 'AWS Services',
+                'azure': 'Azure Services',
                 'custom': 'Custom / Other',
                 'none': 'Standalone'
             };
@@ -397,9 +619,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Initialize on load
-        updateSystemFields();
+        updateConditionalFields();
 
-        // Restore previously selected card
+        // Restore previously selected project type card
         if (wizardState.data.projectType) {
             const card = document.querySelector(`.selection-card[data-value="${wizardState.data.projectType}"]`);
             if (card) {
@@ -409,11 +631,23 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        // Restore pills
-        if (wizardState.data.timeline) {
-            const pill = document.querySelector(`.pill[data-value="${wizardState.data.timeline}"]`);
-            if (pill) pill.classList.add('selected');
+        // Restore industry card
+        if (wizardState.data.industry) {
+            const card = document.querySelector(`.industry-card[data-value="${wizardState.data.industry}"]`);
+            if (card) {
+                card.classList.add('selected');
+                const nextBtn = document.querySelector('[data-step="2"] .wizard-next');
+                if (nextBtn) nextBtn.disabled = false;
+            }
         }
+
+        // Restore all pills (timeline, companySize, transactionVolume, approvalProcess)
+        ['timeline', 'companySize', 'transactionVolume', 'approvalProcess'].forEach(name => {
+            if (wizardState.data[name]) {
+                const pill = document.querySelector(`.pill[data-name="${name}"][data-value="${wizardState.data[name]}"]`);
+                if (pill) pill.classList.add('selected');
+            }
+        });
 
         // Restore budget
         if (wizardState.data.budget) {
@@ -421,20 +655,36 @@ document.addEventListener('DOMContentLoaded', function() {
             if (card) card.classList.add('selected');
         }
 
-        // Restore form fields
+        // Restore form fields (text inputs, textareas, selects)
         Object.keys(wizardState.data).forEach(key => {
             const input = document.querySelector(`[name="${key}"]`);
-            if (input && !['projectType', 'timeline', 'budget', 'systems'].includes(key)) {
-                input.value = wizardState.data[key];
+            if (input && !['projectType', 'industry', 'timeline', 'budget', 'companySize', 'transactionVolume', 'approvalProcess'].includes(key)) {
+                if (input.type !== 'checkbox') {
+                    input.value = wizardState.data[key];
+                }
             }
         });
 
-        // Restore checkboxes
-        if (wizardState.data.systems) {
-            wizardState.data.systems.forEach(value => {
-                const checkbox = document.querySelector(`input[name="systems"][value="${value}"]`);
-                if (checkbox) checkbox.checked = true;
-            });
+        // Restore all checkbox arrays
+        const checkboxArrays = ['systems', 'sapModules', 'documentTypes', 'compliance', 'painPoints', 'successMetrics', 'decisionMakers'];
+        checkboxArrays.forEach(name => {
+            if (wizardState.data[name] && Array.isArray(wizardState.data[name])) {
+                wizardState.data[name].forEach(value => {
+                    const checkbox = document.querySelector(`input[name="${name}"][value="${value}"]`);
+                    if (checkbox) checkbox.checked = true;
+                });
+            }
+        });
+
+        // Mobile: make summary collapsible
+        const wizardSummary = document.querySelector('.wizard-summary');
+        if (wizardSummary && window.innerWidth <= 768) {
+            const summaryTitle = wizardSummary.querySelector('h4');
+            if (summaryTitle) {
+                summaryTitle.addEventListener('click', () => {
+                    wizardSummary.classList.toggle('collapsed');
+                });
+            }
         }
     }
 

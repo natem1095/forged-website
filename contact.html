@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Forged Solutions</title>
+    <meta name="description" content="Start a conversation about your integration or automation project.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%233b82f6' rx='15' width='100' height='100'/><text y='.9em' x='50%' text-anchor='middle' font-size='70' fill='white'>F</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav__container">
+            <a href="index.html" class="nav__logo">
+                <span class="nav__logo-mark">F</span>
+                <span>Forged</span>
+            </a>
+
+            <button class="nav__toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav__links">
+                <li><a href="index.html" class="nav__link">Home</a></li>
+                <li><a href="solutions.html" class="nav__link">Solutions</a></li>
+                <li><a href="about.html" class="nav__link">About</a></li>
+                <li><a href="contact.html" class="nav__cta">Let's Talk</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="section-label">Contact</span>
+                    <h1>Let's build something</h1>
+                    <p>
+                        Have an integration challenge? A workflow that's eating up everyone's time?
+                        A system that needs to talk to another system? Let's talk.
+                    </p>
+                    <p style="margin-bottom: var(--space-2xl);">
+                        No sales pitch. No pressure. Just a conversation to see if I can help.
+                    </p>
+
+                    <div class="contact-method">
+                        <div class="contact-method__icon">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="contact-method__label">Email</span>
+                            <span class="contact-method__value">hello@forged.dev</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-method__icon">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="contact-method__label">LinkedIn</span>
+                            <span class="contact-method__value">Connect with me</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: var(--space-2xl); padding: var(--space-lg); background: var(--bg-tertiary); border-radius: 8px; border-left: 3px solid var(--accent-primary);">
+                        <p style="font-size: 0.9375rem; margin-bottom: 0;">
+                            <strong>Typical response time:</strong> Within 24 hours.<br>
+                            <strong>Time zone:</strong> Central Time (Texas).<br>
+                            <strong>Availability:</strong> Remote work, travel as needed.
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Name</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="company">Company <span style="color: var(--text-muted); font-weight: 400;">(optional)</span></label>
+                            <input type="text" id="company" name="company" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="project">Tell me about your project</label>
+                            <textarea id="project" name="project" class="form-textarea" required
+                                placeholder="What are you trying to accomplish? What systems are involved? What's the business problem?"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn--primary" style="width: 100%;">
+                            Send Message
+                        </button>
+
+                        <p style="font-size: 0.8125rem; color: var(--text-muted); text-align: center; margin-top: var(--space-md);">
+                            No spam. No mailing list. Just a direct conversation.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What to Expect Section -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">What Happens Next</span>
+                <h2>After you reach out</h2>
+            </div>
+
+            <div class="approach-list">
+                <div class="approach-item">
+                    <span class="approach-item__number">01</span>
+                    <div class="approach-item__content">
+                        <h3>Quick response</h3>
+                        <p>I'll get back to you within 24 hours to acknowledge your message and ask any clarifying questions.</p>
+                    </div>
+                </div>
+
+                <div class="approach-item">
+                    <span class="approach-item__number">02</span>
+                    <div class="approach-item__content">
+                        <h3>Discovery call</h3>
+                        <p>If it looks like a fit, we'll schedule a 30-minute call. You'll explain the problem, I'll ask questions, and we'll see if I can help.</p>
+                    </div>
+                </div>
+
+                <div class="approach-item">
+                    <span class="approach-item__number">03</span>
+                    <div class="approach-item__content">
+                        <h3>Proposal</h3>
+                        <p>If we move forward, I'll send a clear proposal with scope, timeline, and fixed pricing. No surprises.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer__content">
+            <p class="footer__text">&copy; 2026 Forged Solutions. Built with focus.</p>
+            <ul class="footer__links">
+                <li><a href="https://linkedin.com" class="footer__link" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://github.com" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="mailto:hello@example.com" class="footer__link">Email</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

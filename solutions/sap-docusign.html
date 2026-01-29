@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP-DocuSign Integration | Forged Solutions</title>
+    <meta name="description" content="Enterprise eSignature integration connecting SAP ECC to DocuSign with OAuth 2.0, webhooks, and automated approval workflows.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%233b82f6' rx='15' width='100' height='100'/><text y='.9em' x='50%' text-anchor='middle' font-size='70' fill='white'>F</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav__container">
+            <a href="../index.html" class="nav__logo">
+                <span class="nav__logo-mark">F</span>
+                <span>Forged</span>
+            </a>
+
+            <button class="nav__toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav__links">
+                <li><a href="../index.html" class="nav__link">Home</a></li>
+                <li><a href="../solutions.html" class="nav__link nav__link--active">Solutions</a></li>
+                <li><a href="../about.html" class="nav__link">About</a></li>
+                <li><a href="../contact.html" class="nav__cta">Let's Talk</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Solution Hero -->
+    <section class="solution-hero">
+        <div class="container container--narrow">
+            <a href="../solutions.html" style="font-size: 0.875rem; color: var(--text-muted); display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: var(--space-lg);">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Solutions
+            </a>
+
+            <span class="solution-hero__label">SAP Integration</span>
+            <h1>SAP-DocuSign Integration Framework</h1>
+            <p class="mt-md" style="font-size: 1.125rem; max-width: 600px;">
+                Complete enterprise eSignature integration connecting SAP ECC to DocuSign API
+                with OAuth 2.0, real-time webhooks, and automated approval workflows.
+            </p>
+
+            <div class="solution-hero__meta mt-lg">
+                <span><strong>Timeline:</strong> &lt; 1 week</span>
+                <span><strong>Platform:</strong> SAP ECC / R3</span>
+                <span><strong>Role:</strong> Solo architect & developer</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section style="padding: var(--space-2xl) 0; background: var(--bg-secondary);">
+        <div class="container container--narrow">
+            <div class="stats-grid">
+                <div class="stat">
+                    <span class="stat__number">14</span>
+                    <span class="stat__label">API Methods</span>
+                </div>
+                <div class="stat">
+                    <span class="stat__number">12</span>
+                    <span class="stat__label">Database Tables</span>
+                </div>
+                <div class="stat">
+                    <span class="stat__number">10+</span>
+                    <span class="stat__label">ABAP Classes</span>
+                </div>
+                <div class="stat">
+                    <span class="stat__number">2</span>
+                    <span class="stat__label">BADI Hooks</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Content -->
+    <section class="solution-content">
+        <div class="container container--narrow">
+
+            <!-- The Problem -->
+            <div class="solution-section">
+                <h2>The Problem</h2>
+                <p>
+                    Enterprise approval workflows are slow. Purchase orders sit in inboxes waiting for
+                    signatures. Approvers are traveling or in meetings. Paper gets lost. Audit trails
+                    are incomplete.
+                </p>
+                <p>
+                    Companies using SAP for procurement face a specific challenge: how do you connect
+                    a mature (often decades-old) ERP system to modern eSignature platforms like DocuSign?
+                </p>
+                <p>The typical pain points:</p>
+                <ul>
+                    <li>Manual approval processes that take days instead of hours</li>
+                    <li>No mobile capability—approvers must be at their desk</li>
+                    <li>Incomplete audit trails for compliance</li>
+                    <li>No visibility into where documents are stuck</li>
+                    <li>Goods receipts processed before approval (compliance risk)</li>
+                </ul>
+            </div>
+
+            <!-- The Solution -->
+            <div class="solution-section">
+                <h2>The Solution</h2>
+                <p>
+                    A complete integration framework that connects SAP ECC to DocuSign eSignature,
+                    enabling automated approval workflows with full audit compliance.
+                </p>
+
+                <h3>Core Capabilities</h3>
+                <ul>
+                    <li><strong>OAuth 2.0 Authentication</strong> — Both Authorization Code Grant and JWT Bearer Grant supported, with automatic token refresh</li>
+                    <li><strong>Envelope Management</strong> — Create, send, and track signature envelopes directly from SAP</li>
+                    <li><strong>Real-time Webhooks</strong> — Instant notification when documents are viewed, signed, or declined via DocuSign Connect</li>
+                    <li><strong>Sequential Approval</strong> — Support for multi-level approval chains (Release Strategy integration)</li>
+                    <li><strong>GR Blocking</strong> — Automatically block goods receipt until all approvals complete</li>
+                    <li><strong>Full Audit Trail</strong> — Every action logged with timestamps, users, and status changes</li>
+                </ul>
+            </div>
+
+            <!-- Architecture -->
+            <div class="solution-section">
+                <h2>Architecture</h2>
+                <p>
+                    The solution follows a clean separation of concerns: a reusable core API package
+                    (Z_DS_API) that handles all DocuSign communication, and business-specific
+                    implementations (Z_MM_DS_INT) that define the workflows.
+                </p>
+
+                <div class="diagram-placeholder">
+                    <p style="margin-bottom: var(--space-md);">High-Level Architecture</p>
+                    <svg width="100%" height="250" viewBox="0 0 600 250" fill="none" style="max-width: 600px;">
+                        <!-- SAP Application Layer -->
+                        <rect x="20" y="30" width="160" height="60" rx="6" fill="#1e40af" opacity="0.9"/>
+                        <text x="100" y="55" fill="white" font-size="11" font-weight="600" text-anchor="middle">SAP Application</text>
+                        <text x="100" y="72" fill="white" font-size="9" text-anchor="middle" opacity="0.8">ME21N, BADIs, SmartForms</text>
+
+                        <!-- Core API -->
+                        <rect x="220" y="30" width="160" height="60" rx="6" fill="#3b82f6"/>
+                        <text x="300" y="55" fill="white" font-size="11" font-weight="600" text-anchor="middle">Z_DS_API</text>
+                        <text x="300" y="72" fill="white" font-size="9" text-anchor="middle" opacity="0.8">Core API Package</text>
+
+                        <!-- DocuSign -->
+                        <rect x="420" y="30" width="160" height="60" rx="6" fill="#10b981"/>
+                        <text x="500" y="55" fill="white" font-size="11" font-weight="600" text-anchor="middle">DocuSign</text>
+                        <text x="500" y="72" fill="white" font-size="9" text-anchor="middle" opacity="0.8">REST API</text>
+
+                        <!-- Arrows top row -->
+                        <path d="M180 60 L220 60" stroke="#60a5fa" stroke-width="2"/>
+                        <polygon points="218,56 226,60 218,64" fill="#60a5fa"/>
+                        <path d="M380 60 L420 60" stroke="#60a5fa" stroke-width="2"/>
+                        <polygon points="418,56 426,60 418,64" fill="#60a5fa"/>
+
+                        <!-- Webhook return -->
+                        <path d="M500 90 L500 140 L300 140" stroke="#6366f1" stroke-width="2"/>
+                        <polygon points="302,136 294,140 302,144" fill="#6366f1"/>
+
+                        <!-- Webhook Handler -->
+                        <rect x="220" y="120" width="160" height="50" rx="6" fill="#6366f1"/>
+                        <text x="300" y="142" fill="white" font-size="11" font-weight="600" text-anchor="middle">ZCL_DS_WEBHOOK</text>
+                        <text x="300" y="157" fill="white" font-size="9" text-anchor="middle" opacity="0.8">HMAC Validated</text>
+
+                        <!-- Callback Interface -->
+                        <rect x="220" y="190" width="160" height="45" rx="6" fill="#8b5cf6"/>
+                        <text x="300" y="210" fill="white" font-size="11" font-weight="600" text-anchor="middle">ZIF_DS_CALLBACK</text>
+                        <text x="300" y="223" fill="white" font-size="9" text-anchor="middle" opacity="0.8">Business Logic Hook</text>
+
+                        <!-- Arrow webhook to callback -->
+                        <path d="M300 170 L300 190" stroke="#a78bfa" stroke-width="2"/>
+                        <polygon points="296,188 300,196 304,188" fill="#a78bfa"/>
+
+                        <!-- Database -->
+                        <rect x="20" y="140" width="160" height="95" rx="6" fill="#374151"/>
+                        <text x="100" y="165" fill="white" font-size="11" font-weight="600" text-anchor="middle">Database</text>
+                        <text x="100" y="185" fill="#9ca3af" font-size="9" text-anchor="middle">ZDS_CONFIG</text>
+                        <text x="100" y="200" fill="#9ca3af" font-size="9" text-anchor="middle">ZDS_ENVELOPES</text>
+                        <text x="100" y="215" fill="#9ca3af" font-size="9" text-anchor="middle">ZDS_APPS</text>
+                        <text x="100" y="230" fill="#9ca3af" font-size="9" text-anchor="middle">+ 9 more</text>
+
+                        <!-- Arrow to database -->
+                        <path d="M220 145 L180 165" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="4"/>
+                    </svg>
+                </div>
+
+                <h3>Package Structure</h3>
+                <div class="code-block">
+<pre>Z_DS_API/                    # Core DocuSign API package
+├── ZCL_DS_API              # Main API class (OAuth, envelopes, documents)
+├── ZCL_DS_WEBHOOK          # Webhook processor (XML parsing, HMAC)
+├── ZIF_DS_CALLBACK         # Interface for business callbacks
+└── Database Tables         # Configuration, envelope tracking, audit logs
+
+Z_MM_DS_INT/                 # Business integration package
+├── ZCL_PO_PDF_GENERATOR    # SmartForm-based PDF generation
+├── ZCL_PO_REL_DS_CALLBACK  # PO release callback implementation
+├── ZCL_IM_ME_PO_DS_REL     # BADI for ME21N integration
+└── ZCL_IM_MB_DOC_DS_CHECK  # BADI for GR blocking</pre>
+                </div>
+            </div>
+
+            <!-- Technical Highlights -->
+            <div class="solution-section">
+                <h2>Technical Highlights</h2>
+
+                <h3>OAuth 2.0 Implementation</h3>
+                <p>
+                    Full OAuth 2.0 support with automatic token lifecycle management. The system
+                    handles initial authorization, token storage, and automatic refresh before
+                    expiration—no manual intervention required.
+                </p>
+                <ul>
+                    <li>Authorization Code Grant (recommended for user-context operations)</li>
+                    <li>JWT Bearer Grant (for server-to-server automation)</li>
+                    <li>Secure token storage in SAP database</li>
+                    <li>Automatic refresh 5 minutes before expiration</li>
+                </ul>
+
+                <h3>Webhook Processing</h3>
+                <p>
+                    Real-time event processing via DocuSign Connect with full security validation:
+                </p>
+                <ul>
+                    <li>HMAC-SHA256 signature validation on every request</li>
+                    <li>Idempotent processing (handles duplicate deliveries)</li>
+                    <li>Event routing based on registered application callbacks</li>
+                    <li>Complete audit logging of all webhook events</li>
+                </ul>
+
+                <h3>Callback Architecture</h3>
+                <p>
+                    The <code>ZIF_DS_CALLBACK</code> interface enables clean separation between
+                    the API layer and business logic. New integrations simply implement the
+                    interface and register with the framework:
+                </p>
+                <ul>
+                    <li><code>on_sent()</code> — Envelope sent to signer</li>
+                    <li><code>on_delivered()</code> — Signer received the document</li>
+                    <li><code>on_completed()</code> — All signatures collected</li>
+                    <li><code>on_declined()</code> — Signer declined to sign</li>
+                    <li><code>on_voided()</code> — Envelope voided by sender</li>
+                </ul>
+            </div>
+
+            <!-- Business Application -->
+            <div class="solution-section">
+                <h2>Business Application: PO Approval</h2>
+                <p>
+                    The framework was applied to Purchase Order approval workflows with the
+                    following flow:
+                </p>
+                <ol style="list-style: decimal; padding-left: var(--space-xl); color: var(--text-secondary);">
+                    <li style="margin-bottom: var(--space-sm);">User creates PO in ME21N</li>
+                    <li style="margin-bottom: var(--space-sm);">BADI triggers envelope creation based on release strategy</li>
+                    <li style="margin-bottom: var(--space-sm);">PDF generated via SmartForm with signature anchor text</li>
+                    <li style="margin-bottom: var(--space-sm);">Envelope sent to first approver via DocuSign</li>
+                    <li style="margin-bottom: var(--space-sm);">Sequential routing to additional approvers</li>
+                    <li style="margin-bottom: var(--space-sm);">Webhook receives completion notification</li>
+                    <li style="margin-bottom: var(--space-sm);">Callback triggers BAPI_PO_RELEASE</li>
+                    <li style="margin-bottom: var(--space-sm);">GR block removed, PO fully released</li>
+                </ol>
+            </div>
+
+            <!-- Results -->
+            <div class="solution-section">
+                <h2>Results</h2>
+                <ul>
+                    <li><strong>Approval time reduced from days to hours</strong> — Mobile-enabled signing means approvers respond faster</li>
+                    <li><strong>Complete audit trail</strong> — Every signature, timestamp, and status change logged</li>
+                    <li><strong>Compliance enforcement</strong> — GR blocking ensures no receipt before approval</li>
+                    <li><strong>Reusable framework</strong> — Same architecture can support contracts, invoices, any document workflow</li>
+                </ul>
+            </div>
+
+            <!-- Technologies -->
+            <div class="solution-section">
+                <h2>Technologies</h2>
+                <div class="card__tags" style="gap: var(--space-md);">
+                    <span class="tag" style="font-size: 0.875rem; padding: var(--space-sm) var(--space-md);">SAP ECC</span>
+                    <span class="tag" style="font-size: 0.875rem; padding: var(--space-sm) var(--space-md);">ABAP</span>
+                    <span class="tag" style="font-size: 0.875rem; padding: var(--space-sm) var(--space-md);">DocuSign REST API</span>
+                    <span class="tag" style="font-size: 0.875rem; padding: var(--space-sm) var(--space-md);">OAuth 2.0</span>
+                    <span class="tag" style="font-size: 0.875rem; padding: var(--space-sm) var(--space-md);">Webhooks</span>
+                    <span class="tag" style="font-size: 0.875rem; padding: var(--space-sm) var(--space-md);">SmartForms</span>
+                    <span class="tag" style="font-size: 0.875rem; padding: var(--space-sm) var(--space-md);">BADIs</span>
+                    <span class="tag" style="font-size: 0.875rem; padding: var(--space-sm) var(--space-md);">BSP</span>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div style="margin-top: var(--space-3xl); padding: var(--space-2xl); background: var(--bg-secondary); border-radius: 12px; text-align: center;">
+                <h3 style="margin-bottom: var(--space-md);">Need a similar integration?</h3>
+                <p style="margin-bottom: var(--space-xl); max-width: 500px; margin-left: auto; margin-right: auto;">
+                    I build SAP integrations with DocuSign, Salesforce, ServiceNow, and other
+                    cloud platforms. Let's talk about your requirements.
+                </p>
+                <a href="../contact.html" class="btn btn--primary btn--large">Start a Conversation</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer__content">
+            <p class="footer__text">&copy; 2026 Forged Solutions. Built with focus.</p>
+            <ul class="footer__links">
+                <li><a href="https://linkedin.com" class="footer__link" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://github.com" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="mailto:hello@example.com" class="footer__link">Email</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

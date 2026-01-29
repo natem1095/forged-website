@@ -55,6 +55,35 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========================================
+    // SOLUTION FILTERING
+    // ========================================
+
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const solutionCards = document.querySelectorAll('.projects-grid .card[data-tags]');
+
+    if (filterBtns.length > 0 && solutionCards.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('filter-btn--active'));
+                btn.classList.add('filter-btn--active');
+
+                // Filter cards
+                solutionCards.forEach(card => {
+                    const tags = card.dataset.tags || '';
+                    if (filter === 'all' || tags.includes(filter)) {
+                        card.classList.remove('card--hidden');
+                    } else {
+                        card.classList.add('card--hidden');
+                    }
+                });
+            });
+        });
+    }
+
+    // ========================================
     // PROJECT BUILDER WIZARD
     // ========================================
 

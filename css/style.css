@@ -451,6 +451,45 @@ section {
     gap: var(--space-xl);
 }
 
+/* ========================================
+   SOLUTION FILTER BAR
+   ======================================== */
+
+.filter-bar {
+    display: flex;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    padding: var(--space-sm) var(--space-lg);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+    border-color: var(--text-muted);
+    color: var(--text-primary);
+}
+
+.filter-btn--active {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: var(--bg-primary);
+}
+
+/* Card filtering animation */
+.card--hidden {
+    display: none !important;
+}
+
 /* Featured Project (larger) */
 .card--featured {
     grid-column: 1 / -1;

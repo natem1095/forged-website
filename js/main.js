@@ -1,8 +1,10 @@
 // ========================================
 // FORGED SOLUTIONS - Main JavaScript
+// Version: 2.0 - Project Builder
 // ========================================
 
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Forged JS v2.0 loaded');
 
     // Mobile Navigation Toggle
     const navToggle = document.querySelector('.nav__toggle');
@@ -62,7 +64,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Only run wizard code if elements exist
     if (pathSelection && quickInquiry && projectWizard) {
+        console.log('Project Builder elements found, initializing...');
         initProjectBuilder();
+    } else {
+        console.log('Project Builder elements not found:', { pathSelection: !!pathSelection, quickInquiry: !!quickInquiry, projectWizard: !!projectWizard });
     }
 
     function initProjectBuilder() {
@@ -80,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
         pathCards.forEach(card => {
             card.addEventListener('click', () => {
                 const path = card.dataset.path;
+                console.log('Path card clicked:', path);
                 pathSelection.style.display = 'none';
 
                 if (path === 'quick') {

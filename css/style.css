@@ -5,24 +5,24 @@
 
 /* CSS Variables */
 :root {
-    /* Colors - Dark Theme */
-    --bg-primary: #0a0a0b;
-    --bg-secondary: #111113;
-    --bg-tertiary: #1a1a1d;
-    --bg-card: #16161a;
-    --bg-card-hover: #1e1e23;
+    /* Colors - Grayscale Theme (Classic/Minimal) */
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #121212;
+    --bg-tertiary: #1a1a1a;
+    --bg-card: #161616;
+    --bg-card-hover: #1e1e1e;
 
-    --text-primary: #ededef;
-    --text-secondary: #a0a0a6;
-    --text-muted: #6b6b70;
+    --text-primary: #e0e0e0;
+    --text-secondary: #909090;
+    --text-muted: #606060;
 
-    --accent-primary: #3b82f6;
-    --accent-primary-hover: #2563eb;
-    --accent-secondary: #10b981;
-    --accent-glow: rgba(59, 130, 246, 0.15);
+    --accent-primary: #909090;
+    --accent-primary-hover: #b0b0b0;
+    --accent-secondary: #ffffff;
+    --accent-glow: rgba(255, 255, 255, 0.08);
 
-    --border-color: #27272a;
-    --border-light: #1f1f23;
+    --border-color: #2a2a2a;
+    --border-light: #1f1f1f;
 
     /* Typography */
     --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -978,15 +978,15 @@ section {
 }
 
 .form-message--success {
-    background: rgba(16, 185, 129, 0.15);
-    border: 1px solid rgba(16, 185, 129, 0.3);
-    color: #10b981;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #c0c0c0;
 }
 
 .form-message--error {
-    background: rgba(239, 68, 68, 0.15);
-    border: 1px solid rgba(239, 68, 68, 0.3);
-    color: #ef4444;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(180, 180, 180, 0.3);
+    color: #a0a0a0;
 }
 
 /* ========================================

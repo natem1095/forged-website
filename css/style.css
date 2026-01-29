@@ -969,6 +969,32 @@ section {
     resize: vertical;
 }
 
+/* Form Messages */
+.form-message {
+    padding: var(--space-md) var(--space-lg);
+    border-radius: 8px;
+    margin-bottom: var(--space-lg);
+    font-size: 0.9375rem;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-message--success {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #10b981;
+}
+
+.form-message--error {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+}
+
 /* ========================================
    PROJECT BUILDER WIZARD
    ======================================== */

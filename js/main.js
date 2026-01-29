@@ -707,61 +707,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========================================
-    // FORM SUBMISSIONS
+    // FORM SUBMISSIONS (Formspree Integration)
     // ========================================
+
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xwpkgjqz';
 
     // Quick inquiry form
     const quickForm = document.getElementById('quick-form');
     if (quickForm) {
-        quickForm.addEventListener('submit', handleFormSubmit);
+        quickForm.addEventListener('submit', handleQuickFormSubmit);
     }
 
     // Wizard form
     const wizardForm = document.getElementById('wizard-form');
     if (wizardForm) {
-        wizardForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Merge wizard data with form data
-            const formData = new FormData(this);
-            const wizardData = loadWizardData();
-
-            const submitData = {
-                ...wizardData,
-                ...Object.fromEntries(formData),
-                submittedAt: new Date().toISOString(),
-                source: 'project-builder'
-            };
-
-            // Log and show confirmation
-            console.log('Project Brief submitted:', submitData);
-
-            // Clear saved wizard data
-            localStorage.removeItem('forged_wizard_data');
-
-            alert('Thanks for your detailed project brief! I\'ll review everything and get back to you within 24 hours.');
-
-            // Reset and go back to path selection
-            this.reset();
-            document.querySelectorAll('.selection-card').forEach(c => c.classList.remove('selected'));
-            document.querySelectorAll('.pill').forEach(p => p.classList.remove('selected'));
-            document.querySelectorAll('.budget-card').forEach(c => c.classList.remove('selected'));
-
-            const projectWizard = document.getElementById('project-wizard');
-            const pathSelection = document.getElementById('path-selection');
-            if (projectWizard) projectWizard.style.display = 'none';
-            if (pathSelection) pathSelection.style.display = 'block';
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        wizardForm.addEventListener('submit', handleWizardFormSubmit);
     }
 
-    function handleFormSubmit(e) {
+    async function handleQuickFormSubmit(e) {
         e.preventDefault();
 
         const form = e.target;
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData);
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
 
         // Basic validation
         let isValid = true;
@@ -776,14 +744,147 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        if (isValid) {
-            data.submittedAt = new Date().toISOString();
-            data.source = 'quick-inquiry';
+        if (!isValid) return;
 
-            console.log('Form submitted:', data);
-            alert('Thanks for reaching out! I\'ll get back to you within 24 hours.');
-            form.reset();
+        // Disable button and show loading
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        const formData = new FormData(form);
+        formData.append('_subject', 'Quick Inquiry from Forged Website');
+        formData.append('source', 'quick-inquiry');
+        formData.append('submittedAt', new Date().toISOString());
+
+        try {
+            const response = await fetch(FORMSPREE_ENDPOINT, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                form.reset();
+                showSuccessMessage(form, 'Thanks for reaching out! I\'ll get back to you within 24 hours.');
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            console.error('Form error:', error);
+            showErrorMessage(form, 'Something went wrong. Please try again or email directly.');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
         }
+    }
+
+    async function handleWizardFormSubmit(e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+
+        // Disable button and show loading
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        // Merge wizard data with form data
+        const formData = new FormData(form);
+        const wizardData = loadWizardData();
+
+        // Add wizard data to form
+        formData.append('_subject', 'Project Brief from Forged Website');
+        formData.append('source', 'project-builder');
+        formData.append('submittedAt', new Date().toISOString());
+
+        // Add all wizard data as a formatted summary
+        formData.append('projectType', wizardData.projectType || 'Not specified');
+        formData.append('industry', wizardData.industry || 'Not specified');
+        formData.append('companySize', wizardData.companySize || 'Not specified');
+        formData.append('systems', (wizardData.systems || []).join(', ') || 'None selected');
+        formData.append('sapModules', (wizardData.sapModules || []).join(', ') || 'None');
+        formData.append('documentTypes', (wizardData.documentTypes || []).join(', ') || 'None');
+        formData.append('compliance', (wizardData.compliance || []).join(', ') || 'None');
+        formData.append('painPoints', (wizardData.painPoints || []).join(', ') || 'None');
+        formData.append('successMetrics', (wizardData.successMetrics || []).join(', ') || 'None');
+        formData.append('currentSituation', wizardData.currentSituation || 'Not provided');
+        formData.append('desiredOutcome', wizardData.desiredOutcome || 'Not provided');
+        formData.append('timeline', wizardData.timeline || 'Not specified');
+        formData.append('budget', wizardData.budget || 'Not specified');
+        formData.append('decisionMakers', (wizardData.decisionMakers || []).join(', ') || 'Not specified');
+
+        try {
+            const response = await fetch(FORMSPREE_ENDPOINT, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                // Clear saved wizard data
+                localStorage.removeItem('forged_wizard_data');
+
+                // Reset form and UI
+                form.reset();
+                document.querySelectorAll('.selection-card').forEach(c => c.classList.remove('selected'));
+                document.querySelectorAll('.industry-card').forEach(c => c.classList.remove('selected'));
+                document.querySelectorAll('.pill').forEach(p => p.classList.remove('selected'));
+                document.querySelectorAll('.budget-card').forEach(c => c.classList.remove('selected'));
+                document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+
+                const projectWizard = document.getElementById('project-wizard');
+                const pathSelection = document.getElementById('path-selection');
+                if (projectWizard) projectWizard.style.display = 'none';
+                if (pathSelection) pathSelection.style.display = 'block';
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                // Show success after scroll
+                setTimeout(() => {
+                    alert('Thanks for your detailed project brief! I\'ll review everything and get back to you within 24 hours.');
+                }, 300);
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            console.error('Form error:', error);
+            showErrorMessage(form, 'Something went wrong. Please try again or email directly.');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+        }
+    }
+
+    function showSuccessMessage(form, message) {
+        // Remove any existing messages
+        const existingMsg = form.parentElement.querySelector('.form-message');
+        if (existingMsg) existingMsg.remove();
+
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'form-message form-message--success';
+        msgDiv.textContent = message;
+        form.parentElement.insertBefore(msgDiv, form);
+
+        // Auto-remove after 5 seconds
+        setTimeout(() => msgDiv.remove(), 5000);
+    }
+
+    function showErrorMessage(form, message) {
+        // Remove any existing messages
+        const existingMsg = form.parentElement.querySelector('.form-message');
+        if (existingMsg) existingMsg.remove();
+
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'form-message form-message--error';
+        msgDiv.textContent = message;
+        form.parentElement.insertBefore(msgDiv, form);
+
+        // Auto-remove after 5 seconds
+        setTimeout(() => msgDiv.remove(), 5000);
     }
 
 });

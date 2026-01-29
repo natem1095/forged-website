@@ -54,6 +54,68 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // ========================================
+    // TYPEWRITER EFFECT
+    // ========================================
+
+    const typewriterElements = document.querySelectorAll('.typewriter');
+
+    typewriterElements.forEach(function(element) {
+        const textSpan = element.querySelector('.typewriter__text');
+        const cursor = element.querySelector('.terminal-cursor');
+        const fullText = element.dataset.text;
+        const storageKey = 'typewriter_' + fullText.replace(/\s+/g, '_');
+
+        // Check if already played this session
+        if (sessionStorage.getItem(storageKey)) {
+            // Already played - show full text immediately
+            textSpan.textContent = fullText;
+            if (cursor) cursor.style.display = 'inline-block';
+            return;
+        }
+
+        // Hide cursor initially
+        if (cursor) cursor.style.opacity = '0';
+
+        // Set up Intersection Observer to trigger when section is visible
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    // Start typing effect
+                    typeText(textSpan, fullText, cursor, function() {
+                        // Mark as played in sessionStorage
+                        sessionStorage.setItem(storageKey, 'true');
+                    });
+                    // Stop observing after triggered
+                    observer.unobserve(element);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(element);
+    });
+
+    function typeText(element, text, cursor, callback) {
+        let index = 0;
+        const typingSpeed = 120; // ms per character
+
+        // Show cursor when typing starts
+        if (cursor) cursor.style.opacity = '1';
+
+        function type() {
+            if (index < text.length) {
+                element.textContent += text.charAt(index);
+                index++;
+                setTimeout(type, typingSpeed);
+            } else {
+                // Typing complete
+                if (callback) callback();
+            }
+        }
+
+        type();
+    }
+
     // Scroll indicators - show/hide based on position
     const scrollUpIndicator = document.getElementById('scroll-up');
     const scrollDownIndicator = document.getElementById('scroll-down');

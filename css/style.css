@@ -2439,3 +2439,28 @@ section {
         display: none;
     }
 }
+
+/* ========================================
+   TERMINAL CURSOR
+   ======================================== */
+
+.typewriter__text {
+    display: inline;
+}
+
+.terminal-cursor {
+    display: inline-block;
+    font-family: var(--font-mono);
+    color: var(--accent-primary);
+    margin-left: 0.05em;
+    animation: cursor-blink 1s step-end infinite;
+}
+
+@keyframes cursor-blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}

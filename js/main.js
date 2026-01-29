@@ -78,16 +78,18 @@ document.addEventListener('DOMContentLoaded', function() {
         // Configuration
         const config = {
             animationDuration: 150,      // Very fast
-            wheelThreshold: 1,           // Instant trigger
+            scrollThreshold: 150,        // Accumulated scroll needed to trigger
+            cooldownAfterSnap: 300,      // Cooldown after animation to prevent skipping
             touchThreshold: 30,          // Min touch delta to trigger snap
-            cooldownTime: 0,             // No cooldown - isAnimating handles it
             mobileBreakpoint: 768        // Disable snap below this width
         };
 
         // State
         let currentSectionIndex = 0;
         let isAnimating = false;
-        let lastScrollTime = 0;
+        let lastSnapTime = 0;
+        let scrollAccumulator = 0;
+        let lastWheelTime = 0;
         let touchStartY = 0;
         let touchStartTime = 0;
         let isMobileView = window.innerWidth <= config.mobileBreakpoint;
@@ -149,6 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     requestAnimationFrame(animationStep);
                 } else {
                     isAnimating = false;
+                    lastSnapTime = Date.now();
                     if (callback) callback();
                 }
             }
@@ -175,17 +178,17 @@ document.addEventListener('DOMContentLoaded', function() {
             smoothScrollTo(regularContent.offsetTop, config.animationDuration);
         }
 
-        // Handle wheel events - optimized for instant response
+        // Handle wheel events - accumulator for down, instant for up
         function handleWheel(e) {
-            // Quick exits first
-            if (isMobileView || isAnimating) return;
+            // Quick exits
+            if (isMobileView) return;
 
             // Check regular content area
             if (regularContent) {
                 const regularTop = regularContent.getBoundingClientRect().top;
                 if (regularTop < window.innerHeight * 0.5) {
                     // In regular content - only intercept scroll up at top
-                    if (e.deltaY < 0 && regularTop >= -10) {
+                    if (e.deltaY < 0 && regularTop >= -10 && !isAnimating) {
                         e.preventDefault();
                         goToSection(snapSections.length - 1);
                     }
@@ -193,17 +196,41 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
 
-            // In snap zone - block and trigger immediately
+            // In snap zone - block default scroll
             e.preventDefault();
+            if (isAnimating) return;
 
-            if (e.deltaY > 0) {
+            // SCROLLING UP - instant trigger (no accumulator)
+            if (e.deltaY < 0) {
+                if (currentSectionIndex > 0) {
+                    goToSection(currentSectionIndex - 1);
+                }
+                scrollAccumulator = 0;
+                return;
+            }
+
+            // SCROLLING DOWN - use accumulator to prevent skipping
+            if (Date.now() - lastSnapTime < config.cooldownAfterSnap) return;
+
+            // Reset accumulator if direction changed or too much time passed
+            const now = Date.now();
+            if (now - lastWheelTime > 200 || scrollAccumulator < 0) {
+                scrollAccumulator = 0;
+            }
+            lastWheelTime = now;
+
+            // Accumulate scroll
+            scrollAccumulator += e.deltaY;
+
+            // Check if threshold reached
+            if (scrollAccumulator >= config.scrollThreshold) {
                 if (currentSectionIndex < snapSections.length - 1) {
                     goToSection(currentSectionIndex + 1);
                 } else if (regularContent) {
                     goToRegularContent();
                 }
-            } else if (e.deltaY < 0 && currentSectionIndex > 0) {
-                goToSection(currentSectionIndex - 1);
+                scrollAccumulator = 0;
+                lastSnapTime = Date.now();
             }
         }
 

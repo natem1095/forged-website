@@ -710,7 +710,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // FORM SUBMISSIONS (Formspree Integration)
     // ========================================
 
-    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xwpkgjqz';
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xkobjoww';
 
     // Quick inquiry form
     const quickForm = document.getElementById('quick-form');

@@ -2332,6 +2332,39 @@ section {
 }
 
 /* ========================================
+   FULL-PAGE SCROLL SNAP (JS-Controlled)
+   ======================================== */
+
+/* Snap sections - full viewport height */
+.snap-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Hero section */
+.hero.snap-section {
+    min-height: 100vh;
+}
+
+/* Section content within snap sections */
+.snap-section > .container {
+    flex: 0 0 auto;
+}
+
+/* Mobile - natural scrolling */
+@media (max-width: 768px) {
+    .snap-section {
+        min-height: auto;
+    }
+
+    .hero.snap-section {
+        min-height: 100vh;
+    }
+}
+
+/* ========================================
    SCROLL INDICATOR
    ======================================== */
 

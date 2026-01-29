@@ -67,6 +67,271 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========================================
+    // SMOOTH FULL-PAGE SCROLL SNAP
+    // Apple-style smooth section transitions
+    // ========================================
+
+    const snapSections = document.querySelectorAll('.snap-section');
+    const regularContent = document.getElementById('regular-content');
+
+    if (snapSections.length > 0) {
+        // Configuration
+        const config = {
+            animationDuration: 150,      // Very fast
+            wheelThreshold: 1,           // Instant trigger
+            touchThreshold: 30,          // Min touch delta to trigger snap
+            cooldownTime: 0,             // No cooldown - isAnimating handles it
+            mobileBreakpoint: 768        // Disable snap below this width
+        };
+
+        // State
+        let currentSectionIndex = 0;
+        let isAnimating = false;
+        let lastScrollTime = 0;
+        let touchStartY = 0;
+        let touchStartTime = 0;
+        let isMobileView = window.innerWidth <= config.mobileBreakpoint;
+
+        // Simple easing - smooth deceleration, no bounce
+        function easeOutQuad(t) {
+            return t * (2 - t);
+        }
+
+        // Cache mobile check - update on resize
+        function updateMobileCheck() {
+            isMobileView = window.innerWidth <= config.mobileBreakpoint;
+        }
+
+        // Get current section based on scroll position
+        function getCurrentSection() {
+            const scrollY = window.scrollY;
+            const viewportHeight = window.innerHeight;
+
+            for (let i = snapSections.length - 1; i >= 0; i--) {
+                const section = snapSections[i];
+                const rect = section.getBoundingClientRect();
+                const sectionTop = scrollY + rect.top;
+
+                // If we're more than 30% into this section, consider it current
+                if (scrollY >= sectionTop - viewportHeight * 0.3) {
+                    return i;
+                }
+            }
+            return 0;
+        }
+
+        // Check if we're in the regular content area
+        function isInRegularContent() {
+            if (!regularContent) return false;
+            const rect = regularContent.getBoundingClientRect();
+            return rect.top < window.innerHeight * 0.5;
+        }
+
+        // Smooth scroll to a specific Y position
+        function smoothScrollTo(targetY, duration, callback) {
+            const startY = window.scrollY;
+            const distance = targetY - startY;
+            const startTime = performance.now();
+
+            isAnimating = true;
+
+            // Start first frame immediately (no wait for rAF)
+            window.scrollTo(0, startY + distance * 0.08);
+
+            function animationStep(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easeProgress = easeOutQuad(progress);
+
+                window.scrollTo(0, startY + distance * easeProgress);
+
+                if (progress < 1) {
+                    requestAnimationFrame(animationStep);
+                } else {
+                    isAnimating = false;
+                    if (callback) callback();
+                }
+            }
+
+            requestAnimationFrame(animationStep);
+        }
+
+        // Navigate to a specific section
+        function goToSection(index, duration) {
+            if (index < 0 || index >= snapSections.length) return;
+            if (isAnimating) return;
+
+            const section = snapSections[index];
+            const targetY = section.offsetTop;
+
+            currentSectionIndex = index;
+            smoothScrollTo(targetY, duration || config.animationDuration);
+        }
+
+        // Navigate to regular content (exit snap zone)
+        function goToRegularContent() {
+            if (isAnimating || !regularContent) return;
+
+            smoothScrollTo(regularContent.offsetTop, config.animationDuration);
+        }
+
+        // Handle wheel events - optimized for instant response
+        function handleWheel(e) {
+            // Quick exits first
+            if (isMobileView || isAnimating) return;
+
+            // Check regular content area
+            if (regularContent) {
+                const regularTop = regularContent.getBoundingClientRect().top;
+                if (regularTop < window.innerHeight * 0.5) {
+                    // In regular content - only intercept scroll up at top
+                    if (e.deltaY < 0 && regularTop >= -10) {
+                        e.preventDefault();
+                        goToSection(snapSections.length - 1);
+                    }
+                    return;
+                }
+            }
+
+            // In snap zone - block and trigger immediately
+            e.preventDefault();
+
+            if (e.deltaY > 0) {
+                if (currentSectionIndex < snapSections.length - 1) {
+                    goToSection(currentSectionIndex + 1);
+                } else if (regularContent) {
+                    goToRegularContent();
+                }
+            } else if (e.deltaY < 0 && currentSectionIndex > 0) {
+                goToSection(currentSectionIndex - 1);
+            }
+        }
+
+        // Handle touch events for mobile-like gestures on desktop
+        function handleTouchStart(e) {
+            if (isMobileView) return;
+            touchStartY = e.touches[0].clientY;
+            touchStartTime = Date.now();
+        }
+
+        function handleTouchEnd(e) {
+            if (isMobileView) return;
+            if (isAnimating) return;
+
+            const touchEndY = e.changedTouches[0].clientY;
+            const touchDelta = touchStartY - touchEndY;
+            const touchDuration = Date.now() - touchStartTime;
+
+            // Only trigger on quick swipes with sufficient distance
+            if (Math.abs(touchDelta) < config.touchThreshold) return;
+            if (touchDuration > 500) return; // Too slow
+
+            // Check cooldown
+            if (Date.now() - lastScrollTime < config.cooldownTime) return;
+
+            // If in regular content
+            if (isInRegularContent()) {
+                const regularRect = regularContent.getBoundingClientRect();
+                if (touchDelta < 0 && regularRect.top >= -50) {
+                    goToSection(snapSections.length - 1);
+                }
+                return;
+            }
+
+            if (touchDelta > 0) {
+                // Swiping up (scroll down)
+                if (currentSectionIndex < snapSections.length - 1) {
+                    goToSection(currentSectionIndex + 1);
+                } else {
+                    goToRegularContent();
+                }
+            } else {
+                // Swiping down (scroll up)
+                if (currentSectionIndex > 0) {
+                    goToSection(currentSectionIndex - 1);
+                }
+            }
+        }
+
+        // Handle keyboard navigation
+        function handleKeydown(e) {
+            if (isMobileView) return;
+            if (isAnimating) return;
+
+            // Only handle if not in an input field
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+            // Check cooldown
+            if (Date.now() - lastScrollTime < config.cooldownTime) return;
+
+            if (isInRegularContent()) return; // Allow normal keyboard scroll in regular content
+
+            switch (e.key) {
+                case 'ArrowDown':
+                case 'PageDown':
+                case ' ':
+                    e.preventDefault();
+                    if (currentSectionIndex < snapSections.length - 1) {
+                        goToSection(currentSectionIndex + 1);
+                    } else {
+                        goToRegularContent();
+                    }
+                    break;
+                case 'ArrowUp':
+                case 'PageUp':
+                    e.preventDefault();
+                    if (currentSectionIndex > 0) {
+                        goToSection(currentSectionIndex - 1);
+                    }
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    goToSection(0);
+                    break;
+            }
+        }
+
+        // Initialize current section on load
+        function initCurrentSection() {
+            currentSectionIndex = getCurrentSection();
+        }
+
+        // Handle resize
+        let resizeTimeout;
+        function handleResize() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(function() {
+                updateMobileCheck();
+                if (!isMobileView && !isInRegularContent()) {
+                    const section = snapSections[currentSectionIndex];
+                    if (section) {
+                        window.scrollTo(0, section.offsetTop);
+                    }
+                }
+            }, 150);
+        }
+
+        // Bind events
+        window.addEventListener('wheel', handleWheel, { passive: false });
+        window.addEventListener('touchstart', handleTouchStart, { passive: true });
+        window.addEventListener('touchend', handleTouchEnd, { passive: true });
+        window.addEventListener('keydown', handleKeydown);
+        window.addEventListener('resize', handleResize);
+
+        // Initialize
+        initCurrentSection();
+
+        // If page loads not at top, align to nearest section
+        if (window.scrollY > 50 && !isMobileView && !isInRegularContent()) {
+            setTimeout(function() {
+                goToSection(currentSectionIndex, 500);
+            }, 100);
+        }
+
+        console.log('Smooth scroll snap initialized with', snapSections.length, 'sections');
+    }
+
+    // ========================================
     // SOLUTION FILTERING
     // ========================================
 

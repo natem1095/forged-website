@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css?v=2">
+    <link rel="stylesheet" href="css/style.css?v=6">
 
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23181818' rx='8' width='100' height='100'/><path d='M25 18h50v14H39v12h30v14H39v24H25V18z' fill='%23909090'/></svg>">
@@ -39,203 +39,205 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero__content">
-                <!-- <p class="hero__tagline">Forged Technologies</p> -->
+    <section class="hero snap-section">
+            <div class="container">
+                <div class="hero__content">
+                    <!-- <p class="hero__tagline">Forged Technologies</p> -->
 
-                <h1 class="hero__title">
-                    <span>Working solutions.</span>
-                    <span class="hero__highlight">Not slide decks.</span>
-                </h1>
+                    <h1 class="hero__title">
+                        <span>Working solutions.</span>
+                        <span class="hero__highlight">Not slide decks.</span>
+                    </h1>
 
-                <p class="hero__subtitle" style="font-weight: 300; font-size: 1.35rem;">
-                    Tell us what you need. We build it.<br>
-                    Enterprise system integrations, workflow automation, and custom solutions—delivered in weeks, not months.
-                </p>
-
-                <div class="hero__cta-group">
-                    <a href="solutions.html" class="btn btn--primary btn--large">See Our Work</a>
-                    <a href="contact.html" class="btn btn--secondary btn--large">Start a Project</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- What I Do Section -->
-    <section class="section" style="background: var(--bg-secondary);">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">What We Do</span>
-                <h2>We connect systems and automate workflows</h2>
-                <p class="mt-md">Most integration projects take months and cost a fortune. We deliver working software fast—because we build it ourselves, end to end.</p>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-card__icon">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-card__title">System Integrations</h3>
-                    <p class="service-card__description">
-                        Make your systems talk to each other. ERP, CRM, HR, finance—we build the bridges between them.
+                    <p class="hero__subtitle" style="font-weight: 300; font-size: 1.35rem;">
+                        Tell us what you need. We build it.<br>
+                        Enterprise system integrations, workflow automation, and custom solutions—delivered in weeks, not months.
                     </p>
-                </div>
 
-                <div class="service-card">
-                    <div class="service-card__icon">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-card__title">Workflow Automation</h3>
-                    <p class="service-card__description">
-                        Automate approval processes, notifications, and document routing. Eliminate manual handoffs and get full audit trails.
-                    </p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-card__icon">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-card__title">Custom Development</h3>
-                    <p class="service-card__description">
-                        Business applications, dashboards, portals, and internal tools. Built to your exact requirements, not a bloated off-the-shelf compromise.
-                    </p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-card__icon">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-card__title">Rapid Delivery</h3>
-                    <p class="service-card__description">
-                        We don't have layers of project managers and meetings. We understand your problem and we build the solution. Weeks, not months.
-                    </p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-card__icon">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
-                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                            <line x1="12" y1="22.08" x2="12" y2="12"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-card__title">Ground-Up Builds</h3>
-                    <p class="service-card__description">
-                        Sometimes you need to start fresh. New system rollouts, platform deployments, and configurations that actually match how your business works.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How We Work Section -->
-    <section class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">How We Work</span>
-                <h2>Simple. Direct. Effective.</h2>
-            </div>
-
-            <div class="approach-list">
-                <div class="approach-item">
-                    <span class="approach-item__number">01</span>
-                    <div class="approach-item__content">
-                        <h3>You describe the problem</h3>
-                        <p>Tell us what you're trying to accomplish. What's broken, what's slow, what's missing. We'll ask the right questions to understand the real need.</p>
-                    </div>
-                </div>
-
-                <div class="approach-item">
-                    <span class="approach-item__number">02</span>
-                    <div class="approach-item__content">
-                        <h3>We design the solution</h3>
-                        <p>We'll come back with a clear architecture and approach. You'll know exactly what you're getting, what it costs, and when you'll have it.</p>
-                    </div>
-                </div>
-
-                <div class="approach-item">
-                    <span class="approach-item__number">03</span>
-                    <div class="approach-item__content">
-                        <h3>We build it</h3>
-                        <p>No endless meetings. No status reports for the sake of status reports. We build, we show you progress, we deliver working software.</p>
-                    </div>
-                </div>
-
-                <div class="approach-item">
-                    <span class="approach-item__number">04</span>
-                    <div class="approach-item__content">
-                        <h3>You get a complete package</h3>
-                        <p>Working software is just the start. You also get architecture documentation, setup guides, API references, and knowledge transfer sessions. Everything needed to maintain and extend the solution—whether with me or another team.</p>
+                    <div class="hero__cta-group">
+                        <a href="solutions.html" class="btn btn--primary btn--large">See Our Work</a>
+                        <a href="contact.html" class="btn btn--secondary btn--large">Start a Project</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- What You Get Section -->
-    <section class="section" style="background: var(--bg-secondary);">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">What You Get</span>
-                <h2>More than just working code</h2>
-                <p class="mt-md">Every project includes a complete deliverable package. You don't just get software—you get everything needed to understand, maintain, and extend it.</p>
+        <!-- What I Do Section -->
+        <section class="section snap-section" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">What We Do</span>
+                    <h2>We connect systems and automate workflows</h2>
+                    <p class="mt-md">Most integration projects take months and cost a fortune. We deliver working software fast—because we build it ourselves, end to end.</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">System Integrations</h3>
+                        <p class="service-card__description">
+                            Make your systems talk to each other. ERP, CRM, HR, finance—we build the bridges between them.
+                        </p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Workflow Automation</h3>
+                        <p class="service-card__description">
+                            Automate approval processes, notifications, and document routing. Eliminate manual handoffs and get full audit trails.
+                        </p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Custom Development</h3>
+                        <p class="service-card__description">
+                            Business applications, dashboards, portals, and internal tools. Built to your exact requirements, not a bloated off-the-shelf compromise.
+                        </p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Rapid Delivery</h3>
+                        <p class="service-card__description">
+                            We don't have layers of project managers and meetings. We understand your problem and we build the solution. Weeks, not months.
+                        </p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                <line x1="12" y1="22.08" x2="12" y2="12"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Ground-Up Builds</h3>
+                        <p class="service-card__description">
+                            Sometimes you need to start fresh. New system rollouts, platform deployments, and configurations that actually match how your business works.
+                        </p>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="deliverables-grid">
-                <div class="deliverable-card">
-                    <div class="deliverable-card__icon">
-                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                        </svg>
-                    </div>
-                    <h3 class="deliverable-card__title">Working Software</h3>
-                    <p class="deliverable-card__description">Production-ready code deployed and tested in your environment. Not a demo—a real solution.</p>
+        <!-- How We Work Section -->
+        <section class="section snap-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">How We Work</span>
+                    <h2>Simple. Direct. Effective.</h2>
                 </div>
 
-                <div class="deliverable-card">
-                    <div class="deliverable-card__icon">
-                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                        </svg>
+                <div class="approach-list">
+                    <div class="approach-item">
+                        <span class="approach-item__number">01</span>
+                        <div class="approach-item__content">
+                            <h3>You describe the problem</h3>
+                            <p>Tell us what you're trying to accomplish. What's broken, what's slow, what's missing. We'll ask the right questions to understand the real need.</p>
+                        </div>
                     </div>
-                    <h3 class="deliverable-card__title">Full Documentation</h3>
-                    <p class="deliverable-card__description">Architecture docs, API references, database schemas, and setup guides. Everything your team needs.</p>
-                </div>
 
-                <div class="deliverable-card">
-                    <div class="deliverable-card__icon">
-                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                        </svg>
+                    <div class="approach-item">
+                        <span class="approach-item__number">02</span>
+                        <div class="approach-item__content">
+                            <h3>We design the solution</h3>
+                            <p>We'll come back with a clear architecture and approach. You'll know exactly what you're getting, what it costs, and when you'll have it.</p>
+                        </div>
                     </div>
-                    <h3 class="deliverable-card__title">Knowledge Transfer</h3>
-                    <p class="deliverable-card__description">Walkthrough sessions, recorded demos, and Q&A. Your team understands how it works, not just that it works.</p>
-                </div>
 
-                <div class="deliverable-card">
-                    <div class="deliverable-card__icon">
-                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
-                        </svg>
+                    <div class="approach-item">
+                        <span class="approach-item__number">03</span>
+                        <div class="approach-item__content">
+                            <h3>We build it</h3>
+                            <p>No endless meetings. No status reports for the sake of status reports. We build, we show you progress, we deliver working software.</p>
+                        </div>
                     </div>
-                    <h3 class="deliverable-card__title">Ongoing Support</h3>
-                    <p class="deliverable-card__description">Hypercare period after go-live. Issues get resolved quickly, questions get answered, handoff is smooth.</p>
+
+                    <div class="approach-item">
+                        <span class="approach-item__number">04</span>
+                        <div class="approach-item__content">
+                            <h3>You get a complete package</h3>
+                            <p>Working software is just the start. You also get architecture documentation, setup guides, API references, and knowledge transfer sessions. Everything needed to maintain and extend the solution—whether with me or another team.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Featured Work Section -->
-    <section class="section">
+        <!-- What You Get Section -->
+        <section class="section snap-section" id="last-snap-section" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">What You Get</span>
+                    <h2>More than just working code</h2>
+                    <p class="mt-md">Every project includes a complete deliverable package. You don't just get software—you get everything needed to understand, maintain, and extend it.</p>
+                </div>
+
+                <div class="deliverables-grid">
+                    <div class="deliverable-card">
+                        <div class="deliverable-card__icon">
+                            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="deliverable-card__title">Working Software</h3>
+                        <p class="deliverable-card__description">Production-ready code deployed and tested in your environment. Not a demo—a real solution.</p>
+                    </div>
+
+                    <div class="deliverable-card">
+                        <div class="deliverable-card__icon">
+                            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="deliverable-card__title">Full Documentation</h3>
+                        <p class="deliverable-card__description">Architecture docs, API references, database schemas, and setup guides. Everything your team needs.</p>
+                    </div>
+
+                    <div class="deliverable-card">
+                        <div class="deliverable-card__icon">
+                            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="deliverable-card__title">Knowledge Transfer</h3>
+                        <p class="deliverable-card__description">Walkthrough sessions, recorded demos, and Q&A. Your team understands how it works, not just that it works.</p>
+                    </div>
+
+                    <div class="deliverable-card">
+                        <div class="deliverable-card__icon">
+                            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="deliverable-card__title">Ongoing Support</h3>
+                        <p class="deliverable-card__description">Hypercare period after go-live. Issues get resolved quickly, questions get answered, handoff is smooth.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Regular Scroll Content (no snapping) -->
+    <div class="regular-scroll-content" id="regular-content">
+        <!-- Featured Work Section -->
+        <section class="section" id="featured-work">
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Featured Work</span>
@@ -447,6 +449,7 @@
             </ul>
         </div>
     </footer>
+    </div><!-- End regular-scroll-content -->
 
     <!-- Scroll Indicator -->
     <div class="scroll-indicator">
@@ -457,6 +460,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=9"></script>
 </body>
 </html>

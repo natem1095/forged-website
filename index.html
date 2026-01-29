@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css?v=7">
+    <link rel="stylesheet" href="css/style.css?v=10">
 
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23181818' rx='8' width='100' height='100'/><path d='M25 18h50v14H39v12h30v14H39v24H25V18z' fill='%23909090'/></svg>">
@@ -451,20 +451,23 @@
     </footer>
     </div><!-- End regular-scroll-content -->
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
-        Back to Top
-    </button>
+    <!-- Scroll Up Indicator -->
+    <div class="scroll-indicator scroll-indicator--up" id="scroll-up">
+        <svg class="scroll-indicator__icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+        <span class="scroll-indicator__text">Scroll Up</span>
+    </div>
 
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator">
-        <span class="scroll-indicator__text">Scroll</span>
+    <!-- Scroll Down Indicator -->
+    <div class="scroll-indicator scroll-indicator--down" id="scroll-down">
+        <span class="scroll-indicator__text">Scroll Down</span>
         <svg class="scroll-indicator__icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
         </svg>
     </div>
 
     <!-- Scripts -->
-    <script src="js/main.js?v=19"></script>
+    <script src="js/main.js?v=23"></script>
 </body>
 </html>

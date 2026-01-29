@@ -2365,51 +2365,11 @@ section {
 }
 
 /* ========================================
-   BACK TO TOP BUTTON
-   ======================================== */
-
-.back-to-top {
-    position: fixed;
-    bottom: var(--space-xl);
-    right: var(--space-xl);
-    background: none;
-    border: none;
-    color: var(--text-muted);
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, color 0.2s ease;
-    z-index: 100;
-}
-
-.back-to-top:hover {
-    color: var(--text-secondary);
-}
-
-.back-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-@media (max-width: 768px) {
-    .back-to-top {
-        bottom: var(--space-lg);
-        right: var(--space-lg);
-        font-size: 0.6875rem;
-    }
-}
-
-/* ========================================
-   SCROLL INDICATOR
+   SCROLL INDICATORS
    ======================================== */
 
 .scroll-indicator {
     position: fixed;
-    bottom: var(--space-xl);
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -2417,14 +2377,28 @@ section {
     align-items: center;
     gap: var(--space-xs);
     color: var(--text-muted);
-    opacity: 1;
-    transition: opacity 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
     pointer-events: none;
     z-index: 100;
 }
 
-.scroll-indicator--hidden {
-    opacity: 0;
+.scroll-indicator.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-indicator.arrows-only .scroll-indicator__text {
+    display: none;
+}
+
+.scroll-indicator--down {
+    bottom: var(--space-md);
+}
+
+.scroll-indicator--up {
+    top: calc(72px + var(--space-sm));
 }
 
 .scroll-indicator__text {
@@ -2435,14 +2409,33 @@ section {
 }
 
 .scroll-indicator__icon {
-    animation: scroll-bounce 1.5s ease-in-out infinite;
+    animation: scroll-bounce-down 1.5s ease-in-out infinite;
 }
 
-@keyframes scroll-bounce {
+.scroll-indicator--up .scroll-indicator__icon {
+    animation: scroll-bounce-up 1.5s ease-in-out infinite;
+}
+
+@keyframes scroll-bounce-down {
     0%, 100% {
         transform: translateY(0);
     }
     50% {
         transform: translateY(4px);
+    }
+}
+
+@keyframes scroll-bounce-up {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+@media (max-width: 768px) {
+    .scroll-indicator {
+        display: none;
     }
 }

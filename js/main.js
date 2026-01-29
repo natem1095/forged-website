@@ -54,28 +54,53 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Scroll indicator fade out
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-    if (scrollIndicator) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 20) {
-                scrollIndicator.classList.add('scroll-indicator--hidden');
+    // Scroll indicators - show/hide based on position
+    const scrollUpIndicator = document.getElementById('scroll-up');
+    const scrollDownIndicator = document.getElementById('scroll-down');
+
+    function updateScrollIndicators() {
+        const scrollTop = window.scrollY;
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = window.innerHeight;
+        const scrollBottom = scrollHeight - scrollTop - clientHeight;
+
+        const showUp = scrollTop > clientHeight * 0.5;
+        const showDown = scrollBottom > 100;
+
+        // Show scroll up when not at top (past first section)
+        if (scrollUpIndicator) {
+            if (showUp) {
+                scrollUpIndicator.classList.add('visible');
             } else {
-                scrollIndicator.classList.remove('scroll-indicator--hidden');
+                scrollUpIndicator.classList.remove('visible');
             }
-        });
+        }
+
+        // Show scroll down when not at bottom
+        if (scrollDownIndicator) {
+            if (showDown) {
+                scrollDownIndicator.classList.add('visible');
+            } else {
+                scrollDownIndicator.classList.remove('visible');
+            }
+        }
+
+        // When both visible, hide text (show only arrows)
+        if (scrollUpIndicator && scrollDownIndicator) {
+            if (showUp && showDown) {
+                scrollUpIndicator.classList.add('arrows-only');
+                scrollDownIndicator.classList.add('arrows-only');
+            } else {
+                scrollUpIndicator.classList.remove('arrows-only');
+                scrollDownIndicator.classList.remove('arrows-only');
+            }
+        }
     }
 
-    // Back to top button - show/hide
-    const backToTopBtn = document.getElementById('back-to-top');
-    if (backToTopBtn) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > window.innerHeight * 0.8) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-        });
+    if (scrollUpIndicator || scrollDownIndicator) {
+        window.addEventListener('scroll', updateScrollIndicators);
+        // Initial check
+        updateScrollIndicators();
     }
 
     // ========================================
@@ -435,9 +460,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 100);
         }
 
-        // Back to top button click - reset section index
-        if (backToTopBtn) {
-            backToTopBtn.addEventListener('click', function() {
+        // Scroll up indicator click - scroll to top and reset section index
+        if (scrollUpIndicator) {
+            scrollUpIndicator.style.cursor = 'pointer';
+            scrollUpIndicator.style.pointerEvents = 'auto';
+            scrollUpIndicator.addEventListener('click', function() {
                 currentSectionIndex = 0;
                 freeScrollMode = false;
                 clearTimeout(snapTimeout);

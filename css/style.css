@@ -202,13 +202,7 @@ section {
 .nav__logo-mark {
     width: 32px;
     height: 32px;
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.875rem;
+    flex-shrink: 0;
 }
 
 .nav__links {

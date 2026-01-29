@@ -40,7 +40,7 @@
     </nav>
 
     <!-- Hero -->
-    <section class="about-hero">
+    <section class="about-hero" style="padding-bottom: var(--space-lg);">
         <div class="container">
             <span class="section-label">Portfolio</span>
             <h1>Solutions I've Built</h1>
@@ -51,47 +51,31 @@
         </div>
     </section>
 
-    <!-- Solutions Grid -->
-    <section class="section">
+    <!-- Completed Solutions -->
+    <section class="section" style="padding-top: 0; padding-bottom: var(--space-xl);">
         <div class="container">
-            <div class="projects-grid">
+            <div class="section-header">
+                <span class="section-label">Completed</span>
+                <h2>Delivered Solutions</h2>
+            </div>
 
-                <!-- SAP-DocuSign Integration -->
+            <div class="projects-grid">
+                <!-- Featured Project: DocuSign Integration -->
                 <a href="solutions/sap-docusign.html" class="card card--link card--featured">
                     <div class="card__content">
                         <span class="card__label">SAP Integration</span>
                         <h3 class="card__title">SAP-DocuSign Integration Framework</h3>
                         <p class="card__description">
-                            Enterprise eSignature integration connecting SAP ECC to DocuSign.
-                            Complete OAuth 2.0 implementation, real-time webhook processing,
-                            automated PO approval workflows with sequential signing,
-                            GR blocking until approval, and full audit compliance.
+                            Complete enterprise eSignature integration connecting SAP ECC to DocuSign.
+                            OAuth 2.0 authentication, real-time webhook processing, automated PO approval
+                            workflows, and full audit compliance. Built end-to-end in under a week.
                         </p>
-                        <div class="stats-grid" style="margin-top: var(--space-lg);">
-                            <div class="stat">
-                                <span class="stat__number">14</span>
-                                <span class="stat__label">API Methods</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat__number">12</span>
-                                <span class="stat__label">Database Tables</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat__number">&lt;1</span>
-                                <span class="stat__label">Week to Build</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat__number" style="font-size: 1.25rem;">Full</span>
-                                <span class="stat__label">Documentation</span>
-                            </div>
-                        </div>
-                        <div class="card__tags" style="margin-top: var(--space-lg);">
+                        <div class="card__tags">
                             <span class="tag">SAP ECC</span>
                             <span class="tag">DocuSign API</span>
                             <span class="tag">OAuth 2.0</span>
                             <span class="tag">Webhooks</span>
                             <span class="tag">ABAP</span>
-                            <span class="tag">REST API</span>
                         </div>
                     </div>
                     <div class="card__visual">
@@ -145,9 +129,21 @@
                         </svg>
                     </div>
                 </a>
+            </div>
+        </div>
+    </section>
 
+    <!-- In Development -->
+    <section class="section" style="background: var(--bg-secondary); padding-top: var(--space-xl);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">In Progress</span>
+                <h2>What's Next</h2>
+            </div>
+
+            <div class="projects-grid">
                 <!-- Coming Soon: SAP-Salesforce Integration -->
-                <div class="card" style="opacity: 0.5; cursor: default;">
+                <div class="card" style="opacity: 0.7; cursor: default;">
                     <span class="card__label">In Development</span>
                     <h3 class="card__title">SAP-Salesforce CRM Integration</h3>
                     <p class="card__description">
@@ -164,7 +160,7 @@
                 </div>
 
                 <!-- Coming Soon: Workflow Engine -->
-                <div class="card" style="opacity: 0.5; cursor: default;">
+                <div class="card" style="opacity: 0.7; cursor: default;">
                     <span class="card__label">In Development</span>
                     <h3 class="card__title">SAP Workflow & Notification Engine</h3>
                     <p class="card__description">
@@ -181,7 +177,7 @@
                 </div>
 
                 <!-- Coming Soon: AI Document Processing -->
-                <div class="card" style="opacity: 0.5; cursor: default;">
+                <div class="card" style="opacity: 0.7; cursor: default;">
                     <span class="card__label">In Development</span>
                     <h3 class="card__title">AI Document Processing Agent</h3>
                     <p class="card__description">
@@ -197,7 +193,7 @@
                 </div>
 
                 <!-- Coming Soon: Food Traceability -->
-                <div class="card" style="opacity: 0.5; cursor: default;">
+                <div class="card" style="opacity: 0.7; cursor: default;">
                     <span class="card__label">Planned</span>
                     <h3 class="card__title">Food Traceability System</h3>
                     <p class="card__description">
@@ -211,7 +207,6 @@
                         <span class="tag">Manufacturing</span>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>

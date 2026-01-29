@@ -142,59 +142,81 @@
                     implementations (Z_MM_DS_INT) that define the workflows.
                 </p>
 
-                <!-- Enterprise Integration Hub Diagram -->
-                <div class="flow-diagram">
-                    <div class="flow-diagram__title">Enterprise Integration Hub</div>
+                <!-- SAP-DocuSign Architecture Diagram -->
+                <div class="flow-diagram" style="padding: var(--space-2xl);">
+                    <div class="flow-diagram__title">SAP-DocuSign Integration Architecture</div>
 
-                    <!-- Cloud/SaaS Layer -->
-                    <div class="flow-diagram__layer flow-diagram__layer--top">
-                        <span class="flow-diagram__layer-label">Cloud / SaaS Platforms</span>
-                        <span class="flow-diagram__node">DocuSign</span>
-                        <span class="flow-diagram__node">Salesforce</span>
-                        <span class="flow-diagram__node">ServiceNow</span>
-                        <span class="flow-diagram__node">Adobe Sign</span>
-                        <span class="flow-diagram__node">SharePoint</span>
-                        <span class="flow-diagram__node">Power Platform</span>
-                        <span class="flow-diagram__node">AWS</span>
-                        <span class="flow-diagram__node">Azure</span>
-                    </div>
+                    <svg width="100%" height="320" viewBox="0 0 700 320" fill="none" style="max-width: 700px; margin: 0 auto; display: block;">
+                        <!-- Outbound Flow (Top Row) -->
 
-                    <!-- Connector Arrow Down -->
-                    <div class="flow-diagram__connector">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 5v14M5 12l7 7 7-7"/>
-                        </svg>
-                    </div>
+                        <!-- SAP Application -->
+                        <rect x="20" y="30" width="160" height="70" rx="6" fill="#2a2a2a" stroke="#505050" stroke-width="1.5"/>
+                        <text x="100" y="58" fill="#e0e0e0" font-size="13" font-weight="600" text-anchor="middle">SAP Application</text>
+                        <text x="100" y="78" fill="#707070" font-size="10" text-anchor="middle">ME21N, BADIs, SmartForms</text>
 
-                    <!-- Integration Layer (Highlighted) -->
-                    <div class="flow-diagram__layer flow-diagram__layer--middle">
-                        <span class="flow-diagram__layer-label">Forged Integration Layer</span>
-                        <span class="flow-diagram__node flow-diagram__node--highlight">OAuth</span>
-                        <span class="flow-diagram__node flow-diagram__node--highlight">Webhooks</span>
-                        <span class="flow-diagram__node flow-diagram__node--highlight">REST APIs</span>
-                        <span class="flow-diagram__node flow-diagram__node--highlight">Workflows</span>
-                        <span class="flow-diagram__node flow-diagram__node--highlight">Automation</span>
-                    </div>
+                        <!-- Arrow 1 -->
+                        <line x1="180" y1="65" x2="230" y2="65" stroke="#606060" stroke-width="2"/>
+                        <polygon points="225,60 235,65 225,70" fill="#606060"/>
 
-                    <!-- Connector Arrow Down -->
-                    <div class="flow-diagram__connector">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 5v14M5 12l7 7 7-7"/>
-                        </svg>
-                    </div>
+                        <!-- ZCL_DS_API (Core) -->
+                        <rect x="235" y="30" width="160" height="70" rx="6" fill="#353535" stroke="#909090" stroke-width="2"/>
+                        <text x="315" y="55" fill="#e0e0e0" font-size="13" font-weight="600" text-anchor="middle">ZCL_DS_API</text>
+                        <text x="315" y="73" fill="#808080" font-size="9" text-anchor="middle">OAuth Token | HTTP Client</text>
+                        <text x="315" y="88" fill="#808080" font-size="9" text-anchor="middle">JSON Builder</text>
 
-                    <!-- Enterprise Systems Layer -->
-                    <div class="flow-diagram__layer flow-diagram__layer--bottom">
-                        <span class="flow-diagram__layer-label">Enterprise Systems</span>
-                        <span class="flow-diagram__node">SAP ECC</span>
-                        <span class="flow-diagram__node">S/4HANA</span>
-                        <span class="flow-diagram__node">Oracle EBS</span>
-                        <span class="flow-diagram__node">Oracle Cloud</span>
-                        <span class="flow-diagram__node">Workday</span>
-                        <span class="flow-diagram__node">NetSuite</span>
-                        <span class="flow-diagram__node">Dynamics 365</span>
-                        <span class="flow-diagram__node">Legacy Systems</span>
-                    </div>
+                        <!-- Arrow 2 -->
+                        <line x1="395" y1="65" x2="445" y2="65" stroke="#606060" stroke-width="2"/>
+                        <polygon points="440,60 450,65 440,70" fill="#606060"/>
+
+                        <!-- DocuSign REST API -->
+                        <rect x="450" y="30" width="160" height="70" rx="6" fill="#2a2a2a" stroke="#505050" stroke-width="1.5"/>
+                        <text x="530" y="55" fill="#e0e0e0" font-size="13" font-weight="600" text-anchor="middle">DocuSign REST API</text>
+                        <text x="530" y="75" fill="#707070" font-size="10" text-anchor="middle">/envelopes /documents</text>
+
+                        <!-- Webhook Return Flow (curved path on right side) -->
+                        <path d="M530 100 L530 145 L530 145" stroke="#505050" stroke-width="1.5" fill="none"/>
+                        <polygon points="525,140 530,150 535,140" fill="#505050"/>
+
+                        <!-- DocuSign Connect -->
+                        <rect x="450" y="150" width="160" height="55" rx="6" fill="#2a2a2a" stroke="#505050" stroke-width="1.5"/>
+                        <text x="530" y="175" fill="#e0e0e0" font-size="12" font-weight="500" text-anchor="middle">DocuSign Connect</text>
+                        <text x="530" y="193" fill="#707070" font-size="10" text-anchor="middle">(Webhook)</text>
+
+                        <!-- Arrow from DocuSign Connect to Webhook Handler -->
+                        <line x1="450" y1="177" x2="400" y2="177" stroke="#505050" stroke-width="1.5"/>
+                        <polygon points="405,172 395,177 405,182" fill="#505050"/>
+
+                        <!-- ZCL_DS_WEBHOOK -->
+                        <rect x="235" y="150" width="160" height="55" rx="6" fill="#353535" stroke="#909090" stroke-width="2"/>
+                        <text x="315" y="172" fill="#e0e0e0" font-size="12" font-weight="600" text-anchor="middle">ZCL_DS_WEBHOOK</text>
+                        <text x="315" y="190" fill="#808080" font-size="9" text-anchor="middle">Parse XML | Validate HMAC</text>
+
+                        <!-- Arrow from Webhook to Callback -->
+                        <line x1="315" y1="205" x2="315" y2="240" stroke="#606060" stroke-width="1.5"/>
+                        <polygon points="310,235 315,245 320,235" fill="#606060"/>
+
+                        <!-- ZIF_DS_CALLBACK -->
+                        <rect x="235" y="245" width="160" height="60" rx="6" fill="#404040" stroke="#707070" stroke-width="1.5"/>
+                        <text x="315" y="268" fill="#e0e0e0" font-size="12" font-weight="600" text-anchor="middle">ZIF_DS_CALLBACK</text>
+                        <text x="315" y="288" fill="#707070" font-size="9" text-anchor="middle">on_completed() on_declined()</text>
+
+                        <!-- Arrow from Callback back to SAP -->
+                        <line x1="235" y1="275" x2="180" y2="275" stroke="#505050" stroke-width="1.5" stroke-dasharray="4"/>
+                        <polygon points="185,270 175,275 185,280" fill="#505050"/>
+
+                        <!-- Database -->
+                        <rect x="20" y="150" width="160" height="155" rx="6" fill="#252525" stroke="#404040" stroke-width="1"/>
+                        <text x="100" y="175" fill="#e0e0e0" font-size="12" font-weight="600" text-anchor="middle">Database</text>
+                        <text x="100" y="200" fill="#606060" font-size="10" text-anchor="middle">ZDS_CONFIG</text>
+                        <text x="100" y="218" fill="#606060" font-size="10" text-anchor="middle">ZDS_ENVELOPES</text>
+                        <text x="100" y="236" fill="#606060" font-size="10" text-anchor="middle">ZDS_APPS</text>
+                        <text x="100" y="254" fill="#606060" font-size="10" text-anchor="middle">ZDS_SIGNERS</text>
+                        <text x="100" y="272" fill="#606060" font-size="10" text-anchor="middle">ZDS_PO_REL</text>
+                        <text x="100" y="290" fill="#505050" font-size="9" text-anchor="middle">+ more tables</text>
+
+                        <!-- Dashed line from API to Database -->
+                        <path d="M235 85 L180 130" stroke="#404040" stroke-width="1" stroke-dasharray="4"/>
+                    </svg>
                 </div>
 
                 <h3>Package Structure</h3>

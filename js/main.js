@@ -81,16 +81,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
-                    // Start typing effect
-                    typeText(textSpan, fullText, cursor, function() {
-                        // Mark as played in sessionStorage
-                        sessionStorage.setItem(storageKey, 'true');
-                    });
+                    // Wait for snap animation to complete before typing
+                    setTimeout(function() {
+                        typeText(textSpan, fullText, cursor, function() {
+                            // Mark as played in sessionStorage
+                            sessionStorage.setItem(storageKey, 'true');
+                        });
+                    }, 400);
                     // Stop observing after triggered
                     observer.unobserve(element);
                 }
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.8 });
 
         observer.observe(element);
     });

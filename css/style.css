@@ -191,17 +191,19 @@ section {
 }
 
 .nav__logo {
-    font-size: 1.125rem;
-    font-weight: 700;
+    font-size: 0.875rem;
+    font-weight: 600;
     color: var(--text-primary);
     display: flex;
     align-items: center;
     gap: var(--space-sm);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
 }
 
 .nav__logo-mark {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     flex-shrink: 0;
 }
 

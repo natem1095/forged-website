@@ -100,22 +100,59 @@ document.addEventListener('DOMContentLoaded', function() {
         const correctionTypingSpeed = 120; // ms per character
         const backspaceSpeed = 80; // ms per backspace
         const pauseDuration = 1500; // 1.5 second pause
+        const squigglyDelay = 200; // delay before showing squiggly
 
-        // Typo sequence: type wrong text, pause, backspace, type correct
-        const typoText = 'More thna just ';
-        const backspaceTo = 'More t';
+        // Typo sequence parts
+        const beforeTypo = 'More ';
+        const typoWord = 'thna';
+        const afterTypo = ' just ';
+        const correctWord = 'than';
         const correctText = text; // "More than just working code"
 
         // Show cursor when typing starts
         if (cursor) cursor.style.opacity = '1';
 
         let index = 0;
+        let typoSpan = null;
 
-        function typeTypo() {
-            if (index < typoText.length) {
-                element.textContent += typoText.charAt(index);
+        function typeBeforeTypo() {
+            if (index < beforeTypo.length) {
+                element.textContent += beforeTypo.charAt(index);
                 index++;
-                setTimeout(typeTypo, initialTypingSpeed);
+                setTimeout(typeBeforeTypo, initialTypingSpeed);
+            } else {
+                index = 0;
+                // Create span for typo word
+                typoSpan = document.createElement('span');
+                element.appendChild(typoSpan);
+                typeTypoWord();
+            }
+        }
+
+        function typeTypoWord() {
+            if (index < typoWord.length) {
+                typoSpan.textContent += typoWord.charAt(index);
+                index++;
+                setTimeout(typeTypoWord, initialTypingSpeed);
+            } else {
+                index = 0;
+                typeAfterTypo();
+            }
+        }
+
+        function typeAfterTypo() {
+            if (index < afterTypo.length) {
+                // Append text after the typo span
+                const textNode = document.createTextNode(afterTypo.charAt(index));
+                element.appendChild(textNode);
+                // Add squiggly after first space (word boundary)
+                if (index === 0 && typoSpan) {
+                    setTimeout(function() {
+                        typoSpan.classList.add('typo-squiggly');
+                    }, squigglyDelay);
+                }
+                index++;
+                setTimeout(typeAfterTypo, initialTypingSpeed);
             } else {
                 // Pause before correcting
                 setTimeout(startBackspace, pauseDuration);
@@ -127,29 +164,72 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         function backspace() {
-            const currentText = element.textContent;
-            if (currentText.length > backspaceTo.length) {
-                element.textContent = currentText.slice(0, -1);
+            // Get current text length (all text content)
+            const currentLength = element.textContent.length;
+            const targetLength = beforeTypo.length + 1; // "More t" = 6 characters
+
+            if (currentLength > targetLength) {
+                // Remove last character - need to handle mixed content
+                const lastChild = element.lastChild;
+                if (lastChild) {
+                    if (lastChild.nodeType === Node.TEXT_NODE) {
+                        if (lastChild.textContent.length > 1) {
+                            lastChild.textContent = lastChild.textContent.slice(0, -1);
+                        } else {
+                            element.removeChild(lastChild);
+                        }
+                    } else if (lastChild.nodeType === Node.ELEMENT_NODE) {
+                        // It's the typo span
+                        if (lastChild.textContent.length > 1) {
+                            lastChild.textContent = lastChild.textContent.slice(0, -1);
+                        } else {
+                            element.removeChild(lastChild);
+                            typoSpan = null;
+                        }
+                    }
+                }
                 setTimeout(backspace, backspaceSpeed);
             } else {
-                // Start typing the correct remainder
-                index = backspaceTo.length;
-                typeCorrect();
+                // Start typing the correction into the typoSpan
+                typeCorrection();
             }
         }
 
-        function typeCorrect() {
+        function typeCorrection() {
+            // Type the remaining characters of "than" into the typoSpan
+            const currentTypoText = typoSpan ? typoSpan.textContent : '';
+            const targetIndex = currentTypoText.length;
+
+            if (targetIndex < correctWord.length) {
+                typoSpan.textContent += correctWord.charAt(targetIndex);
+
+                // Remove squiggly when word becomes correct
+                if (typoSpan.textContent === correctWord) {
+                    typoSpan.classList.remove('typo-squiggly');
+                }
+
+                setTimeout(typeCorrection, correctionTypingSpeed);
+            } else {
+                // Word is complete, continue with rest of sentence
+                index = beforeTypo.length + correctWord.length; // Position after "More than"
+                typeRest();
+            }
+        }
+
+        function typeRest() {
             if (index < correctText.length) {
-                element.textContent += correctText.charAt(index);
+                // Append as text node after the span
+                const textNode = document.createTextNode(correctText.charAt(index));
+                element.appendChild(textNode);
                 index++;
-                setTimeout(typeCorrect, correctionTypingSpeed);
+                setTimeout(typeRest, correctionTypingSpeed);
             } else {
                 // Typing complete
                 if (callback) callback();
             }
         }
 
-        typeTypo();
+        typeBeforeTypo();
     }
 
     // Scroll indicators - show/hide based on position

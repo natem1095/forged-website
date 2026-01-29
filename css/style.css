@@ -2450,6 +2450,13 @@ section {
     font-weight: 300;
 }
 
+.typo-squiggly {
+    text-decoration: underline wavy #ef4444;
+    text-decoration-skip-ink: none;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+}
+
 .terminal-cursor {
     display: inline-block;
     font-family: 'Cascadia Code', 'Consolas', monospace;

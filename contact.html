@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Forged Technologies</title>
-    <meta name="description" content="Start a conversation about your integration or automation project.">
+    <title>Start a Project | Forged Technologies</title>
+    <meta name="description" content="Start a conversation about your integration or automation project. Quick inquiry or detailed project builder.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,82 +39,493 @@
     <!-- Contact Section -->
     <section class="contact-section">
         <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <span class="section-label">Contact</span>
-                    <h1>Let's build something</h1>
-                    <p>
-                        Have an integration challenge? A workflow that's eating up everyone's time?
-                        A system that needs to talk to another system? Let's talk.
+            <!-- Path Selection (Landing State) -->
+            <div id="path-selection" class="path-selection">
+                <div class="section-header" style="text-align: center;">
+                    <span class="section-label">Let's Talk</span>
+                    <h1>How would you like to connect?</h1>
+                    <p style="max-width: 600px; margin: var(--space-md) auto 0;">
+                        Choose the path that fits your style. Both get you to me.
                     </p>
-                    <p style="margin-bottom: var(--space-2xl);">
-                        No sales pitch. No pressure. Just a conversation to see if I can help.
-                    </p>
+                </div>
 
-                    <div class="contact-method">
-                        <div class="contact-method__icon">
-                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                <div class="path-cards">
+                    <button class="path-card" data-path="quick">
+                        <div class="path-card__icon">
+                            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
                             </svg>
                         </div>
-                        <div>
-                            <span class="contact-method__label">Email</span>
-                            <span class="contact-method__value">hello@forged.dev</span>
-                        </div>
-                    </div>
-
-                    <div class="contact-method">
-                        <div class="contact-method__icon">
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <span class="contact-method__label">LinkedIn</span>
-                            <span class="contact-method__value">Connect with me</span>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: var(--space-2xl); padding: var(--space-lg); background: var(--bg-tertiary); border-radius: 8px; border-left: 3px solid var(--accent-primary);">
-                        <p style="font-size: 0.9375rem; margin-bottom: 0;">
-                            <strong>Typical response time:</strong> Within 24 hours.<br>
-                            <strong>Time zone:</strong> Central Time (Texas).<br>
-                            <strong>Availability:</strong> Remote work, travel as needed.
+                        <h3 class="path-card__title">Quick Inquiry</h3>
+                        <p class="path-card__description">
+                            Just want to chat? Send a quick message and I'll get back to you.
                         </p>
+                        <span class="path-card__time">~30 seconds</span>
+                    </button>
+
+                    <button class="path-card" data-path="wizard">
+                        <div class="path-card__icon">
+                            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <h3 class="path-card__title">Project Builder</h3>
+                        <p class="path-card__description">
+                            Ready to dive in? Build a detailed project brief so I can hit the ground running.
+                        </p>
+                        <span class="path-card__time">~3-5 minutes</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Inquiry Form -->
+            <div id="quick-inquiry" class="inquiry-container" style="display: none;">
+                <button class="back-to-paths" aria-label="Back to path selection">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Choose a different path
+                </button>
+
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <span class="section-label">Quick Inquiry</span>
+                        <h1>Send a message</h1>
+                        <p>
+                            Have a question? An idea? Just want to say hi?
+                            Drop me a note and I'll get back to you within 24 hours.
+                        </p>
+                        <p style="margin-bottom: var(--space-2xl);">
+                            No sales pitch. No pressure. Just a conversation.
+                        </p>
+
+                        <div class="contact-method">
+                            <div class="contact-method__icon">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="contact-method__label">Email</span>
+                                <span class="contact-method__value">hello@forged.dev</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-method__icon">
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="contact-method__label">LinkedIn</span>
+                                <span class="contact-method__value">Connect with me</span>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: var(--space-2xl); padding: var(--space-lg); background: var(--bg-tertiary); border-radius: 8px; border-left: 3px solid var(--accent-primary);">
+                            <p style="font-size: 0.9375rem; margin-bottom: 0;">
+                                <strong>Typical response time:</strong> Within 24 hours.<br>
+                                <strong>Time zone:</strong> Central Time (Texas).<br>
+                                <strong>Availability:</strong> Remote work, travel as needed.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <form class="contact-form" id="quick-form">
+                            <div class="form-group">
+                                <label class="form-label" for="quick-name">Name <span class="required">*</span></label>
+                                <input type="text" id="quick-name" name="name" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="quick-email">Email <span class="required">*</span></label>
+                                <input type="email" id="quick-email" name="email" class="form-input" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="quick-company">Company <span class="optional">(optional)</span></label>
+                                    <input type="text" id="quick-company" name="company" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="quick-phone">Phone <span class="optional">(optional)</span></label>
+                                    <input type="tel" id="quick-phone" name="phone" class="form-input">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="quick-type">Project Type <span class="optional">(optional)</span></label>
+                                    <select id="quick-type" name="projectType" class="form-input form-select">
+                                        <option value="">Select one...</option>
+                                        <option value="integration">System Integration</option>
+                                        <option value="automation">Workflow Automation</option>
+                                        <option value="custom">Custom Application</option>
+                                        <option value="other">Other / Not Sure</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="quick-timeline">Timeline <span class="optional">(optional)</span></label>
+                                    <select id="quick-timeline" name="timeline" class="form-input form-select">
+                                        <option value="">Select one...</option>
+                                        <option value="asap">ASAP</option>
+                                        <option value="1-2months">1-2 months</option>
+                                        <option value="3+months">3+ months</option>
+                                        <option value="exploring">Just exploring</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="quick-message">What's on your mind? <span class="required">*</span></label>
+                                <textarea id="quick-message" name="message" class="form-textarea" required
+                                    placeholder="Tell me what you're thinking about..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn--primary" style="width: 100%;">
+                                Send Message
+                            </button>
+
+                            <p style="font-size: 0.8125rem; color: var(--text-muted); text-align: center; margin-top: var(--space-md);">
+                                No spam. No mailing list. Just a direct conversation.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Builder Wizard -->
+            <div id="project-wizard" class="wizard-container" style="display: none;">
+                <button class="back-to-paths" aria-label="Back to path selection">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Choose a different path
+                </button>
+
+                <!-- Progress Indicator -->
+                <div class="wizard-progress">
+                    <div class="wizard-progress__track">
+                        <div class="wizard-progress__fill" id="progress-fill"></div>
+                    </div>
+                    <div class="wizard-progress__steps">
+                        <div class="wizard-progress__step active" data-step="1">
+                            <span class="wizard-progress__dot">1</span>
+                            <span class="wizard-progress__label">Project Type</span>
+                        </div>
+                        <div class="wizard-progress__step" data-step="2">
+                            <span class="wizard-progress__dot">2</span>
+                            <span class="wizard-progress__label">Systems</span>
+                        </div>
+                        <div class="wizard-progress__step" data-step="3">
+                            <span class="wizard-progress__dot">3</span>
+                            <span class="wizard-progress__label">Challenge</span>
+                        </div>
+                        <div class="wizard-progress__step" data-step="4">
+                            <span class="wizard-progress__dot">4</span>
+                            <span class="wizard-progress__label">Timeline</span>
+                        </div>
+                        <div class="wizard-progress__step" data-step="5">
+                            <span class="wizard-progress__dot">5</span>
+                            <span class="wizard-progress__label">Contact</span>
+                        </div>
                     </div>
                 </div>
 
-                <div>
-                    <form class="contact-form">
-                        <div class="form-group">
-                            <label class="form-label" for="name">Name</label>
-                            <input type="text" id="name" name="name" class="form-input" required>
-                        </div>
+                <!-- Step 1: Project Type -->
+                <div class="wizard-step active" data-step="1">
+                    <div class="wizard-step__header">
+                        <h2>What are you looking to build?</h2>
+                        <p>Select the option that best describes your project.</p>
+                    </div>
 
-                        <div class="form-group">
-                            <label class="form-label" for="email">Email</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="company">Company <span style="color: var(--text-muted); font-weight: 400;">(optional)</span></label>
-                            <input type="text" id="company" name="company" class="form-input">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="project">Tell me about your project</label>
-                            <textarea id="project" name="project" class="form-textarea" required
-                                placeholder="What are you trying to accomplish? What systems are involved? What's the business problem?"></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn--primary" style="width: 100%;">
-                            Send Message
+                    <div class="selection-cards">
+                        <button class="selection-card" data-value="integration">
+                            <div class="selection-card__icon">
+                                <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <h4 class="selection-card__title">System Integration</h4>
+                            <p class="selection-card__description">Connect two or more systems together. SAP to cloud services, API integrations, data sync.</p>
                         </button>
 
-                        <p style="font-size: 0.8125rem; color: var(--text-muted); text-align: center; margin-top: var(--space-md);">
-                            No spam. No mailing list. Just a direct conversation.
-                        </p>
-                    </form>
+                        <button class="selection-card" data-value="automation">
+                            <div class="selection-card__icon">
+                                <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                                </svg>
+                            </div>
+                            <h4 class="selection-card__title">Workflow Automation</h4>
+                            <p class="selection-card__description">Automate a manual process. Approvals, notifications, document routing, scheduled tasks.</p>
+                        </button>
+
+                        <button class="selection-card" data-value="custom">
+                            <div class="selection-card__icon">
+                                <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+                                </svg>
+                            </div>
+                            <h4 class="selection-card__title">Custom Application</h4>
+                            <p class="selection-card__description">Build something new. Dashboards, portals, internal tools, business applications.</p>
+                        </button>
+
+                        <button class="selection-card" data-value="notsure">
+                            <div class="selection-card__icon">
+                                <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <h4 class="selection-card__title">Not Sure Yet</h4>
+                            <p class="selection-card__description">I have a problem, not sure of the solution. Let's figure it out together.</p>
+                        </button>
+                    </div>
+
+                    <div class="wizard-nav">
+                        <button class="wizard-skip" data-action="skip">Skip this step</button>
+                        <button class="btn btn--primary wizard-next" data-action="next" disabled>Continue</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Systems & Context -->
+                <div class="wizard-step" data-step="2">
+                    <div class="wizard-step__header">
+                        <h2>What systems are involved?</h2>
+                        <p>Help me understand your technical landscape.</p>
+                    </div>
+
+                    <!-- Integration Fields -->
+                    <div class="wizard-fields wizard-fields--integration">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Source System</label>
+                                <select class="form-input form-select" name="sourceSystem">
+                                    <option value="">Select...</option>
+                                    <option value="sap-ecc">SAP ECC</option>
+                                    <option value="s4hana">S/4HANA</option>
+                                    <option value="salesforce">Salesforce</option>
+                                    <option value="servicenow">ServiceNow</option>
+                                    <option value="sharepoint">SharePoint</option>
+                                    <option value="custom">Custom / Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Target System</label>
+                                <select class="form-input form-select" name="targetSystem">
+                                    <option value="">Select...</option>
+                                    <option value="docusign">DocuSign</option>
+                                    <option value="salesforce">Salesforce</option>
+                                    <option value="servicenow">ServiceNow</option>
+                                    <option value="sharepoint">SharePoint</option>
+                                    <option value="teams">Microsoft Teams</option>
+                                    <option value="custom">Custom / Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Other systems involved? <span class="optional">(optional)</span></label>
+                            <input type="text" class="form-input" name="otherSystems" placeholder="e.g., Oracle, Workday, custom APIs...">
+                        </div>
+                    </div>
+
+                    <!-- Automation Fields -->
+                    <div class="wizard-fields wizard-fields--automation" style="display: none;">
+                        <div class="form-group">
+                            <label class="form-label">Primary System</label>
+                            <select class="form-input form-select" name="primarySystem">
+                                <option value="">Select...</option>
+                                <option value="sap-ecc">SAP ECC</option>
+                                <option value="s4hana">S/4HANA</option>
+                                <option value="salesforce">Salesforce</option>
+                                <option value="servicenow">ServiceNow</option>
+                                <option value="sharepoint">SharePoint</option>
+                                <option value="custom">Custom / Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">What triggers this workflow? <span class="optional">(optional)</span></label>
+                            <input type="text" class="form-input" name="trigger" placeholder="e.g., New PO created, Document uploaded, Status change...">
+                        </div>
+                    </div>
+
+                    <!-- Custom App Fields -->
+                    <div class="wizard-fields wizard-fields--custom" style="display: none;">
+                        <div class="form-group">
+                            <label class="form-label">Systems to connect with <span class="optional">(check all that apply)</span></label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="systems" value="sap-ecc">
+                                    <span>SAP ECC</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="systems" value="s4hana">
+                                    <span>S/4HANA</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="systems" value="salesforce">
+                                    <span>Salesforce</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="systems" value="servicenow">
+                                    <span>ServiceNow</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="systems" value="sharepoint">
+                                    <span>SharePoint</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="systems" value="none">
+                                    <span>Standalone (no integrations)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wizard-nav">
+                        <button class="btn btn--secondary wizard-back" data-action="back">Back</button>
+                        <div class="wizard-nav__right">
+                            <button class="wizard-skip" data-action="skip">Skip this step</button>
+                            <button class="btn btn--primary wizard-next" data-action="next">Continue</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: The Challenge -->
+                <div class="wizard-step" data-step="3">
+                    <div class="wizard-step__header">
+                        <h2>Describe the challenge</h2>
+                        <p>The more detail you provide here, the faster I can propose a solution.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">How does this work today? <span class="optional">(optional)</span></label>
+                        <textarea class="form-textarea" name="currentSituation" rows="4"
+                            placeholder="Walk me through the current process. What's manual? What's painful? What breaks?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">What does success look like? <span class="optional">(optional)</span></label>
+                        <textarea class="form-textarea" name="desiredOutcome" rows="4"
+                            placeholder="When this is done, what's different? What can people do that they couldn't before?"></textarea>
+                    </div>
+
+                    <div class="wizard-nav">
+                        <button class="btn btn--secondary wizard-back" data-action="back">Back</button>
+                        <div class="wizard-nav__right">
+                            <button class="wizard-skip" data-action="skip">Skip this step</button>
+                            <button class="btn btn--primary wizard-next" data-action="next">Continue</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Timeline & Budget -->
+                <div class="wizard-step" data-step="4">
+                    <div class="wizard-step__header">
+                        <h2>Timeline & Investment</h2>
+                        <p>This helps me prioritize and scope appropriately. All optional.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">When do you need this?</label>
+                        <div class="pill-group">
+                            <button class="pill" data-name="timeline" data-value="asap">ASAP</button>
+                            <button class="pill" data-name="timeline" data-value="soon">Soon (1-2 months)</button>
+                            <button class="pill" data-name="timeline" data-value="planning">Planning (3+ months)</button>
+                            <button class="pill" data-name="timeline" data-value="exploring">Just exploring</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top: var(--space-2xl);">
+                        <label class="form-label">Budget range <span class="optional">(optional)</span></label>
+                        <div class="budget-cards">
+                            <button class="budget-card" data-name="budget" data-value="under10k">
+                                <span class="budget-card__amount">Under $10K</span>
+                                <span class="budget-card__description">Small integration or automation</span>
+                            </button>
+                            <button class="budget-card" data-name="budget" data-value="10-25k">
+                                <span class="budget-card__amount">$10K - $25K</span>
+                                <span class="budget-card__description">Medium complexity project</span>
+                            </button>
+                            <button class="budget-card" data-name="budget" data-value="25-50k">
+                                <span class="budget-card__amount">$25K - $50K</span>
+                                <span class="budget-card__description">Larger multi-system solution</span>
+                            </button>
+                            <button class="budget-card" data-name="budget" data-value="50k+">
+                                <span class="budget-card__amount">$50K+</span>
+                                <span class="budget-card__description">Enterprise-scale project</span>
+                            </button>
+                            <button class="budget-card" data-name="budget" data-value="discuss">
+                                <span class="budget-card__amount">Let's discuss</span>
+                                <span class="budget-card__description">Not sure / flexible</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="wizard-nav">
+                        <button class="btn btn--secondary wizard-back" data-action="back">Back</button>
+                        <div class="wizard-nav__right">
+                            <button class="wizard-skip" data-action="skip">Skip this step</button>
+                            <button class="btn btn--primary wizard-next" data-action="next">Continue</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5: Contact & Review -->
+                <div class="wizard-step" data-step="5">
+                    <div class="wizard-step__header">
+                        <h2>Let's connect</h2>
+                        <p>Almost done! Just need your contact info and any final thoughts.</p>
+                    </div>
+
+                    <div class="wizard-final-grid">
+                        <div class="wizard-contact-form">
+                            <form id="wizard-form">
+                                <div class="form-group">
+                                    <label class="form-label" for="wizard-name">Name <span class="required">*</span></label>
+                                    <input type="text" id="wizard-name" name="name" class="form-input" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="wizard-email">Email <span class="required">*</span></label>
+                                    <input type="email" id="wizard-email" name="email" class="form-input" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="wizard-company">Company <span class="optional">(optional)</span></label>
+                                        <input type="text" id="wizard-company" name="company" class="form-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="wizard-phone">Phone <span class="optional">(optional)</span></label>
+                                        <input type="tel" id="wizard-phone" name="phone" class="form-input">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="wizard-message">Anything else I should know? <span class="required">*</span></label>
+                                    <textarea id="wizard-message" name="message" class="form-textarea" required
+                                        placeholder="Final thoughts, questions, or context that would be helpful..."></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn--primary" style="width: 100%;">
+                                    Send Project Brief
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="wizard-summary">
+                            <h4>Project Summary</h4>
+                            <div class="summary-content" id="summary-content">
+                                <p class="summary-empty">Complete the previous steps to build your project summary.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wizard-nav" style="margin-top: var(--space-xl);">
+                        <button class="btn btn--secondary wizard-back" data-action="back">Back</button>
+                    </div>
                 </div>
             </div>
         </div>

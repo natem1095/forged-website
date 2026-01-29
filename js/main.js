@@ -54,6 +54,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Scroll indicator fade out
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 20) {
+                scrollIndicator.classList.add('scroll-indicator--hidden');
+            } else {
+                scrollIndicator.classList.remove('scroll-indicator--hidden');
+            }
+        });
+    }
+
     // ========================================
     // SOLUTION FILTERING
     // ========================================

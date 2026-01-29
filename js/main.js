@@ -66,21 +66,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Back to top button
+    // Back to top button - show/hide
     const backToTopBtn = document.getElementById('back-to-top');
     if (backToTopBtn) {
-        // Show/hide based on scroll position (after first section)
         window.addEventListener('scroll', function() {
             if (window.scrollY > window.innerHeight * 0.8) {
                 backToTopBtn.classList.add('visible');
             } else {
                 backToTopBtn.classList.remove('visible');
             }
-        });
-
-        // Scroll to top on click
-        backToTopBtn.addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 
@@ -96,7 +90,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Configuration
         const config = {
             animationDuration: 150,      // Very fast
-            scrollThreshold: 150,        // Accumulated scroll needed to trigger
+            scrollThreshold: 150,        // Accumulated scroll needed to trigger (down)
+            scrollUpThreshold: 300,      // Higher threshold for scrolling up
+            snapDelay: 900,              // Delay before snapping to nearest section (up)
             cooldownAfterSnap: 300,      // Cooldown after animation to prevent skipping
             touchThreshold: 30,          // Min touch delta to trigger snap
             mobileBreakpoint: 768        // Disable snap below this width
@@ -108,6 +104,8 @@ document.addEventListener('DOMContentLoaded', function() {
         let lastSnapTime = 0;
         let scrollAccumulator = 0;
         let lastWheelTime = 0;
+        let snapTimeout = null;
+        let freeScrollMode = false;
         let touchStartY = 0;
         let touchStartTime = 0;
         let isMobileView = window.innerWidth <= config.mobileBreakpoint;
@@ -138,6 +136,53 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             return 0;
+        }
+
+        // Get nearest section based on which one occupies most of viewport
+        function getNearestSection() {
+            let maxVisibility = 0;
+            let nearestIndex = 0;
+
+            snapSections.forEach(function(section, index) {
+                const rect = section.getBoundingClientRect();
+                const viewportHeight = window.innerHeight;
+
+                // Calculate how much of the section is visible
+                const visibleTop = Math.max(0, rect.top);
+                const visibleBottom = Math.min(viewportHeight, rect.bottom);
+                const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+
+                if (visibleHeight > maxVisibility) {
+                    maxVisibility = visibleHeight;
+                    nearestIndex = index;
+                }
+            });
+
+            return nearestIndex;
+        }
+
+        // Snap to nearest section after scrolling stops
+        function snapToNearest() {
+            if (isAnimating) return;
+            if (isInRegularContent()) {
+                freeScrollMode = false;
+                return;
+            }
+
+            const nearest = getNearestSection();
+            if (nearest !== currentSectionIndex) {
+                goToSection(nearest);
+            } else {
+                // Already on nearest, but might need to align
+                const section = snapSections[currentSectionIndex];
+                const rect = section.getBoundingClientRect();
+                if (Math.abs(rect.top) > 50) {
+                    goToSection(currentSectionIndex);
+                }
+            }
+
+            // Re-engage controlled scroll mode after snap
+            freeScrollMode = false;
         }
 
         // Check if we're in the regular content area
@@ -201,31 +246,48 @@ document.addEventListener('DOMContentLoaded', function() {
             // Quick exits
             if (isMobileView) return;
 
-            // Check regular content area
-            if (regularContent) {
+            // Check if we're in the regular content area
+            const inRegularContent = regularContent && regularContent.getBoundingClientRect().top < window.innerHeight * 0.5;
+
+            // In regular content - handle transition back to snap zone
+            if (inRegularContent) {
                 const regularTop = regularContent.getBoundingClientRect().top;
-                if (regularTop < window.innerHeight * 0.5) {
-                    // In regular content - only intercept scroll up at top
-                    if (e.deltaY < 0 && regularTop >= -10 && !isAnimating) {
-                        e.preventDefault();
-                        goToSection(snapSections.length - 1);
-                    }
+
+                // Scrolling up near top of regular content - snap back to last section
+                if (e.deltaY < 0 && regularTop >= -10 && !isAnimating) {
+                    e.preventDefault();
+                    freeScrollMode = false;
+                    clearTimeout(snapTimeout);
+                    goToSection(snapSections.length - 1);
                     return;
                 }
-            }
 
-            // In snap zone - block default scroll
-            e.preventDefault();
-            if (isAnimating) return;
-
-            // SCROLLING UP - instant trigger (no accumulator)
-            if (e.deltaY < 0) {
-                if (currentSectionIndex > 0) {
-                    goToSection(currentSectionIndex - 1);
-                }
-                scrollAccumulator = 0;
+                // Otherwise, allow natural scrolling in regular content
                 return;
             }
+
+            // SCROLLING UP - engage free scroll mode
+            if (e.deltaY < 0) {
+                freeScrollMode = true;
+                scrollAccumulator = 0;
+
+                // Debounce snap to nearest section when scrolling stops
+                clearTimeout(snapTimeout);
+                snapTimeout = setTimeout(snapToNearest, config.snapDelay);
+                return;
+            }
+
+            // SCROLLING DOWN
+            // If in free scroll mode, allow natural scroll and reset snap timer
+            if (freeScrollMode) {
+                clearTimeout(snapTimeout);
+                snapTimeout = setTimeout(snapToNearest, config.snapDelay);
+                return;
+            }
+
+            // Controlled scroll down - block default and use accumulator
+            e.preventDefault();
+            if (isAnimating) return;
 
             // SCROLLING DOWN - use accumulator to prevent skipping
             if (Date.now() - lastSnapTime < config.cooldownAfterSnap) return;
@@ -371,6 +433,16 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(function() {
                 goToSection(currentSectionIndex, 500);
             }, 100);
+        }
+
+        // Back to top button click - reset section index
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', function() {
+                currentSectionIndex = 0;
+                freeScrollMode = false;
+                clearTimeout(snapTimeout);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
         }
 
         console.log('Smooth scroll snap initialized with', snapSections.length, 'sections');

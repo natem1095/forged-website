@@ -457,8 +457,15 @@ section {
 
 .filter-bar {
     display: flex;
-    gap: var(--space-sm);
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-lg);
     margin-bottom: var(--space-xl);
+}
+
+.filter-bar__filters {
+    display: flex;
+    gap: var(--space-sm);
     flex-wrap: wrap;
 }
 
@@ -2583,4 +2590,99 @@ section {
 
 .fade-tiles.animate .fade-tile:nth-child(5) {
     transition-delay: 0.6s;
+}
+
+/* ========================================
+   LOGO CYCLER (Compact single-logo display)
+   ======================================== */
+
+.logo-cycler {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.logo-cycler__label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.logo-cycler__window {
+    width: 90px;
+    height: 40px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+.logo-cycler__track {
+    display: flex;
+    align-items: center;
+    animation: logo-cycle 18s linear infinite;
+}
+
+.logo-cycler__track img {
+    width: 90px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+
+@keyframes logo-cycle {
+    from { transform: translateX(0); }
+    to { transform: translateX(-720px); }
+}
+
+.logo-cycler:hover .logo-cycler__track {
+    animation-play-state: paused;
+}
+
+.logo-cycler:hover .logo-cycler__track img {
+    opacity: 1;
+}
+
+/* Logo cycler responsive */
+@media (max-width: 768px) {
+    .filter-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo-cycler {
+        width: 100%;
+        justify-content: flex-start;
+        padding-top: var(--space-sm);
+        border-top: 1px solid var(--border-light);
+        margin-top: var(--space-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-cycler__window {
+        width: 70px;
+        height: 32px;
+    }
+
+    .logo-cycler__track img {
+        width: 70px;
+        height: 26px;
+    }
+
+    .logo-cycler__track {
+        animation-name: logo-cycle-mobile;
+    }
+
+    @keyframes logo-cycle-mobile {
+        from { transform: translateX(0); }
+        to { transform: translateX(-560px); }
+    }
 }

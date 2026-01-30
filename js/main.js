@@ -64,15 +64,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const textSpan = element.querySelector('.typewriter__text');
         const cursor = element.querySelector('.terminal-cursor');
         const fullText = element.dataset.text;
-        const storageKey = 'typewriter_' + fullText.replace(/\s+/g, '_');
-
-        // Check if already played this session
-        if (sessionStorage.getItem(storageKey)) {
-            // Already played - show full text immediately
-            textSpan.textContent = fullText;
-            if (cursor) cursor.style.display = 'inline-block';
-            return;
-        }
+        let isTyping = false;
+        let typeTimeout = null;
 
         // Hide cursor initially
         if (cursor) cursor.style.opacity = '0';
@@ -81,15 +74,24 @@ document.addEventListener('DOMContentLoaded', function() {
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
-                    // Wait for snap animation to complete before typing
-                    setTimeout(function() {
-                        typeText(textSpan, fullText, cursor, function() {
-                            // Mark as played in sessionStorage
-                            sessionStorage.setItem(storageKey, 'true');
-                        });
-                    }, 400);
-                    // Stop observing after triggered
-                    observer.unobserve(element);
+                    // Only start if not already typing
+                    if (!isTyping) {
+                        isTyping = true;
+                        // Reset text
+                        textSpan.textContent = '';
+                        // Wait for snap animation to complete before typing
+                        setTimeout(function() {
+                            typeText(textSpan, fullText, cursor, function() {
+                                // Typing complete
+                            });
+                        }, 400);
+                    }
+                } else {
+                    // Left viewport - reset for next time
+                    isTyping = false;
+                    clearTimeout(typeTimeout);
+                    textSpan.textContent = '';
+                    if (cursor) cursor.style.opacity = '0';
                 }
             });
         }, { threshold: 0.8 });
@@ -126,21 +128,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Track if snap scroll is active (to prevent observer from firing during snap)
     window.fadeWordsSnapActive = false;
 
-    // Initialize fade words - check if already played this session
-    document.querySelectorAll('.fade-words').forEach(function(element) {
-        const storageKey = 'fadewords_' + element.textContent.trim().replace(/\s+/g, '_');
-        if (sessionStorage.getItem(storageKey)) {
-            element.classList.add('animate');
-        }
-    });
-
     // Function to trigger fade animation (called by snap scroll)
     window.triggerFadeWords = function(section) {
         const fadeElement = section.querySelector('.fade-words');
         if (fadeElement && !fadeElement.classList.contains('animate')) {
-            const storageKey = 'fadewords_' + fadeElement.textContent.trim().replace(/\s+/g, '_');
             fadeElement.classList.add('animate');
-            sessionStorage.setItem(storageKey, 'true');
+        }
+    };
+
+    // Function to reset fade animation (called when leaving section)
+    window.resetFadeWords = function(section) {
+        const fadeElement = section.querySelector('.fade-words');
+        if (fadeElement) {
+            fadeElement.classList.remove('animate');
         }
     };
 
@@ -148,7 +148,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.triggerFadeSection = function(section) {
         const fadeElement = section.querySelector('.fade-section');
         if (fadeElement && !fadeElement.classList.contains('animate')) {
-            sessionStorage.setItem('fadesection_' + section.className, 'true');
             fadeElement.classList.add('animate');
         }
     };
@@ -157,7 +156,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.triggerFadeHeader = function(section) {
         const fadeHeader = section.querySelector('.fade-header');
         if (fadeHeader && !fadeHeader.classList.contains('animate')) {
-            sessionStorage.setItem('fadeheader_' + section.className, 'true');
             fadeHeader.classList.add('animate');
 
             // Trigger tile animations after header fade completes (1s)
@@ -165,40 +163,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if (fadeTiles && !fadeTiles.classList.contains('animate')) {
                 setTimeout(function() {
                     fadeTiles.classList.add('animate');
-                    sessionStorage.setItem('fadetiles_' + section.className, 'true');
                 }, 1000);
             }
         }
     };
 
-    // Initialize fade headers - check if already played this session
-    document.querySelectorAll('.fade-header').forEach(function(element) {
-        const section = element.closest('.snap-section');
-        if (section && sessionStorage.getItem('fadeheader_' + section.className)) {
-            element.classList.add('animate');
-        }
-    });
-
-    // Initialize fade tiles - check if already played this session
-    document.querySelectorAll('.fade-tiles').forEach(function(element) {
-        const section = element.closest('.snap-section');
-        if (section && sessionStorage.getItem('fadetiles_' + section.className)) {
-            element.classList.add('animate');
-        }
-    });
-
-    // Initialize fade sections - check if already played this session
-    document.querySelectorAll('.fade-section').forEach(function(element) {
-        const section = element.closest('.snap-section');
-        if (section && sessionStorage.getItem('fadesection_' + section.className)) {
-            element.classList.add('animate');
-        }
-    });
-
     // Fallback: Intersection Observer for mobile/free scroll only
     document.querySelectorAll('.fade-words').forEach(function(element) {
-        if (element.classList.contains('animate')) return;
-
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 // Don't trigger if snap scroll is handling it
@@ -208,12 +179,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Extra delay for non-snap scroll
                     setTimeout(function() {
                         if (!element.classList.contains('animate')) {
-                            const storageKey = 'fadewords_' + element.textContent.trim().replace(/\s+/g, '_');
                             element.classList.add('animate');
-                            sessionStorage.setItem(storageKey, 'true');
                         }
                     }, 1000);
-                    observer.unobserve(element);
+                } else if (!entry.isIntersecting) {
+                    // Reset when leaving viewport
+                    element.classList.remove('animate');
                 }
             });
         }, { threshold: 0.9 });
@@ -223,8 +194,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fallback: Intersection Observer for fade-section on mobile/free scroll
     document.querySelectorAll('.fade-section').forEach(function(element) {
-        if (element.classList.contains('animate')) return;
-
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (window.fadeWordsSnapActive) return;
@@ -235,7 +204,9 @@ document.addEventListener('DOMContentLoaded', function() {
                             element.classList.add('animate');
                         }
                     }, 500);
-                    observer.unobserve(element);
+                } else if (!entry.isIntersecting) {
+                    // Reset when leaving viewport
+                    element.classList.remove('animate');
                 }
             });
         }, { threshold: 0.3 });
@@ -441,6 +412,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (index < 0 || index >= snapSections.length) return;
             if (isAnimating) return;
 
+            const previousIndex = currentSectionIndex;
             const section = snapSections[index];
             const targetY = section.offsetTop;
 
@@ -448,6 +420,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Mark snap as active to prevent observer from firing
             window.fadeWordsSnapActive = true;
+
+            // Reset animations on sections we're leaving
+            snapSections.forEach(function(sec, i) {
+                if (i !== index) {
+                    if (window.resetFadeWords) {
+                        window.resetFadeWords(sec);
+                    }
+                }
+            });
 
             smoothScrollTo(targetY, duration || config.animationDuration, function() {
                 // Trigger fade animations 0.25 seconds after snap completes

@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function typeText(element, text, cursor, callback) {
         const typingSpeed = 100; // ms per character
-        const slowTypingSpeed = 500; // ms per character for "More"
+        const slowTypingSpeed = 400; // ms per character for "More"
         const pauseAfterMore = 800; // ms to pause after "More"
 
         // Show cursor when typing starts

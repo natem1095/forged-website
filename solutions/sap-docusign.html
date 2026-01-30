@@ -383,59 +383,504 @@ Workflow Engine/             # Business integration package
                     </div>
                 </div>
 
-                <!-- Documentation Preview (Collapsible) -->
-                <div class="doc-preview">
-                    <button class="doc-preview__toggle" onclick="this.parentElement.classList.toggle('expanded')">
+                <!-- Architecture Documentation (Expandable) -->
+                <div class="doc-preview" id="archDocSection">
+                    <button class="doc-preview__toggle" onclick="toggleArchDoc()">
                         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path d="M9 5l7 7-7 7"/>
                         </svg>
-                        <span>View Documentation Table of Contents</span>
+                        <span>View Architecture Documentation</span>
                     </button>
                     <div class="doc-preview__content">
-                        <div class="doc-toc">
-                            <div class="doc-toc__part">
-                                <h4>Part 1: Core API Package (Z_DS_API)</h4>
-                                <ul>
-                                    <li>1.1 Overview & Architecture</li>
-                                    <li>1.2 Database Tables (12 tables with field specs)</li>
-                                    <li>1.3 Type Definitions & Data Elements</li>
-                                    <li>1.4 API Class Methods (14 methods)</li>
-                                    <li>1.5 Webhook Processing & HMAC Validation</li>
-                                    <li>1.6 OAuth Flow & Token Management</li>
-                                </ul>
+                        <!-- Tab Navigation -->
+                        <div class="arch-doc-tabs">
+                            <button class="arch-doc-tabs__btn active" onclick="showArchTab('quick-ref')">Quick Reference</button>
+                            <button class="arch-doc-tabs__btn" onclick="showArchTab('oauth-flow')">OAuth Flow</button>
+                            <button class="arch-doc-tabs__btn" onclick="showArchTab('callback')">Callback Methods</button>
+                            <button class="arch-doc-tabs__btn" onclick="showArchTab('config')">Configuration</button>
+                            <button class="arch-doc-tabs__btn" onclick="showArchTab('troubleshoot')">Troubleshooting</button>
+                            <button class="arch-doc-tabs__btn" onclick="showArchTab('transactions')">SAP Transactions</button>
+                        </div>
+
+                        <!-- Tab 1: Quick Reference -->
+                        <div class="arch-doc-section active" id="tab-quick-ref">
+                            <h4>Key Capabilities</h4>
+                            <table class="sap-table">
+                                <thead>
+                                    <tr>
+                                        <th>Capability</th>
+                                        <th>Implementation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>OAuth 2.0</td>
+                                        <td>Authorization Code Grant + JWT Bearer Grant supported</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Envelope Management</td>
+                                        <td>Create, send, void envelopes with PDF attachments</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Webhook Processing</td>
+                                        <td>HMAC-SHA256 validation, event routing by App ID</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Signature Anchors</td>
+                                        <td>Auto-position signature fields via anchor text in PDFs</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Token Management</td>
+                                        <td>Auto-refresh with configurable buffer, secure storage</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4 style="margin-top: var(--space-lg);">Core Components</h4>
+                            <table class="sap-table">
+                                <thead>
+                                    <tr>
+                                        <th>Component</th>
+                                        <th>Type</th>
+                                        <th>Purpose</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>API Core Class</td>
+                                        <td>Class</td>
+                                        <td>Central API client - OAuth, envelope creation, status queries</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Webhook Handler</td>
+                                        <td>Class</td>
+                                        <td>Process incoming webhooks, validate HMAC, route to callbacks</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Callback Interface</td>
+                                        <td>Interface</td>
+                                        <td>Contract for application-specific event handling</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Config Table</td>
+                                        <td>DB Table</td>
+                                        <td>OAuth credentials, API endpoints, token storage</td>
+                                    </tr>
+                                    <tr>
+                                        <td>App Registry Table</td>
+                                        <td>DB Table</td>
+                                        <td>Registered applications with callback class mappings</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Envelope Tracking Table</td>
+                                        <td>DB Table</td>
+                                        <td>Envelope status, timestamps, business object references</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Tab 2: OAuth Flow -->
+                        <div class="arch-doc-section" id="tab-oauth-flow">
+                            <h4>Authorization Code Grant Flow</h4>
+                            <div class="arch-doc-flow">
+                                <div class="arch-doc-flow__step">
+                                    <span class="arch-doc-flow__num">1</span>
+                                    <span>User accesses OAuth Setup BSP page</span>
+                                </div>
+                                <div class="arch-doc-flow__step">
+                                    <span class="arch-doc-flow__num">2</span>
+                                    <span>Redirect to DocuSign login with Integration Key + Scopes</span>
+                                </div>
+                                <div class="arch-doc-flow__step">
+                                    <span class="arch-doc-flow__num">3</span>
+                                    <span>User grants consent, DocuSign redirects back with auth code</span>
+                                </div>
+                                <div class="arch-doc-flow__step">
+                                    <span class="arch-doc-flow__num">4</span>
+                                    <span>Exchange auth code for access token + refresh token</span>
+                                </div>
+                                <div class="arch-doc-flow__step">
+                                    <span class="arch-doc-flow__num">5</span>
+                                    <span>Store tokens encrypted in Config Table</span>
+                                </div>
+                                <div class="arch-doc-flow__step">
+                                    <span class="arch-doc-flow__num">6</span>
+                                    <span>Auto-refresh before expiry (configurable buffer)</span>
+                                </div>
                             </div>
-                            <div class="doc-toc__part">
-                                <h4>Part 2: Business Integration (Z_MM_DS_INT)</h4>
-                                <ul>
-                                    <li>2.1 PO Release Strategy Integration</li>
-                                    <li>2.2 BADI Implementation Details</li>
-                                    <li>2.3 SmartForm PDF Generation</li>
-                                    <li>2.4 Callback Implementation</li>
-                                    <li>2.5 GR Blocking Logic</li>
-                                </ul>
+
+                            <div class="arch-doc-callout" style="margin-top: var(--space-lg);">
+                                <strong>Token Refresh Logic:</strong> Access tokens expire after ~8 hours.
+                                The API checks token validity before each call with a configurable buffer
+                                (default 5 minutes). If expiring, refresh token is used automatically.
                             </div>
-                            <div class="doc-toc__part">
-                                <h4>Part 3: Integration Architecture</h4>
-                                <ul>
-                                    <li>3.1 Package Dependency Chain</li>
-                                    <li>3.2 End-to-End Workflow Diagrams</li>
-                                    <li>3.3 Error Handling & Recovery</li>
-                                    <li>3.4 Critical Technical Requirements</li>
-                                </ul>
+
+                            <h4 style="margin-top: var(--space-lg);">Envelope Creation Flow</h4>
+                            <div class="arch-doc-flow">
+                                <div class="arch-doc-flow__step">
+                                    <span class="arch-doc-flow__num">1</span>
+                                    <span>Business trigger (BADI, report, custom code)</span>
+                                </div>
+                                <div class="arch-doc-flow__step">
+                                    <span class="arch-doc-flow__num">2</span>
+                                    <span>Generate PDF with signature anchor text (e.g., /sig1/)</span>
+                                </div>
+                                <div class="arch-doc-flow__step">
+                                    <span class="arch-doc-flow__num">3</span>
+                                    <span>Build signer list with routing order</span>
+                                </div>
+                                <div class="arch-doc-flow__step">
+                                    <span class="arch-doc-flow__num">4</span>
+                                    <span>Call API Core Class→CREATE_ENVELOPE method</span>
+                                </div>
+                                <div class="arch-doc-flow__step">
+                                    <span class="arch-doc-flow__num">5</span>
+                                    <span>Envelope ID returned and stored in Tracking Table</span>
+                                </div>
+                                <div class="arch-doc-flow__step">
+                                    <span class="arch-doc-flow__num">6</span>
+                                    <span>DocuSign sends emails to signers in sequence</span>
+                                </div>
                             </div>
-                            <div class="doc-toc__part">
-                                <h4>Appendices</h4>
-                                <ul>
-                                    <li>A: Environment URLs & Configuration</li>
-                                    <li>B: Message Classes & Error Codes</li>
-                                    <li>C: Installation Checklist</li>
-                                    <li>D: Entity Relationship Diagram</li>
-                                    <li>E: Test Program Reference</li>
-                                </ul>
+                        </div>
+
+                        <!-- Tab 3: Callback Methods -->
+                        <div class="arch-doc-section" id="tab-callback">
+                            <h4>Callback Interface Methods</h4>
+                            <div class="arch-doc-callout">
+                                <strong>Interface Contract:</strong> Each application implements this interface
+                                to handle DocuSign events. The Webhook Handler routes events based on App ID
+                                stored in envelope custom fields.
                             </div>
+
+                            <table class="sap-table" style="margin-top: var(--space-md);">
+                                <thead>
+                                    <tr>
+                                        <th>Method</th>
+                                        <th>Trigger Event</th>
+                                        <th>Typical Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>ON_COMPLETED</code></td>
+                                        <td>All signers completed</td>
+                                        <td>Release PO, update status, trigger downstream process</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>ON_DECLINED</code></td>
+                                        <td>Any signer declined</td>
+                                        <td>Notify requestor, log rejection reason</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>ON_VOIDED</code></td>
+                                        <td>Envelope voided</td>
+                                        <td>Clean up pending states, remove blocks</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>ON_SENT</code></td>
+                                        <td>Envelope sent</td>
+                                        <td>Update tracking status (optional)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>ON_DELIVERED</code></td>
+                                        <td>Recipient viewed</td>
+                                        <td>Log view timestamp (optional)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4 style="margin-top: var(--space-lg);">Webhook Processing</h4>
+                            <div class="arch-doc-flow">
+                                <div class="arch-doc-flow__step">
+                                    <span class="arch-doc-flow__num">1</span>
+                                    <span>DocuSign POSTs XML payload to SAP webhook endpoint</span>
+                                </div>
+                                <div class="arch-doc-flow__step">
+                                    <span class="arch-doc-flow__num">2</span>
+                                    <span>Validate HMAC-SHA256 signature (X-DocuSign-Signature header)</span>
+                                </div>
+                                <div class="arch-doc-flow__step">
+                                    <span class="arch-doc-flow__num">3</span>
+                                    <span>Parse XML, extract envelope ID and status</span>
+                                </div>
+                                <div class="arch-doc-flow__step">
+                                    <span class="arch-doc-flow__num">4</span>
+                                    <span>Lookup App ID from envelope custom fields</span>
+                                </div>
+                                <div class="arch-doc-flow__step">
+                                    <span class="arch-doc-flow__num">5</span>
+                                    <span>Instantiate callback class from App Registry</span>
+                                </div>
+                                <div class="arch-doc-flow__step">
+                                    <span class="arch-doc-flow__num">6</span>
+                                    <span>Call appropriate ON_* method based on status</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 4: Configuration -->
+                        <div class="arch-doc-section" id="tab-config">
+                            <h4>DocuSign Setup</h4>
+                            <ul class="arch-doc-checklist">
+                                <li>Create Integration Key in DocuSign Admin</li>
+                                <li>Generate Secret Key (for Authorization Code Grant)</li>
+                                <li>Configure Redirect URI pointing to SAP BSP</li>
+                                <li>Set required scopes: signature, impersonation</li>
+                                <li>Configure Connect webhook with HMAC key</li>
+                                <li>Note Account ID (GUID format) and Base URI</li>
+                            </ul>
+
+                            <h4 style="margin-top: var(--space-lg);">SAP Setup</h4>
+                            <ul class="arch-doc-checklist">
+                                <li>Import SSL certificates (DocuSign root + intermediate) via STRUST</li>
+                                <li>Activate SICF services for BSP pages</li>
+                                <li>Configure Config Table via maintenance program</li>
+                                <li>Complete OAuth flow via setup BSP page</li>
+                                <li>Register applications in App Registry Table</li>
+                                <li>Maintain signer mappings (for PO release integration)</li>
+                            </ul>
+
+                            <h4 style="margin-top: var(--space-lg);">Config Table Fields</h4>
+                            <table class="sap-table">
+                                <thead>
+                                    <tr>
+                                        <th>Field</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>INTEGRATION_KEY</td>
+                                        <td>DocuSign Integration Key (Client ID)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SECRET_KEY</td>
+                                        <td>Client Secret (encrypted storage)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ACCOUNT_ID</td>
+                                        <td>DocuSign Account GUID</td>
+                                    </tr>
+                                    <tr>
+                                        <td>BASE_URI</td>
+                                        <td>API base URL (varies by environment)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>HMAC_KEY</td>
+                                        <td>Webhook signature validation key</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ACCESS_TOKEN</td>
+                                        <td>Current OAuth access token (encrypted)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>REFRESH_TOKEN</td>
+                                        <td>Token for obtaining new access tokens</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TOKEN_EXPIRY</td>
+                                        <td>Timestamp when access token expires</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Tab 5: Troubleshooting -->
+                        <div class="arch-doc-section" id="tab-troubleshoot">
+                            <h4>Diagnostic Decision Tree</h4>
+                            <div class="arch-doc-callout">
+                                <strong>Token Issues?</strong> → Run Test Connection program → Check token expiry in Config Table →
+                                Re-run OAuth setup if refresh token expired
+                            </div>
+                            <div class="arch-doc-callout">
+                                <strong>Webhook Not Firing?</strong> → Check SICF service active → Verify DocuSign Connect config →
+                                Test with manual envelope → Check SAP gateway logs
+                            </div>
+                            <div class="arch-doc-callout">
+                                <strong>PDF Errors?</strong> → Validate PDF header (%PDF) → Check CONVERT_OTF uses BIN_FILE parameter →
+                                Verify SmartForm output format
+                            </div>
+
+                            <h4 style="margin-top: var(--space-lg);">Common OAuth Errors</h4>
+                            <table class="sap-table">
+                                <thead>
+                                    <tr>
+                                        <th>Error</th>
+                                        <th>Cause</th>
+                                        <th>Solution</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>invalid_grant</td>
+                                        <td>Refresh token expired or revoked</td>
+                                        <td>Re-run complete OAuth setup flow</td>
+                                    </tr>
+                                    <tr>
+                                        <td>consent_required</td>
+                                        <td>User hasn't granted consent</td>
+                                        <td>Access OAuth BSP, complete consent</td>
+                                    </tr>
+                                    <tr>
+                                        <td>invalid_client</td>
+                                        <td>Wrong Integration Key or Secret</td>
+                                        <td>Verify credentials in Config Table</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4 style="margin-top: var(--space-lg);">Common API Errors</h4>
+                            <table class="sap-table">
+                                <thead>
+                                    <tr>
+                                        <th>HTTP Code</th>
+                                        <th>Meaning</th>
+                                        <th>Solution</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>400</td>
+                                        <td>Invalid request format</td>
+                                        <td>Check JSON structure, required fields</td>
+                                    </tr>
+                                    <tr>
+                                        <td>401</td>
+                                        <td>Authentication failed</td>
+                                        <td>Token expired, refresh or re-auth</td>
+                                    </tr>
+                                    <tr>
+                                        <td>403</td>
+                                        <td>Permission denied</td>
+                                        <td>Check user permissions in DocuSign</td>
+                                    </tr>
+                                    <tr>
+                                        <td>404</td>
+                                        <td>Envelope not found</td>
+                                        <td>Verify envelope ID, check account</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4 style="margin-top: var(--space-lg);">Emergency Disable</h4>
+                            <div class="code-block">
+                                <code>
+1. Deactivate SICF webhook service<br>
+2. Set ACTIVE = ' ' in Config Table<br>
+3. Disable BADI implementation (SE19)
+                                </code>
+                            </div>
+                        </div>
+
+                        <!-- Tab 6: SAP Transactions -->
+                        <div class="arch-doc-section" id="tab-transactions">
+                            <h4>Transaction Reference</h4>
+                            <table class="sap-table">
+                                <thead>
+                                    <tr>
+                                        <th>Transaction</th>
+                                        <th>Purpose</th>
+                                        <th>Usage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>SE11</td>
+                                        <td>Data Dictionary</td>
+                                        <td>View/maintain database table definitions</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SE24</td>
+                                        <td>Class Builder</td>
+                                        <td>Maintain API classes and interfaces</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SE19</td>
+                                        <td>BADI Implementation</td>
+                                        <td>Activate/deactivate BADI implementations</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SM30</td>
+                                        <td>Table Maintenance</td>
+                                        <td>Maintain signer mappings and config</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SE38</td>
+                                        <td>ABAP Editor</td>
+                                        <td>Run test and diagnostic programs</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SICF</td>
+                                        <td>ICF Services</td>
+                                        <td>Activate/deactivate BSP and webhook services</td>
+                                    </tr>
+                                    <tr>
+                                        <td>STRUST</td>
+                                        <td>Trust Manager</td>
+                                        <td>Import DocuSign SSL certificates</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SMARTFORMS</td>
+                                        <td>SmartForm Builder</td>
+                                        <td>Maintain PDF templates with signature anchors</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4 style="margin-top: var(--space-lg);">Test & Diagnostic Programs</h4>
+                            <table class="sap-table">
+                                <thead>
+                                    <tr>
+                                        <th>Program</th>
+                                        <th>Purpose</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Config Maintenance</td>
+                                        <td>Enter/update OAuth credentials and settings</td>
+                                    </tr>
+                                    <tr>
+                                        <td>App Registration</td>
+                                        <td>Register new applications with callback classes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Connection Test</td>
+                                        <td>Verify OAuth and API connectivity</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Token Monitor</td>
+                                        <td>View token status and expiry times</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Envelope Diagnostic</td>
+                                        <td>Troubleshoot specific envelope issues</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Status Polling</td>
+                                        <td>Manual status sync (webhook backup)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
+
+                <script>
+                function toggleArchDoc() {
+                    document.getElementById('archDocSection').classList.toggle('expanded');
+                }
+                function showArchTab(tabId) {
+                    // Remove active from all tabs and sections
+                    document.querySelectorAll('.arch-doc-tabs__btn').forEach(btn => btn.classList.remove('active'));
+                    document.querySelectorAll('.arch-doc-section').forEach(sec => sec.classList.remove('active'));
+                    // Activate clicked tab and corresponding section
+                    event.target.classList.add('active');
+                    document.getElementById('tab-' + tabId).classList.add('active');
+                }
+                </script>
             </div>
 
             <!-- Technologies -->

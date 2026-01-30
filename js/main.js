@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             typeText(textSpan, fullText, cursor, function() {
                                 // Typing complete
                             });
-                        }, 400);
+                        }, 800);
                     }
                 } else {
                     // Left viewport - reset for next time
@@ -101,7 +101,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function typeText(element, text, cursor, callback) {
         const typingSpeed = 100; // ms per character
-        const pauseAfterMore = 600; // ms to pause after "More"
+        const slowTypingSpeed = 200; // ms per character for "More"
+        const pauseAfterMore = 800; // ms to pause after "More"
 
         // Show cursor when typing starts
         if (cursor) cursor.style.opacity = '1';
@@ -113,8 +114,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 element.textContent += text.charAt(index);
                 index++;
 
-                // Add pause after typing "More" (at index 4)
+                // Determine delay for next character
                 var delay = typingSpeed;
+
+                // Slow typing for "More" (first 4 characters)
+                if (index < 4 && text.substring(0, 4) === 'More') {
+                    delay = slowTypingSpeed;
+                }
+
+                // Pause after typing "More"
                 if (index === 4 && text.substring(0, 4) === 'More') {
                     delay = pauseAfterMore;
                 }

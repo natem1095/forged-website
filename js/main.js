@@ -98,140 +98,25 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function typeText(element, text, cursor, callback) {
-        const initialTypingSpeed = 100; // ms per character (slightly faster for typo)
-        const correctionTypingSpeed = 120; // ms per character
-        const backspaceSpeed = 80; // ms per backspace
-        const pauseDuration = 1500; // 1.5 second pause
-        const squigglyDelay = 200; // delay before showing squiggly
-
-        // Typo sequence parts
-        const beforeTypo = 'More ';
-        const typoWord = 'thna';
-        const afterTypo = ' just ';
-        const correctWord = 'than';
-        const correctText = text; // "More than just working code"
+        const typingSpeed = 100; // ms per character
 
         // Show cursor when typing starts
         if (cursor) cursor.style.opacity = '1';
 
         let index = 0;
-        let typoSpan = null;
 
-        function typeBeforeTypo() {
-            if (index < beforeTypo.length) {
-                element.textContent += beforeTypo.charAt(index);
+        function type() {
+            if (index < text.length) {
+                element.textContent += text.charAt(index);
                 index++;
-                setTimeout(typeBeforeTypo, initialTypingSpeed);
-            } else {
-                index = 0;
-                // Create span for typo word
-                typoSpan = document.createElement('span');
-                element.appendChild(typoSpan);
-                typeTypoWord();
-            }
-        }
-
-        function typeTypoWord() {
-            if (index < typoWord.length) {
-                typoSpan.textContent += typoWord.charAt(index);
-                index++;
-                setTimeout(typeTypoWord, initialTypingSpeed);
-            } else {
-                index = 0;
-                typeAfterTypo();
-            }
-        }
-
-        function typeAfterTypo() {
-            if (index < afterTypo.length) {
-                // Append text after the typo span
-                const textNode = document.createTextNode(afterTypo.charAt(index));
-                element.appendChild(textNode);
-                // Add squiggly after first space (word boundary)
-                if (index === 0 && typoSpan) {
-                    setTimeout(function() {
-                        typoSpan.classList.add('typo-squiggly');
-                    }, squigglyDelay);
-                }
-                index++;
-                setTimeout(typeAfterTypo, initialTypingSpeed);
-            } else {
-                // Pause before correcting
-                setTimeout(startBackspace, pauseDuration);
-            }
-        }
-
-        function startBackspace() {
-            backspace();
-        }
-
-        function backspace() {
-            // Get current text length (all text content)
-            const currentLength = element.textContent.length;
-            const targetLength = beforeTypo.length + 1; // "More t" = 6 characters
-
-            if (currentLength > targetLength) {
-                // Remove last character - need to handle mixed content
-                const lastChild = element.lastChild;
-                if (lastChild) {
-                    if (lastChild.nodeType === Node.TEXT_NODE) {
-                        if (lastChild.textContent.length > 1) {
-                            lastChild.textContent = lastChild.textContent.slice(0, -1);
-                        } else {
-                            element.removeChild(lastChild);
-                        }
-                    } else if (lastChild.nodeType === Node.ELEMENT_NODE) {
-                        // It's the typo span
-                        if (lastChild.textContent.length > 1) {
-                            lastChild.textContent = lastChild.textContent.slice(0, -1);
-                        } else {
-                            element.removeChild(lastChild);
-                            typoSpan = null;
-                        }
-                    }
-                }
-                setTimeout(backspace, backspaceSpeed);
-            } else {
-                // Start typing the correction into the typoSpan
-                typeCorrection();
-            }
-        }
-
-        function typeCorrection() {
-            // Type the remaining characters of "than" into the typoSpan
-            const currentTypoText = typoSpan ? typoSpan.textContent : '';
-            const targetIndex = currentTypoText.length;
-
-            if (targetIndex < correctWord.length) {
-                typoSpan.textContent += correctWord.charAt(targetIndex);
-
-                // Remove squiggly when word becomes correct
-                if (typoSpan.textContent === correctWord) {
-                    typoSpan.classList.remove('typo-squiggly');
-                }
-
-                setTimeout(typeCorrection, correctionTypingSpeed);
-            } else {
-                // Word is complete, continue with rest of sentence
-                index = beforeTypo.length + correctWord.length; // Position after "More than"
-                typeRest();
-            }
-        }
-
-        function typeRest() {
-            if (index < correctText.length) {
-                // Append as text node after the span
-                const textNode = document.createTextNode(correctText.charAt(index));
-                element.appendChild(textNode);
-                index++;
-                setTimeout(typeRest, correctionTypingSpeed);
+                setTimeout(type, typingSpeed);
             } else {
                 // Typing complete
                 if (callback) callback();
             }
         }
 
-        typeBeforeTypo();
+        type();
     }
 
     // ========================================

@@ -2604,7 +2604,9 @@ section {
     }
 
     .hero.snap-section {
-        min-height: 100vh;
+        min-height: auto;
+        padding-top: 100px;
+        padding-bottom: var(--space-3xl);
     }
 }
 

@@ -238,30 +238,122 @@ document.addEventListener('DOMContentLoaded', function() {
     // FADE WORDS ANIMATION
     // ========================================
 
-    const fadeWordsElements = document.querySelectorAll('.fade-words');
+    // Track if snap scroll is active (to prevent observer from firing during snap)
+    window.fadeWordsSnapActive = false;
 
-    fadeWordsElements.forEach(function(element) {
+    // Initialize fade words - check if already played this session
+    document.querySelectorAll('.fade-words').forEach(function(element) {
         const storageKey = 'fadewords_' + element.textContent.trim().replace(/\s+/g, '_');
-
-        // Check if already played this session
         if (sessionStorage.getItem(storageKey)) {
             element.classList.add('animate');
-            return;
         }
+    });
 
-        // Set up Intersection Observer to trigger when section is visible
+    // Function to trigger fade animation (called by snap scroll)
+    window.triggerFadeWords = function(section) {
+        const fadeElement = section.querySelector('.fade-words');
+        if (fadeElement && !fadeElement.classList.contains('animate')) {
+            const storageKey = 'fadewords_' + fadeElement.textContent.trim().replace(/\s+/g, '_');
+            fadeElement.classList.add('animate');
+            sessionStorage.setItem(storageKey, 'true');
+        }
+    };
+
+    // Function to trigger section fade animation (called by snap scroll)
+    window.triggerFadeSection = function(section) {
+        const fadeElement = section.querySelector('.fade-section');
+        if (fadeElement && !fadeElement.classList.contains('animate')) {
+            sessionStorage.setItem('fadesection_' + section.className, 'true');
+            fadeElement.classList.add('animate');
+        }
+    };
+
+    // Function to trigger header fade animation (called by snap scroll)
+    window.triggerFadeHeader = function(section) {
+        const fadeHeader = section.querySelector('.fade-header');
+        if (fadeHeader && !fadeHeader.classList.contains('animate')) {
+            sessionStorage.setItem('fadeheader_' + section.className, 'true');
+            fadeHeader.classList.add('animate');
+
+            // Trigger tile animations after header fade completes (1s)
+            const fadeTiles = section.querySelector('.fade-tiles');
+            if (fadeTiles && !fadeTiles.classList.contains('animate')) {
+                setTimeout(function() {
+                    fadeTiles.classList.add('animate');
+                    sessionStorage.setItem('fadetiles_' + section.className, 'true');
+                }, 1000);
+            }
+        }
+    };
+
+    // Initialize fade headers - check if already played this session
+    document.querySelectorAll('.fade-header').forEach(function(element) {
+        const section = element.closest('.snap-section');
+        if (section && sessionStorage.getItem('fadeheader_' + section.className)) {
+            element.classList.add('animate');
+        }
+    });
+
+    // Initialize fade tiles - check if already played this session
+    document.querySelectorAll('.fade-tiles').forEach(function(element) {
+        const section = element.closest('.snap-section');
+        if (section && sessionStorage.getItem('fadetiles_' + section.className)) {
+            element.classList.add('animate');
+        }
+    });
+
+    // Initialize fade sections - check if already played this session
+    document.querySelectorAll('.fade-section').forEach(function(element) {
+        const section = element.closest('.snap-section');
+        if (section && sessionStorage.getItem('fadesection_' + section.className)) {
+            element.classList.add('animate');
+        }
+    });
+
+    // Fallback: Intersection Observer for mobile/free scroll only
+    document.querySelectorAll('.fade-words').forEach(function(element) {
+        if (element.classList.contains('animate')) return;
+
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    // Wait for snap animation to complete before animating
+                // Don't trigger if snap scroll is handling it
+                if (window.fadeWordsSnapActive) return;
+
+                if (entry.isIntersecting && !element.classList.contains('animate')) {
+                    // Extra delay for non-snap scroll
                     setTimeout(function() {
-                        element.classList.add('animate');
-                        sessionStorage.setItem(storageKey, 'true');
-                    }, 300);
+                        if (!element.classList.contains('animate')) {
+                            const storageKey = 'fadewords_' + element.textContent.trim().replace(/\s+/g, '_');
+                            element.classList.add('animate');
+                            sessionStorage.setItem(storageKey, 'true');
+                        }
+                    }, 1000);
                     observer.unobserve(element);
                 }
             });
-        }, { threshold: 0.8 });
+        }, { threshold: 0.9 });
+
+        observer.observe(element);
+    });
+
+    // Fallback: Intersection Observer for fade-section on mobile/free scroll
+    document.querySelectorAll('.fade-section').forEach(function(element) {
+        if (element.classList.contains('animate')) return;
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (window.fadeWordsSnapActive) return;
+
+                if (entry.isIntersecting && !element.classList.contains('animate')) {
+                    setTimeout(function() {
+                        if (!element.classList.contains('animate')) {
+                            element.classList.add('animate');
+                        }
+                    }, 500);
+                    observer.unobserve(element);
+                }
+            });
+        }, { threshold: 0.3 });
 
         observer.observe(element);
     });
@@ -468,7 +560,25 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetY = section.offsetTop;
 
             currentSectionIndex = index;
-            smoothScrollTo(targetY, duration || config.animationDuration);
+
+            // Mark snap as active to prevent observer from firing
+            window.fadeWordsSnapActive = true;
+
+            smoothScrollTo(targetY, duration || config.animationDuration, function() {
+                // Trigger fade animations 0.25 seconds after snap completes
+                setTimeout(function() {
+                    if (window.triggerFadeWords) {
+                        window.triggerFadeWords(section);
+                    }
+                    if (window.triggerFadeSection) {
+                        window.triggerFadeSection(section);
+                    }
+                    if (window.triggerFadeHeader) {
+                        window.triggerFadeHeader(section);
+                    }
+                    window.fadeWordsSnapActive = false;
+                }, 250);
+            });
         }
 
         // Navigate to regular content (exit snap zone)

@@ -2603,6 +2603,7 @@ section {
         min-height: auto;
     }
 
+    .hero,
     .hero.snap-section {
         min-height: auto;
         padding-top: 100px;

@@ -2601,13 +2601,17 @@ section {
 @media (max-width: 768px) {
     .snap-section {
         min-height: auto;
+        height: auto;
+        display: block;
     }
 
     .hero,
     .hero.snap-section {
         min-height: auto;
+        height: auto;
+        display: block;
         padding-top: 100px;
-        padding-bottom: var(--space-3xl);
+        padding-bottom: var(--space-2xl);
     }
 }
 

@@ -101,6 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function typeText(element, text, cursor, callback) {
         const typingSpeed = 100; // ms per character
+        const pauseAfterMore = 600; // ms to pause after "More"
 
         // Show cursor when typing starts
         if (cursor) cursor.style.opacity = '1';
@@ -111,7 +112,14 @@ document.addEventListener('DOMContentLoaded', function() {
             if (index < text.length) {
                 element.textContent += text.charAt(index);
                 index++;
-                setTimeout(type, typingSpeed);
+
+                // Add pause after typing "More" (at index 4)
+                var delay = typingSpeed;
+                if (index === 4 && text.substring(0, 4) === 'More') {
+                    delay = pauseAfterMore;
+                }
+
+                setTimeout(type, delay);
             } else {
                 // Typing complete
                 if (callback) callback();

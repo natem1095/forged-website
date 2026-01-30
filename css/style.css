@@ -2482,3 +2482,36 @@ section {
         opacity: 0;
     }
 }
+
+/* ========================================
+   FADE WORDS ANIMATION
+   ======================================== */
+
+.fade-words {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3em;
+}
+
+.fade-word {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-words.animate .fade-word {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-words.animate .fade-word:nth-child(1) {
+    transition-delay: 0s;
+}
+
+.fade-words.animate .fade-word:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.fade-words.animate .fade-word:nth-child(3) {
+    transition-delay: 0.4s;
+}

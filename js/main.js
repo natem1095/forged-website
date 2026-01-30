@@ -234,6 +234,38 @@ document.addEventListener('DOMContentLoaded', function() {
         typeBeforeTypo();
     }
 
+    // ========================================
+    // FADE WORDS ANIMATION
+    // ========================================
+
+    const fadeWordsElements = document.querySelectorAll('.fade-words');
+
+    fadeWordsElements.forEach(function(element) {
+        const storageKey = 'fadewords_' + element.textContent.trim().replace(/\s+/g, '_');
+
+        // Check if already played this session
+        if (sessionStorage.getItem(storageKey)) {
+            element.classList.add('animate');
+            return;
+        }
+
+        // Set up Intersection Observer to trigger when section is visible
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    // Wait for snap animation to complete before animating
+                    setTimeout(function() {
+                        element.classList.add('animate');
+                        sessionStorage.setItem(storageKey, 'true');
+                    }, 300);
+                    observer.unobserve(element);
+                }
+            });
+        }, { threshold: 0.8 });
+
+        observer.observe(element);
+    });
+
     // Scroll indicators - show/hide based on position
     const scrollUpIndicator = document.getElementById('scroll-up');
     const scrollDownIndicator = document.getElementById('scroll-down');

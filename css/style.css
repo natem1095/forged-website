@@ -340,6 +340,59 @@ section {
     gap: var(--space-md);
 }
 
+/* Hero page-load animation
+   Based on modern best practices:
+   - Smooth ease-out timing for natural deceleration
+   - Staggered delays for visual rhythm
+   - Respects prefers-reduced-motion
+*/
+
+/* Title lines - no animation */
+.hero__title .hero-line {
+    display: block;
+}
+
+@keyframes reveal-text {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+
+/* Subtitle and buttons - no animation */
+.hero-animate .hero-content-group {
+    opacity: 1;
+}
+
+@keyframes fade-up-blur {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+        filter: blur(4px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+
+/* Accessibility: Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .hero__title .hero-line,
+    .hero-animate .hero-content-group {
+        animation: none !important;
+        clip-path: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+    }
+}
+
 /* ========================================
    BUTTONS
    ======================================== */

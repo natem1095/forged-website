@@ -6,6 +6,17 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Forged JS v2.0 loaded');
 
+    // Hero page-load animation
+    const heroContent = document.querySelector('.hero-animate');
+    if (heroContent) {
+        // Small delay ensures CSS is ready
+        requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+                heroContent.classList.add('loaded');
+            });
+        });
+    }
+
     // Mobile Navigation Toggle
     const navToggle = document.querySelector('.nav__toggle');
     const navLinks = document.querySelector('.nav__links');

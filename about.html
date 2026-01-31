@@ -186,7 +186,7 @@
                         It's the opposite of theoretical. Forged things are real. They work.
                         That's what I deliver.
                     </p>
-                    <p style="font-size: 0.875rem; color: #d4af37; margin-top: var(--space-md);">— Nathan Murray, Founder</p>
+                    <p style="font-size: 0.875rem; margin-top: var(--space-md);"><a href="#" id="founder-message-link" style="color: #d4af37; text-decoration: none; border-bottom: 1px dashed #d4af37;">a message from the founder</a></p>
 
                     <h2>What I Work With</h2>
                     <div class="section-cards">
@@ -280,6 +280,143 @@
             </div>
         </div>
     </section>
+
+    <!-- Founder Message Modal -->
+    <div id="founder-modal" class="founder-modal">
+        <div class="founder-modal__overlay"></div>
+        <div class="founder-modal__content">
+            <button class="founder-modal__close" aria-label="Close">&times;</button>
+            <div class="founder-modal__body">
+                <p>I spent 8 years implementing SAP for CPG companies. Not from a conference room - I was in the warehouse, on the loading dock, in the quality lab with a hairnet and frock, observing the operation. I mapped processes and configured SAP to actually work for the people using it.</p>
+                <p>But there were times it wouldn't. And getting through corporate hurdles to build what was needed was a slow process - most of the time nothing came of it anyway. I watched our teams take months to deliver solutions that never really solved the pain-point.</p>
+                <p>So I went rogue. I wasn't in a developer role, but I got the access and started building solutions myself. Turns out I could deliver nearly perfect, fully documented solutions in a fraction of the time - with better attention to detail and more features than anything the dev team produced.</p>
+                <p>Then came the real test: our SAP to DocuSign integration. The company had spun in circles for months and hired consultants to make it happen. Guess what I did... I built the complete architecture myself - fully integrated to the standard SAP approval workflow so that as soon as a user clicked save, the approver had a DocuSign email. Once signed, PO released. End to end. Documented. Delivered... In 4 days.</p>
+                <p>The inbox floods with "congratulations!" and "good jobs!" Then it gets to the development team for review. "There's a process" they said.</p>
+                <p>That's when I broke. I couldn't stand the corporate barriers anymore.</p>
+                <p>So begins Forged Technologies. AI has changed what it means to be a developer. Combine that with years of front-facing manufacturing experience and you have a hammer meeting steel.</p>
+                <p>No more one hour meetings that go three. No more "SAP can't do that." And no more slide decks.</p>
+                <p>If an out-of-the-box solution doesn't solve your problem, we build something that does - whether directly in SAP/Salesforce/Oracle or through a secure custom integration.</p>
+                <p>Flat rate pricing upfront.</p>
+                <p>If this sounds like what you need then send us a message.</p>
+                <p>Hope we speak soon,</p>
+                <p class="founder-modal__signature">Nathan Murray<br><span style="color: var(--text-muted);">Founder - Forged Technologies LLC</span></p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .founder-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .founder-modal.is-open {
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .founder-modal__overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .founder-modal.is-open .founder-modal__overlay {
+            opacity: 1;
+        }
+        .founder-modal__content {
+            position: relative;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            max-width: 700px;
+            max-height: 85vh;
+            width: 90%;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transform: scale(0.95) translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .founder-modal.is-open .founder-modal__content {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+        .founder-modal__close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            line-height: 1;
+            z-index: 1;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+        .founder-modal__close:hover {
+            color: var(--text-primary);
+            transform: scale(1.1);
+        }
+        .founder-modal__body {
+            padding: 2.5rem;
+            overflow-y: auto;
+            max-height: 85vh;
+        }
+        .founder-modal__body p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .founder-modal__signature {
+            margin-top: 1.5rem;
+            color: #d4af37 !important;
+            font-weight: 500;
+        }
+    </style>
+
+    <script>
+        (function() {
+            const link = document.getElementById('founder-message-link');
+            const modal = document.getElementById('founder-modal');
+            const overlay = modal.querySelector('.founder-modal__overlay');
+            const closeBtn = modal.querySelector('.founder-modal__close');
+
+            function openModal(e) {
+                e.preventDefault();
+                modal.classList.add('is-open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                modal.classList.remove('is-open');
+                document.body.style.overflow = '';
+            }
+
+            link.addEventListener('click', openModal);
+            overlay.addEventListener('click', closeModal);
+            closeBtn.addEventListener('click', closeModal);
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+                    closeModal();
+                }
+            });
+        })();
+    </script>
 
     <!-- Footer -->
     <footer class="footer">

@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Security | Forged Technologies</title>
+    <meta name="description" content="Security-first integration architecture for CPG and manufacturing. OAuth 2.0, SAP Cloud Connector, SOC 2 compliance, and enterprise resilience patterns.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=32">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23181818' rx='8' width='100' height='100'/><path d='M25 18h50v14H39v12h30v14H39v24H25V18z' fill='%23909090'/></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav__container">
+            <a href="index.html" class="nav__logo">Forged</a>
+
+            <button class="nav__toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav__links">
+                <li><a href="index.html" class="nav__link">Home</a></li>
+                <li><a href="solutions.html" class="nav__link">Solutions</a></li>
+                <li><a href="enterprise-security.html" class="nav__link nav__link--active">Security</a></li>
+                <li><a href="about.html" class="nav__link">About</a></li>
+                <li><a href="contact.html" class="nav__cta">Let's Talk</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <span class="section-label">Enterprise Security</span>
+            <h1>Security-First Integration Architecture</h1>
+            <p class="mt-md" style="max-width: 700px;">
+                Protecting supply chain data, customer master records, and financial systems requires
+                more than basic authentication. We build integrations with enterprise-grade security
+                architecture from the ground up.
+            </p>
+        </div>
+    </section>
+
+    <!-- Compliance Badges -->
+    <section style="padding: var(--space-xl) 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border-light);">
+        <div class="container">
+            <div class="compliance-badges">
+                <div class="compliance-badge">
+                    <span class="compliance-badge__icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </span>
+                    <span class="compliance-badge__text">SOC 2 Ready</span>
+                </div>
+                <div class="compliance-badge">
+                    <span class="compliance-badge__icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </span>
+                    <span class="compliance-badge__text">GDPR Compliant</span>
+                </div>
+                <div class="compliance-badge">
+                    <span class="compliance-badge__icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </span>
+                    <span class="compliance-badge__text">OAuth 2.0 / mTLS</span>
+                </div>
+                <div class="compliance-badge">
+                    <span class="compliance-badge__icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </span>
+                    <span class="compliance-badge__text">Full Audit Trail</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authentication Architecture -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Authentication</span>
+                <h2>Enterprise Authentication Architecture</h2>
+                <p class="mt-md">Modern authentication patterns for every integration scenario.</p>
+            </div>
+
+            <div class="security-grid">
+                <div class="security-card">
+                    <div class="security-card__header">
+                        <div class="security-card__icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/>
+                            </svg>
+                        </div>
+                        <h3 class="security-card__title">OAuth 2.0 Client Credentials</h3>
+                    </div>
+                    <p class="security-card__description">
+                        Machine-to-machine authentication for backend services, EDI processing, and
+                        automated workflows. No user context required.
+                    </p>
+                    <ul class="security-card__list">
+                        <li>Server-to-server API calls</li>
+                        <li>Automated batch processing</li>
+                        <li>Background sync jobs</li>
+                        <li>Webhook handlers</li>
+                    </ul>
+                </div>
+
+                <div class="security-card">
+                    <div class="security-card__header">
+                        <div class="security-card__icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="security-card__title">OAuth 2.0 Authorization Code + PKCE</h3>
+                    </div>
+                    <p class="security-card__description">
+                        User-context authentication for portals, dashboards, and interactive applications
+                        where actions need to be attributable to specific users.
+                    </p>
+                    <ul class="security-card__list">
+                        <li>Self-service portals</li>
+                        <li>Approval workflows</li>
+                        <li>User dashboards</li>
+                        <li>Mobile applications</li>
+                    </ul>
+                </div>
+
+                <div class="security-card">
+                    <div class="security-card__header">
+                        <div class="security-card__icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="security-card__title">Mutual TLS (mTLS)</h3>
+                    </div>
+                    <p class="security-card__description">
+                        Certificate-based authentication for B2B integrations with retailers, distributors,
+                        and trading partners. Zero Trust architecture compliance.
+                    </p>
+                    <ul class="security-card__list">
+                        <li>EDI with major retailers</li>
+                        <li>B2B API security</li>
+                        <li>Zero Trust compliance</li>
+                        <li>High-value transactions</li>
+                    </ul>
+                </div>
+
+                <div class="security-card">
+                    <div class="security-card__header">
+                        <div class="security-card__icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <h3 class="security-card__title">API Gateway Architecture</h3>
+                    </div>
+                    <p class="security-card__description">
+                        Edge authentication, rate limiting, and WAF protection. We configure Kong, Apigee,
+                        or AWS API Gateway for your security requirements.
+                    </p>
+                    <ul class="security-card__list">
+                        <li>Edge authentication</li>
+                        <li>Rate limiting</li>
+                        <li>Request validation</li>
+                        <li>DDoS protection</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SAP Security -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">SAP Security</span>
+                <h2>SAP-Specific Security Expertise</h2>
+                <p class="mt-md">Deep experience securing SAP integrations for CPG and manufacturing.</p>
+            </div>
+
+            <div class="sap-security-grid">
+                <div class="sap-security-item">
+                    <h3>SAP Cloud Connector</h3>
+                    <p>
+                        Reverse-invoke tunnel architecture requires no inbound firewall ports.
+                        We configure location IDs, virtual hosts, and access controls for secure
+                        cloud-to-on-premise connectivity.
+                    </p>
+                    <div class="code-block" style="margin-top: var(--space-md);">
+<pre>Location ID: PROD_ECC
+Virtual Host: sapecc.internal
+Port: 443 (HTTPS only)
+Principal Propagation: Enabled</pre>
+                    </div>
+                </div>
+
+                <div class="sap-security-item">
+                    <h3>Principal Propagation</h3>
+                    <p>
+                        SSO across cloud-to-on-prem without credential storage. User identity flows
+                        from cloud applications through to SAP backend with full audit attribution.
+                    </p>
+                    <ul class="security-list">
+                        <li>SAML assertion forwarding</li>
+                        <li>X.509 certificate mapping</li>
+                        <li>User mapping rules</li>
+                        <li>Identity provider integration</li>
+                    </ul>
+                </div>
+
+                <div class="sap-security-item">
+                    <h3>RFC Authorization</h3>
+                    <p>
+                        Granular S_RFC authorization prevents wildcard access to function groups.
+                        We design role-based access that follows least-privilege principles.
+                    </p>
+                    <ul class="security-list">
+                        <li>Function group restrictions</li>
+                        <li>No wildcard permissions</li>
+                        <li>Role-based access control</li>
+                        <li>Regular access reviews</li>
+                    </ul>
+                </div>
+
+                <div class="sap-security-item">
+                    <h3>Communication Arrangements</h3>
+                    <p>
+                        Modern API authentication for S/4HANA Cloud using Communication Arrangements,
+                        Communication Systems, and Communication Users.
+                    </p>
+                    <ul class="security-list">
+                        <li>Inbound/outbound scenarios</li>
+                        <li>OAuth 2.0 client credentials</li>
+                        <li>Certificate-based auth</li>
+                        <li>Service key rotation</li>
+                    </ul>
+                </div>
+
+                <div class="sap-security-item">
+                    <h3>IDoc Security</h3>
+                    <p>
+                        Secure EDI with retailers and distributors using encrypted IDoc transmission,
+                        partner profile validation, and message authentication.
+                    </p>
+                    <ul class="security-list">
+                        <li>Partner profile validation</li>
+                        <li>Message encryption (TLS 1.3)</li>
+                        <li>Digital signatures</li>
+                        <li>Non-repudiation audit</li>
+                    </ul>
+                </div>
+
+                <div class="sap-security-item">
+                    <h3>Certificate Management</h3>
+                    <p>
+                        STRUST keystore and truststore configuration, TLS 1.3 migration support,
+                        and 90-day certificate rotation automation.
+                    </p>
+                    <ul class="security-list">
+                        <li>STRUST configuration</li>
+                        <li>TLS 1.3 migration</li>
+                        <li>Certificate rotation</li>
+                        <li>Expiry monitoring</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compliance Readiness -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Compliance</span>
+                <h2>Compliance & Audit Readiness</h2>
+                <p class="mt-md">Built-in compliance for the frameworks that matter to CPG companies.</p>
+            </div>
+
+            <div class="compliance-grid">
+                <div class="compliance-card">
+                    <div class="compliance-card__header">
+                        <h3>SOC 2 Type II</h3>
+                        <span class="compliance-card__badge">5 Trust Services Criteria</span>
+                    </div>
+                    <p class="compliance-card__description">
+                        Our integration architectures support SOC 2 compliance across all five
+                        Trust Services Criteria.
+                    </p>
+                    <ul class="compliance-card__list">
+                        <li><strong>Security:</strong> Access controls, encryption, vulnerability management</li>
+                        <li><strong>Availability:</strong> Uptime monitoring, failover, disaster recovery</li>
+                        <li><strong>Processing Integrity:</strong> Data validation, error handling, reconciliation</li>
+                        <li><strong>Confidentiality:</strong> Data classification, encryption at rest/transit</li>
+                        <li><strong>Privacy:</strong> PII handling, consent management, data minimization</li>
+                    </ul>
+                </div>
+
+                <div class="compliance-card">
+                    <div class="compliance-card__header">
+                        <h3>GDPR</h3>
+                        <span class="compliance-card__badge">EU Data Protection</span>
+                    </div>
+                    <p class="compliance-card__description">
+                        Data protection by design for integrations handling EU personal data.
+                    </p>
+                    <ul class="compliance-card__list">
+                        <li><strong>SCCs:</strong> Standard Contractual Clauses for cross-border transfers</li>
+                        <li><strong>TIAs:</strong> Transfer Impact Assessments for third-country transfers</li>
+                        <li><strong>RTBF:</strong> Right to Be Forgotten support within 30-day response</li>
+                        <li><strong>Data Mapping:</strong> PII inventory across integrated systems</li>
+                        <li><strong>Breach Response:</strong> 72-hour notification procedures</li>
+                    </ul>
+                </div>
+
+                <div class="compliance-card compliance-card--full">
+                    <div class="compliance-card__header">
+                        <h3>Audit Logging Architecture</h3>
+                        <span class="compliance-card__badge">6-7 Year Retention</span>
+                    </div>
+                    <p class="compliance-card__description">
+                        Complete audit trail for every integration transaction, authentication event,
+                        and data access.
+                    </p>
+                    <div class="audit-log-grid">
+                        <div class="audit-log-item">
+                            <h4>Authentication Events</h4>
+                            <ul>
+                                <li>Login attempts (success/failure)</li>
+                                <li>Token issuance and refresh</li>
+                                <li>Session creation and termination</li>
+                                <li>Privilege escalation attempts</li>
+                            </ul>
+                        </div>
+                        <div class="audit-log-item">
+                            <h4>Data Access</h4>
+                            <ul>
+                                <li>Record reads and queries</li>
+                                <li>Data modifications (before/after)</li>
+                                <li>Bulk exports and downloads</li>
+                                <li>API call details (request/response)</li>
+                            </ul>
+                        </div>
+                        <div class="audit-log-item">
+                            <h4>Configuration Changes</h4>
+                            <ul>
+                                <li>User and role modifications</li>
+                                <li>Integration configuration updates</li>
+                                <li>Security policy changes</li>
+                                <li>Mapping table modifications</li>
+                            </ul>
+                        </div>
+                        <div class="audit-log-item">
+                            <h4>System Events</h4>
+                            <ul>
+                                <li>Integration start/stop</li>
+                                <li>Error conditions and recovery</li>
+                                <li>Performance thresholds breached</li>
+                                <li>Security alert triggers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resilience Patterns -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Resilience</span>
+                <h2>Enterprise Resilience Patterns</h2>
+                <p class="mt-md">Integration architectures that handle failure gracefully.</p>
+            </div>
+
+            <div class="resilience-grid">
+                <div class="resilience-card">
+                    <div class="resilience-card__icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                        </svg>
+                    </div>
+                    <h3>Exponential Backoff with Jitter</h3>
+                    <p>
+                        Intelligent retry logic prevents thundering herd on recovery. Randomized
+                        jitter ensures distributed retry timing across concurrent processes.
+                    </p>
+                    <div class="code-block" style="margin-top: var(--space-md); font-size: 0.8125rem;">
+<pre>Retry 1: 1 min + jitter (0-30s)
+Retry 2: 2 min + jitter (0-60s)
+Retry 3: 4 min + jitter (0-120s)
+Retry 4: 8 min + jitter (0-240s)
+Retry 5: 16 min + jitter (0-480s)</pre>
+                    </div>
+                </div>
+
+                <div class="resilience-card">
+                    <div class="resilience-card__icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/>
+                        </svg>
+                    </div>
+                    <h3>Circuit Breaker Pattern</h3>
+                    <p>
+                        Prevents cascading failures when downstream services are unavailable.
+                        Automatic recovery testing ensures services resume when healthy.
+                    </p>
+                    <ul class="resilience-list">
+                        <li><strong>Closed:</strong> Normal operation, requests pass through</li>
+                        <li><strong>Open:</strong> Fail fast, no requests to failing service</li>
+                        <li><strong>Half-Open:</strong> Test recovery with limited requests</li>
+                    </ul>
+                </div>
+
+                <div class="resilience-card">
+                    <div class="resilience-card__icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                        </svg>
+                    </div>
+                    <h3>Dead Letter Queues</h3>
+                    <p>
+                        Failed messages captured for analysis and replay. Complete audit trail
+                        for every message, with manual intervention workflow for unrecoverable errors.
+                    </p>
+                    <ul class="resilience-list">
+                        <li>Message capture with full context</li>
+                        <li>Replay capability after fix</li>
+                        <li>Alerting on DLQ depth</li>
+                        <li>Retention for compliance</li>
+                    </ul>
+                </div>
+
+                <div class="resilience-card">
+                    <div class="resilience-card__icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3>Monitoring & Alerting</h3>
+                    <p>
+                        Real-time visibility into integration health with proactive alerting
+                        before issues impact business operations.
+                    </p>
+                    <ul class="resilience-list">
+                        <li>Error rate threshold: &lt;1%</li>
+                        <li>Latency warning: &lt;5s</li>
+                        <li>IDoc processing time tracking</li>
+                        <li>RFC response time monitoring</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cloud Connectivity -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Cloud Connectivity</span>
+                <h2>Enterprise Cloud Connectivity</h2>
+                <p class="mt-md">Secure, high-performance connections to major cloud platforms.</p>
+            </div>
+
+            <div class="cloud-grid">
+                <div class="cloud-card">
+                    <div class="cloud-card__header">
+                        <img src="logos/color/aws-svgrepo-com.svg" alt="AWS" class="cloud-card__logo">
+                        <h3>Amazon Web Services</h3>
+                    </div>
+                    <div class="cloud-card__content">
+                        <div class="cloud-feature">
+                            <strong>AWS Direct Connect</strong>
+                            <p>Dedicated network connection up to 100 Gbps. Bypasses public internet for consistent latency and throughput.</p>
+                        </div>
+                        <div class="cloud-feature">
+                            <strong>AWS PrivateLink</strong>
+                            <p>Private connectivity to AWS services without internet exposure. VPC endpoints for S3, Lambda, API Gateway.</p>
+                        </div>
+                        <div class="cloud-feature">
+                            <strong>S3 Event-Driven Integration</strong>
+                            <p>File-based integration with S3 events triggering Lambda processing. Secure with bucket policies and IAM roles.</p>
+                        </div>
+                        <div class="cloud-feature">
+                            <strong>Amazon AppFlow</strong>
+                            <p>Managed data integration with Salesforce, SAP, ServiceNow. Built-in encryption and VPC support.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cloud-card">
+                    <div class="cloud-card__header">
+                        <img src="logos/color/azure-svgrepo-com.svg" alt="Azure" class="cloud-card__logo">
+                        <h3>Microsoft Azure</h3>
+                    </div>
+                    <div class="cloud-card__content">
+                        <div class="cloud-feature">
+                            <strong>Azure ExpressRoute</strong>
+                            <p>Private connection to Azure up to 100 Gbps. Global reach for multi-region deployments.</p>
+                        </div>
+                        <div class="cloud-feature">
+                            <strong>Azure Private Link</strong>
+                            <p>Private access to Azure PaaS services. Eliminates data exposure to public internet.</p>
+                        </div>
+                        <div class="cloud-feature">
+                            <strong>Logic Apps SAP Connector</strong>
+                            <p>Managed SAP integration with on-premises data gateway. RFC, BAPI, and IDoc support.</p>
+                        </div>
+                        <div class="cloud-feature">
+                            <strong>Azure Data Factory</strong>
+                            <p>ODP framework support for SAP CDC. Managed pipelines with monitoring and alerting.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Assessment -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Assessment</span>
+                <h2>Security Assessment Readiness</h2>
+                <p class="mt-md">Prepared for the security evaluations enterprise clients require.</p>
+            </div>
+
+            <div class="assessment-grid">
+                <div class="assessment-card">
+                    <h3>OWASP API Security Top 10</h3>
+                    <p>We design integrations that address the most critical API security risks.</p>
+                    <ul class="assessment-list">
+                        <li><strong>BOLA (Broken Object Level Authorization)</strong> — Object-level access control on every endpoint</li>
+                        <li><strong>Broken Authentication</strong> — Strong token validation, rate limiting</li>
+                        <li><strong>Excessive Data Exposure</strong> — Response filtering, field-level security</li>
+                        <li><strong>Injection</strong> — Input validation, parameterized queries</li>
+                    </ul>
+                </div>
+
+                <div class="assessment-card">
+                    <h3>Penetration Testing Scope</h3>
+                    <p>Integration architectures designed to pass security assessments.</p>
+                    <ul class="assessment-list">
+                        <li>API endpoint security testing</li>
+                        <li>Authentication bypass attempts</li>
+                        <li>Authorization boundary testing</li>
+                        <li>Data exposure analysis</li>
+                    </ul>
+                    <p class="mt-md" style="font-size: 0.875rem; color: var(--text-muted);">
+                        Typical scope: 5-10 days. Critical findings addressed within 24-72 hours.
+                    </p>
+                </div>
+
+                <div class="assessment-card">
+                    <h3>Security Questionnaires</h3>
+                    <p>Experience responding to enterprise security assessments.</p>
+                    <ul class="assessment-list">
+                        <li><strong>SIG (Standardized Information Gathering)</strong> — 850+ questions across 21 risk domains</li>
+                        <li><strong>CAIQ (Consensus Assessment Initiative)</strong> — Cloud security questionnaire</li>
+                        <li><strong>Custom Questionnaires</strong> — Client-specific security requirements</li>
+                    </ul>
+                </div>
+
+                <div class="assessment-card">
+                    <h3>Incident Response</h3>
+                    <p>Defined procedures for security incident handling.</p>
+                    <ul class="assessment-list">
+                        <li><strong>SEV 1 (Critical):</strong> Response within 1 hour, resolution within 4 hours</li>
+                        <li><strong>SEV 2 (High):</strong> Response within 4 hours, resolution within 24 hours</li>
+                        <li><strong>Post-Incident:</strong> Root cause analysis, documentation, prevention measures</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <h2>Need secure enterprise integration?</h2>
+            <p>
+                We build integrations with security architecture that satisfies enterprise security teams
+                and compliance requirements. Let's discuss your security needs.
+            </p>
+            <a href="contact.html" class="btn btn--primary btn--large">Start a Security Conversation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer__content">
+            <p class="footer__text">&copy; 2026 Forged Technologies. Built with focus.</p>
+            <p class="footer__credit">Website Designed & Built by Forged Technologies</p>
+            <ul class="footer__links">
+                <li><a href="https://www.linkedin.com/in/nathan-murray-311266114/" class="footer__link" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://github.com/natem1095" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="mailto:nate@forgedintegration.com" class="footer__link">Email</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

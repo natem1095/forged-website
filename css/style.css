@@ -2974,3 +2974,663 @@ section {
         to { transform: translateX(-560px); }
     }
 }
+
+/* ========================================
+   ENTERPRISE SECURITY PAGE
+   ======================================== */
+
+/* Compliance Badges Row */
+.compliance-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-lg);
+}
+
+.compliance-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-lg);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: all var(--transition-fast);
+}
+
+.compliance-badge:hover {
+    border-color: var(--accent-primary);
+    background: var(--bg-card-hover);
+}
+
+.compliance-badge__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-primary);
+}
+
+.compliance-badge__text {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Security Cards Grid (Authentication Architecture) */
+.security-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+}
+
+.security-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: var(--space-xl);
+    transition: all var(--transition-normal);
+}
+
+.security-card:hover {
+    border-color: var(--text-muted);
+    transform: translateY(-2px);
+}
+
+.security-card__header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.security-card__icon {
+    width: 48px;
+    height: 48px;
+    background: var(--accent-glow);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-primary);
+    flex-shrink: 0;
+}
+
+.security-card__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.3;
+}
+
+.security-card__description {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
+}
+
+.security-card__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.security-card__list li {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    padding: var(--space-xs) 0;
+    padding-left: var(--space-md);
+    position: relative;
+}
+
+.security-card__list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent-primary);
+}
+
+/* SAP Security Grid (6 items) */
+.sap-security-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+}
+
+.sap-security-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: var(--space-xl);
+}
+
+.sap-security-item h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.sap-security-item p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.security-list {
+    list-style: none;
+    margin: var(--space-md) 0 0;
+    padding: 0;
+}
+
+.security-list li {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    padding: var(--space-xs) 0;
+    padding-left: var(--space-md);
+    position: relative;
+}
+
+.security-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent-primary);
+    font-size: 0.75rem;
+}
+
+/* Compliance Cards Grid */
+.compliance-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+}
+
+.compliance-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: var(--space-xl);
+}
+
+.compliance-card--full {
+    grid-column: 1 / -1;
+}
+
+.compliance-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-md);
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+}
+
+.compliance-card__header h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.compliance-card__badge {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-primary);
+    background: var(--accent-glow);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 4px;
+}
+
+.compliance-card__description {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+    line-height: 1.5;
+}
+
+.compliance-card__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.compliance-card__list li {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--border-light);
+    line-height: 1.5;
+}
+
+.compliance-card__list li:last-child {
+    border-bottom: none;
+}
+
+.compliance-card__list li strong {
+    color: var(--text-primary);
+}
+
+/* Audit Log Grid (within compliance card) */
+.audit-log-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+}
+
+.audit-log-item {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: var(--space-md);
+}
+
+.audit-log-item h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.audit-log-item ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.audit-log-item li {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    padding: 3px 0;
+}
+
+/* Resilience Grid */
+.resilience-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+}
+
+.resilience-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: var(--space-xl);
+}
+
+.resilience-card__icon {
+    width: 48px;
+    height: 48px;
+    background: var(--accent-glow);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-primary);
+    margin-bottom: var(--space-md);
+}
+
+.resilience-card h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.resilience-card p {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: var(--space-md);
+}
+
+.resilience-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.resilience-list li {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    padding: var(--space-xs) 0;
+    line-height: 1.5;
+}
+
+.resilience-list li strong {
+    color: var(--text-primary);
+}
+
+/* Cloud Connectivity Grid */
+.cloud-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+}
+
+.cloud-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.cloud-card__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background: var(--bg-tertiary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cloud-card__logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.cloud-card__header h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.cloud-card__content {
+    padding: var(--space-lg);
+}
+
+.cloud-feature {
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.cloud-feature:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.cloud-feature:first-child {
+    padding-top: 0;
+}
+
+.cloud-feature strong {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.cloud-feature p {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Assessment Grid */
+.assessment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+}
+
+.assessment-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: var(--space-xl);
+}
+
+.assessment-card h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.assessment-card > p {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+    line-height: 1.5;
+}
+
+.assessment-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.assessment-list li {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--border-light);
+    line-height: 1.5;
+}
+
+.assessment-list li:last-child {
+    border-bottom: none;
+}
+
+.assessment-list li strong {
+    color: var(--text-primary);
+}
+
+/* ========================================
+   ENTERPRISE SECURITY PAGE - RESPONSIVE
+   ======================================== */
+
+@media (max-width: 968px) {
+    .security-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sap-security-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .compliance-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .audit-log-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .resilience-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cloud-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .assessment-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .compliance-badges {
+        gap: var(--space-md);
+    }
+
+    .compliance-badge {
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .compliance-badge__text {
+        font-size: 0.75rem;
+    }
+
+    .sap-security-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .audit-log-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .compliance-badges {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .compliance-badge {
+        justify-content: center;
+    }
+}
+
+/* ========================================
+   ABOUT PAGE - INDUSTRY FOCUS & SECURITY
+   ======================================== */
+
+/* Industry Focus Grid */
+.industry-focus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin: var(--space-lg) 0;
+}
+
+.industry-focus-item {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: var(--space-lg);
+}
+
+.industry-focus-item strong {
+    display: block;
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.industry-focus-item p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Security Overview Grid */
+.security-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    margin: var(--space-lg) 0;
+}
+
+.security-overview-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+}
+
+.security-overview-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: var(--accent-glow);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-primary);
+}
+
+.security-overview-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.security-overview-item strong {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.security-overview-item span {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 968px) {
+    .industry-focus-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .security-overview-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Security Highlights Grid (Case Studies) */
+.security-highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    margin: var(--space-lg) 0;
+}
+
+.security-highlight {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+}
+
+.security-highlight__icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: var(--accent-glow);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-primary);
+}
+
+.security-highlight__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.security-highlight__content strong {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.security-highlight__content p {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .security-highlights-grid {
+        grid-template-columns: 1fr;
+    }
+}

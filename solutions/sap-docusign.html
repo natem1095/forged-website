@@ -27,6 +27,7 @@
             <ul class="nav__links">
                 <li><a href="../index.html" class="nav__link">Home</a></li>
                 <li><a href="../solutions.html" class="nav__link nav__link--active">Solutions</a></li>
+                <li><a href="../enterprise-security.html" class="nav__link">Security</a></li>
                 <li><a href="../about.html" class="nav__link">About</a></li>
                 <li><a href="../contact.html" class="nav__cta">Let's Talk</a></li>
             </ul>
@@ -269,6 +270,69 @@ Workflow Engine/             # Business integration package
                     <li><code>on_declined()</code> — Signer declined to sign</li>
                     <li><code>on_voided()</code> — Envelope voided by sender</li>
                 </ul>
+            </div>
+
+            <!-- Security Architecture -->
+            <div class="solution-section">
+                <h2>Security Architecture</h2>
+                <p>
+                    Enterprise integration requires enterprise-grade security. This solution implements
+                    multiple security layers to protect sensitive procurement data.
+                </p>
+
+                <div class="security-highlights-grid">
+                    <div class="security-highlight">
+                        <div class="security-highlight__icon">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/>
+                            </svg>
+                        </div>
+                        <div class="security-highlight__content">
+                            <strong>OAuth 2.0 Implementation</strong>
+                            <p>Authorization Code Grant with PKCE for interactive flows, JWT Bearer Grant for automated server-to-server operations. Tokens encrypted at rest with automatic refresh before expiry.</p>
+                        </div>
+                    </div>
+
+                    <div class="security-highlight">
+                        <div class="security-highlight__icon">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <div class="security-highlight__content">
+                            <strong>Webhook Security (HMAC-SHA256)</strong>
+                            <p>Every incoming webhook validated with HMAC-SHA256 signature verification. Prevents spoofed callbacks and ensures message integrity from DocuSign Connect.</p>
+                        </div>
+                    </div>
+
+                    <div class="security-highlight">
+                        <div class="security-highlight__icon">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <div class="security-highlight__content">
+                            <strong>Complete Audit Trail</strong>
+                            <p>Every signature event, status change, and API call logged with timestamps and user context. Supports SOC 2 compliance and regulatory audit requirements.</p>
+                        </div>
+                    </div>
+
+                    <div class="security-highlight">
+                        <div class="security-highlight__icon">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            </svg>
+                        </div>
+                        <div class="security-highlight__content">
+                            <strong>Token Lifecycle Management</strong>
+                            <p>Secure credential storage with encrypted tokens in SAP database. Automatic token refresh with configurable expiry buffer prevents authentication failures.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="margin-top: var(--space-lg);">
+                    <a href="../enterprise-security.html" style="color: var(--accent-primary);">Learn more about our security architecture →</a>
+                </p>
             </div>
 
             <!-- Business Application -->

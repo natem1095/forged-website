@@ -27,6 +27,7 @@
             <ul class="nav__links">
                 <li><a href="../index.html" class="nav__link">Home</a></li>
                 <li><a href="../solutions.html" class="nav__link nav__link--active">Solutions</a></li>
+                <li><a href="../enterprise-security.html" class="nav__link">Security</a></li>
                 <li><a href="../about.html" class="nav__link">About</a></li>
                 <li><a href="../contact.html" class="nav__cta">Let's Talk</a></li>
             </ul>
@@ -323,6 +324,69 @@
                     <li>Dell Boomi</li>
                     <li>MuleSoft</li>
                 </ul>
+            </div>
+
+            <!-- Security Architecture -->
+            <div class="solution-section">
+                <h2>Security Architecture</h2>
+                <p>
+                    Financial data synchronization demands rigorous security. This integration implements
+                    multiple protection layers for procurement and payment data.
+                </p>
+
+                <div class="security-highlights-grid">
+                    <div class="security-highlight">
+                        <div class="security-highlight__icon">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/>
+                            </svg>
+                        </div>
+                        <div class="security-highlight__content">
+                            <strong>OAuth 1.0a Token-Based Auth</strong>
+                            <p>HMAC-SHA256 signature on every request. Consumer key/secret + token ID/secret model. No plaintext credentials transmitted.</p>
+                        </div>
+                    </div>
+
+                    <div class="security-highlight">
+                        <div class="security-highlight__icon">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                            </svg>
+                        </div>
+                        <div class="security-highlight__content">
+                            <strong>Exponential Backoff Retry</strong>
+                            <p>Intelligent retry logic (1-2-4-8-16 min) with jitter prevents thundering herd. After 5 attempts, queued for manual intervention.</p>
+                        </div>
+                    </div>
+
+                    <div class="security-highlight">
+                        <div class="security-highlight__icon">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <div class="security-highlight__content">
+                            <strong>Full Audit Trail</strong>
+                            <p>Complete request/response logging with timestamps, users, direction, and HTTP status codes. Enables SOC 2 compliance.</p>
+                        </div>
+                    </div>
+
+                    <div class="security-highlight">
+                        <div class="security-highlight__icon">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <div class="security-highlight__content">
+                            <strong>Error Categorization</strong>
+                            <p>Intelligent error handling: validation errors for review, technical errors for retry, auth errors for immediate alerts.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="margin-top: var(--space-lg);">
+                    <a href="../enterprise-security.html" style="color: var(--accent-primary);">Learn more about our security architecture →</a>
+                </p>
             </div>
 
             <!-- Business Application -->

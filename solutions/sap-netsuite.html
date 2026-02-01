@@ -231,21 +231,21 @@
                         <rect x="445" y="245" width="150" height="30" rx="4" fill="#252525" stroke="#353535" stroke-width="1"/>
                         <text x="520" y="265" fill="#505050" font-size="9" text-anchor="middle">Account / Subsidiary</text>
 
-                        <!-- Arrows: SAP to Integration -->
-                        <line x1="185" y1="100" x2="230" y2="112" stroke="#707070" stroke-width="2"/>
-                        <polygon points="228,107 238,112 228,117" fill="#707070"/>
+                        <!-- Arrows: SAP to Integration (horizontal, tips touch x=235) -->
+                        <line x1="185" y1="112" x2="230" y2="112" stroke="#707070" stroke-width="2"/>
+                        <polygon points="230,107 235,112 230,117" fill="#707070"/>
 
-                        <line x1="185" y1="172" x2="230" y2="155" stroke="#606060" stroke-width="1.5"/>
-                        <polygon points="228,150 238,155 228,160" fill="#606060"/>
+                        <line x1="185" y1="172" x2="230" y2="172" stroke="#606060" stroke-width="1.5"/>
+                        <polygon points="230,167 235,172 230,177" fill="#606060"/>
 
-                        <!-- Arrows: Integration to NetSuite -->
-                        <line x1="395" y1="112" x2="440" y2="85" stroke="#707070" stroke-width="2"/>
-                        <polygon points="438,80 448,80 440,88" fill="#707070"/>
+                        <!-- Arrows: Integration to NetSuite (horizontal, tip touches x=445) -->
+                        <line x1="395" y1="77" x2="440" y2="77" stroke="#707070" stroke-width="2"/>
+                        <polygon points="440,72 445,77 440,82" fill="#707070"/>
 
-                        <!-- Bidirectional indicator for webhooks -->
-                        <line x1="440" y1="170" x2="395" y2="230" stroke="#505050" stroke-width="1.5" stroke-dasharray="4"/>
-                        <polygon points="397,225 390,235 400,232" fill="#505050"/>
-                        <text x="405" y="205" fill="#505050" font-size="8" text-anchor="start">webhook</text>
+                        <!-- Webhook arrow (from Vendor Bill down, then left to Webhook Handler) -->
+                        <path d="M 445,185 L 445,233 L 385,233" stroke="#505050" stroke-width="1.5" stroke-dasharray="4" fill="none"/>
+                        <polygon points="385,228 380,233 385,238" fill="#505050"/>
+                        <text x="448" y="210" fill="#505050" font-size="8" text-anchor="start">webhook</text>
                     </svg>
                 </div>
 

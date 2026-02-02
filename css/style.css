@@ -331,7 +331,7 @@ section {
     font-size: 1.25rem;
     color: var(--text-secondary);
     margin-bottom: var(--space-2xl);
-    max-width: 600px;
+    max-width: 750px;
 }
 
 .hero__cta-group {

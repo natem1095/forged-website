@@ -254,16 +254,21 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 scrollDownIndicator.classList.remove('visible');
             }
+
+            // Show text only at top section, arrow-only after scrolling
+            if (scrollTop > clientHeight * 0.3) {
+                scrollDownIndicator.classList.add('arrows-only');
+            } else {
+                scrollDownIndicator.classList.remove('arrows-only');
+            }
         }
 
         // When both visible, hide text (show only arrows)
         if (scrollUpIndicator && scrollDownIndicator) {
             if (showUp && showDown) {
                 scrollUpIndicator.classList.add('arrows-only');
-                scrollDownIndicator.classList.add('arrows-only');
             } else {
                 scrollUpIndicator.classList.remove('arrows-only');
-                scrollDownIndicator.classList.remove('arrows-only');
             }
         }
     }

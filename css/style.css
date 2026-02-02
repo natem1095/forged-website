@@ -1676,6 +1676,10 @@ section {
         top: 0;
     }
 
+    .edge-grid {
+        grid-template-columns: 1fr !important;
+    }
+
     .contact-grid {
         grid-template-columns: 1fr;
     }

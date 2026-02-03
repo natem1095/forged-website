@@ -3826,13 +3826,13 @@ section {
 
 .timeline-row__bar--traditional {
     width: 100%;
-    background: linear-gradient(90deg, #404040, #505050);
+    background: linear-gradient(90deg, #404040 0%, #505050 60%, transparent 100%);
 }
 
 .timeline-row__bar--forged {
-    width: 8%;
-    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-    min-width: 80px;
+    width: 22%;
+    background: linear-gradient(90deg, #505050 0%, #606060 60%, transparent 100%);
+    min-width: 100px;
 }
 
 .timeline-row__bar-label {

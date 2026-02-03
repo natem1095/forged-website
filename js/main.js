@@ -147,6 +147,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // Track if snap scroll is active (to prevent observer from firing during snap)
     window.fadeWordsSnapActive = false;
 
+    // Track which sections have been animated this session (persists until browser closed)
+    function hasAnimatedThisSession(sectionId) {
+        try {
+            const animated = sessionStorage.getItem('forged_animated_' + sectionId);
+            return animated === 'true';
+        } catch (e) {
+            return false;
+        }
+    }
+
+    function markAnimatedThisSession(sectionId) {
+        try {
+            sessionStorage.setItem('forged_animated_' + sectionId, 'true');
+        } catch (e) {
+            // sessionStorage not available
+        }
+    }
+
     // Function to trigger fade animation (called by snap scroll)
     window.triggerFadeWords = function(section) {
         const fadeElement = section.querySelector('.fade-words');
@@ -174,21 +192,38 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to trigger header fade animation (called by snap scroll)
     window.triggerFadeHeader = function(section) {
         const fadeHeader = section.querySelector('.fade-header');
+        const fadeTiles = section.querySelector('.fade-tiles');
+        const sectionId = section.id || section.className;
+
+        // Check if already animated this session
+        if (hasAnimatedThisSession(sectionId)) {
+            // Show immediately without animation
+            if (fadeHeader) fadeHeader.classList.add('animate');
+            if (fadeTiles) fadeTiles.classList.add('animate');
+            return;
+        }
+
         if (fadeHeader && !fadeHeader.classList.contains('animate')) {
             fadeHeader.classList.add('animate');
 
             // Trigger tile animations after header fade completes (1s)
-            const fadeTiles = section.querySelector('.fade-tiles');
             if (fadeTiles && !fadeTiles.classList.contains('animate')) {
                 setTimeout(function() {
                     fadeTiles.classList.add('animate');
+                    // Mark as animated for this session
+                    markAnimatedThisSession(sectionId);
                 }, 1000);
+            } else {
+                markAnimatedThisSession(sectionId);
             }
         }
     };
 
     // Fallback: Intersection Observer for mobile/free scroll only
     document.querySelectorAll('.fade-words').forEach(function(element) {
+        const section = element.closest('.snap-section') || element.closest('section');
+        const sectionId = section ? (section.id || section.className) : 'unknown';
+
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 // Don't trigger if snap scroll is handling it
@@ -199,11 +234,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     setTimeout(function() {
                         if (!element.classList.contains('animate')) {
                             element.classList.add('animate');
+                            markAnimatedThisSession(sectionId);
                         }
                     }, 1000);
                 } else if (!entry.isIntersecting) {
-                    // Reset when leaving viewport
-                    element.classList.remove('animate');
+                    // Only reset if not already animated this session
+                    if (!hasAnimatedThisSession(sectionId)) {
+                        element.classList.remove('animate');
+                    }
                 }
             });
         }, { threshold: 0.9 });
@@ -213,6 +251,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fallback: Intersection Observer for fade-section on mobile/free scroll
     document.querySelectorAll('.fade-section').forEach(function(element) {
+        const section = element.closest('.snap-section') || element.closest('section');
+        const sectionId = section ? (section.id || section.className) : 'unknown';
+
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (window.fadeWordsSnapActive) return;
@@ -221,16 +262,36 @@ document.addEventListener('DOMContentLoaded', function() {
                     setTimeout(function() {
                         if (!element.classList.contains('animate')) {
                             element.classList.add('animate');
+                            markAnimatedThisSession(sectionId);
                         }
                     }, 500);
                 } else if (!entry.isIntersecting) {
-                    // Reset when leaving viewport
-                    element.classList.remove('animate');
+                    // Only reset if not already animated this session
+                    if (!hasAnimatedThisSession(sectionId)) {
+                        element.classList.remove('animate');
+                    }
                 }
             });
         }, { threshold: 0.3 });
 
         observer.observe(element);
+    });
+
+    // On page load, restore animations for sections that were already animated this session
+    document.querySelectorAll('.snap-section, section').forEach(function(section) {
+        const sectionId = section.id || section.className;
+        if (hasAnimatedThisSession(sectionId)) {
+            // Immediately show all animated elements in this section
+            const fadeHeader = section.querySelector('.fade-header');
+            const fadeTiles = section.querySelector('.fade-tiles');
+            const fadeWords = section.querySelector('.fade-words');
+            const fadeSection = section.querySelector('.fade-section');
+
+            if (fadeHeader) fadeHeader.classList.add('animate');
+            if (fadeTiles) fadeTiles.classList.add('animate');
+            if (fadeWords) fadeWords.classList.add('animate');
+            if (fadeSection) fadeSection.classList.add('animate');
+        }
     });
 
     // Scroll indicators - show/hide based on position
@@ -445,10 +506,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // Mark snap as active to prevent observer from firing
             window.fadeWordsSnapActive = true;
 
-            // Reset animations on sections we're leaving
+            // Reset animations on sections we're leaving (only if not already animated this session)
             snapSections.forEach(function(sec, i) {
                 if (i !== index) {
-                    if (window.resetFadeWords) {
+                    const sectionId = sec.id || sec.className;
+                    // Don't reset if already animated this session
+                    if (!hasAnimatedThisSession(sectionId) && window.resetFadeWords) {
                         window.resetFadeWords(sec);
                     }
                 }

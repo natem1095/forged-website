@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code:wght@300;400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css?v=31">
+    <link rel="stylesheet" href="css/style.css?v=33">
 
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23181818' rx='8' width='100' height='100'/><path d='M25 18h50v14H39v12h30v14H39v24H25V18z' fill='%23909090'/></svg>">
@@ -51,14 +51,31 @@
                     </h1>
 
                     <div class="hero-content-group">
-                        <p class="hero__subtitle" style="font-weight: 300; font-size: 1.25rem;">
-                            Business experience from the floor. Technical expertise that delivers.<br>
-                            Forged Solutions & Integrations-from people who know what you do.
+                        <p class="hero__subtitle" style="font-weight: 500; font-size: 2.25rem;">
+                            AI speed.<br>
+                            Human understanding.
                         </p>
 
                         <div class="hero__cta-group">
                             <a href="solutions.html" class="btn btn--primary btn--large">See Our Work</a>
                             <a href="contact.html" class="btn btn--secondary btn--large">Start a Project</a>
+                        </div>
+                    </div>
+
+                    <!-- Speed Proof Banner -->
+                    <div class="speed-proof-banner">
+                        <span class="speed-proof-banner__label">From our latest SAP integration</span>
+                        <div class="speed-stat">
+                            <span class="speed-stat__number">40x</span>
+                            <span class="speed-stat__label">Faster than traditional</span>
+                        </div>
+                        <div class="speed-stat">
+                            <span class="speed-stat__number">22K+</span>
+                            <span class="speed-stat__label">Lines of code shipped</span>
+                        </div>
+                        <div class="speed-stat">
+                            <span class="speed-stat__number">4</span>
+                            <span class="speed-stat__label">Days to production</span>
                         </div>
                     </div>
                 </div>
@@ -156,11 +173,80 @@
         <section class="section snap-section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-label">How We Work</span>
-                    <h2 class="fade-words"><span class="fade-word">Simple.</span> <span class="fade-word">Direct.</span> <span class="fade-word">Effective.</span></h2>
+                    <span class="section-label">AI-Augmented Development</span>
+                    <h2 class="fade-words"><span class="fade-word">Human expertise.</span> <span class="fade-word">AI-powered speed.</span> <span class="fade-word">Enterprise quality.</span></h2>
                 </div>
 
-                <div class="approach-list">
+                <!-- Methodology Pillars -->
+                <div class="methodology-pillars">
+                    <div class="methodology-pillar">
+                        <div class="methodology-pillar__icon">
+                            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="methodology-pillar__title">Human Expertise First</h3>
+                        <p class="methodology-pillar__description">Architecture decisions by experienced engineers. Security validated against enterprise standards.</p>
+                        <ul class="methodology-pillar__list">
+                            <li>Deep SAP/manufacturing experience</li>
+                            <li>Real problems understood from the floor</li>
+                            <li>Proven enterprise patterns</li>
+                        </ul>
+                    </div>
+
+                    <div class="methodology-pillar">
+                        <div class="methodology-pillar__icon">
+                            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="methodology-pillar__title">AI-Powered Speed</h3>
+                        <p class="methodology-pillar__description">Modern AI coding assistants accelerate implementation without cutting corners.</p>
+                        <ul class="methodology-pillar__list">
+                            <li>Documentation generated alongside code</li>
+                            <li>Consistent standards across codebase</li>
+                            <li>40x faster than traditional consulting</li>
+                        </ul>
+                    </div>
+
+                    <div class="methodology-pillar">
+                        <div class="methodology-pillar__icon">
+                            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <h3 class="methodology-pillar__title">Enterprise-Grade Quality</h3>
+                        <p class="methodology-pillar__description">Every line reviewed, tested, and validated. Security architecture that passes audits.</p>
+                        <ul class="methodology-pillar__list">
+                            <li>OWASP security standards</li>
+                            <li>Complete documentation package</li>
+                            <li>Production-ready from day one</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Timeline Comparison -->
+                <div class="timeline-comparison">
+                    <div class="timeline-comparison__title">Delivery Timeline Comparison</div>
+                    <div class="timeline-row">
+                        <span class="timeline-row__label">Traditional Consulting</span>
+                        <div class="timeline-row__bar-container">
+                            <div class="timeline-row__bar timeline-row__bar--traditional">
+                                <span class="timeline-row__bar-label">6-9 months</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-row">
+                        <span class="timeline-row__label">Forged Technologies</span>
+                        <div class="timeline-row__bar-container">
+                            <div class="timeline-row__bar timeline-row__bar--forged">
+                                <span class="timeline-row__bar-label">1-2 weeks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="approach-list" style="margin-top: var(--space-3xl);">
                     <div class="approach-item">
                         <span class="approach-item__number">01</span>
                         <div class="approach-item__content">

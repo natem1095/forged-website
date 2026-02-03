@@ -3721,6 +3721,28 @@ section {
     border-bottom: 1px solid var(--border-light);
     background: rgba(144, 144, 144, 0.03);
     position: relative;
+
+    /* === WIDTH CONTROLS === */
+    /* Adjust these values to change banner width */
+
+    /* OPTION 1: Percentage width (default is 100% of container) */
+    /* width: 100%; */
+
+    /* OPTION 2: Fixed pixel width */
+    /* width: 1400px; */
+
+    /* OPTION 3: Viewport width (100vw = full screen width) */
+    /* width: 100vw; */
+    /* margin-left: calc(-50vw + 50%); */ /* Centers full-width banner */
+
+    /* OPTION 4: Extend right only (keeps left aligned with hero text) */
+    /* width: calc(100% + 200px); */ /* Change 200px to extend more/less */
+    margin-right: -210px; */ /* Match the value above */
+
+    /* OPTION 5: Extend both sides equally */
+    /* width: calc(100% + 400px); */ /* Total extra width */
+    /* margin-left: -200px; */ /* Half of extra width */
+    /* margin-right: -200px; */ /* Half of extra width */
 }
 
 .speed-proof-banner__label {

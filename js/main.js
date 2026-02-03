@@ -3,6 +3,14 @@
 // Version: 2.0 - Project Builder
 // ========================================
 
+// Calculate true viewport height accounting for browser chrome and scaling
+function setViewportHeight() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+setViewportHeight();
+window.addEventListener('resize', setViewportHeight);
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Forged JS v2.0 loaded');
 

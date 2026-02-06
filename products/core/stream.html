@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forged Stream | Event Streaming — Forged Technologies</title>
+    <meta name="description" content="Forged Stream is a Kafka-compatible event streaming platform built with Rust. 500K+ ops/sec throughput, persistent storage, consumer groups, and exactly-once delivery semantics.">
+
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../css/style.css?v=40">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav">
+    <div class="container nav__container">
+        <a href="../../index.html" class="nav__logo">Forged</a>
+        <button class="nav__toggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav__links">
+            <li><a href="../../index.html" class="nav__link">Home</a></li>
+            <li><a href="../../platform.html" class="nav__link">Platform</a></li>
+            <li class="nav__dropdown-wrapper">
+                <a href="../../platform.html" class="nav__link nav__link--dropdown">Products</a>
+                <div class="nav__mega-menu">
+                    <div class="nav__mega-menu__inner">
+                        <div class="nav__mega-menu__category">
+                            <h4>Core Integration</h4>
+                            <a href="../../products/core/gate.html" class="nav__mega-menu__link">Gate <span>API Gateway</span></a>
+                            <a href="../../products/core/stream.html" class="nav__mega-menu__link">Stream <span>Event Streaming</span></a>
+                            <a href="../../products/core/sync.html" class="nav__mega-menu__link">Sync <span>Data Sync</span></a>
+                            <a href="../../products/core/flow.html" class="nav__mega-menu__link">Flow <span>Workflow Engine</span></a>
+                            <a href="../../products/core/observe.html" class="nav__mega-menu__link">Observe <span>Observability</span></a>
+                        </div>
+                        <div class="nav__mega-menu__category">
+                            <h4>Data Infrastructure</h4>
+                            <a href="../../products/data/cache.html" class="nav__mega-menu__link">Cache <span>Distributed Cache</span></a>
+                            <a href="../../products/data/store.html" class="nav__mega-menu__link">Store <span>Relational DB</span></a>
+                            <a href="../../products/data/lake.html" class="nav__mega-menu__link">Lake <span>Analytics Engine</span></a>
+                        </div>
+                        <div class="nav__mega-menu__category">
+                            <h4>Security &amp; Business</h4>
+                            <a href="../../products/security/vault.html" class="nav__mega-menu__link">Vault <span>Secrets Mgmt</span></a>
+                            <a href="../../products/security/identity.html" class="nav__mega-menu__link">Identity <span>IAM &amp; Auth</span></a>
+                            <a href="../../products/security/govern.html" class="nav__mega-menu__link">Govern <span>Policy Engine</span></a>
+                            <a href="../../products/business/erp.html" class="nav__mega-menu__link">ERP <span>Manufacturing</span></a>
+                            <a href="../../products/business/crm.html" class="nav__mega-menu__link">CRM <span>Sales &amp; CRM</span></a>
+                            <a href="../../products/business/hcm.html" class="nav__mega-menu__link">HCM <span>Human Capital</span></a>
+                        </div>
+                        <div class="nav__mega-menu__cta">
+                            <div class="nav__mega-menu__stat"><strong>18</strong><span>Products</span></div>
+                            <div class="nav__mega-menu__stat"><strong>6</strong><span>Categories</span></div>
+                            <a href="../../platform.html" class="btn btn--primary">View Full Platform</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="../../enterprise-security.html" class="nav__link">Security</a></li>
+            <li><a href="../../services.html" class="nav__link">Services</a></li>
+            <li><a href="../../about.html" class="nav__link">About</a></li>
+            <li><a href="../../contact.html" class="nav__cta">Get Started</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <section class="about-hero">
+        <div class="container">
+            <a href="../../platform.html" class="back-link">← Back to Platform</a>
+            <div class="section-label">Core Integration</div>
+            <h1>Forged Stream</h1>
+            <p class="subtitle">Event Streaming &amp; Message Broker — Kafka-compatible wire protocol with persistent storage, consumer groups, and 500K+ operations per second.</p>
+            <div class="meta-badges">
+                <span class="meta-badge">Rust</span>
+                <span class="meta-badge">Port 9092</span>
+                <span class="meta-badge">Kafka Protocol</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">500K+ ops/sec</div>
+                    <div class="stat-label">Sustained throughput</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">Kafka Compatible</div>
+                    <div class="stat-label">Wire protocol</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">Persistent</div>
+                    <div class="stat-label">Durable storage</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">Consumer Groups</div>
+                    <div class="stat-label">Fan-out delivery</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-label">Overview</div>
+            <h2>What is Forged Stream?</h2>
+            <p>Forged Stream is a Rust-based event streaming broker that implements the Kafka wire protocol. Your existing Kafka clients connect unchanged — no code modifications, no new SDKs, no migration complexity. It delivers 500K+ operations per second with persistent storage, consumer groups, and exactly-once delivery semantics.</p>
+            <p><strong>Replaces:</strong> Apache Kafka, AWS Kinesis, RabbitMQ, Confluent Platform</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-label">Features</div>
+            <h2>Built for Event-Driven Architecture</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Kafka Wire Protocol</h3>
+                    <p>Full protocol compatibility with Apache Kafka. Existing clients connect on port 9092 without modification. Drop-in replacement for Kafka brokers.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Persistent Storage</h3>
+                    <p>Durable message storage with configurable retention policies. Replay events from any point in time. Zero data loss with fsync guarantees.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Consumer Groups</h3>
+                    <p>Balanced partition assignment with automatic rebalancing. Multiple consumers read from the same topic with coordinated offset management.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Topic Management</h3>
+                    <p>Create, configure, and manage topics with partition control. Dynamic topic creation and automatic partition rebalancing across brokers.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Schema Registry</h3>
+                    <p>Built-in schema validation and evolution for Avro, Protobuf, and JSON. Ensure message compatibility across producer and consumer versions.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Exactly-Once Delivery</h3>
+                    <p>Idempotent producers and transactional messaging support. Atomic writes across multiple partitions with rollback capabilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-label">Compatibility</div>
+            <h2>Your existing Kafka clients connect unchanged</h2>
+            <p>Forged Stream implements the complete Kafka wire protocol. Point your existing producers and consumers to port 9092 — no code changes required.</p>
+            <pre style="background: #1a1a1a; padding: 2rem; border-radius: 8px; overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; line-height: 1.6; color: #e0e0e0; margin: 2rem 0;"><code># Kafka Producer Config (unchanged)
+bootstrap.servers=localhost:9092
+key.serializer=org.apache.kafka.common.serialization.StringSerializer
+value.serializer=org.apache.kafka.common.serialization.JsonSerializer
+acks=all
+retries=3
+
+# Works with Forged Stream immediately
+producer.send(new ProducerRecord&lt;&gt;("orders.created", order));</code></pre>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-label">Integration</div>
+            <h2>Works with the Forged Platform</h2>
+            <div class="compat-badges">
+                <span class="compat-badge">Gate — Route events to APIs</span>
+                <span class="compat-badge">Sync — CDC event streaming</span>
+                <span class="compat-badge">Flow — Workflow event triggers</span>
+                <span class="compat-badge">Observe — Event monitoring</span>
+                <span class="compat-badge">ERP — Business events</span>
+                <span class="compat-badge">CRM — Customer events</span>
+                <span class="compat-badge">HCM — Employee events</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-label">Configuration</div>
+            <h2>Simple YAML Configuration</h2>
+            <pre style="background: #1a1a1a; padding: 2rem; border-radius: 8px; overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; line-height: 1.6; color: #e0e0e0; margin: 2rem 0;"><code># stream.yaml
+broker:
+  port: 9092
+  storage: /data/stream
+  retention: 7d
+topics:
+  - name: orders.created
+    partitions: 12
+    replication: 3
+  - name: inventory.updated
+    partitions: 6</code></pre>
+        </div>
+    </section>
+
+    <section class="section section--cta">
+        <div class="container">
+            <h2>Get Started with Forged Stream</h2>
+            <p>Deploy a Kafka-compatible event streaming broker with 500K+ ops/sec throughput.</p>
+            <div class="cta-buttons">
+                <a href="../../contact.html" class="btn btn--primary">Contact Sales</a>
+                <a href="../../platform.html" class="btn btn--secondary">View Full Platform</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer__content">
+            <p class="footer__text">&copy; 2026 Forged Technologies. Built with focus.</p>
+            <ul class="footer__links">
+                <li><a href="https://www.linkedin.com/in/nathan-murray-311266114/" class="footer__link" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://github.com/natem1095" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="mailto:nate@forgedintegration.com" class="footer__link">Email</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js?v=60"></script>
+</body>
+</html>

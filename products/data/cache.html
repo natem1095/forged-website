@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forged Cache | Distributed Cache — Forged Technologies</title>
+    <meta name="description" content="Redis-Compatible Distributed Cache — Full RESP3 protocol with all data structures, TTL, and LRU/LFU eviction. Your existing Redis clients connect unchanged on port 6379.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css?v=40">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23181818' rx='8' width='100' height='100'/><path d='M25 18h50v14H39v12h30v14H39v24H25V18z' fill='%23909090'/></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav__container">
+            <a href="../../index.html" class="nav__logo">Forged</a>
+
+            <button class="nav__toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav__links">
+                <li><a href="../../index.html" class="nav__link">Home</a></li>
+                <li><a href="../../platform.html" class="nav__link">Platform</a></li>
+                <li class="nav__dropdown-wrapper">
+                    <a href="../../platform.html" class="nav__link nav__link--dropdown">Products</a>
+                    <div class="nav__mega-menu">
+                        <div class="nav__mega-menu__inner">
+                            <div class="nav__mega-menu__category">
+                                <h4>Core Integration</h4>
+                                <a href="../../products/core/gate.html" class="nav__mega-menu__link">Gate <span>API Gateway</span></a>
+                                <a href="../../products/core/stream.html" class="nav__mega-menu__link">Stream <span>Event Streaming</span></a>
+                                <a href="../../products/core/sync.html" class="nav__mega-menu__link">Sync <span>Data Sync</span></a>
+                                <a href="../../products/core/flow.html" class="nav__mega-menu__link">Flow <span>Workflow Engine</span></a>
+                                <a href="../../products/core/observe.html" class="nav__mega-menu__link">Observe <span>Observability</span></a>
+                            </div>
+                            <div class="nav__mega-menu__category">
+                                <h4>Data Infrastructure</h4>
+                                <a href="../../products/data/cache.html" class="nav__mega-menu__link">Cache <span>Distributed Cache</span></a>
+                                <a href="../../products/data/store.html" class="nav__mega-menu__link">Store <span>Relational DB</span></a>
+                                <a href="../../products/data/lake.html" class="nav__mega-menu__link">Lake <span>Analytics Engine</span></a>
+                            </div>
+                            <div class="nav__mega-menu__category">
+                                <h4>Security & Business</h4>
+                                <a href="../../products/security/vault.html" class="nav__mega-menu__link">Vault <span>Secrets Mgmt</span></a>
+                                <a href="../../products/security/identity.html" class="nav__mega-menu__link">Identity <span>IAM & Auth</span></a>
+                                <a href="../../products/security/govern.html" class="nav__mega-menu__link">Govern <span>Policy Engine</span></a>
+                                <a href="../../products/business/erp.html" class="nav__mega-menu__link">ERP <span>Manufacturing</span></a>
+                                <a href="../../products/business/crm.html" class="nav__mega-menu__link">CRM <span>Sales & CRM</span></a>
+                                <a href="../../products/business/hcm.html" class="nav__mega-menu__link">HCM <span>Human Capital</span></a>
+                            </div>
+                            <div class="nav__mega-menu__cta">
+                                <div class="nav__mega-menu__stat"><strong>18</strong><span>Products</span></div>
+                                <div class="nav__mega-menu__stat"><strong>6</strong><span>Categories</span></div>
+                                <a href="../../platform.html" class="btn btn--primary">View Full Platform</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="../../enterprise-security.html" class="nav__link">Security</a></li>
+                <li><a href="../../services.html" class="nav__link">Services</a></li>
+                <li><a href="../../about.html" class="nav__link">About</a></li>
+                <li><a href="../../contact.html" class="nav__cta">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="about-hero">
+        <div class="container">
+            <a href="../../platform.html" class="back-link">← Back to Platform</a>
+            <span class="section-label">Data Infrastructure</span>
+            <h1>Forged Cache</h1>
+            <p class="subtitle">Redis-Compatible Distributed Cache — Full RESP3 protocol with all data structures, TTL, and LRU/LFU eviction. Your existing Redis clients connect unchanged on port 6379.</p>
+            <div class="badge-group">
+                <span class="compat-badge">Rust</span>
+                <span class="compat-badge">Port 6379</span>
+                <span class="compat-badge">RESP3 Protocol</span>
+                <span class="compat-badge">Redis Compatible</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">500K+</div>
+                    <div class="stat-label">ops/sec</div>
+                    <div class="stat-description">GET operations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">&lt;100μs</div>
+                    <div class="stat-label">P50</div>
+                    <div class="stat-description">Read latency</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">Port 6379</div>
+                    <div class="stat-label">Redis</div>
+                    <div class="stat-description">Standard</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">RESP3</div>
+                    <div class="stat-label">Full</div>
+                    <div class="stat-description">Protocol</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Overview</h2>
+            <p>Forged Cache is a high-performance distributed cache built in Rust with full RESP3 wire protocol compatibility. It supports every Redis data structure and command, making it a true drop-in replacement for Redis, Memcached, AWS ElastiCache, and Azure Cache for Redis.</p>
+            <p>The key advantage: your existing Redis clients work unchanged. Whether you're using ioredis, redis-py, Jedis, or any other Redis-compatible client, simply point it to port 6379 and it connects without modification. No code changes, no migration effort, just instant compatibility.</p>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <h2>Drop-in Compatibility</h2>
+            <p>Your existing Redis client code works without changes. Connect to port 6379 and start caching.</p>
+
+            <h3 style="margin-top: var(--space-xl); margin-bottom: var(--space-md); font-size: 1.125rem; color: var(--text-primary);">Node.js (ioredis)</h3>
+            <pre style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 8px; padding: var(--space-lg); overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.7; white-space: pre;">// Your existing code works unchanged
+const redis = require('ioredis');
+const client = new redis(6379, 'localhost');
+await client.set('session:abc', JSON.stringify(user));
+const session = await client.get('session:abc');</pre>
+
+            <h3 style="margin-top: var(--space-xl); margin-bottom: var(--space-md); font-size: 1.125rem; color: var(--text-primary);">Python (redis-py)</h3>
+            <pre style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 8px; padding: var(--space-lg); overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.7; white-space: pre;"># Standard Redis client, no changes needed
+import redis
+r = redis.Redis(host='localhost', port=6379)
+r.set('user:1000', json.dumps(user_data))
+r.expire('user:1000', 3600)  # TTL support</pre>
+
+            <h3 style="margin-top: var(--space-xl); margin-bottom: var(--space-md); font-size: 1.125rem; color: var(--text-primary);">Java (Jedis)</h3>
+            <pre style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 8px; padding: var(--space-lg); overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.7; white-space: pre;">// Works with any Redis Java client
+Jedis jedis = new Jedis("localhost", 6379);
+jedis.hset("product:500", "name", "Widget");
+jedis.hset("product:500", "price", "29.99");
+Map&lt;String, String&gt; product = jedis.hgetAll("product:500");</pre>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>All Data Structures</h3>
+                    <p>Complete support for Strings, Lists, Sets, Sorted Sets, Hashes, and Streams. Every Redis data structure available with full command compatibility.</p>
+                </div>
+                <div class="service-card">
+                    <h3>TTL &amp; Expiry</h3>
+                    <p>Per-key time-to-live with both lazy and active expiration mechanisms. Set expiration on any key with automatic cleanup.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Eviction Policies</h3>
+                    <p>Multiple eviction strategies including LRU (Least Recently Used), LFU (Least Frequently Used), random, and volatile-ttl for memory management.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Persistence</h3>
+                    <p>Optional RDB snapshots for point-in-time backups and AOF (Append-Only File) logging for durability. Configure based on your needs.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Pub/Sub</h3>
+                    <p>Full publish/subscribe messaging support. Broadcast messages to multiple subscribers with pattern-based subscriptions.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Cluster Mode</h3>
+                    <p>Horizontal scaling with consistent hashing. Distribute data across multiple nodes for increased capacity and throughput.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <h2>Integration</h2>
+            <p>Forged Cache integrates seamlessly across the platform:</p>
+            <ul style="margin-top: var(--space-md); color: var(--text-secondary); line-height: 1.8;">
+                <li><strong>Gate:</strong> Response caching for API endpoints with automatic cache invalidation</li>
+                <li><strong>Identity:</strong> Session storage for user authentication tokens and permissions</li>
+                <li><strong>ERP/CRM/HCM:</strong> Application-level caching for frequently accessed business data</li>
+                <li><strong>Observe:</strong> Cache metrics and performance monitoring with real-time visibility</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Configuration</h2>
+            <p>Simple YAML configuration with sensible defaults:</p>
+            <pre style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 8px; padding: var(--space-lg); overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.7; white-space: pre;"># cache.yaml
+server:
+  port: 6379
+  max_memory: 4gb
+  eviction_policy: allkeys-lru
+
+persistence:
+  rdb:
+    enabled: true
+    interval: 300s
+  aof:
+    enabled: false
+
+cluster:
+  enabled: false
+  nodes:
+    - host: cache-01.local
+      port: 6379
+    - host: cache-02.local
+      port: 6379</pre>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Deploy Forged Cache?</h2>
+            <p>Start with full Redis compatibility and scale to millions of operations per second.</p>
+            <div class="cta-buttons">
+                <a href="../../contact.html" class="btn btn--primary btn--large">Get Started</a>
+                <a href="../../platform.html" class="btn btn--secondary btn--large">View Platform</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer__content">
+            <p class="footer__text">&copy; 2026 Forged Technologies. Built with focus.</p>
+            <ul class="footer__links">
+                <li><a href="https://www.linkedin.com/in/nathan-murray-311266114/" class="footer__link" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://github.com/natem1095" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="mailto:nate@forgedintegration.com" class="footer__link">Email</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js?v=60"></script>
+</body>
+</html>

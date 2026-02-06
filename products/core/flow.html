@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forged Flow | Workflow Orchestration — Forged Technologies</title>
+    <meta name="description" content="Forged Flow is a workflow orchestration engine built with Rust and Go. YAML-based workflows, parallel execution, WASM plugins, and sub-millisecond scheduling overhead.">
+
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../css/style.css?v=40">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav">
+        <div class="container nav__container">
+            <a href="../../index.html" class="nav__logo">Forged</a>
+            <button class="nav__toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+            <ul class="nav__links">
+                <li><a href="../../index.html" class="nav__link">Home</a></li>
+                <li><a href="../../platform.html" class="nav__link">Platform</a></li>
+                <li class="nav__dropdown-wrapper">
+                    <a href="../../platform.html" class="nav__link nav__link--dropdown">Products</a>
+                    <div class="nav__mega-menu"><div class="nav__mega-menu__inner">
+                        <div class="nav__mega-menu__category"><h4>Core Integration</h4>
+                            <a href="../../products/core/gate.html" class="nav__mega-menu__link">Gate <span>API Gateway</span></a>
+                            <a href="../../products/core/stream.html" class="nav__mega-menu__link">Stream <span>Event Streaming</span></a>
+                            <a href="../../products/core/sync.html" class="nav__mega-menu__link">Sync <span>Data Sync</span></a>
+                            <a href="../../products/core/flow.html" class="nav__mega-menu__link">Flow <span>Workflow Engine</span></a>
+                            <a href="../../products/core/observe.html" class="nav__mega-menu__link">Observe <span>Observability</span></a>
+                        </div>
+                        <div class="nav__mega-menu__category"><h4>Data Infrastructure</h4>
+                            <a href="../../products/data/cache.html" class="nav__mega-menu__link">Cache <span>Distributed Cache</span></a>
+                            <a href="../../products/data/store.html" class="nav__mega-menu__link">Store <span>Relational DB</span></a>
+                            <a href="../../products/data/lake.html" class="nav__mega-menu__link">Lake <span>Analytics Engine</span></a>
+                        </div>
+                        <div class="nav__mega-menu__category"><h4>Security &amp; Business</h4>
+                            <a href="../../products/security/vault.html" class="nav__mega-menu__link">Vault <span>Secrets Mgmt</span></a>
+                            <a href="../../products/security/identity.html" class="nav__mega-menu__link">Identity <span>IAM &amp; Auth</span></a>
+                            <a href="../../products/security/govern.html" class="nav__mega-menu__link">Govern <span>Policy Engine</span></a>
+                            <a href="../../products/business/erp.html" class="nav__mega-menu__link">ERP <span>Manufacturing</span></a>
+                            <a href="../../products/business/crm.html" class="nav__mega-menu__link">CRM <span>Sales &amp; CRM</span></a>
+                            <a href="../../products/business/hcm.html" class="nav__mega-menu__link">HCM <span>Human Capital</span></a>
+                        </div>
+                        <div class="nav__mega-menu__cta">
+                            <div class="nav__mega-menu__stat"><strong>18</strong><span>Products</span></div>
+                            <div class="nav__mega-menu__stat"><strong>6</strong><span>Categories</span></div>
+                            <a href="../../platform.html" class="btn btn--primary">View Full Platform</a>
+                        </div>
+                    </div></div>
+                </li>
+                <li><a href="../../enterprise-security.html" class="nav__link">Security</a></li>
+                <li><a href="../../services.html" class="nav__link">Services</a></li>
+                <li><a href="../../about.html" class="nav__link">About</a></li>
+                <li><a href="../../contact.html" class="nav__cta">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="about-hero">
+        <div class="container">
+            <a href="../../platform.html" class="back-link">← Back to Platform</a>
+            <div class="section-label">Core Integration</div>
+            <h1>Forged Flow</h1>
+            <p class="hero-subtitle">Workflow Orchestration Engine — YAML-based workflows with parallel execution, WASM plugins, and sub-millisecond scheduling overhead. Custom FFL (Forged Flow Language).</p>
+            <div class="product-badges">
+                <span class="badge">Rust + Go</span>
+                <span class="badge">Ports 9080-9082</span>
+                <span class="badge">REST / gRPC</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="stats-grid stats-grid--four">
+                <div class="stat-card">
+                    <div class="stat-card__value">Sub-ms Overhead</div>
+                    <div class="stat-card__label">Scheduling latency</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__value">WASM Plugins</div>
+                    <div class="stat-card__label">Extensible runtime</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__value">3 Protocols</div>
+                    <div class="stat-card__label">REST, gRPC, Metrics</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__value">DAG Engine</div>
+                    <div class="stat-card__label">Parallel execution</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section-label">Overview</div>
+            <h2>Workflow Orchestration Engine</h2>
+            <p class="section-intro">Rust runtime with Go control plane workflow engine. Define workflows in YAML using FFL (Forged Flow Language) custom syntax. Replaces Temporal, Apache Airflow, AWS Step Functions, and n8n with a unified, high-performance orchestration layer.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-label">Features</div>
+            <h2>Workflow Capabilities</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>YAML Workflows</h3>
+                    <p>Define workflows in YAML using FFL syntax. Version-controlled, declarative orchestration with built-in validation and IDE support.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Parallel Execution</h3>
+                    <p>DAG-based dependency resolution enables automatic parallel execution of independent steps. Maximize throughput with intelligent scheduling.</p>
+                </div>
+                <div class="service-card">
+                    <h3>WASM Plugins</h3>
+                    <p>Extend the runtime with WebAssembly plugins. Write custom actions in any language that compiles to WASM for sandboxed execution.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Retry & Error Handling</h3>
+                    <p>Configurable retry policies with exponential backoff. Circuit breaker patterns and custom error handlers for workflow resilience.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Cron Scheduling</h3>
+                    <p>Built-in cron scheduler for periodic workflows. Time-based triggers with timezone support and missed-run handling.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Workflow Versioning</h3>
+                    <p>Semantic versioning for workflows. Run multiple versions simultaneously with automatic migration and rollback capabilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section-label">Integration</div>
+            <h2>Platform Integration</h2>
+            <p class="section-intro">Flow integrates seamlessly with the Forged ecosystem:</p>
+            <div class="integration-badges">
+                <span class="compat-badge">Stream <span>Event triggers</span></span>
+                <span class="compat-badge">Gate <span>API triggers</span></span>
+                <span class="compat-badge">Observe <span>Workflow metrics</span></span>
+                <span class="compat-badge">Store <span>State persistence</span></span>
+                <span class="compat-badge">Sync <span>Data pipeline triggers</span></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-label">Configuration</div>
+            <h2>Workflow Example</h2>
+            <div class="config-example">
+                <pre><code># workflow: order-fulfillment
+name: order-fulfillment
+trigger:
+  event: orders.created
+  source: forged-stream
+steps:
+  - name: validate
+    action: http.post
+    url: ${GATE_URL}/api/v1/orders/validate
+  - name: reserve-inventory
+    action: http.post
+    url: ${GATE_URL}/api/v1/inventory/reserve
+    depends_on: [validate]
+  - name: notify
+    action: stream.publish
+    topic: notifications.order
+    depends_on: [reserve-inventory]</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--cta">
+        <div class="container">
+            <h2>Ready to Orchestrate Your Workflows?</h2>
+            <p>Deploy Forged Flow and build resilient, scalable workflow automation.</p>
+            <div class="cta-buttons">
+                <a href="../../contact.html" class="btn btn--primary btn--large">Get Started</a>
+                <a href="../../platform.html" class="btn btn--secondary btn--large">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer__content">
+            <p class="footer__text">&copy; 2026 Forged Technologies. Built with focus.</p>
+            <ul class="footer__links">
+                <li><a href="https://www.linkedin.com/in/nathan-murray-311266114/" class="footer__link" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://github.com/natem1095" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="mailto:nate@forgedintegration.com" class="footer__link">Email</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js?v=60"></script>
+</body>
+</html>

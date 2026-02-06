@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forged Technologies | Enterprise Integration & Automation</title>
-    <meta name="description" content="Working solutions, not slide decks. Enterprise system integrations, workflow automation, and custom development delivered on time, in less time.">
+    <title>Forged Technologies | One Platform. Every Integration.</title>
+    <meta name="description" content="18 enterprise infrastructure products built from scratch in Rust. API gateway, event streaming, databases, ERP, CRM — unified and self-hostable.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code:wght@300;400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css?v=33">
+    <link rel="stylesheet" href="css/style.css?v=40">
 
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23181818' rx='8' width='100' height='100'/><path d='M25 18h50v14H39v12h30v14H39v24H25V18z' fill='%23909090'/></svg>">
@@ -31,484 +31,482 @@
 
             <ul class="nav__links">
                 <li><a href="index.html" class="nav__link nav__link--active">Home</a></li>
-                <li><a href="solutions.html" class="nav__link">Solutions</a></li>
+                <li><a href="platform.html" class="nav__link">Platform</a></li>
+                <li class="nav__dropdown-wrapper">
+                    <a href="platform.html" class="nav__link nav__link--dropdown">Products</a>
+                    <div class="nav__mega-menu">
+                        <div class="nav__mega-menu__inner">
+                            <div class="nav__mega-menu__category">
+                                <h4>Core Integration</h4>
+                                <a href="products/core/gate.html" class="nav__mega-menu__link">Gate <span>API Gateway</span></a>
+                                <a href="products/core/stream.html" class="nav__mega-menu__link">Stream <span>Event Streaming</span></a>
+                                <a href="products/core/sync.html" class="nav__mega-menu__link">Sync <span>Data Sync</span></a>
+                                <a href="products/core/flow.html" class="nav__mega-menu__link">Flow <span>Workflow Engine</span></a>
+                                <a href="products/core/observe.html" class="nav__mega-menu__link">Observe <span>Observability</span></a>
+                            </div>
+                            <div class="nav__mega-menu__category">
+                                <h4>Data Infrastructure</h4>
+                                <a href="products/data/cache.html" class="nav__mega-menu__link">Cache <span>Distributed Cache</span></a>
+                                <a href="products/data/store.html" class="nav__mega-menu__link">Store <span>Relational DB</span></a>
+                                <a href="products/data/lake.html" class="nav__mega-menu__link">Lake <span>Analytics Engine</span></a>
+                            </div>
+                            <div class="nav__mega-menu__category">
+                                <h4>Security</h4>
+                                <a href="products/security/vault.html" class="nav__mega-menu__link">Vault <span>Secrets Mgmt</span></a>
+                                <a href="products/security/identity.html" class="nav__mega-menu__link">Identity <span>IAM & Auth</span></a>
+                                <a href="products/security/govern.html" class="nav__mega-menu__link">Govern <span>Policy Engine</span></a>
+                            </div>
+                            <div class="nav__mega-menu__category">
+                                <h4>Business Applications</h4>
+                                <a href="products/business/erp.html" class="nav__mega-menu__link">ERP <span>Manufacturing</span></a>
+                                <a href="products/business/crm.html" class="nav__mega-menu__link">CRM <span>Sales & Customers</span></a>
+                                <a href="products/business/hcm.html" class="nav__mega-menu__link">HCM <span>Human Capital</span></a>
+                            </div>
+                            <div class="nav__mega-menu__category">
+                                <h4>Edge & Platform</h4>
+                                <a href="products/edge/edge.html" class="nav__mega-menu__link">Edge <span>CDN & Compute</span></a>
+                                <a href="products/developer/docs.html" class="nav__mega-menu__link">Docs <span>API Docs</span></a>
+                                <a href="products/operations/console.html" class="nav__mega-menu__link">Console <span>Admin Dashboard</span></a>
+                            </div>
+                            <div class="nav__mega-menu__category nav__mega-menu__category--cta">
+                                <a href="platform.html" class="btn btn--secondary" style="width: 100%; margin-top: var(--space-sm);">View Full Platform</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="enterprise-security.html" class="nav__link">Security</a></li>
+                <li><a href="services.html" class="nav__link">Services</a></li>
                 <li><a href="about.html" class="nav__link">About</a></li>
-                <li><a href="contact.html" class="nav__cta">Let's Talk</a></li>
+                <li><a href="contact.html" class="nav__cta">Get Started</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero snap-section">
-            <div class="container">
-                <div class="hero__content hero-animate">
-                    <!-- <p class="hero__tagline">Forged Technologies</p> -->
+        <div class="container">
+            <div class="hero__content hero-animate">
+                <h1 class="hero__title">
+                    <span class="hero-line">One platform.</span>
+                    <span class="hero-line hero__highlight">Every integration.</span>
+                </h1>
 
-                    <h1 class="hero__title">
-                        <span class="hero-line">Working solutions.</span>
-                        <span class="hero-line hero__highlight">Not slide decks.</span>
-                    </h1>
+                <div class="hero-content-group">
+                    <p class="hero__subtitle" style="font-weight: 500; font-size: 2.25rem;">
+                        Built from scratch<br>
+                        in Rust.
+                    </p>
 
-                    <div class="hero-content-group">
-                        <p class="hero__subtitle" style="font-weight: 500; font-size: 2.25rem;">
-                            AI speed.<br>
-                            Human understanding.
-                        </p>
+                    <p class="hero__subtitle" style="font-size: 1.125rem; margin-top: calc(var(--space-md) * -1); margin-bottom: var(--space-xl);">
+                        Complete enterprise infrastructure — gateway, streaming, sync,
+                        ERP, CRM — unified and self-hostable.
+                    </p>
 
-                        <div class="hero__cta-group">
-                            <a href="solutions.html" class="btn btn--primary btn--large">See Our Work</a>
-                            <a href="contact.html" class="btn btn--secondary btn--large">Start a Project</a>
-                        </div>
+                    <div class="hero__cta-group">
+                        <a href="platform.html" class="btn btn--primary btn--large">Explore the Platform</a>
+                        <a href="contact.html" class="btn btn--secondary btn--large">Get Started</a>
                     </div>
+                </div>
 
-                    <!-- Speed Proof Banner -->
-                    <div class="speed-proof-banner">
-                        <span class="speed-proof-banner__label">From our latest integration</span>
-                        <div class="speed-stat">
-                            <span class="speed-stat__number">40x</span>
-                            <span class="speed-stat__label">Faster than traditional</span>
-                        </div>
-                        <div class="speed-stat">
-                            <span class="speed-stat__number">22K+</span>
-                            <span class="speed-stat__label">Lines of code shipped</span>
-                        </div>
-                        <div class="speed-stat">
-                            <span class="speed-stat__number">4</span>
-                            <span class="speed-stat__label">Days to production</span>
-                        </div>
+                <!-- Speed Proof Banner -->
+                <div class="speed-proof-banner">
+                    <span class="speed-proof-banner__label">The Forged Platform</span>
+                    <div class="speed-stat">
+                        <span class="speed-stat__number">18</span>
+                        <span class="speed-stat__label">Products</span>
+                    </div>
+                    <div class="speed-stat">
+                        <span class="speed-stat__number">38</span>
+                        <span class="speed-stat__label">Services</span>
+                    </div>
+                    <div class="speed-stat">
+                        <span class="speed-stat__number">6</span>
+                        <span class="speed-stat__label">Categories</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- What I Do Section -->
-        <section class="section snap-section" style="background: var(--bg-secondary);">
-            <div class="container">
-                <div class="section-header fade-header">
-                    <span class="section-label">What We Do</span>
-                    <h2>We fix what's broken and build what's missing</h2>
-                    <p class="mt-md">We've spent years in the warehouse, understanding real operations. The person who understands the problem builds the solution—no handoffs.</p>
+    <!-- Product Categories Section -->
+    <section class="section snap-section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header fade-header">
+                <span class="section-label">The Platform</span>
+                <h2>Everything your enterprise needs. Nothing it doesn't.</h2>
+                <p class="mt-md">Six categories of infrastructure, built from the ground up. No glue code. No vendor lock-in. One unified platform.</p>
+            </div>
+
+            <div class="services-grid fade-tiles">
+                <a href="platform.html#core" class="service-card fade-tile" style="text-decoration: none;">
+                    <div class="service-card__icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Core Integration</h3>
+                    <p class="service-card__description">
+                        API gateway, event streaming, data synchronization, workflow orchestration, and observability. The backbone of every enterprise.
+                    </p>
+                    <span class="service-card__count">5 products</span>
+                </a>
+
+                <a href="platform.html#data" class="service-card fade-tile" style="text-decoration: none;">
+                    <div class="service-card__icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Data Infrastructure</h3>
+                    <p class="service-card__description">
+                        Redis-compatible cache, PostgreSQL-compatible database, and columnar analytics engine. Drop-in replacements for your existing tools.
+                    </p>
+                    <span class="service-card__count">3 products</span>
+                </a>
+
+                <a href="platform.html#security" class="service-card fade-tile" style="text-decoration: none;">
+                    <div class="service-card__icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Platform Security</h3>
+                    <p class="service-card__description">
+                        Secrets management, IAM and authentication, and policy enforcement. Security built into the platform, not bolted on.
+                    </p>
+                    <span class="service-card__count">3 products</span>
+                </a>
+
+                <a href="platform.html#business" class="service-card fade-tile" style="text-decoration: none;">
+                    <div class="service-card__icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Business Applications</h3>
+                    <p class="service-card__description">
+                        Full ERP, CRM, and HCM — not plugins or wrappers. Complete business applications built on the same platform.
+                    </p>
+                    <span class="service-card__count">3 products</span>
+                </a>
+
+                <a href="platform.html#developer" class="service-card fade-tile" style="text-decoration: none;">
+                    <div class="service-card__icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Developer Tools</h3>
+                    <p class="service-card__description">
+                        API documentation platform with interactive playground, code examples, and OpenAPI spec generation.
+                    </p>
+                    <span class="service-card__count">1 product</span>
+                </a>
+
+                <a href="platform.html#operations" class="service-card fade-tile" style="text-decoration: none;">
+                    <div class="service-card__icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Operations</h3>
+                    <p class="service-card__description">
+                        Unified admin dashboard and edge computing. Single pane of glass for all Forged services, plus CDN and edge functions.
+                    </p>
+                    <span class="service-card__count">2 products</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Forged Section -->
+    <section class="section snap-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Why Forged</span>
+                <h2 class="fade-words"><span class="fade-word">Built in Rust.</span> <span class="fade-word">Drop-in compatible.</span> <span class="fade-word">Deploy anywhere.</span></h2>
+            </div>
+
+            <!-- Methodology Pillars -->
+            <div class="methodology-pillars">
+                <div class="methodology-pillar">
+                    <div class="methodology-pillar__icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="methodology-pillar__title">Built in Rust</h3>
+                    <p class="methodology-pillar__description">Every service written from scratch. Memory-safe, zero-cost abstractions, microsecond latency. No wrappers around open-source tools.</p>
+                    <ul class="methodology-pillar__list">
+                        <li>Memory-safe by design</li>
+                        <li>Sub-millisecond latency</li>
+                        <li>500K+ ops/sec per service</li>
+                    </ul>
                 </div>
 
-                <div class="services-grid fade-tiles">
-                    <div class="service-card fade-tile">
-                        <div class="service-card__icon">
-                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-card__title">System Integrations</h3>
-                        <p class="service-card__description">
-                            We build the bridges. ERP, CRM, HR, finance—if your systems need to connect, we make it happen. Data flows where it needs to go, automatically.
-                        </p>
+                <div class="methodology-pillar">
+                    <div class="methodology-pillar__icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                        </svg>
                     </div>
+                    <h3 class="methodology-pillar__title">Drop-In Compatible</h3>
+                    <p class="methodology-pillar__description">Replace Redis, PostgreSQL, Kafka without changing application code. Wire-protocol compatible — your existing clients connect unchanged.</p>
+                    <ul class="methodology-pillar__list">
+                        <li>Redis RESP3 protocol</li>
+                        <li>PostgreSQL wire protocol</li>
+                        <li>Kafka client compatibility</li>
+                    </ul>
+                </div>
 
-                    <div class="service-card fade-tile">
-                        <div class="service-card__icon">
-                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-card__title">AI-Workflow Automation</h3>
-                        <p class="service-card__description">
-                            Automate approval processes, notifications, and document routing. Eliminate manual handoffs and get full audit trails—leveraging the power of AI.
-                        </p>
+                <div class="methodology-pillar">
+                    <div class="methodology-pillar__icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
                     </div>
-
-                    <div class="service-card fade-tile">
-                        <div class="service-card__icon">
-                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-card__title">Custom Development</h3>
-                        <p class="service-card__description">
-                            Tools built for how you work. Dashboards, portals, custom apps—built to solve your problems, that "out of the box" can't.
-                        </p>
-                    </div>
-
-                    <div class="service-card fade-tile">
-                        <div class="service-card__icon">
-                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-card__title">Rapid Delivery</h3>
-                        <p class="service-card__description">
-                            No layers of project managers. No discovery phases that stretch into months. We understand the problem because we've lived it—then we build the solution. Weeks, not months.
-                        </p>
-                    </div>
-
-                    <div class="service-card fade-tile">
-                        <div class="service-card__icon">
-                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
-                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                                <line x1="12" y1="22.08" x2="12" y2="12"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-card__title">Ground-Up Builds</h3>
-                        <p class="service-card__description">
-                            New implementations, platform rollouts, configurations done right the first time. Systems that match your business.
-                        </p>
-                    </div>
-
-                    <div class="service-card fade-tile">
-                        <div class="service-card__icon">
-                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-card__title">Problems Nobody Can Solve</h3>
-                        <p class="service-card__description">
-                            Weird legacy system? Undocumented API? "It's always been broken"? We like those. We'll make it work.
-                        </p>
-                    </div>
+                    <h3 class="methodology-pillar__title">Deploy Anywhere</h3>
+                    <p class="methodology-pillar__description">Docker Compose for development, Kubernetes + Helm for production, or let us manage it. Your infrastructure, your terms.</p>
+                    <ul class="methodology-pillar__list">
+                        <li>Docker Compose (development)</li>
+                        <li>Kubernetes + Helm (production)</li>
+                        <li>SaaS (managed)</li>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- How We Work Section -->
-        <section class="section snap-section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">AI-Augmented Development</span>
-                    <h2 class="fade-words"><span class="fade-word">Human expertise.</span> <span class="fade-word">AI-powered speed.</span> <span class="fade-word">Enterprise quality.</span></h2>
+    <!-- What You Get Section -->
+    <section class="section snap-section" id="last-snap-section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="typewriter" data-text="What you get with the platform"><span class="typewriter__text"></span><span class="terminal-cursor">&#9608;</span></h2>
+                <p class="mt-md">Every deployment includes everything you need to run, maintain, and extend the platform.</p>
+            </div>
+
+            <div class="deliverables-grid">
+                <div class="deliverable-card">
+                    <div class="deliverable-card__icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                    </div>
+                    <h3 class="deliverable-card__title">Unified Platform</h3>
+                    <p class="deliverable-card__description">18 products that share auth, config, and observability. No stitching together disparate tools from different vendors.</p>
                 </div>
 
-                <!-- Methodology Pillars -->
-                <div class="methodology-pillars">
-                    <div class="methodology-pillar">
-                        <div class="methodology-pillar__icon">
-                            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                            </svg>
-                        </div>
-                        <h3 class="methodology-pillar__title">Human Expertise First</h3>
-                        <p class="methodology-pillar__description">Architectural decisions by those who understand business operations and code structure. Security validated against enterprise standards.</p>
-                        <ul class="methodology-pillar__list">
-                            <li>Deep SAP/manufacturing experience</li>
-                            <li>Real problems understood from the floor</li>
-                            <li>Proven enterprise patterns</li>
-                        </ul>
+                <div class="deliverable-card">
+                    <div class="deliverable-card__icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                        </svg>
                     </div>
-
-                    <div class="methodology-pillar">
-                        <div class="methodology-pillar__icon">
-                            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                            </svg>
-                        </div>
-                        <h3 class="methodology-pillar__title">AI-Powered Speed</h3>
-                        <p class="methodology-pillar__description">AI handles syntax and implementation details while architects direct the structure and business logic.</p>
-                        <ul class="methodology-pillar__list">
-                            <li>Documentation generated alongside code</li>
-                            <li>Consistent standards across codebase</li>
-                            <li>4.5x faster than traditional consulting</li>
-                        </ul>
-                    </div>
-
-                    <div class="methodology-pillar">
-                        <div class="methodology-pillar__icon">
-                            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                            </svg>
-                        </div>
-                        <h3 class="methodology-pillar__title">Enterprise-Grade Quality</h3>
-                        <p class="methodology-pillar__description">Every line reviewed, tested, and validated. Secure design that passes audits.</p>
-                        <ul class="methodology-pillar__list">
-                            <li>OWASP security standards</li>
-                            <li>Complete documentation package</li>
-                            <li>Production-ready from day one</li>
-                        </ul>
-                    </div>
+                    <h3 class="deliverable-card__title">Drop-In Migration</h3>
+                    <p class="deliverable-card__description">Wire-protocol compatibility means your existing Redis, PostgreSQL, and Kafka clients connect without code changes.</p>
                 </div>
 
-                <!-- Timeline Comparison -->
-                <div class="timeline-comparison">
-                    <div class="timeline-comparison__title">Delivery Timeline Comparison</div>
-                    <div class="timeline-row">
-                        <span class="timeline-row__label">Traditional Consulting</span>
-                        <div class="timeline-row__bar-container">
-                            <div class="timeline-row__bar timeline-row__bar--traditional">
-                                <span class="timeline-row__bar-label">6-18 months</span>
-                            </div>
-                        </div>
+                <div class="deliverable-card">
+                    <div class="deliverable-card__icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
                     </div>
-                    <div class="timeline-row">
-                        <span class="timeline-row__label">Forged</span>
-                        <div class="timeline-row__bar-container">
-                            <div class="timeline-row__bar timeline-row__bar--forged">
-                                <span class="timeline-row__bar-label">0-4 months</span>
-                            </div>
-                        </div>
+                    <h3 class="deliverable-card__title">Full Documentation</h3>
+                    <p class="deliverable-card__description">Architecture docs, API references, deployment guides, and runbooks. Everything your team needs to own the platform.</p>
+                </div>
+
+                <div class="deliverable-card">
+                    <div class="deliverable-card__icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
                     </div>
+                    <h3 class="deliverable-card__title">Enterprise Support</h3>
+                    <p class="deliverable-card__description">Implementation consulting, migration assistance, and ongoing support. We built the platform — we also help you deploy it.</p>
                 </div>
             </div>
-        </section>
-
-        <!-- What You Get Section -->
-        <section class="section snap-section" id="last-snap-section" style="background: var(--bg-secondary);">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="typewriter" data-text="More than just code"><span class="typewriter__text"></span><span class="terminal-cursor">█</span></h2>
-                    <p class="mt-md">Every project includes a complete deliverable package. You don't just get software — you get everything needed to understand, maintain, and extend it.</p>
-                </div>
-
-                <div class="deliverables-grid">
-                    <div class="deliverable-card">
-                        <div class="deliverable-card__icon">
-                            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                            </svg>
-                        </div>
-                        <h3 class="deliverable-card__title">Functioning Software</h3>
-                        <p class="deliverable-card__description">Production-ready code deployed and tested in your environment. Not a demo—a real solution.</p>
-                    </div>
-
-                    <div class="deliverable-card">
-                        <div class="deliverable-card__icon">
-                            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                            </svg>
-                        </div>
-                        <h3 class="deliverable-card__title">Full Documentation</h3>
-                        <p class="deliverable-card__description">Architecture docs, API references, database schemas, and setup guides. Everything your team needs.</p>
-                    </div>
-
-                    <div class="deliverable-card">
-                        <div class="deliverable-card__icon">
-                            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="deliverable-card__title">Knowledge Transfer</h3>
-                        <p class="deliverable-card__description">Walkthrough sessions, recorded demos, and Q&A. Your team understands how it works, not just that it works.</p>
-                    </div>
-
-                    <div class="deliverable-card">
-                        <div class="deliverable-card__icon">
-                            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="deliverable-card__title">Ongoing Support</h3>
-                        <p class="deliverable-card__description">Hypercare period after go-live. Issues get resolved quickly, questions get answered, handoff is smooth.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
 
     <!-- Regular Scroll Content (no snapping) -->
     <div class="regular-scroll-content" id="regular-content">
-        <!-- Featured Work Section -->
+        <!-- Featured Products Section -->
         <section class="section" id="featured-work">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Featured Work</span>
-                <h2>Solutions We've Built</h2>
-            </div>
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Featured Products</span>
+                    <h2>Built for production. Not for demos.</h2>
+                </div>
 
-            <div class="projects-grid">
-                <!-- Featured Project: DocuSign Integration -->
-                <a href="solutions/sap-docusign.html" class="card card--link card--featured">
-                    <div class="card__content">
-                        <span class="card__label">SAP Integration</span>
-                        <h3 class="card__title">SAP-DocuSign Integration Framework</h3>
-                        <p class="card__description">
-                            Complete enterprise eSignature integration connecting SAP ECC to DocuSign.
-                            OAuth 2.0 authentication, real-time webhook processing, automated PO approval
-                            workflows, and full audit compliance. Built end-to-end in under a week.
-                        </p>
-                        <div class="card__tags">
-                            <span class="tag">SAP ECC</span>
-                            <span class="tag">DocuSign API</span>
-                            <span class="tag">OAuth 2.0</span>
-                            <span class="tag">Webhooks</span>
-                            <span class="tag">ABAP</span>
+                <div class="projects-grid">
+                    <!-- Featured: Forged Gate -->
+                    <a href="products/core/gate.html" class="card card--link card--featured">
+                        <div class="card__content">
+                            <span class="card__label">Core Integration</span>
+                            <h3 class="card__title">Forged Gate</h3>
+                            <p class="card__description">
+                                High-performance API gateway with Rust data plane and Go control plane.
+                                Multi-upstream routing, auth integration, rate limiting, and DDoS protection.
+                                Replaces Kong, AWS API Gateway, and Apigee.
+                            </p>
+                            <div class="card__tags">
+                                <span class="tag">Rust + Go</span>
+                                <span class="tag">API Gateway</span>
+                                <span class="tag">Sub-ms Latency</span>
+                                <span class="tag">100K+ RPS</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card__visual">
-                        <svg width="340" height="260" viewBox="0 0 340 260" fill="none">
-                            <!-- Cloud Layer Background -->
-                            <rect x="15" y="15" width="310" height="55" rx="8" fill="rgba(96,96,96,0.1)" stroke="rgba(96,96,96,0.3)" stroke-width="1"/>
-                            <text x="170" y="32" fill="#606060" font-size="10" font-weight="600" text-anchor="middle" letter-spacing="1">CLOUD</text>
+                        <div class="card__visual">
+                            <svg width="340" height="260" viewBox="0 0 340 260" fill="none">
+                                <!-- Client Layer -->
+                                <rect x="15" y="15" width="310" height="45" rx="8" fill="rgba(96,96,96,0.1)" stroke="rgba(96,96,96,0.3)" stroke-width="1"/>
+                                <text x="170" y="32" fill="#606060" font-size="10" font-weight="600" text-anchor="middle" letter-spacing="1">CLIENTS</text>
+                                <rect x="40" y="38" width="60" height="18" rx="3" fill="#353535" stroke="#505050" stroke-width="1"/>
+                                <text x="70" y="51" fill="#909090" font-size="9" text-anchor="middle">Web Apps</text>
+                                <rect x="110" y="38" width="60" height="18" rx="3" fill="#353535" stroke="#505050" stroke-width="1"/>
+                                <text x="140" y="51" fill="#909090" font-size="9" text-anchor="middle">Mobile</text>
+                                <rect x="180" y="38" width="60" height="18" rx="3" fill="#353535" stroke="#505050" stroke-width="1"/>
+                                <text x="210" y="51" fill="#909090" font-size="9" text-anchor="middle">APIs</text>
+                                <rect x="250" y="38" width="60" height="18" rx="3" fill="#353535" stroke="#505050" stroke-width="1"/>
+                                <text x="280" y="51" fill="#909090" font-size="9" text-anchor="middle">IoT</text>
 
-                            <!-- DocuSign Node -->
-                            <rect x="110" y="40" width="120" height="24" rx="4" fill="#404040" stroke="#909090" stroke-width="1.5"/>
-                            <text x="170" y="57" fill="#e0e0e0" font-size="12" font-weight="500" text-anchor="middle">DocuSign</text>
+                                <!-- Arrow -->
+                                <line x1="170" y1="60" x2="170" y2="80" stroke="#707070" stroke-width="2"/>
+                                <polygon points="165,76 170,86 175,76" fill="#707070"/>
 
-                            <!-- Arrow: Cloud to Integration -->
-                            <line x1="170" y1="70" x2="170" y2="90" stroke="#707070" stroke-width="2"/>
-                            <polygon points="165,86 170,96 175,86" fill="#707070"/>
+                                <!-- Gate Layer (Highlighted) -->
+                                <rect x="15" y="90" width="310" height="50" rx="8" fill="rgba(144,144,144,0.12)" stroke="#909090" stroke-width="2"/>
+                                <text x="170" y="108" fill="#909090" font-size="10" font-weight="600" text-anchor="middle" letter-spacing="1">FORGED GATE</text>
+                                <rect x="35" y="116" width="55" height="18" rx="3" fill="#909090"/>
+                                <text x="62" y="129" fill="#0a0a0a" font-size="9" font-weight="600" text-anchor="middle">Auth</text>
+                                <rect x="98" y="116" width="55" height="18" rx="3" fill="#909090"/>
+                                <text x="125" y="129" fill="#0a0a0a" font-size="9" font-weight="600" text-anchor="middle">Rate Limit</text>
+                                <rect x="161" y="116" width="55" height="18" rx="3" fill="#909090"/>
+                                <text x="188" y="129" fill="#0a0a0a" font-size="9" font-weight="600" text-anchor="middle">Route</text>
+                                <rect x="224" y="116" width="55" height="18" rx="3" fill="#909090"/>
+                                <text x="251" y="129" fill="#0a0a0a" font-size="9" font-weight="600" text-anchor="middle">WAF</text>
 
-                            <!-- Integration Layer (Highlighted) -->
-                            <rect x="15" y="100" width="310" height="60" rx="8" fill="rgba(144,144,144,0.12)" stroke="#909090" stroke-width="2"/>
-                            <text x="170" y="118" fill="#909090" font-size="10" font-weight="600" text-anchor="middle" letter-spacing="1">INTEGRATION FRAMEWORK</text>
+                                <!-- Arrow -->
+                                <line x1="170" y1="140" x2="170" y2="160" stroke="#707070" stroke-width="2"/>
+                                <polygon points="165,156 170,166 175,156" fill="#707070"/>
 
-                            <!-- Integration Components -->
-                            <rect x="30" y="128" width="65" height="22" rx="4" fill="#909090"/>
-                            <text x="62" y="143" fill="#0a0a0a" font-size="10" font-weight="600" text-anchor="middle">OAuth</text>
-
-                            <rect x="105" y="128" width="65" height="22" rx="4" fill="#909090"/>
-                            <text x="137" y="143" fill="#0a0a0a" font-size="10" font-weight="600" text-anchor="middle">Webhooks</text>
-
-                            <rect x="180" y="128" width="65" height="22" rx="4" fill="#909090"/>
-                            <text x="212" y="143" fill="#0a0a0a" font-size="10" font-weight="600" text-anchor="middle">APIs</text>
-
-                            <rect x="255" y="128" width="65" height="22" rx="4" fill="#909090"/>
-                            <text x="287" y="143" fill="#0a0a0a" font-size="10" font-weight="600" text-anchor="middle">Callbacks</text>
-
-                            <!-- Arrow: Integration to Enterprise -->
-                            <line x1="170" y1="160" x2="170" y2="180" stroke="#707070" stroke-width="2"/>
-                            <polygon points="165,176 170,186 175,176" fill="#707070"/>
-
-                            <!-- Enterprise Layer Background -->
-                            <rect x="15" y="190" width="310" height="55" rx="8" fill="rgba(64,64,64,0.12)" stroke="rgba(64,64,64,0.4)" stroke-width="1"/>
-                            <text x="170" y="207" fill="#606060" font-size="10" font-weight="600" text-anchor="middle" letter-spacing="1">ENTERPRISE</text>
-
-                            <!-- Enterprise Nodes -->
-                            <rect x="45" y="217" width="80" height="22" rx="4" fill="#353535" stroke="#505050" stroke-width="1"/>
-                            <text x="85" y="232" fill="#909090" font-size="11" font-weight="500" text-anchor="middle">SAP ECC</text>
-
-                            <rect x="135" y="217" width="80" height="22" rx="4" fill="#353535" stroke="#505050" stroke-width="1"/>
-                            <text x="175" y="232" fill="#909090" font-size="11" font-weight="500" text-anchor="middle">S/4HANA</text>
-
-                            <rect x="225" y="217" width="80" height="22" rx="4" fill="#353535" stroke="#505050" stroke-width="1"/>
-                            <text x="265" y="232" fill="#909090" font-size="11" font-weight="500" text-anchor="middle">Oracle</text>
-                        </svg>
-                    </div>
-                </a>
-
-                <!-- Featured Project: SAP-Salesforce Integration -->
-                <a href="solutions/sap-salesforce.html" class="card card--link card--featured">
-                    <div class="card__content">
-                        <span class="card__label">SAP Integration</span>
-                        <h3 class="card__title">SAP-Salesforce Customer Master Integration</h3>
-                        <p class="card__description">
-                            Real-time customer master synchronization between SAP ECC and Salesforce CRM.
-                            OAuth 2.0 authentication, external ID-based upsert operations, non-blocking
-                            design for operational continuity, and complete audit logging.
-                        </p>
-                        <div class="card__tags">
-                            <span class="tag">SAP ECC</span>
-                            <span class="tag">Salesforce API</span>
-                            <span class="tag">OAuth 2.0</span>
-                            <span class="tag">Real-time Sync</span>
-                            <span class="tag">ABAP</span>
+                                <!-- Services Layer -->
+                                <rect x="15" y="170" width="310" height="75" rx="8" fill="rgba(64,64,64,0.12)" stroke="rgba(64,64,64,0.4)" stroke-width="1"/>
+                                <text x="170" y="187" fill="#606060" font-size="10" font-weight="600" text-anchor="middle" letter-spacing="1">FORGED SERVICES</text>
+                                <rect x="30" y="197" width="58" height="22" rx="4" fill="#353535" stroke="#505050" stroke-width="1"/>
+                                <text x="59" y="212" fill="#909090" font-size="9" text-anchor="middle">ERP</text>
+                                <rect x="96" y="197" width="58" height="22" rx="4" fill="#353535" stroke="#505050" stroke-width="1"/>
+                                <text x="125" y="212" fill="#909090" font-size="9" text-anchor="middle">CRM</text>
+                                <rect x="162" y="197" width="58" height="22" rx="4" fill="#353535" stroke="#505050" stroke-width="1"/>
+                                <text x="191" y="212" fill="#909090" font-size="9" text-anchor="middle">Stream</text>
+                                <rect x="228" y="197" width="58" height="22" rx="4" fill="#353535" stroke="#505050" stroke-width="1"/>
+                                <text x="257" y="212" fill="#909090" font-size="9" text-anchor="middle">Cache</text>
+                                <rect x="96" y="225" width="58" height="15" rx="3" fill="#252525" stroke="#353535" stroke-width="1"/>
+                                <text x="125" y="235" fill="#505050" font-size="8" text-anchor="middle">+ 14 more</text>
+                            </svg>
                         </div>
+                    </a>
+
+                    <!-- Featured: Forged ERP -->
+                    <a href="products/business/erp.html" class="card card--link card--featured">
+                        <div class="card__content">
+                            <span class="card__label">Business Application</span>
+                            <h3 class="card__title">Forged ERP</h3>
+                            <p class="card__description">
+                                Full manufacturing ERP with Finance, Inventory, Purchasing, Production,
+                                Quality, and Sales modules. 17 implemented pages, multi-tenant with
+                                row-level security. Replaces SAP, Oracle, and NetSuite.
+                            </p>
+                            <div class="card__tags">
+                                <span class="tag">Next.js 14</span>
+                                <span class="tag">Manufacturing ERP</span>
+                                <span class="tag">Multi-Tenant</span>
+                                <span class="tag">6 Modules</span>
+                            </div>
+                        </div>
+                        <div class="card__visual">
+                            <svg width="340" height="260" viewBox="0 0 340 260" fill="none">
+                                <!-- ERP Modules -->
+                                <text x="170" y="20" fill="#606060" font-size="10" font-weight="600" text-anchor="middle" letter-spacing="1">FORGED ERP MODULES</text>
+                                <!-- Row 1 -->
+                                <rect x="15" y="35" width="100" height="60" rx="6" fill="rgba(144,144,144,0.12)" stroke="#909090" stroke-width="1.5"/>
+                                <text x="65" y="58" fill="#e0e0e0" font-size="11" font-weight="500" text-anchor="middle">Finance</text>
+                                <text x="65" y="74" fill="#707070" font-size="8" text-anchor="middle">GL, AP, AR</text>
+
+                                <rect x="120" y="35" width="100" height="60" rx="6" fill="rgba(144,144,144,0.12)" stroke="#909090" stroke-width="1.5"/>
+                                <text x="170" y="58" fill="#e0e0e0" font-size="11" font-weight="500" text-anchor="middle">Inventory</text>
+                                <text x="170" y="74" fill="#707070" font-size="8" text-anchor="middle">WM, Stock, BOM</text>
+
+                                <rect x="225" y="35" width="100" height="60" rx="6" fill="rgba(144,144,144,0.12)" stroke="#909090" stroke-width="1.5"/>
+                                <text x="275" y="58" fill="#e0e0e0" font-size="11" font-weight="500" text-anchor="middle">Purchasing</text>
+                                <text x="275" y="74" fill="#707070" font-size="8" text-anchor="middle">PO, Vendors</text>
+
+                                <!-- Row 2 -->
+                                <rect x="15" y="105" width="100" height="60" rx="6" fill="rgba(144,144,144,0.12)" stroke="#909090" stroke-width="1.5"/>
+                                <text x="65" y="128" fill="#e0e0e0" font-size="11" font-weight="500" text-anchor="middle">Production</text>
+                                <text x="65" y="144" fill="#707070" font-size="8" text-anchor="middle">Orders, Work Ctrs</text>
+
+                                <rect x="120" y="105" width="100" height="60" rx="6" fill="rgba(144,144,144,0.12)" stroke="#909090" stroke-width="1.5"/>
+                                <text x="170" y="128" fill="#e0e0e0" font-size="11" font-weight="500" text-anchor="middle">Quality</text>
+                                <text x="170" y="144" fill="#707070" font-size="8" text-anchor="middle">Inspections, NCRs</text>
+
+                                <rect x="225" y="105" width="100" height="60" rx="6" fill="rgba(144,144,144,0.12)" stroke="#909090" stroke-width="1.5"/>
+                                <text x="275" y="128" fill="#e0e0e0" font-size="11" font-weight="500" text-anchor="middle">Sales</text>
+                                <text x="275" y="144" fill="#707070" font-size="8" text-anchor="middle">Orders, Quotes</text>
+
+                                <!-- Platform Integration -->
+                                <line x1="30" y1="175" x2="310" y2="175" stroke="#404040" stroke-width="1" stroke-dasharray="4"/>
+                                <text x="170" y="192" fill="#606060" font-size="9" font-weight="600" text-anchor="middle" letter-spacing="1">PLATFORM INTEGRATION</text>
+                                <rect x="25" y="202" width="70" height="20" rx="3" fill="#353535" stroke="#505050" stroke-width="1"/>
+                                <text x="60" y="215" fill="#707070" font-size="8" text-anchor="middle">Gate</text>
+                                <rect x="103" y="202" width="70" height="20" rx="3" fill="#353535" stroke="#505050" stroke-width="1"/>
+                                <text x="138" y="215" fill="#707070" font-size="8" text-anchor="middle">Stream</text>
+                                <rect x="181" y="202" width="70" height="20" rx="3" fill="#353535" stroke="#505050" stroke-width="1"/>
+                                <text x="216" y="215" fill="#707070" font-size="8" text-anchor="middle">Cache</text>
+                                <rect x="259" y="202" width="70" height="20" rx="3" fill="#353535" stroke="#505050" stroke-width="1"/>
+                                <text x="294" y="215" fill="#707070" font-size="8" text-anchor="middle">Observe</text>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <!-- See More Button -->
+                    <div style="grid-column: 1 / -1; text-align: center; padding: var(--space-lg) 0;">
+                        <a href="platform.html" class="btn btn--secondary">View All 18 Products</a>
                     </div>
-                    <div class="card__visual">
-                        <svg width="340" height="260" viewBox="0 0 340 260" fill="none">
-                            <!-- SAP Layer Background -->
-                            <rect x="15" y="15" width="145" height="230" rx="8" fill="rgba(64,64,64,0.12)" stroke="rgba(64,64,64,0.4)" stroke-width="1"/>
-                            <text x="87" y="35" fill="#606060" font-size="10" font-weight="600" text-anchor="middle" letter-spacing="1">SAP ECC</text>
-
-                            <!-- SAP Customer Master -->
-                            <rect x="30" y="50" width="115" height="45" rx="4" fill="#353535" stroke="#505050" stroke-width="1.5"/>
-                            <text x="87" y="70" fill="#e0e0e0" font-size="11" font-weight="500" text-anchor="middle">Customer Master</text>
-                            <text x="87" y="85" fill="#707070" font-size="9" text-anchor="middle">XD01 / XD02</text>
-
-                            <!-- BADI Trigger -->
-                            <rect x="30" y="110" width="115" height="35" rx="4" fill="#404040" stroke="#707070" stroke-width="1"/>
-                            <text x="87" y="132" fill="#909090" font-size="10" font-weight="500" text-anchor="middle">BADI Trigger</text>
-
-                            <!-- Audit Log -->
-                            <rect x="30" y="160" width="115" height="35" rx="4" fill="#2a2a2a" stroke="#404040" stroke-width="1"/>
-                            <text x="87" y="182" fill="#707070" font-size="10" text-anchor="middle">Audit Log</text>
-
-                            <!-- Config Table -->
-                            <rect x="30" y="205" width="115" height="28" rx="4" fill="#252525" stroke="#353535" stroke-width="1"/>
-                            <text x="87" y="223" fill="#505050" font-size="9" text-anchor="middle">Config / Tokens</text>
-
-                            <!-- Integration Layer (Center - Highlighted) -->
-                            <rect x="165" y="70" width="50" height="120" rx="6" fill="rgba(144,144,144,0.12)" stroke="#909090" stroke-width="2"/>
-                            <text x="190" y="100" fill="#909090" font-size="8" font-weight="600" text-anchor="middle" letter-spacing="0.5" transform="rotate(-90 190 130)">INTEGRATION</text>
-
-                            <!-- OAuth Box -->
-                            <rect x="170" y="80" width="40" height="22" rx="3" fill="#909090"/>
-                            <text x="190" y="95" fill="#0a0a0a" font-size="8" font-weight="600" text-anchor="middle">OAuth</text>
-
-                            <!-- API Client Box -->
-                            <rect x="170" y="110" width="40" height="22" rx="3" fill="#909090"/>
-                            <text x="190" y="125" fill="#0a0a0a" font-size="8" font-weight="600" text-anchor="middle">API</text>
-
-                            <!-- JSON Box -->
-                            <rect x="170" y="140" width="40" height="22" rx="3" fill="#909090"/>
-                            <text x="190" y="155" fill="#0a0a0a" font-size="8" font-weight="600" text-anchor="middle">JSON</text>
-
-                            <!-- Salesforce Layer Background -->
-                            <rect x="220" y="15" width="105" height="230" rx="8" fill="rgba(96,96,96,0.1)" stroke="rgba(96,96,96,0.3)" stroke-width="1"/>
-                            <text x="272" y="35" fill="#606060" font-size="10" font-weight="600" text-anchor="middle" letter-spacing="1">SALESFORCE</text>
-
-                            <!-- Salesforce REST API -->
-                            <rect x="230" y="50" width="85" height="35" rx="4" fill="#404040" stroke="#909090" stroke-width="1.5"/>
-                            <text x="272" y="72" fill="#e0e0e0" font-size="10" font-weight="500" text-anchor="middle">REST API</text>
-
-                            <!-- Account Object -->
-                            <rect x="230" y="100" width="85" height="45" rx="4" fill="#353535" stroke="#505050" stroke-width="1"/>
-                            <text x="272" y="120" fill="#e0e0e0" font-size="11" font-weight="500" text-anchor="middle">Account</text>
-                            <text x="272" y="135" fill="#707070" font-size="9" text-anchor="middle">External ID Upsert</text>
-
-                            <!-- Contact Object -->
-                            <rect x="230" y="160" width="85" height="35" rx="4" fill="#2a2a2a" stroke="#404040" stroke-width="1"/>
-                            <text x="272" y="182" fill="#707070" font-size="10" text-anchor="middle">Contact</text>
-
-                            <!-- Arrows SAP to Integration -->
-                            <line x1="145" y1="91" x2="165" y2="91" stroke="#707070" stroke-width="2"/>
-                            <polygon points="163,86 173,91 163,96" fill="#707070"/>
-
-                            <line x1="145" y1="127" x2="165" y2="127" stroke="#505050" stroke-width="1.5" stroke-dasharray="3"/>
-
-                            <!-- Arrows Integration to Salesforce -->
-                            <line x1="215" y1="91" x2="225" y2="91" stroke="#707070" stroke-width="2"/>
-                            <polygon points="223,86 233,91 223,96" fill="#707070"/>
-
-                            <line x1="215" y1="127" x2="225" y2="127" stroke="#505050" stroke-width="1.5" stroke-dasharray="3"/>
-                        </svg>
-                    </div>
-                </a>
-
-                <!-- See More Button -->
-                <div style="grid-column: 1 / -1; text-align: center; padding: var(--space-lg) 0;">
-                    <a href="solutions.html" class="btn btn--secondary">See More Solutions</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Section -->
-    <section class="section cta-section">
-        <div class="container">
-            <h2>Ready to build something?</h2>
-            <p>We work with companies that have real problems and want real solutions. No RFPs. No six-month discovery phases. Just results.</p>
-            <a href="contact.html" class="btn btn--primary btn--large">Start a Conversation</a>
-        </div>
-    </section>
+        <!-- CTA Section -->
+        <section class="section cta-section">
+            <div class="container">
+                <h2>Ready to simplify your stack?</h2>
+                <p>One platform replaces dozens of tools. Self-hosted or managed. We'll help you deploy it.</p>
+                <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+                    <a href="platform.html" class="btn btn--primary btn--large">Explore the Platform</a>
+                    <a href="contact.html" class="btn btn--secondary btn--large">Get Started</a>
+                </div>
+            </div>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer__content">
-            <p class="footer__text">&copy; 2026 Forged Technologies. Built with focus.</p>
-            <p class="footer__credit">Website Designed & Built by Forged Technologies</p>
-            <ul class="footer__links">
-                <li><a href="https://www.linkedin.com/in/nathan-murray-311266114/" class="footer__link" target="_blank" rel="noopener">LinkedIn</a></li>
-                <li><a href="https://github.com/natem1095" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
-                <li><a href="mailto:nate@forgedintegration.com" class="footer__link">Email</a></li>
-            </ul>
-        </div>
-    </footer>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container footer__content">
+                <p class="footer__text">&copy; 2026 Forged Technologies. Built with focus.</p>
+                <p class="footer__credit">Website Designed & Built by Forged Technologies</p>
+                <ul class="footer__links">
+                    <li><a href="https://www.linkedin.com/in/nathan-murray-311266114/" class="footer__link" target="_blank" rel="noopener">LinkedIn</a></li>
+                    <li><a href="https://github.com/natem1095" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="mailto:nate@forgedintegration.com" class="footer__link">Email</a></li>
+                </ul>
+            </div>
+        </footer>
     </div><!-- End regular-scroll-content -->
-
-    <!-- Scroll Up Indicator (commented out for now)
-    <div class="scroll-indicator scroll-indicator--up" id="scroll-up">
-        <svg class="scroll-indicator__icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M5 10l7-7m0 0l7 7m-7-7v18"/>
-        </svg>
-        <span class="scroll-indicator__text">Scroll Up</span>
-    </div>
-    -->
 
     <!-- Scroll Down Indicator -->
     <div class="scroll-indicator scroll-indicator--down" id="scroll-down">
@@ -519,6 +517,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="js/main.js?v=51"></script>
+    <script src="js/main.js?v=60"></script>
 </body>
 </html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forged Observe | Observability — Forged Technologies</title>
+    <meta name="description" content="Forged Observe is a unified observability platform built with Rust and Go. Metrics, logs, and traces in one system with OTLP support and industry-standard query languages.">
+
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../css/style.css?v=40">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav">
+        <div class="container nav__container">
+            <a href="../../index.html" class="nav__logo">Forged</a>
+            <button class="nav__toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+            <ul class="nav__links">
+                <li><a href="../../index.html" class="nav__link">Home</a></li>
+                <li><a href="../../platform.html" class="nav__link">Platform</a></li>
+                <li class="nav__dropdown-wrapper">
+                    <a href="../../platform.html" class="nav__link nav__link--dropdown">Products</a>
+                    <div class="nav__mega-menu"><div class="nav__mega-menu__inner">
+                        <div class="nav__mega-menu__category"><h4>Core Integration</h4>
+                            <a href="../../products/core/gate.html" class="nav__mega-menu__link">Gate <span>API Gateway</span></a>
+                            <a href="../../products/core/stream.html" class="nav__mega-menu__link">Stream <span>Event Streaming</span></a>
+                            <a href="../../products/core/sync.html" class="nav__mega-menu__link">Sync <span>Data Sync</span></a>
+                            <a href="../../products/core/flow.html" class="nav__mega-menu__link">Flow <span>Workflow Engine</span></a>
+                            <a href="../../products/core/observe.html" class="nav__mega-menu__link">Observe <span>Observability</span></a>
+                        </div>
+                        <div class="nav__mega-menu__category"><h4>Data Infrastructure</h4>
+                            <a href="../../products/data/cache.html" class="nav__mega-menu__link">Cache <span>Distributed Cache</span></a>
+                            <a href="../../products/data/store.html" class="nav__mega-menu__link">Store <span>Relational DB</span></a>
+                            <a href="../../products/data/lake.html" class="nav__mega-menu__link">Lake <span>Analytics Engine</span></a>
+                        </div>
+                        <div class="nav__mega-menu__category"><h4>Security &amp; Business</h4>
+                            <a href="../../products/security/vault.html" class="nav__mega-menu__link">Vault <span>Secrets Mgmt</span></a>
+                            <a href="../../products/security/identity.html" class="nav__mega-menu__link">Identity <span>IAM &amp; Auth</span></a>
+                            <a href="../../products/security/govern.html" class="nav__mega-menu__link">Govern <span>Policy Engine</span></a>
+                            <a href="../../products/business/erp.html" class="nav__mega-menu__link">ERP <span>Manufacturing</span></a>
+                            <a href="../../products/business/crm.html" class="nav__mega-menu__link">CRM <span>Sales &amp; CRM</span></a>
+                            <a href="../../products/business/hcm.html" class="nav__mega-menu__link">HCM <span>Human Capital</span></a>
+                        </div>
+                        <div class="nav__mega-menu__cta">
+                            <div class="nav__mega-menu__stat"><strong>18</strong><span>Products</span></div>
+                            <div class="nav__mega-menu__stat"><strong>6</strong><span>Categories</span></div>
+                            <a href="../../platform.html" class="btn btn--primary">View Full Platform</a>
+                        </div>
+                    </div></div>
+                </li>
+                <li><a href="../../enterprise-security.html" class="nav__link">Security</a></li>
+                <li><a href="../../services.html" class="nav__link">Services</a></li>
+                <li><a href="../../about.html" class="nav__link">About</a></li>
+                <li><a href="../../contact.html" class="nav__cta">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="about-hero">
+        <div class="container">
+            <a href="../../platform.html" class="back-link">← Back to Platform</a>
+            <div class="section-label">Core Integration</div>
+            <h1>Forged Observe</h1>
+            <p class="subtitle">Unified Observability Platform — Metrics, logs, and traces in one system. OTLP-compatible with PromQL, LogQL, and TraceQL query support.</p>
+            <div class="tech-badges">
+                <span class="compat-badge">Rust + Go</span>
+                <span class="compat-badge">Ports 4317/4318</span>
+                <span class="compat-badge">OTLP Protocol</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">3-in-1</div>
+                    <div class="stat-label">Metrics, Logs, Traces</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">OTLP Native</div>
+                    <div class="stat-label">OpenTelemetry compatible</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">Auto-Correlate</div>
+                    <div class="stat-label">Trace-to-log linking</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">Real-Time</div>
+                    <div class="stat-label">Live tail &amp; alerting</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section-label">Overview</div>
+            <h2>Unified Observability Platform</h2>
+            <p>Forged Observe is a unified observability platform built with a Rust collector and Go control plane. It combines metrics, logs, and traces in a single system, replacing the Grafana/Prometheus/Loki/Tempo stack. Observe provides a simpler, more integrated alternative to Datadog, Grafana stack, Splunk, and New Relic with native OpenTelemetry support.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-label">Capabilities</div>
+            <h2>Core Features</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-card__icon">📊</div>
+                    <h3>Unified Telemetry</h3>
+                    <p>Metrics, logs, and traces stored and queried in one unified system. Single pane of glass for all observability data.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">📡</div>
+                    <h3>OTLP Ingestion</h3>
+                    <p>Native OpenTelemetry Protocol support. gRPC on 4317, HTTP on 4318. Works with any OTLP-compatible instrumentation.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">🔍</div>
+                    <h3>Query Languages</h3>
+                    <p>Industry-standard query languages: PromQL for metrics, LogQL for logs, TraceQL for traces. Familiar and powerful.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">🔗</div>
+                    <h3>Auto-Correlation</h3>
+                    <p>Automatically connect traces to logs to metrics. Jump from a trace span to related logs with one click.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">🚨</div>
+                    <h3>Alerting Engine</h3>
+                    <p>Threshold-based and anomaly-detection alerts. Integrate with PagerDuty, Slack, email, and custom webhooks.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">🗄️</div>
+                    <h3>Retention Policies</h3>
+                    <p>Configurable retention per signal type. Keep metrics longer than traces, optimize storage costs automatically.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section-label">Integration</div>
+            <h2>Platform-Wide Observability</h2>
+            <p>Observe watches all Forged services, providing unified visibility across your entire infrastructure. Every component emits OTLP telemetry automatically.</p>
+            <div class="tech-badges">
+                <span class="compat-badge">Gate</span>
+                <span class="compat-badge">Stream</span>
+                <span class="compat-badge">Flow</span>
+                <span class="compat-badge">Cache</span>
+                <span class="compat-badge">Store</span>
+                <span class="compat-badge">Lake</span>
+                <span class="compat-badge">ERP</span>
+                <span class="compat-badge">CRM</span>
+                <span class="compat-badge">HCM</span>
+                <span class="compat-badge">Identity</span>
+                <span class="compat-badge">Govern</span>
+                <span class="compat-badge">Vault</span>
+                <span class="compat-badge">Edge</span>
+                <span class="compat-badge">Console</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-label">Configuration</div>
+            <h2>Example Configuration</h2>
+            <pre><code># observe.yaml
+collector:
+  otlp_grpc: 0.0.0.0:4317
+  otlp_http: 0.0.0.0:4318
+storage:
+  metrics: /data/observe/metrics
+  logs: /data/observe/logs
+  traces: /data/observe/traces
+retention:
+  metrics: 30d
+  logs: 14d
+  traces: 7d
+alerts:
+  - name: high-latency
+    query: histogram_quantile(0.99, rate(http_duration_seconds_bucket[5m])) > 0.5
+    severity: warning</code></pre>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to gain unified observability?</h2>
+            <p>Deploy Forged Observe and consolidate your metrics, logs, and traces into one powerful platform.</p>
+            <a href="../../contact.html" class="btn btn--primary btn--large">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer__content">
+            <p class="footer__text">&copy; 2026 Forged Technologies. Built with focus.</p>
+            <ul class="footer__links">
+                <li><a href="https://www.linkedin.com/in/nathan-murray-311266114/" class="footer__link" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://github.com/natem1095" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="mailto:nate@forgedintegration.com" class="footer__link">Email</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js?v=60"></script>
+</body>
+</html>

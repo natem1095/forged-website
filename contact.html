@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Start a Project | Forged Technologies</title>
-    <meta name="description" content="Start a conversation about your integration or automation project. Quick inquiry or detailed project builder.">
+    <title>Get Started | Forged Technologies</title>
+    <meta name="description" content="Schedule a demo, plan a deployment, or discuss migration from legacy systems. Get started with the Forged platform.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=2">
+    <link rel="stylesheet" href="css/style.css?v=40">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23181818' rx='8' width='100' height='100'/><path d='M25 18h50v14H39v12h30v14H39v24H25V18z' fill='%23909090'/></svg>">
 </head>
 <body>
@@ -26,10 +26,46 @@
 
             <ul class="nav__links">
                 <li><a href="index.html" class="nav__link">Home</a></li>
-                <li><a href="solutions.html" class="nav__link">Solutions</a></li>
+                <li><a href="platform.html" class="nav__link">Platform</a></li>
+                <li class="nav__dropdown-wrapper">
+                    <a href="platform.html" class="nav__link nav__link--dropdown">Products</a>
+                    <div class="nav__mega-menu">
+                        <div class="nav__mega-menu__inner">
+                            <div class="nav__mega-menu__category">
+                                <h4>Core Integration</h4>
+                                <a href="products/core/gate.html" class="nav__mega-menu__link">Gate <span>API Gateway</span></a>
+                                <a href="products/core/stream.html" class="nav__mega-menu__link">Stream <span>Event Streaming</span></a>
+                                <a href="products/core/sync.html" class="nav__mega-menu__link">Sync <span>Data Sync</span></a>
+                                <a href="products/core/flow.html" class="nav__mega-menu__link">Flow <span>Workflow Engine</span></a>
+                                <a href="products/core/observe.html" class="nav__mega-menu__link">Observe <span>Observability</span></a>
+                            </div>
+                            <div class="nav__mega-menu__category">
+                                <h4>Data Infrastructure</h4>
+                                <a href="products/data/cache.html" class="nav__mega-menu__link">Cache <span>Distributed Cache</span></a>
+                                <a href="products/data/store.html" class="nav__mega-menu__link">Store <span>Relational DB</span></a>
+                                <a href="products/data/lake.html" class="nav__mega-menu__link">Lake <span>Analytics Engine</span></a>
+                            </div>
+                            <div class="nav__mega-menu__category">
+                                <h4>Security & Business</h4>
+                                <a href="products/security/vault.html" class="nav__mega-menu__link">Vault <span>Secrets Mgmt</span></a>
+                                <a href="products/security/identity.html" class="nav__mega-menu__link">Identity <span>IAM & Auth</span></a>
+                                <a href="products/security/govern.html" class="nav__mega-menu__link">Govern <span>Policy Engine</span></a>
+                                <a href="products/business/erp.html" class="nav__mega-menu__link">ERP <span>Manufacturing</span></a>
+                                <a href="products/business/crm.html" class="nav__mega-menu__link">CRM <span>Sales & CRM</span></a>
+                                <a href="products/business/hcm.html" class="nav__mega-menu__link">HCM <span>Human Capital</span></a>
+                            </div>
+                            <div class="nav__mega-menu__cta">
+                                <div class="nav__mega-menu__stat"><strong>18</strong><span>Products</span></div>
+                                <div class="nav__mega-menu__stat"><strong>6</strong><span>Categories</span></div>
+                                <a href="platform.html" class="btn btn--primary">View Full Platform</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="enterprise-security.html" class="nav__link">Security</a></li>
+                <li><a href="services.html" class="nav__link">Services</a></li>
                 <li><a href="about.html" class="nav__link">About</a></li>
-                <li><a href="contact.html" class="nav__cta">Let's Talk</a></li>
+                <li><a href="contact.html" class="nav__cta">Get Started</a></li>
             </ul>
         </div>
     </nav>
@@ -40,10 +76,10 @@
             <!-- Path Selection (Landing State) -->
             <div id="path-selection" class="path-selection">
                 <div class="section-header" style="text-align: center;">
-                    <span class="section-label">Let's Talk</span>
-                    <h1>How would you like to connect?</h1>
+                    <span class="section-label">Get Started</span>
+                    <h1>Ready to simplify your stack?</h1>
                     <p style="max-width: 600px; margin: var(--space-md) auto 0;">
-                        Choose the path that fits your style. Both get you to me.
+                        Whether you want a platform demo, deployment help, or migration consultation — we're here.
                     </p>
                 </div>
 
@@ -56,7 +92,7 @@
                         </div>
                         <h3 class="path-card__title">Quick Inquiry</h3>
                         <p class="path-card__description">
-                            Just want to chat? Send a quick message and we'll get back to you.
+                            Have a question about the platform? Send a quick message.
                         </p>
                         <span class="path-card__time">~30 seconds</span>
                     </button>
@@ -67,9 +103,9 @@
                                 <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
                             </svg>
                         </div>
-                        <h3 class="path-card__title">Project Builder</h3>
+                        <h3 class="path-card__title">Deployment Planner</h3>
                         <p class="path-card__description">
-                            Ready to dive in? Build a detailed project brief so we can hit the ground running.
+                            Planning a deployment? Build a detailed brief so we can scope it properly.
                         </p>
                         <span class="path-card__time">~3-5 minutes</span>
                     </button>
@@ -88,10 +124,9 @@
                 <div class="contact-grid">
                     <div class="contact-info">
                         <span class="section-label">Quick Inquiry</span>
-                        <h1>Send a message</h1>
+                        <h1>Get in touch</h1>
                         <p>
-                            Have a question? An idea? Just want to say hi?
-                            Drop us a note and we'll get back to you within 24 hours.
+                            Questions about the platform, pricing, deployment, or migration? Drop us a note.
                         </p>
                         <p style="margin-bottom: var(--space-2xl);">
                             No sales pitch. No pressure. Just a conversation.
@@ -158,9 +193,10 @@
                                     <label class="form-label" for="quick-type">Project Type <span class="optional">(optional)</span></label>
                                     <select id="quick-type" name="projectType" class="form-input form-select">
                                         <option value="">Select one...</option>
-                                        <option value="integration">System Integration</option>
-                                        <option value="automation">Workflow Automation</option>
-                                        <option value="custom">Custom Application</option>
+                                        <option value="demo">Platform Demo</option>
+                                        <option value="self-hosted">Self-Hosted Deployment</option>
+                                        <option value="migration">Migration from Legacy Systems</option>
+                                        <option value="custom">Custom Integration</option>
                                         <option value="other">Other / Not Sure</option>
                                     </select>
                                 </div>
@@ -239,59 +275,59 @@
                 <!-- Step 1: Project Type (Enhanced - 6 options) -->
                 <div class="wizard-step active" data-step="1">
                     <div class="wizard-step__header">
-                        <h2>What are you looking to build?</h2>
-                        <p>Select the option that best describes your project.</p>
+                        <h2>What are you looking for?</h2>
+                        <p>Select the option that best describes your goal.</p>
                     </div>
 
                     <div class="selection-cards selection-cards--6">
-                        <button type="button" class="selection-card" data-value="integration">
+                        <button type="button" class="selection-card" data-value="demo">
                             <div class="selection-card__icon">
                                 <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                    <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
                                 </svg>
                             </div>
-                            <h4 class="selection-card__title">System Integration</h4>
-                            <p class="selection-card__description">Connect systems, real-time sync, API integrations</p>
+                            <h4 class="selection-card__title">Platform Demo</h4>
+                            <p class="selection-card__description">See the full Forged platform in action</p>
                         </button>
 
-                        <button type="button" class="selection-card" data-value="esignature">
+                        <button type="button" class="selection-card" data-value="self-hosted">
                             <div class="selection-card__icon">
                                 <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+                                    <path d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/>
                                 </svg>
                             </div>
-                            <h4 class="selection-card__title">eSignature & Approvals</h4>
-                            <p class="selection-card__description">DocuSign integration, approval workflows, audit trails</p>
+                            <h4 class="selection-card__title">Self-Hosted Deployment</h4>
+                            <p class="selection-card__description">Deploy to your infrastructure (Docker, K8s, bare metal)</p>
                         </button>
 
-                        <button type="button" class="selection-card" data-value="automation">
+                        <button type="button" class="selection-card" data-value="migration">
                             <div class="selection-card__icon">
                                 <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                     <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
                                 </svg>
                             </div>
-                            <h4 class="selection-card__title">Workflow Automation</h4>
-                            <p class="selection-card__description">Automate approvals, notifications, document routing</p>
+                            <h4 class="selection-card__title">Migration Consultation</h4>
+                            <p class="selection-card__description">Replace Redis, PostgreSQL, Kafka, or legacy vendors</p>
+                        </button>
+
+                        <button type="button" class="selection-card" data-value="licensing">
+                            <div class="selection-card__icon">
+                                <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                </svg>
+                            </div>
+                            <h4 class="selection-card__title">Enterprise Licensing</h4>
+                            <p class="selection-card__description">Volume licensing, support tiers, SLA discussions</p>
                         </button>
 
                         <button type="button" class="selection-card" data-value="custom">
                             <div class="selection-card__icon">
                                 <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+                                    <path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                                 </svg>
                             </div>
-                            <h4 class="selection-card__title">Custom Application</h4>
-                            <p class="selection-card__description">Dashboards, portals, internal tools</p>
-                        </button>
-
-                        <button type="button" class="selection-card" data-value="assessment">
-                            <div class="selection-card__icon">
-                                <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
-                                </svg>
-                            </div>
-                            <h4 class="selection-card__title">Technical Assessment</h4>
-                            <p class="selection-card__description">Integration feasibility, architecture review</p>
+                            <h4 class="selection-card__title">Custom Integration</h4>
+                            <p class="selection-card__description">Connect Forged to existing systems</p>
                         </button>
 
                         <button type="button" class="selection-card" data-value="notsure">
@@ -321,28 +357,28 @@
                     <div class="form-group">
                         <label class="form-label">Industry <span class="required">*</span></label>
                         <div class="industry-cards">
-                            <button type="button" class="industry-card" data-value="food-manufacturing">
-                                <span class="industry-card__icon">🍔</span>
-                                <span class="industry-card__title">Food & Beverage Manufacturing</span>
+                            <button type="button" class="industry-card" data-value="technology">
+                                <span class="industry-card__icon">&#x1F4BB;</span>
+                                <span class="industry-card__title">Technology</span>
+                            </button>
+                            <button type="button" class="industry-card" data-value="financial-services">
+                                <span class="industry-card__icon">&#x1F3E6;</span>
+                                <span class="industry-card__title">Financial Services</span>
                             </button>
                             <button type="button" class="industry-card" data-value="manufacturing">
-                                <span class="industry-card__icon">🏭</span>
+                                <span class="industry-card__icon">&#x1F3ED;</span>
                                 <span class="industry-card__title">Manufacturing</span>
                             </button>
-                            <button type="button" class="industry-card" data-value="pharma-life-sciences">
-                                <span class="industry-card__icon">💊</span>
-                                <span class="industry-card__title">Pharma & Life Sciences</span>
-                            </button>
                             <button type="button" class="industry-card" data-value="distribution">
-                                <span class="industry-card__icon">🚚</span>
+                                <span class="industry-card__icon">&#x1F69A;</span>
                                 <span class="industry-card__title">Distribution & Logistics</span>
                             </button>
-                            <button type="button" class="industry-card" data-value="energy-utilities">
-                                <span class="industry-card__icon">⚡</span>
-                                <span class="industry-card__title">Energy & Utilities</span>
+                            <button type="button" class="industry-card" data-value="healthcare">
+                                <span class="industry-card__icon">&#x1F3E5;</span>
+                                <span class="industry-card__title">Healthcare</span>
                             </button>
                             <button type="button" class="industry-card" data-value="other">
-                                <span class="industry-card__icon">🏢</span>
+                                <span class="industry-card__icon">&#x1F3E2;</span>
                                 <span class="industry-card__title">Other Industry</span>
                             </button>
                         </div>
@@ -389,206 +425,89 @@
                         <label class="form-label">Select your systems <span class="optional">(check all that apply)</span></label>
 
                         <div class="systems-section">
-                            <h5 class="systems-section__title">SAP Systems</h5>
+                            <h5 class="systems-section__title">Current Infrastructure</h5>
                             <div class="checkbox-group checkbox-group--systems">
                                 <label class="checkbox-label">
-                                    <input type="checkbox" name="systems" value="sap-ecc">
-                                    <span>SAP ECC</span>
+                                    <input type="checkbox" name="systems" value="redis">
+                                    <span>Redis</span>
                                 </label>
                                 <label class="checkbox-label">
-                                    <input type="checkbox" name="systems" value="s4hana-onprem">
-                                    <span>S/4HANA (On-Premise)</span>
+                                    <input type="checkbox" name="systems" value="postgresql">
+                                    <span>PostgreSQL</span>
                                 </label>
                                 <label class="checkbox-label">
-                                    <input type="checkbox" name="systems" value="s4hana-cloud">
-                                    <span>S/4HANA Cloud</span>
+                                    <input type="checkbox" name="systems" value="mysql">
+                                    <span>MySQL</span>
                                 </label>
                                 <label class="checkbox-label">
-                                    <input type="checkbox" name="systems" value="sap-bw">
-                                    <span>SAP BW / BW4HANA</span>
+                                    <input type="checkbox" name="systems" value="kafka">
+                                    <span>Apache Kafka</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="systems" value="rabbitmq">
+                                    <span>RabbitMQ</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="systems" value="elasticsearch">
+                                    <span>Elasticsearch</span>
                                 </label>
                             </div>
                         </div>
 
                         <div class="systems-section">
-                            <h5 class="systems-section__title">Other ERP</h5>
+                            <h5 class="systems-section__title">Current Vendors</h5>
                             <div class="checkbox-group checkbox-group--systems">
                                 <label class="checkbox-label">
-                                    <input type="checkbox" name="systems" value="oracle-ebs">
-                                    <span>Oracle E-Business Suite</span>
+                                    <input type="checkbox" name="systems" value="aws">
+                                    <span>AWS (ECS/EKS/RDS)</span>
                                 </label>
                                 <label class="checkbox-label">
-                                    <input type="checkbox" name="systems" value="oracle-cloud">
-                                    <span>Oracle Cloud ERP</span>
+                                    <input type="checkbox" name="systems" value="azure">
+                                    <span>Azure</span>
                                 </label>
                                 <label class="checkbox-label">
-                                    <input type="checkbox" name="systems" value="workday">
-                                    <span>Workday</span>
+                                    <input type="checkbox" name="systems" value="gcp">
+                                    <span>GCP</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="systems" value="cloudflare">
+                                    <span>Cloudflare</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="systems" value="datadog">
+                                    <span>Datadog</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="systems" value="hashicorp">
+                                    <span>HashiCorp</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="systems-section">
+                            <h5 class="systems-section__title">Business Systems</h5>
+                            <div class="checkbox-group checkbox-group--systems">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="systems" value="sap">
+                                    <span>SAP</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="systems" value="oracle">
+                                    <span>Oracle</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="systems" value="salesforce">
+                                    <span>Salesforce</span>
                                 </label>
                                 <label class="checkbox-label">
                                     <input type="checkbox" name="systems" value="netsuite">
                                     <span>NetSuite</span>
                                 </label>
                                 <label class="checkbox-label">
-                                    <input type="checkbox" name="systems" value="dynamics365">
-                                    <span>Microsoft Dynamics 365</span>
+                                    <input type="checkbox" name="systems" value="workday">
+                                    <span>Workday</span>
                                 </label>
                             </div>
-                        </div>
-
-                        <div class="systems-section">
-                            <h5 class="systems-section__title">Cloud / SaaS</h5>
-                            <div class="checkbox-group checkbox-group--systems">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="systems" value="salesforce">
-                                    <span>Salesforce</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="systems" value="servicenow">
-                                    <span>ServiceNow</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="systems" value="docusign">
-                                    <span>DocuSign</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="systems" value="adobesign">
-                                    <span>Adobe Sign</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="systems" value="sharepoint">
-                                    <span>SharePoint</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="systems" value="teams">
-                                    <span>Microsoft Teams</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="systems" value="power-platform">
-                                    <span>Power Platform</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="systems" value="aws">
-                                    <span>AWS Services</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="systems" value="azure">
-                                    <span>Azure Services</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SAP Modules (shown when SAP selected) -->
-                    <div class="form-group wizard-fields wizard-fields--sap-modules" style="display: none;">
-                        <label class="form-label">SAP Modules <span class="optional">(check all that apply)</span></label>
-                        <div class="checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="sapModules" value="mm">
-                                <span>MM (Materials Management)</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="sapModules" value="sd">
-                                <span>SD (Sales & Distribution)</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="sapModules" value="qm">
-                                <span>QM (Quality Management)</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="sapModules" value="pp">
-                                <span>PP (Production Planning)</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="sapModules" value="pm">
-                                <span>PM (Plant Maintenance)</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="sapModules" value="fi-co">
-                                <span>FI/CO (Finance & Controlling)</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="sapModules" value="hr">
-                                <span>HCM / HR</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Document Types (for esignature) -->
-                    <div class="form-group wizard-fields wizard-fields--esignature" style="display: none;">
-                        <label class="form-label">Document Types <span class="optional">(check all that apply)</span></label>
-                        <div class="checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="documentTypes" value="purchase-orders">
-                                <span>Purchase Orders</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="documentTypes" value="contracts">
-                                <span>Contracts</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="documentTypes" value="invoices">
-                                <span>Invoices</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="documentTypes" value="quality">
-                                <span>Quality Documents</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="documentTypes" value="hr">
-                                <span>HR Documents</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="documentTypes" value="engineering">
-                                <span>Engineering Documents</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Approval Process (for esignature) -->
-                    <div class="form-group wizard-fields wizard-fields--esignature" style="display: none;">
-                        <label class="form-label">Approval Process</label>
-                        <div class="pill-group">
-                            <button type="button" class="pill" data-name="approvalProcess" data-value="single">Single approver</button>
-                            <button type="button" class="pill" data-name="approvalProcess" data-value="two-sequential">2 approvers (sequential)</button>
-                            <button type="button" class="pill" data-name="approvalProcess" data-value="three-plus">3+ approvers (sequential)</button>
-                            <button type="button" class="pill" data-name="approvalProcess" data-value="parallel">Multiple (parallel)</button>
-                            <button type="button" class="pill" data-name="approvalProcess" data-value="varies">Varies by document/value</button>
-                        </div>
-                    </div>
-
-                    <!-- Compliance Requirements -->
-                    <div class="form-group wizard-fields wizard-fields--compliance" style="display: none; margin-top: var(--space-xl);">
-                        <label class="form-label">
-                            Compliance Requirements
-                            <span class="optional">(check all that apply)</span>
-                            <span class="info-tooltip" title="These help me ensure the solution meets your regulatory requirements">ⓘ</span>
-                        </label>
-                        <div class="checkbox-group checkbox-group--compliance">
-                            <label class="checkbox-label checkbox-label--compliance">
-                                <input type="checkbox" name="compliance" value="fda-21cfr11">
-                                <span>FDA 21 CFR Part 11</span>
-                            </label>
-                            <label class="checkbox-label checkbox-label--compliance">
-                                <input type="checkbox" name="compliance" value="sox">
-                                <span>SOX (Sarbanes-Oxley)</span>
-                            </label>
-                            <label class="checkbox-label checkbox-label--compliance">
-                                <input type="checkbox" name="compliance" value="hipaa">
-                                <span>HIPAA</span>
-                            </label>
-                            <label class="checkbox-label checkbox-label--compliance">
-                                <input type="checkbox" name="compliance" value="gdpr">
-                                <span>GDPR</span>
-                            </label>
-                            <label class="checkbox-label checkbox-label--compliance">
-                                <input type="checkbox" name="compliance" value="fsma-204">
-                                <span>FSMA 204 (Food Traceability)</span>
-                            </label>
-                            <label class="checkbox-label checkbox-label--compliance">
-                                <input type="checkbox" name="compliance" value="gxp">
-                                <span>GxP (GMP/GLP/GCP)</span>
-                            </label>
                         </div>
                     </div>
 
@@ -608,87 +527,41 @@
                         <p>The more detail you provide, the faster we can propose a solution.</p>
                     </div>
 
-                    <!-- Pain Points for eSignature -->
-                    <div class="form-group wizard-fields wizard-fields--painpoints-esignature" style="display: none;">
+                    <!-- Pain Points -->
+                    <div class="form-group">
                         <label class="form-label">What problems are you experiencing? <span class="optional">(check all that apply)</span></label>
                         <div class="checkbox-group checkbox-group--painpoints">
                             <label class="checkbox-label">
-                                <input type="checkbox" name="painPoints" value="approvals-slow">
-                                <span>Approvals take too long</span>
+                                <input type="checkbox" name="painPoints" value="vendor-sprawl">
+                                <span>Vendor sprawl / too many tools</span>
                             </label>
                             <label class="checkbox-label">
-                                <input type="checkbox" name="painPoints" value="paper-signatures">
-                                <span>Still using paper signatures</span>
+                                <input type="checkbox" name="painPoints" value="performance-issues">
+                                <span>Performance issues with current stack</span>
                             </label>
                             <label class="checkbox-label">
-                                <input type="checkbox" name="painPoints" value="no-mobile">
-                                <span>Approvers can't sign on mobile</span>
+                                <input type="checkbox" name="painPoints" value="scaling-limitations">
+                                <span>Scaling limitations</span>
                             </label>
                             <label class="checkbox-label">
-                                <input type="checkbox" name="painPoints" value="audit-incomplete">
-                                <span>Audit trail is incomplete</span>
+                                <input type="checkbox" name="painPoints" value="high-licensing-costs">
+                                <span>High licensing costs</span>
                             </label>
                             <label class="checkbox-label">
-                                <input type="checkbox" name="painPoints" value="compliance-concerns">
-                                <span>Compliance concerns</span>
+                                <input type="checkbox" name="painPoints" value="complex-deployment">
+                                <span>Complex deployment process</span>
                             </label>
                             <label class="checkbox-label">
-                                <input type="checkbox" name="painPoints" value="visibility">
-                                <span>Can't see where documents are stuck</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Pain Points for Integration -->
-                    <div class="form-group wizard-fields wizard-fields--painpoints-integration" style="display: none;">
-                        <label class="form-label">What problems are you experiencing? <span class="optional">(check all that apply)</span></label>
-                        <div class="checkbox-group checkbox-group--painpoints">
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="painPoints" value="duplicate-entry">
-                                <span>Duplicate data entry across systems</span>
+                                <input type="checkbox" name="painPoints" value="data-out-of-sync">
+                                <span>Data is out of sync across systems</span>
                             </label>
                             <label class="checkbox-label">
-                                <input type="checkbox" name="painPoints" value="out-of-sync">
-                                <span>Data is out of sync</span>
+                                <input type="checkbox" name="painPoints" value="lack-of-observability">
+                                <span>Lack of observability / monitoring</span>
                             </label>
                             <label class="checkbox-label">
-                                <input type="checkbox" name="painPoints" value="need-realtime">
-                                <span>Need real-time, currently batch</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="painPoints" value="manual-exports">
-                                <span>Manual exports/imports</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="painPoints" value="middleware-issues">
-                                <span>Legacy middleware issues</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Pain Points for Automation -->
-                    <div class="form-group wizard-fields wizard-fields--painpoints-automation" style="display: none;">
-                        <label class="form-label">What problems are you experiencing? <span class="optional">(check all that apply)</span></label>
-                        <div class="checkbox-group checkbox-group--painpoints">
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="painPoints" value="entirely-manual">
-                                <span>Process is entirely manual</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="painPoints" value="deadlines-missed">
-                                <span>Deadlines frequently missed</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="painPoints" value="cant-track">
-                                <span>Can't track status</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="painPoints" value="manual-errors">
-                                <span>Manual steps cause errors</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="painPoints" value="bottleneck">
-                                <span>One person is bottleneck</span>
+                                <input type="checkbox" name="painPoints" value="security-concerns">
+                                <span>Security or compliance concerns</span>
                             </label>
                         </div>
                     </div>
@@ -696,7 +569,7 @@
                     <div class="form-group">
                         <label class="form-label">How does this work today? <span class="optional">(optional)</span></label>
                         <textarea class="form-textarea" name="currentSituation" rows="3"
-                            placeholder="Walk me through the current process. What's manual? What's painful? What breaks?"></textarea>
+                            placeholder="Walk me through the current setup. What's working? What's painful? What breaks?"></textarea>
                     </div>
 
                     <div class="form-group">
@@ -934,16 +807,16 @@
                 <div class="approach-item">
                     <span class="approach-item__number">02</span>
                     <div class="approach-item__content">
-                        <h3>Discovery call</h3>
-                        <p>If it looks like a fit, we'll schedule a 30-minute call. You'll explain the problem, we'll ask questions, and we'll see if we can help.</p>
+                        <h3>Platform demo</h3>
+                        <p>We'll show you the relevant products and how they fit your stack.</p>
                     </div>
                 </div>
 
                 <div class="approach-item">
                     <span class="approach-item__number">03</span>
                     <div class="approach-item__content">
-                        <h3>Proposal</h3>
-                        <p>If we move forward, we'll send a clear proposal with scope, timeline, and fixed pricing. No surprises.</p>
+                        <h3>Deployment plan</h3>
+                        <p>We'll provide a deployment plan with architecture, timeline, and pricing.</p>
                     </div>
                 </div>
             </div>
@@ -962,6 +835,6 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=60"></script>
 </body>
 </html>

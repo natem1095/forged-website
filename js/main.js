@@ -1612,4 +1612,65 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => msgDiv.remove(), 5000);
     }
 
+    // ========================================
+    // MEGA-MENU: Products Dropdown
+    // ========================================
+
+    const dropdownWrapper = document.querySelector('.nav__dropdown-wrapper');
+    if (dropdownWrapper) {
+        const megaMenu = dropdownWrapper.querySelector('.nav__mega-menu');
+        const dropdownLink = dropdownWrapper.querySelector('.nav__link--dropdown');
+        let closeTimeout;
+
+        // Desktop: hover open/close
+        dropdownWrapper.addEventListener('mouseenter', function () {
+            if (window.innerWidth > 968) {
+                clearTimeout(closeTimeout);
+                dropdownWrapper.classList.add('active');
+            }
+        });
+
+        dropdownWrapper.addEventListener('mouseleave', function () {
+            if (window.innerWidth > 968) {
+                closeTimeout = setTimeout(function () {
+                    dropdownWrapper.classList.remove('active');
+                }, 150);
+            }
+        });
+
+        // Mobile + Desktop: click toggle
+        dropdownLink.addEventListener('click', function (e) {
+            if (window.innerWidth <= 968) {
+                e.preventDefault();
+                dropdownWrapper.classList.toggle('active');
+            }
+        });
+
+        // Keyboard: Escape to close
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && dropdownWrapper.classList.contains('active')) {
+                dropdownWrapper.classList.remove('active');
+                dropdownLink.focus();
+            }
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', function (e) {
+            if (!dropdownWrapper.contains(e.target)) {
+                dropdownWrapper.classList.remove('active');
+            }
+        });
+
+        // Mobile accordion: category expand/collapse
+        var categoryHeadings = document.querySelectorAll('.nav__mega-menu__category h4');
+        categoryHeadings.forEach(function (heading) {
+            heading.addEventListener('click', function () {
+                if (window.innerWidth <= 968) {
+                    var category = heading.parentElement;
+                    category.classList.toggle('active');
+                }
+            });
+        });
+    }
+
 });

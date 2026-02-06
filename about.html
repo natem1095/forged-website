@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Forged Technologies</title>
-    <meta name="description" content="Enterprise integration architect bridging the gap between business needs and technical solutions.">
+    <meta name="description" content="Built from years of enterprise consulting pain into a platform of 18 infrastructure products, all written from scratch in Rust.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=33">
+    <link rel="stylesheet" href="css/style.css?v=40">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23181818' rx='8' width='100' height='100'/><path d='M25 18h50v14H39v12h30v14H39v24H25V18z' fill='%23909090'/></svg>">
 </head>
 <body>
@@ -26,10 +26,46 @@
 
             <ul class="nav__links">
                 <li><a href="index.html" class="nav__link">Home</a></li>
-                <li><a href="solutions.html" class="nav__link">Solutions</a></li>
+                <li><a href="platform.html" class="nav__link">Platform</a></li>
+                <li class="nav__dropdown-wrapper">
+                    <a href="platform.html" class="nav__link nav__link--dropdown">Products</a>
+                    <div class="nav__mega-menu">
+                        <div class="nav__mega-menu__inner">
+                            <div class="nav__mega-menu__category">
+                                <h4>Core Integration</h4>
+                                <a href="products/core/gate.html" class="nav__mega-menu__link">Gate <span>API Gateway</span></a>
+                                <a href="products/core/stream.html" class="nav__mega-menu__link">Stream <span>Event Streaming</span></a>
+                                <a href="products/core/sync.html" class="nav__mega-menu__link">Sync <span>Data Sync</span></a>
+                                <a href="products/core/flow.html" class="nav__mega-menu__link">Flow <span>Workflow Engine</span></a>
+                                <a href="products/core/observe.html" class="nav__mega-menu__link">Observe <span>Observability</span></a>
+                            </div>
+                            <div class="nav__mega-menu__category">
+                                <h4>Data Infrastructure</h4>
+                                <a href="products/data/cache.html" class="nav__mega-menu__link">Cache <span>Distributed Cache</span></a>
+                                <a href="products/data/store.html" class="nav__mega-menu__link">Store <span>Relational DB</span></a>
+                                <a href="products/data/lake.html" class="nav__mega-menu__link">Lake <span>Analytics Engine</span></a>
+                            </div>
+                            <div class="nav__mega-menu__category">
+                                <h4>Security & Business</h4>
+                                <a href="products/security/vault.html" class="nav__mega-menu__link">Vault <span>Secrets Mgmt</span></a>
+                                <a href="products/security/identity.html" class="nav__mega-menu__link">Identity <span>IAM & Auth</span></a>
+                                <a href="products/security/govern.html" class="nav__mega-menu__link">Govern <span>Policy Engine</span></a>
+                                <a href="products/business/erp.html" class="nav__mega-menu__link">ERP <span>Manufacturing</span></a>
+                                <a href="products/business/crm.html" class="nav__mega-menu__link">CRM <span>Sales & CRM</span></a>
+                                <a href="products/business/hcm.html" class="nav__mega-menu__link">HCM <span>Human Capital</span></a>
+                            </div>
+                            <div class="nav__mega-menu__cta">
+                                <div class="nav__mega-menu__stat"><strong>18</strong><span>Products</span></div>
+                                <div class="nav__mega-menu__stat"><strong>6</strong><span>Categories</span></div>
+                                <a href="platform.html" class="btn btn--primary">View Full Platform</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="enterprise-security.html" class="nav__link">Security</a></li>
+                <li><a href="services.html" class="nav__link">Services</a></li>
                 <li><a href="about.html" class="nav__link nav__link--active">About</a></li>
-                <li><a href="contact.html" class="nav__cta">Let's Talk</a></li>
+                <li><a href="contact.html" class="nav__cta">Get Started</a></li>
             </ul>
         </div>
     </nav>
@@ -38,108 +74,83 @@
     <section class="about-hero">
         <div class="container">
             <span class="section-label">About</span>
-            <h1>We bridge business and technology</h1>
-            <!-- <p class="hero-subhead">For companies tired of firms that bill by the hour and deliver by the year.</p> -->
+            <h1>Built from the pain of building it all one-off</h1>
         </div>
     </section>
 
     <section class="section" style="padding-top: 0;">
         <div class="container">
             <div class="about-content">
-                <!-- Background sidebar hidden for now
-                <aside class="about-sidebar">
-                    <div class="card" style="background: var(--bg-secondary);">
-                        <h4 class="mb-md">Background</h4>
-                        <ul style="list-style: none; font-size: 0.9375rem; color: var(--text-secondary);">
-                            <li style="margin-bottom: var(--space-sm);">
-                                <span class="text-muted">Experience:</span><br>
-                                <span class="text-primary">8+ years enterprise systems</span>
-                            </li>
-                            <li style="margin-bottom: var(--space-sm);">
-                                <span class="text-muted">Specialties:</span><br>
-                                <span class="text-primary">Integration, Automation, APIs</span>
-                            </li>
-                            <li style="margin-bottom: var(--space-sm);">
-                                <span class="text-muted">Platforms:</span><br>
-                                <span class="text-primary">SAP, Oracle, Salesforce, Cloud</span>
-                            </li>
-                            <li style="margin-bottom: var(--space-sm);">
-                                <span class="text-muted">Industries:</span><br>
-                                <span class="text-primary">Aerospace, Food Manufacturing</span>
-                            </li>
-                            <li style="margin-bottom: var(--space-sm);">
-                                <span class="text-muted">Location:</span><br>
-                                <span class="text-primary">Texas</span>
-                            </li>
-                        </ul>
-                    </div>
-                </aside>
-                -->
-
                 <div class="about-main" style="max-width: 700px; margin: 0 auto;">
-                    <h2>Forged from the trenches</h2>
+                    <h2>Every company needs the same pieces</h2>
                     <p>
-                        I spent years in CPG manufacturing, working hands-on with SAP. Not from a conference
-                        room—I was in the warehouse, on the loading dock, in the quality lab with a hairnet
-                        and frock, observing operations. I mapped processes and configured SAP to work for
-                        the people actually using it.
+                        I spent years consulting in CPG manufacturing -- in the warehouse, on the loading
+                        dock, in the quality lab with a hairnet and frock. Not advising from a conference
+                        room. Configuring systems, mapping processes, building integrations for the people
+                        who actually use them.
                     </p>
                     <p>
-                        When standard configurations couldn't solve a problem, waiting for corporate to
-                        build solutions meant watching teams struggle for months with half-baked workarounds.
-                        So I started building solutions myself—understanding the business problem and
-                        delivering the fix directly.
+                        Across every company, the pattern was the same. They all needed the same
+                        infrastructure pieces: API gateways, authentication services, caching layers, data
+                        synchronization, event streaming, workflow engines. Every engagement started with
+                        rebuilding the same foundational infrastructure, customized just enough to feel
+                        unique but fundamentally identical to the last one.
                     </p>
                     <p>
-                        The real test came with our SAP-DocuSign integration—the kind of solution SAP sells
-                        as a product. The company had hired consultants who'd been circling for months. I
-                        designed and programmed the complete architecture from the ground up, single-handedly,
-                        in 4 days: 40 ABAP components, 15+ database tables, 16 documentation files, 2 business
-                        integrations, OAuth authentication, real-time webhooks, automatic PO release. The kind
-                        of project that takes consulting firms 6-9 months and $400K-$600K.
+                        Integration, authentication, caching, data sync -- I built custom versions of these
+                        over and over. Different companies, different ERPs, same core problems. The vendor
+                        solutions were bloated, expensive, and locked you in. The open-source alternatives
+                        required stitching together a dozen tools and hoping they played nice.
                     </p>
                     <p>
-                        That experience shaped everything about how Forged works. The person who understands
-                        the problem builds the solution. No handoffs, no committees, no months of discovery
-                        that go nowhere. Just results.
+                        The real breaking point came with our SAP-DocuSign integration -- the kind of
+                        solution SAP sells as a product. The company had hired consultants who circled for
+                        months. I designed and programmed the complete architecture from the ground up,
+                        single-handedly, in 4 days: 40 ABAP components, 15+ database tables, 16
+                        documentation files, 2 business integrations, OAuth authentication, real-time
+                        webhooks, automatic PO release. The kind of project consulting firms quote at
+                        $400K-$600K over 6-9 months.
+                    </p>
+                    <p>
+                        That speed was not an accident. It was the result of having built and rebuilt the
+                        same patterns so many times that the architecture was already clear before the first
+                        line of code. And it made one thing obvious: these pieces should exist as a platform,
+                        not as one-off consulting deliverables.
+                    </p>
+                    <p>
+                        So I stopped building them one-off and built the platform once, properly, in Rust.
+                    </p>
+                    <p style="font-size: 1.0625rem; color: var(--text-primary); margin: var(--space-lg) 0; padding-left: var(--space-md); border-left: 2px solid var(--accent-primary);">
+                        Every company needs the same pieces. We stopped building them one-off.
                     </p>
                     <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: var(--space-lg); font-style: italic;">
-                        — Nathan Murray, Founder
+                        -- Nathan Murray, Founder
                     </p>
 
-                    <h2>Why we move faster</h2>
+                    <h2>Why we built it differently</h2>
                     <p>
-                        Traditional consulting separates understanding from building. Business analysts
-                        write requirements. Developers interpret them months later. Information gets lost.
-                        Solutions miss the mark.
-                    </p>
-                    <p>
-                        We work differently:
+                        The platform exists at the intersection of two things that rarely overlap:
                     </p>
                     <div class="edge-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin: var(--space-lg) 0;">
                         <div class="edge-item">
                             <h4 style="color: var(--text-primary); margin-bottom: var(--space-sm);">Business Depth</h4>
                             <ul class="about-list">
                                 <li>Years of hands-on manufacturing experience</li>
-                                <li>Understanding pain points from the floor, not just reports</li>
-                                <li>Knowing what SAP can actually do (and what it can't)</li>
-                                <li>Having solved similar problems in production</li>
+                                <li>Understanding pain points from the floor, not from slide decks</li>
+                                <li>Knowing what breaks in production and why</li>
+                                <li>Having lived the consequences of bad infrastructure choices</li>
                             </ul>
                         </div>
                         <div class="edge-item">
-                            <h4 style="color: var(--text-primary); margin-bottom: var(--space-sm);">Technical Execution</h4>
+                            <h4 style="color: var(--text-primary); margin-bottom: var(--space-sm);">Engineering Excellence</h4>
                             <ul class="about-list">
-                                <li>Deep technical capability without consultant layers</li>
-                                <li>Rapid prototyping and iteration</li>
-                                <li>Enterprise-grade architectures that pass security reviews</li>
-                                <li>AI and automation solutions when they fit</li>
+                                <li>Every service built from scratch in Rust</li>
+                                <li>Memory-safe by default -- no garbage collector, no runtime overhead</li>
+                                <li>Wire-protocol compatible with Redis, PostgreSQL, Kafka, and more</li>
+                                <li>Deploy anywhere: bare metal, cloud, edge, air-gapped</li>
                             </ul>
                         </div>
                     </div>
-                    <p>
-                        The person who understands the problem is the person who builds the solution.
-                        That's what eliminates the traditional consulting overhead.
-                    </p>
 
                     <!-- AI + Expertise Section -->
                     <div class="ai-expertise-section">
@@ -160,7 +171,7 @@
                                 </div>
                                 <div>
                                     <strong>Human-Guided Architecture</strong>
-                                    <span>Architecture decisions, security patterns, and business logic come from experience—not generated code</span>
+                                    <span>Architecture decisions, security patterns, and business logic come from experience--not generated code</span>
                                 </div>
                             </div>
                             <div class="ai-expertise-item">
@@ -193,377 +204,78 @@
                                 </div>
                                 <div>
                                     <strong>Complete Audit Trail</strong>
-                                    <span>Full documentation of decisions and structure—your team can review and maintain everything</span>
+                                    <span>Full documentation of decisions and structure--your team can review and maintain everything</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <h2>Industries We Serve</h2>
+                    <h2>The Platform</h2>
                     <p>
-                        We specialize in integration solutions for industries where data accuracy, compliance,
-                        and operational efficiency are critical.
-                    </p>
-                    <div class="industry-focus-grid">
-                        <div class="industry-focus-item">
-                            <strong>Consumer Packaged Goods (CPG)</strong>
-                            <p>Supply chain integration, EDI with major retailers, order-to-cash automation, inventory visibility across channels, and demand planning system connections.</p>
-                        </div>
-                        <div class="industry-focus-item">
-                            <strong>Food & Beverage Manufacturing</strong>
-                            <p>Lot traceability, quality management integration, production scheduling, and compliance documentation for FDA and FSMA requirements.</p>
-                        </div>
-                        <div class="industry-focus-item">
-                            <strong>Distribution & Wholesale</strong>
-                            <p>Warehouse management integration, multi-channel order processing, vendor portals, and real-time inventory synchronization.</p>
-                        </div>
-                    </div>
-
-                    <h2>Who we work with</h2>
-                    <p>
-                        We work with mid-market companies that need enterprise systems to actually
-                        work together—without the cost of traditional consulting.
-                    </p>
-                    <p>You might be a good fit if:</p>
-                    <ul class="about-list">
-                        <li>You run SAP, Oracle, NetSuite, or similar enterprise systems and need to connect them to cloud platforms</li>
-                        <li>You've been burned by integration projects that went over time and budget</li>
-                        <li>Your approval processes still run on email chains and PDF attachments</li>
-                        <li>You need someone who can understand your business problem <em>and</em> build the solution</li>
-                        <li>You want working software, not a proposal that leads to more proposals</li>
-                    </ul>
-
-                    <h2>How we work</h2>
-                    <p>
-                        We don't do endless discovery phases. We don't write 50-page requirements documents
-                        that nobody reads. We don't cycle junior consultants through your project while
-                        a senior partner checks in quarterly.
+                        18 products across 6 categories. API Gateway, Event Streaming, Distributed Cache,
+                        Relational Database, Secrets Management, IAM, Policy Engine, full ERP, CRM, and HCM.
+                        Observability, workflow orchestration, data sync, and analytics.
                     </p>
                     <p>
-                        Instead: we go to where the work happens. We talk to the people using the systems—not
-                        just management. We understand the actual workflow, the workarounds, what everyone
-                        wishes the system could do. Then we build it.
+                        Not 18 wrappers around open-source tools. 18 products built from the ground up in
+                        Rust -- each one wire-protocol compatible with the industry standard it replaces.
+                        Drop in a Forged product where you currently run Redis, PostgreSQL, or Kafka. Your
+                        existing code keeps working. Your operational overhead disappears.
                     </p>
                     <p>
-                        You see working software early and often. When it's done, it works in your
-                        environment—not just in a demo.
+                        One platform. One vendor. One deployment model. No stitching together a dozen tools
+                        from a dozen companies and hoping the seams hold.
+                    </p>
+                    <p style="margin-top: var(--space-lg);">
+                        <a href="platform.html" style="color: var(--accent-primary);">Explore the full platform &rarr;</a>
                     </p>
 
                     <h2>What we believe</h2>
                     <p>
-                        <strong>Speed comes from removing layers, not cutting corners.</strong>
-                        Traditional consulting models add layers. Layers add complexity. We remove layers.
+                        <strong>Speed comes from building it right, not patching it together.</strong>
+                        Every shortcut in infrastructure becomes a long-term tax. We build properly the
+                        first time so you never pay that tax.
                     </p>
                     <p>
-                        <strong>Working software beats proposals.</strong>
-                        Proposals can be impressive. Decks can be polished. But software either works in your environment or it doesn't.
+                        <strong>Working software beats sales decks.</strong>
+                        Decks can be polished. Demos can be scripted. But software either runs in your
+                        environment or it does not. We ship things that run.
                     </p>
                     <p>
-                        <strong>Complexity is the enemy.</strong>
-                        The best solution is usually the simplest one that solves the problem. We don't over-engineer, and we don't build for hypothetical futures.
+                        <strong>Drop-in compatible beats proprietary lock-in.</strong>
+                        If you already speak Redis protocol, PostgreSQL wire format, or Kafka consumer
+                        groups, our products speak those too. Migrate in. Migrate out. Your choice.
                     </p>
                     <p>
-                        <strong>Aligned incentives matter.</strong>
-                        When consultants bill by the hour, they're rewarded for taking longer. When we quote fixed prices, we're rewarded for solving your problem efficiently. That's how it should work.
+                        <strong>One platform beats twenty vendors.</strong>
+                        Every vendor boundary is a potential failure point, a billing surprise, and a
+                        finger-pointing opportunity. We eliminated them.
                     </p>
 
                     <h2>Why "Forged"?</h2>
                     <p>
                         Forging is about shaping raw material into something useful through heat and
-                        pressure. It's craft. It's taking business requirements—often messy and
-                        unclear—and forming them into working solutions.
+                        pressure. It is craft -- taking hard problems and forming them into working
+                        solutions through sustained effort.
                     </p>
                     <p>
-                        It's the opposite of theoretical. Forged things are real. They work.
-                        That's what we deliver.
+                        We forge enterprise infrastructure from raw Rust -- shaping it into tools that
+                        replace entire vendor stacks. Every product is hammered into shape by the same
+                        pressure that created the need: years of building one-off solutions and knowing
+                        there had to be a better way.
                     </p>
-                    <!-- <p style="font-size: 0.875rem; margin-top: var(--space-md);"><a href="#" id="founder-message-link" style="color: #d4af37; text-decoration: none; border-bottom: 1px dashed #d4af37;">a message from the founder</a></p> -->
-
-                    <h2>Security & Compliance</h2>
                     <p>
-                        Enterprise integration requires enterprise-grade security. We build solutions
-                        with security architecture that satisfies your security team and compliance requirements.
+                        It is the opposite of theoretical. Forged things are real. They work.
                     </p>
-                    <div class="security-overview-grid">
-                        <div class="security-overview-item">
-                            <span class="security-overview-icon">
-                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                </svg>
-                            </span>
-                            <div>
-                                <strong>OAuth 2.0 & mTLS</strong>
-                                <span>Modern authentication for every integration scenario</span>
-                            </div>
-                        </div>
-                        <div class="security-overview-item">
-                            <span class="security-overview-icon">
-                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                                </svg>
-                            </span>
-                            <div>
-                                <strong>SOC 2 & GDPR Ready</strong>
-                                <span>Architectures that support compliance requirements</span>
-                            </div>
-                        </div>
-                        <div class="security-overview-item">
-                            <span class="security-overview-icon">
-                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                                </svg>
-                            </span>
-                            <div>
-                                <strong>Full Audit Trail</strong>
-                                <span>Complete logging with 6-7 year retention capability</span>
-                            </div>
-                        </div>
-                        <div class="security-overview-item">
-                            <span class="security-overview-icon">
-                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                                </svg>
-                            </span>
-                            <div>
-                                <strong>Enterprise Resilience</strong>
-                                <span>Circuit breakers, retries, and graceful degradation</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p style="margin-top: var(--space-lg);">
-                        <a href="enterprise-security.html" style="color: var(--accent-primary);">Learn more about our security architecture →</a>
-                    </p>
-
-                    <h2>Systems We Work With</h2>
-                    <div class="section-cards">
-                        <div class="section-card">
-                            <div class="section-card__icon">
-                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <rect x="2" y="3" width="20" height="14" rx="2"/>
-                                    <path d="M8 21h8M12 17v4"/>
-                                </svg>
-                            </div>
-                            <h4 class="section-card__title">Enterprise ERP</h4>
-                            <ul class="section-card__items">
-                                <li>SAP ECC / S/4HANA</li>
-                                <li>Oracle EBS / Cloud</li>
-                                <li>Workday</li>
-                                <li>NetSuite</li>
-                                <li>Dynamics 365</li>
-                            </ul>
-                        </div>
-                        <div class="section-card">
-                            <div class="section-card__icon">
-                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12s4.48 10 10 10"/>
-                                    <path d="M2 12h20M12 2c2.5 2.5 4 6 4 10"/>
-                                    <path d="M12 2c-2.5 2.5-4 6-4 10s1.5 7.5 4 10"/>
-                                    <circle cx="18" cy="18" r="4"/>
-                                </svg>
-                            </div>
-                            <h4 class="section-card__title">Cloud Platforms</h4>
-                            <ul class="section-card__items">
-                                <li>DocuSign</li>
-                                <li>Salesforce</li>
-                                <li>ServiceNow</li>
-                                <li>AWS</li>
-                                <li>Azure</li>
-                                <li>SharePoint</li>
-                            </ul>
-                        </div>
-                        <div class="section-card">
-                            <div class="section-card__icon">
-                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-                                </svg>
-                            </div>
-                            <h4 class="section-card__title">Automation</h4>
-                            <ul class="section-card__items">
-                                <li>Approval Workflows</li>
-                                <li>Document Routing</li>
-                                <li>Notifications</li>
-                                <li>Data Sync</li>
-                                <li>Process Automation</li>
-                            </ul>
-                        </div>
-                        <div class="section-card">
-                            <div class="section-card__icon">
-                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>
-                                </svg>
-                            </div>
-                            <h4 class="section-card__title">Development</h4>
-                            <ul class="section-card__items">
-                                <li>REST APIs</li>
-                                <li>Webhooks</li>
-                                <li>OAuth / JWT</li>
-                                <li>Custom Apps</li>
-                                <li>Dashboards</li>
-                            </ul>
-                        </div>
-                        <div class="section-card">
-                            <div class="section-card__icon">
-                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                                </svg>
-                            </div>
-                            <h4 class="section-card__title">Documentation</h4>
-                            <ul class="section-card__items">
-                                <li>Architecture Docs</li>
-                                <li>API References</li>
-                                <li>Setup Guides</li>
-                                <li>Training Materials</li>
-                                <li>Runbooks</li>
-                            </ul>
-                        </div>
-                    </div>
 
                     <div class="mt-xl">
-                        <a href="contact.html" class="btn btn--primary">Let's Talk</a>
-                        <a href="solutions.html" class="btn btn--secondary" style="margin-left: var(--space-md);">See Our Work</a>
+                        <a href="platform.html" class="btn btn--primary">Explore the Platform</a>
+                        <a href="contact.html" class="btn btn--secondary" style="margin-left: var(--space-md);">Get Started</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Founder Message Modal - commented out
-    <div id="founder-modal" class="founder-modal">
-        <div class="founder-modal__overlay"></div>
-        <div class="founder-modal__content">
-            <button class="founder-modal__close" aria-label="Close">&times;</button>
-            <div class="founder-modal__body">
-                <p>I spent 8 years implementing SAP for CPG companies. Not from a conference room - I was in the warehouse, on the loading dock, in the quality lab with a hairnet and frock, observing the operation. I mapped processes and configured SAP to actually work for the people using it.</p>
-                <p>But there were times it wouldn't. And getting through corporate hurdles to build what was needed was a slow process - most of the time nothing came of it anyway. I watched our teams take months to deliver solutions that never really solved the pain-point.</p>
-                <p>So I went rogue. I wasn't in a developer role, but I got the access and started building solutions myself. Turns out I could deliver nearly perfect, fully documented solutions in a fraction of the time - with better attention to detail and more features than anything the dev team produced.</p>
-                <p>Then came the real test: our SAP to DocuSign integration. The company had spun in circles for months and hired consultants to make it happen. Guess what I did... I built the complete architecture myself - fully integrated to the standard SAP approval workflow so that as soon as a user clicked save, the approver had a DocuSign email. Once signed, PO released. End to end. Documented. Delivered... In 4 days.</p>
-                <p>The inbox floods with "congratulations!" and "good jobs!" Then it gets to the development team for review. "There's a process" they said.</p>
-                <p>That's when I broke. I couldn't stand the corporate barriers anymore.</p>
-                <p>So begins Forged Technologies. AI has changed what it means to be a developer. Combine that with years of front-facing manufacturing experience and you have a hammer meeting steel.</p>
-                <p>No more one hour meetings that go three. No more "SAP can't do that." And no more slide decks.</p>
-                <p>If an out-of-the-box solution doesn't solve your problem, we build something that does - whether directly in SAP/Salesforce/Oracle or through a secure custom integration.</p>
-                <p>Flat rate pricing upfront.</p>
-                <p>If this sounds like what you need then send us a message.</p>
-                <p>Hope we speak soon,</p>
-                <p class="founder-modal__signature">Nathan Murray<br><span style="color: var(--text-muted);">Founder - Forged Technologies LLC</span></p>
-            </div>
-        </div>
-    </div>
-
-    <style>
-        .founder-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            visibility: hidden;
-            pointer-events: none;
-        }
-        .founder-modal.is-open {
-            visibility: visible;
-            pointer-events: auto;
-        }
-        .founder-modal__overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(4px);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .founder-modal.is-open .founder-modal__overlay {
-            opacity: 1;
-        }
-        .founder-modal__content {
-            position: relative;
-            background: var(--bg-primary);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            max-width: 700px;
-            max-height: 85vh;
-            width: 90%;
-            overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            transform: scale(0.95) translateY(20px);
-            transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .founder-modal.is-open .founder-modal__content {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-        }
-        .founder-modal__close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            line-height: 1;
-            z-index: 1;
-            transition: color 0.2s ease, transform 0.2s ease;
-        }
-        .founder-modal__close:hover {
-            color: var(--text-primary);
-            transform: scale(1.1);
-        }
-        .founder-modal__body {
-            padding: 2.5rem;
-            overflow-y: auto;
-            max-height: 85vh;
-        }
-        .founder-modal__body p {
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-        .founder-modal__signature {
-            margin-top: 1.5rem;
-            color: #d4af37 !important;
-            font-weight: 500;
-        }
-    </style>
-
-    <script>
-        (function() {
-            const link = document.getElementById('founder-message-link');
-            const modal = document.getElementById('founder-modal');
-            const overlay = modal.querySelector('.founder-modal__overlay');
-            const closeBtn = modal.querySelector('.founder-modal__close');
-
-            function openModal(e) {
-                e.preventDefault();
-                modal.classList.add('is-open');
-                document.body.style.overflow = 'hidden';
-            }
-
-            function closeModal() {
-                modal.classList.remove('is-open');
-                document.body.style.overflow = '';
-            }
-
-            link.addEventListener('click', openModal);
-            overlay.addEventListener('click', closeModal);
-            closeBtn.addEventListener('click', closeModal);
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && modal.classList.contains('is-open')) {
-                    closeModal();
-                }
-            });
-        })();
-    </script>
-    -->
 
     <!-- Footer -->
     <footer class="footer">
@@ -577,6 +289,6 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=60"></script>
 </body>
 </html>

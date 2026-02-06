@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forged Identity | IAM & Authentication — Forged Technologies</title>
+    <meta name="description" content="Enterprise IAM and authentication with OAuth2/OIDC, RBAC, single sign-on, session management, and API key provisioning.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css?v=40">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23181818' rx='8' width='100' height='100'/><path d='M25 18h50v14H39v12h30v14H39v24H25V18z' fill='%23909090'/></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav__container">
+            <a href="../../index.html" class="nav__logo">Forged</a>
+
+            <button class="nav__toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav__links">
+                <li><a href="../../index.html" class="nav__link">Home</a></li>
+                <li><a href="../../platform.html" class="nav__link">Platform</a></li>
+                <li class="nav__dropdown-wrapper">
+                    <a href="../../platform.html" class="nav__link nav__link--dropdown">Products</a>
+                    <div class="nav__mega-menu">
+                        <div class="nav__mega-menu__inner">
+                            <div class="nav__mega-menu__category">
+                                <h4>Core Integration</h4>
+                                <a href="../../products/core/gate.html" class="nav__mega-menu__link">Gate <span>API Gateway</span></a>
+                                <a href="../../products/core/stream.html" class="nav__mega-menu__link">Stream <span>Event Streaming</span></a>
+                                <a href="../../products/core/sync.html" class="nav__mega-menu__link">Sync <span>Data Sync</span></a>
+                                <a href="../../products/core/flow.html" class="nav__mega-menu__link">Flow <span>Workflow Engine</span></a>
+                                <a href="../../products/core/observe.html" class="nav__mega-menu__link">Observe <span>Observability</span></a>
+                            </div>
+                            <div class="nav__mega-menu__category">
+                                <h4>Data Infrastructure</h4>
+                                <a href="../../products/data/cache.html" class="nav__mega-menu__link">Cache <span>Distributed Cache</span></a>
+                                <a href="../../products/data/store.html" class="nav__mega-menu__link">Store <span>Relational DB</span></a>
+                                <a href="../../products/data/lake.html" class="nav__mega-menu__link">Lake <span>Analytics Engine</span></a>
+                            </div>
+                            <div class="nav__mega-menu__category">
+                                <h4>Security & Business</h4>
+                                <a href="../../products/security/vault.html" class="nav__mega-menu__link">Vault <span>Secrets Mgmt</span></a>
+                                <a href="../../products/security/identity.html" class="nav__mega-menu__link">Identity <span>IAM & Auth</span></a>
+                                <a href="../../products/security/govern.html" class="nav__mega-menu__link">Govern <span>Policy Engine</span></a>
+                                <a href="../../products/business/erp.html" class="nav__mega-menu__link">ERP <span>Manufacturing</span></a>
+                                <a href="../../products/business/crm.html" class="nav__mega-menu__link">CRM <span>Sales & CRM</span></a>
+                                <a href="../../products/business/hcm.html" class="nav__mega-menu__link">HCM <span>Human Capital</span></a>
+                            </div>
+                            <div class="nav__mega-menu__cta">
+                                <div class="nav__mega-menu__stat"><strong>18</strong><span>Products</span></div>
+                                <div class="nav__mega-menu__stat"><strong>6</strong><span>Categories</span></div>
+                                <a href="../../platform.html" class="btn btn--primary">View Full Platform</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="../../enterprise-security.html" class="nav__link">Security</a></li>
+                <li><a href="../../services.html" class="nav__link">Services</a></li>
+                <li><a href="../../about.html" class="nav__link">About</a></li>
+                <li><a href="../../contact.html" class="nav__cta">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="about-hero">
+        <div class="container">
+            <p class="section-label">Platform Security</p>
+            <h1>Forged Identity</h1>
+            <p class="hero-subtitle">IAM & Authentication — OAuth2/OIDC, RBAC, single sign-on, session management, and API key provisioning for every service.</p>
+            <div class="compat-badges">
+                <span class="compat-badge">Rust + Go</span>
+                <span class="compat-badge">Port 8300</span>
+                <span class="compat-badge">OAuth2 / OIDC</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>OAuth2/OIDC</h3>
+                    <p>Standard protocols</p>
+                </div>
+                <div class="stat-item">
+                    <h3>RBAC</h3>
+                    <p>Role-based access</p>
+                </div>
+                <div class="stat-item">
+                    <h3>SSO</h3>
+                    <p>Single sign-on</p>
+                </div>
+                <div class="stat-item">
+                    <h3>API Keys</h3>
+                    <p>Service-to-service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <p class="section-label">Replaces</p>
+            <h2>Enterprise Identity & Access</h2>
+            <p style="max-width: 800px; margin: 0 auto var(--space-xl); color: var(--text-secondary); font-size: 1.125rem; line-height: 1.7;">Forged Identity delivers standards-based authentication and authorization with OAuth2/OIDC, hierarchical RBAC, and comprehensive session management. Replaces Okta, Auth0, Keycloak, and AWS Cognito with a unified, high-performance identity platform.</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>OAuth2 & OIDC</h3>
+                    <p>Full OAuth2 and OpenID Connect implementation with authorization code, client credentials, and device flow. Standards-compliant token issuance and validation.</p>
+                </div>
+                <div class="service-card">
+                    <h3>RBAC</h3>
+                    <p>Role-based access control with hierarchical roles and permission inheritance. Fine-grained access policies with attribute-based extensions.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Single Sign-On</h3>
+                    <p>SAML 2.0 and OIDC federation for enterprise SSO integration. Support for external identity providers with automatic account provisioning.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Session Management</h3>
+                    <p>Distributed session storage with configurable lifetime and idle timeout. Cross-service session propagation with automatic renewal and revocation.</p>
+                </div>
+                <div class="service-card">
+                    <h3>API Key Management</h3>
+                    <p>Service account provisioning with automatic key rotation and expiration. Scoped API keys with granular permission assignment and audit logging.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Multi-Factor Auth</h3>
+                    <p>TOTP and WebAuthn support for passwordless authentication. Hardware token integration with backup code generation and recovery flows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <p class="section-label">Configuration</p>
+            <h2>Identity Configuration</h2>
+            <p style="max-width: 800px; margin: 0 auto var(--space-xl); color: var(--text-secondary); font-size: 1.125rem; line-height: 1.7;">Configure Identity with OAuth2 providers, session policies, and authentication methods.</p>
+
+<pre style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 8px; padding: var(--space-lg); overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.7; white-space: pre;">identity:
+  port: 8300
+
+  oauth2:
+    issuer: https://identity.forged.local
+    authorization_code:
+      enabled: true
+      pkce_required: true
+    client_credentials:
+      enabled: true
+    device_flow:
+      enabled: true
+      poll_interval: 5s
+
+  session:
+    storage: cache
+    lifetime: 8h
+    idle_timeout: 30m
+    renewal_window: 1h
+
+  providers:
+    saml:
+      - name: enterprise_sso
+        metadata_url: https://sso.corp.local/metadata
+        auto_provision: true
+    oidc:
+      - name: google_workspace
+        issuer: https://accounts.google.com
+        client_id: ${GOOGLE_CLIENT_ID}
+
+  mfa:
+    totp:
+      enabled: true
+      issuer: Forged Identity
+    webauthn:
+      enabled: true
+      rp_name: Forged Technologies</pre>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <p class="section-label">Integration</p>
+            <h2>Platform Integration</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Gate</h3>
+                    <p>Provides authentication middleware for API gateway with token validation and session enforcement.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Govern</h3>
+                    <p>Supplies user context and role information for authorization policy evaluation and decision enforcement.</p>
+                </div>
+                <div class="service-card">
+                    <h3>All Services</h3>
+                    <p>Centralized identity provider for user authentication, service accounts, and API key management across platform.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Console</h3>
+                    <p>User management interface for account provisioning, role assignment, and authentication method configuration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--bg-secondary); text-align: center; padding: var(--space-3xl) 0;">
+        <div class="container">
+            <h2 style="margin-bottom: var(--space-md);">Ready to unify identity management?</h2>
+            <p style="max-width: 600px; margin: 0 auto var(--space-xl); color: var(--text-secondary); font-size: 1.125rem;">Deploy enterprise-grade authentication and authorization with standards-based protocols.</p>
+            <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+                <a href="../../contact.html" class="btn btn--primary btn--large">Get Started</a>
+                <a href="../../platform.html" class="btn btn--secondary btn--large">View Platform</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer__content">
+            <p class="footer__text">&copy; 2026 Forged Technologies. Built with focus.</p>
+            <ul class="footer__links">
+                <li><a href="https://www.linkedin.com/in/nathan-murray-311266114/" class="footer__link" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://github.com/natem1095" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="mailto:nate@forgedintegration.com" class="footer__link">Email</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js?v=60"></script>
+</body>
+</html>

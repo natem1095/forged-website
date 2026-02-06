@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forged Sync | Data Synchronization — Forged Technologies</title>
+    <meta name="description" content="Forged Sync is a high-performance change data capture and data synchronization engine. Real-time CDC, 50+ connectors, schema transformation, and checkpoint recovery.">
+
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../css/style.css?v=40">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav">
+        <div class="container nav__container">
+            <a href="../../index.html" class="nav__logo">Forged</a>
+            <button class="nav__toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+            <ul class="nav__links">
+                <li><a href="../../index.html" class="nav__link">Home</a></li>
+                <li><a href="../../platform.html" class="nav__link">Platform</a></li>
+                <li class="nav__dropdown-wrapper">
+                    <a href="../../platform.html" class="nav__link nav__link--dropdown">Products</a>
+                    <div class="nav__mega-menu"><div class="nav__mega-menu__inner">
+                        <div class="nav__mega-menu__category"><h4>Core Integration</h4>
+                            <a href="../../products/core/gate.html" class="nav__mega-menu__link">Gate <span>API Gateway</span></a>
+                            <a href="../../products/core/stream.html" class="nav__mega-menu__link">Stream <span>Event Streaming</span></a>
+                            <a href="../../products/core/sync.html" class="nav__mega-menu__link">Sync <span>Data Sync</span></a>
+                            <a href="../../products/core/flow.html" class="nav__mega-menu__link">Flow <span>Workflow Engine</span></a>
+                            <a href="../../products/core/observe.html" class="nav__mega-menu__link">Observe <span>Observability</span></a>
+                        </div>
+                        <div class="nav__mega-menu__category"><h4>Data Infrastructure</h4>
+                            <a href="../../products/data/cache.html" class="nav__mega-menu__link">Cache <span>Distributed Cache</span></a>
+                            <a href="../../products/data/store.html" class="nav__mega-menu__link">Store <span>Relational DB</span></a>
+                            <a href="../../products/data/lake.html" class="nav__mega-menu__link">Lake <span>Analytics Engine</span></a>
+                        </div>
+                        <div class="nav__mega-menu__category"><h4>Security &amp; Business</h4>
+                            <a href="../../products/security/vault.html" class="nav__mega-menu__link">Vault <span>Secrets Mgmt</span></a>
+                            <a href="../../products/security/identity.html" class="nav__mega-menu__link">Identity <span>IAM &amp; Auth</span></a>
+                            <a href="../../products/security/govern.html" class="nav__mega-menu__link">Govern <span>Policy Engine</span></a>
+                            <a href="../../products/business/erp.html" class="nav__mega-menu__link">ERP <span>Manufacturing</span></a>
+                            <a href="../../products/business/crm.html" class="nav__mega-menu__link">CRM <span>Sales &amp; CRM</span></a>
+                            <a href="../../products/business/hcm.html" class="nav__mega-menu__link">HCM <span>Human Capital</span></a>
+                        </div>
+                        <div class="nav__mega-menu__cta">
+                            <div class="nav__mega-menu__stat"><strong>18</strong><span>Products</span></div>
+                            <div class="nav__mega-menu__stat"><strong>6</strong><span>Categories</span></div>
+                            <a href="../../platform.html" class="btn btn--primary">View Full Platform</a>
+                        </div>
+                    </div></div>
+                </li>
+                <li><a href="../../enterprise-security.html" class="nav__link">Security</a></li>
+                <li><a href="../../services.html" class="nav__link">Services</a></li>
+                <li><a href="../../about.html" class="nav__link">About</a></li>
+                <li><a href="../../contact.html" class="nav__cta">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="about-hero">
+        <div class="container">
+            <a href="../../platform.html" class="back-link">← Back to Platform</a>
+            <div class="section-label">Core Integration</div>
+            <h1>Forged Sync</h1>
+            <p class="subtitle">CDC &amp; Real-Time Data Synchronization — Connector framework with schema transformation, checkpoint recovery, and real-time change data capture.</p>
+            <div class="hero-badges">
+                <span class="compat-badge">Rust</span>
+                <span class="compat-badge">Connector Framework</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="stats-grid stats-grid--4">
+                <div class="stat-card">
+                    <h3>Real-Time CDC</h3>
+                    <p>Sub-second latency</p>
+                </div>
+                <div class="stat-card">
+                    <h3>50+ Connectors</h3>
+                    <p>Source and sink</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Checkpoint Recovery</h3>
+                    <p>Zero data loss</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Schema Transform</h3>
+                    <p>On-the-fly mapping</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-label">Overview</div>
+            <h2>Real-Time Data Synchronization</h2>
+            <p>Forged Sync is a high-performance change data capture (CDC) and data synchronization engine that monitors databases, captures changes in real-time, and streams them to downstream systems. It replaces tools like Debezium, AWS DMS, Fivetran, and Informatica with a unified, high-performance solution written in Rust.</p>
+            <p>With support for 50+ source and sink connectors, Sync captures database changes at the transaction log level and publishes them to Stream Broker for consumption by analytics systems, search indexes, caches, and other downstream applications. Schema transformation, field masking, and checkpoint recovery ensure data quality and reliability.</p>
+        </div>
+    </section>
+
+    <section class="section section--gray">
+        <div class="container">
+            <div class="section-label">Capabilities</div>
+            <h2>Core Features</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Change Data Capture</h3>
+                    <p>Monitor database transaction logs (WAL, binlog, redo) to capture inserts, updates, and deletes in real-time with sub-second latency.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Connector Framework</h3>
+                    <p>50+ source connectors (PostgreSQL, MySQL, Oracle, SQL Server, MongoDB) and sinks (Stream, Kafka, S3, Elasticsearch, Snowflake).</p>
+                </div>
+                <div class="service-card">
+                    <h3>Schema Transformation</h3>
+                    <p>Rename fields, mask sensitive data, filter columns, and apply custom transformations on-the-fly without impacting source systems.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Checkpoint Recovery</h3>
+                    <p>Persistent offset tracking with exactly-once delivery guarantees. Automatically resume from last checkpoint after failures.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Parallel Processing</h3>
+                    <p>Partition large tables across multiple workers for high-throughput initial snapshots and ongoing replication.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Dead Letter Queue</h3>
+                    <p>Automatically route failed records to a DLQ for manual inspection and replay without blocking the sync pipeline.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-label">Integration</div>
+            <h2>Works With Your Stack</h2>
+            <p>Forged Sync integrates seamlessly with other Forged products to create a complete data platform:</p>
+            <ul class="feature-list">
+                <li><strong>Stream</strong> — Publishes CDC events to the Stream Broker for real-time consumption by analytics and microservices</li>
+                <li><strong>Store</strong> — Captures changes from Store (PostgreSQL) and replicates to downstream systems</li>
+                <li><strong>Lake</strong> — Feeds real-time data to Lake for analytics and reporting</li>
+                <li><strong>Flow</strong> — Triggers workflows based on database changes (e.g., send email when order status changes)</li>
+                <li><strong>Observe</strong> — Monitors sync health, lag, throughput, and error rates</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section section--gray">
+        <div class="container">
+            <div class="section-label">Configuration</div>
+            <h2>Simple YAML Configuration</h2>
+            <p>Define sources, sinks, and transformations in a single configuration file:</p>
+            <pre><code># sync.yaml
+source:
+  type: postgresql
+  connection: postgres://localhost:5433/erp
+  tables: [orders, inventory, customers]
+sink:
+  type: forged-stream
+  broker: localhost:9092
+  topic_prefix: cdc.
+transform:
+  - table: orders
+    mask: [customer_ssn]
+    rename: {order_id: id}</code></pre>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Sync Your Data?</h2>
+            <p>Deploy Forged Sync and start capturing database changes in real-time.</p>
+            <a href="../../contact.html" class="btn btn--primary btn--large">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer__content">
+            <p class="footer__text">&copy; 2026 Forged Technologies. Built with focus.</p>
+            <ul class="footer__links">
+                <li><a href="https://www.linkedin.com/in/nathan-murray-311266114/" class="footer__link" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://github.com/natem1095" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="mailto:nate@forgedintegration.com" class="footer__link">Email</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js?v=60"></script>
+</body>
+</html>

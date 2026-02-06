@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forged Console | Admin Dashboard — Forged Technologies</title>
+    <meta name="description" content="Single pane of glass for all Forged services. Service health, configuration management, user management, and audit logs.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css?v=40">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23181818' rx='8' width='100' height='100'/><path d='M25 18h50v14H39v12h30v14H39v24H25V18z' fill='%23909090'/></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav__container">
+            <a href="../../index.html" class="nav__logo">Forged</a>
+
+            <button class="nav__toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav__links">
+                <li><a href="../../index.html" class="nav__link">Home</a></li>
+                <li><a href="../../platform.html" class="nav__link">Platform</a></li>
+                <li class="nav__dropdown-wrapper">
+                    <a href="../../platform.html" class="nav__link nav__link--dropdown">Products</a>
+                    <div class="nav__mega-menu">
+                        <div class="nav__mega-menu__inner">
+                            <div class="nav__mega-menu__category">
+                                <h4>Core Integration</h4>
+                                <a href="../../products/core/gate.html" class="nav__mega-menu__link">Gate <span>API Gateway</span></a>
+                                <a href="../../products/core/stream.html" class="nav__mega-menu__link">Stream <span>Event Streaming</span></a>
+                                <a href="../../products/core/sync.html" class="nav__mega-menu__link">Sync <span>Data Sync</span></a>
+                                <a href="../../products/core/flow.html" class="nav__mega-menu__link">Flow <span>Workflow Engine</span></a>
+                                <a href="../../products/core/observe.html" class="nav__mega-menu__link">Observe <span>Observability</span></a>
+                            </div>
+                            <div class="nav__mega-menu__category">
+                                <h4>Data Infrastructure</h4>
+                                <a href="../../products/data/cache.html" class="nav__mega-menu__link">Cache <span>Distributed Cache</span></a>
+                                <a href="../../products/data/store.html" class="nav__mega-menu__link">Store <span>Relational DB</span></a>
+                                <a href="../../products/data/lake.html" class="nav__mega-menu__link">Lake <span>Analytics Engine</span></a>
+                            </div>
+                            <div class="nav__mega-menu__category">
+                                <h4>Security & Business</h4>
+                                <a href="../../products/security/vault.html" class="nav__mega-menu__link">Vault <span>Secrets Mgmt</span></a>
+                                <a href="../../products/security/identity.html" class="nav__mega-menu__link">Identity <span>IAM & Auth</span></a>
+                                <a href="../../products/security/govern.html" class="nav__mega-menu__link">Govern <span>Policy Engine</span></a>
+                                <a href="../../products/business/erp.html" class="nav__mega-menu__link">ERP <span>Manufacturing</span></a>
+                                <a href="../../products/business/crm.html" class="nav__mega-menu__link">CRM <span>Sales & CRM</span></a>
+                                <a href="../../products/business/hcm.html" class="nav__mega-menu__link">HCM <span>Human Capital</span></a>
+                            </div>
+                            <div class="nav__mega-menu__cta">
+                                <div class="nav__mega-menu__stat"><strong>18</strong><span>Products</span></div>
+                                <div class="nav__mega-menu__stat"><strong>6</strong><span>Categories</span></div>
+                                <a href="../../platform.html" class="btn btn--primary">View Full Platform</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="../../enterprise-security.html" class="nav__link">Security</a></li>
+                <li><a href="../../services.html" class="nav__link">Services</a></li>
+                <li><a href="../../about.html" class="nav__link">About</a></li>
+                <li><a href="../../contact.html" class="nav__cta">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="about-hero">
+        <div class="container">
+            <div class="section-label">Operations</div>
+            <h1>Forged Console</h1>
+            <p class="hero-subtitle">Unified Admin Dashboard — Single pane of glass for all Forged services. Service health, configuration management, user management, and audit logs.</p>
+            <div class="hero-badges">
+                <span class="compat-badge">Go + React</span>
+                <span class="compat-badge">Web UI</span>
+                <span class="compat-badge">Real-Time</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">18 Services</div>
+                    <div class="stat-label">Unified view</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">Real-Time</div>
+                    <div class="stat-label">Live health data</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">Config Mgmt</div>
+                    <div class="stat-label">Centralized settings</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">Audit Logs</div>
+                    <div class="stat-label">Full history</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-label">Purpose</div>
+            <h2>Unified Platform Management</h2>
+            <p style="max-width: 800px; margin: var(--space-lg) auto; text-align: center; color: var(--text-secondary);">
+                Forged Console is the single admin interface for the entire Forged platform. Monitor service health, manage configurations, provision users, and track all administrative actions from one unified dashboard.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-label">Features</div>
+            <h2>Core Capabilities</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Service Health</h3>
+                    <p>Real-time status of all 18 services with alerts for downtime, performance degradation, and resource exhaustion.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Configuration Management</h3>
+                    <p>Centralized config editing with validation and rollback. Edit YAML/TOML configs with syntax highlighting and schema validation.</p>
+                </div>
+                <div class="service-card">
+                    <h3>User Management</h3>
+                    <p>User provisioning, role assignment, access review, and multi-factor authentication enforcement across all services.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Audit Logs</h3>
+                    <p>Searchable log of all administrative actions with filtering by user, service, action type, and timestamp.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Resource Monitoring</h3>
+                    <p>CPU, memory, disk, network metrics per service with historical trends and capacity planning recommendations.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Deployment Management</h3>
+                    <p>Rolling updates, canary deployments, rollback with one-click deployment controls and deployment history tracking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-label">Dashboard</div>
+            <h2>Console Overview</h2>
+            <pre style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 8px; padding: var(--space-lg); overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.7; white-space: pre;">┌─────────────────────────────────────────────────────────────┐
+│ Forged Console                                 admin@forged │
+├─────────────────────────────────────────────────────────────┤
+│ Service Health                                              │
+│   ● Gate         [OK]    P50: 5ms     P99: 45ms            │
+│   ● Stream       [OK]    Throughput: 50K msg/sec           │
+│   ● Store        [WARN]  Disk: 85% (threshold: 80%)        │
+│   ● Cache        [OK]    Hit rate: 94%                     │
+│   ● Identity     [OK]    Auth: 1.2K req/min                │
+│                                                             │
+│ Recent Actions                                              │
+│   2025-02-06 14:23  alice@forged  Updated Gate config      │
+│   2025-02-06 14:18  bob@forged    Created user: charlie    │
+│   2025-02-06 14:12  alice@forged  Deployed Flow v1.4.0     │
+│                                                             │
+│ Active Alerts                                               │
+│   ⚠ Store disk usage above threshold (85%)                 │
+│   ⚠ Stream replica lag detected (2.1s behind)              │
+└─────────────────────────────────────────────────────────────┘</pre>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-label">Integration</div>
+            <h2>Data Sources</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Observe</h3>
+                    <p>Console pulls real-time metrics and logs from Observe for service health monitoring and resource usage tracking.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Identity</h3>
+                    <p>Console uses Identity for admin authentication with SSO, MFA, and RBAC to control access to admin functions.</p>
+                </div>
+                <div class="service-card">
+                    <h3>All Forged Services</h3>
+                    <p>Console connects to all 18 services via management APIs for configuration updates, health checks, and deployment control.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--cta">
+        <div class="container" style="text-align: center;">
+            <h2>Ready to Simplify Operations?</h2>
+            <p style="max-width: 600px; margin: var(--space-lg) auto var(--space-xl);">Get started with Forged Console and manage your entire platform from a unified dashboard.</p>
+            <a href="../../contact.html" class="btn btn--primary btn--large">Contact Sales</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer__content">
+            <p class="footer__text">&copy; 2026 Forged Technologies. Built with focus.</p>
+            <ul class="footer__links">
+                <li><a href="https://www.linkedin.com/in/nathan-murray-311266114/" class="footer__link" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://github.com/natem1095" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="mailto:nate@forgedintegration.com" class="footer__link">Email</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js?v=60"></script>
+</body>
+</html>

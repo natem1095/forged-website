@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forged Technologies | One Platform. Every Integration.</title>
-    <meta name="description" content="18 enterprise infrastructure products built from scratch in Rust. API gateway, event streaming, databases, ERP, CRM — unified and self-hostable.">
+    <meta name="description" content="Replace your entire infrastructure stack with one platform. 18 products — API gateway, databases, event streaming, ERP, CRM, and security — built to work together. Self-hosted or managed.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code:wght@300;400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css?v=40">
+    <link rel="stylesheet" href="css/style.css?v=50">
 
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23181818' rx='8' width='100' height='100'/><path d='M25 18h50v14H39v12h30v14H39v24H25V18z' fill='%23909090'/></svg>">
@@ -87,24 +87,29 @@
         <div class="container">
             <div class="hero__content hero-animate">
                 <h1 class="hero__title">
-                    <span class="hero-line">One platform.</span>
-                    <span class="hero-line hero__highlight">Every integration.</span>
+                    <span class="hero-line">One platform instead</span>
+                    <span class="hero-line hero__highlight">of twenty.</span>
                 </h1>
 
                 <div class="hero-content-group">
-                    <p class="hero__subtitle" style="font-weight: 500; font-size: 2.25rem;">
-                        Built from scratch<br>
-                        in Rust.
-                    </p>
-
-                    <p class="hero__subtitle" style="font-size: 1.125rem; margin-top: calc(var(--space-md) * -1); margin-bottom: var(--space-xl);">
-                        Complete enterprise infrastructure — gateway, streaming, sync,
-                        ERP, CRM — unified and self-hostable.
+                    <p class="hero__subtitle" style="font-size: 1.25rem; margin-bottom: var(--space-xl); max-width: 700px;">
+                        API gateway, databases, event streaming, ERP, HR, and security &mdash;
+                        18 products built from the ground up to work together.
+                        Deploy on your cloud or ours.
                     </p>
 
                     <div class="hero__cta-group">
-                        <a href="platform.html" class="btn btn--primary btn--large">Explore the Platform</a>
-                        <a href="contact.html" class="btn btn--secondary btn--large">Get Started</a>
+                        <a href="contact.html" class="btn btn--primary btn--large">Schedule a Demo</a>
+                        <a href="platform.html" class="btn btn--secondary btn--large">Explore the Platform</a>
+                    </div>
+
+                    <!-- Trust Badges -->
+                    <div class="trust-badges">
+                        <span class="trust-badge">100% Built In-House</span>
+                        <span class="trust-badge__divider"></span>
+                        <span class="trust-badge">Drop-In Compatible</span>
+                        <span class="trust-badge__divider"></span>
+                        <span class="trust-badge">Self-Hosted or Managed</span>
                     </div>
                 </div>
 
@@ -123,7 +128,29 @@
                         <span class="speed-stat__number">6</span>
                         <span class="speed-stat__label">Categories</span>
                     </div>
+                    <div class="speed-stat">
+                        <span class="speed-stat__number">100%</span>
+                        <span class="speed-stat__label">In-House</span>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Replaces Tools You Already Use -->
+    <section class="logo-bar">
+        <div class="container">
+            <p class="logo-bar__label">Replaces tools you already use</p>
+            <div class="logo-bar__row">
+                <img src="logos/sap-svgrepo-com.svg" alt="SAP" class="logo-bar__logo" loading="lazy">
+                <img src="logos/oracle-svgrepo-com (1).svg" alt="Oracle" class="logo-bar__logo" loading="lazy">
+                <img src="logos/salesforce-svgrepo-com (1).svg" alt="Salesforce" class="logo-bar__logo" loading="lazy">
+                <img src="logos/workday-svgrepo-com.svg" alt="Workday" class="logo-bar__logo" loading="lazy">
+                <img src="logos/aws-svgrepo-com.svg" alt="AWS" class="logo-bar__logo" loading="lazy">
+                <img src="logos/oracle-netsuite-svgrepo-com.svg" alt="NetSuite" class="logo-bar__logo" loading="lazy">
+                <img src="logos/dynamics365-svgrepo-com.svg" alt="Dynamics 365" class="logo-bar__logo" loading="lazy">
+                <img src="logos/ms-sharepoint-svgrepo-com.svg" alt="SharePoint" class="logo-bar__logo" loading="lazy">
+                <img src="logos/docusign-svgrepo-com.svg" alt="DocuSign" class="logo-bar__logo" loading="lazy">
             </div>
         </div>
     </section>
@@ -146,7 +173,7 @@
                     </div>
                     <h3 class="service-card__title">Core Integration</h3>
                     <p class="service-card__description">
-                        API gateway, event streaming, data synchronization, workflow orchestration, and observability. The backbone of every enterprise.
+                        Route traffic, move data in real time, automate workflows, and monitor everything from one place. The foundation that connects your entire business.
                     </p>
                     <span class="service-card__count">5 products</span>
                 </a>
@@ -159,7 +186,7 @@
                     </div>
                     <h3 class="service-card__title">Data Infrastructure</h3>
                     <p class="service-card__description">
-                        Redis-compatible cache, PostgreSQL-compatible database, and columnar analytics engine. Drop-in replacements for your existing tools.
+                        A high-speed cache, a full relational database, and an analytics engine &mdash; all built to work with your existing tools without changing a line of code.
                     </p>
                     <span class="service-card__count">3 products</span>
                 </a>
@@ -172,7 +199,7 @@
                     </div>
                     <h3 class="service-card__title">Platform Security</h3>
                     <p class="service-card__description">
-                        Secrets management, IAM and authentication, and policy enforcement. Security built into the platform, not bolted on.
+                        Manage passwords and API keys, control who accesses what, and enforce security policies across every service. Built in, not bolted on.
                     </p>
                     <span class="service-card__count">3 products</span>
                 </a>
@@ -187,7 +214,7 @@
                     </div>
                     <h3 class="service-card__title">Business Applications</h3>
                     <p class="service-card__description">
-                        Full ERP, CRM, and HCM — not plugins or wrappers. Complete business applications built on the same platform.
+                        Manufacturing ERP, customer management, and HR &mdash; complete business software that runs on the same platform as your infrastructure.
                     </p>
                     <span class="service-card__count">3 products</span>
                 </a>
@@ -200,7 +227,7 @@
                     </div>
                     <h3 class="service-card__title">Developer Tools</h3>
                     <p class="service-card__description">
-                        API documentation platform with interactive playground, code examples, and OpenAPI spec generation.
+                        Beautiful API documentation with code examples in 8+ languages, interactive testing, and auto-generated references for every product.
                     </p>
                     <span class="service-card__count">1 product</span>
                 </a>
@@ -213,7 +240,7 @@
                     </div>
                     <h3 class="service-card__title">Operations</h3>
                     <p class="service-card__description">
-                        Unified admin dashboard and edge computing. Single pane of glass for all Forged services, plus CDN and edge functions.
+                        One dashboard to manage all 18 products, plus global edge caching and serverless compute for low-latency delivery worldwide.
                     </p>
                     <span class="service-card__count">2 products</span>
                 </a>
@@ -226,7 +253,7 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Why Forged</span>
-                <h2 class="fade-words"><span class="fade-word">Built in Rust.</span> <span class="fade-word">Drop-in compatible.</span> <span class="fade-word">Deploy anywhere.</span></h2>
+                <h2 class="fade-words"><span class="fade-word">One vendor, not twenty.</span> <span class="fade-word">Migrate without rewriting.</span> <span class="fade-word">Your rules.</span></h2>
             </div>
 
             <!-- Methodology Pillars -->
@@ -234,15 +261,17 @@
                 <div class="methodology-pillar">
                     <div class="methodology-pillar__icon">
                         <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
                         </svg>
                     </div>
-                    <h3 class="methodology-pillar__title">Built in Rust</h3>
-                    <p class="methodology-pillar__description">Every service written from scratch. Memory-safe, zero-cost abstractions, microsecond latency. No wrappers around open-source tools.</p>
+                    <h3 class="methodology-pillar__title">One Vendor, Not Twenty</h3>
+                    <p class="methodology-pillar__description">Stop stitching tools from different vendors. One platform, one bill, one support team. Every product shares authentication, configuration, and monitoring.</p>
                     <ul class="methodology-pillar__list">
-                        <li>Memory-safe by design</li>
-                        <li>Sub-millisecond latency</li>
-                        <li>500K+ ops/sec per service</li>
+                        <li>Unified auth &amp; config</li>
+                        <li>Single support team</li>
+                        <li>One monthly bill</li>
                     </ul>
                 </div>
 
@@ -252,12 +281,12 @@
                             <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
                         </svg>
                     </div>
-                    <h3 class="methodology-pillar__title">Drop-In Compatible</h3>
-                    <p class="methodology-pillar__description">Replace Redis, PostgreSQL, Kafka without changing application code. Wire-protocol compatible — your existing clients connect unchanged.</p>
+                    <h3 class="methodology-pillar__title">Migrate Without Rewriting</h3>
+                    <p class="methodology-pillar__description">Your existing code already works. Forged speaks the same protocols as Redis, PostgreSQL, and Kafka. Point your apps at Forged and they just connect.</p>
                     <ul class="methodology-pillar__list">
-                        <li>Redis RESP3 protocol</li>
-                        <li>PostgreSQL wire protocol</li>
-                        <li>Kafka client compatibility</li>
+                        <li>Redis clients connect unchanged</li>
+                        <li>PostgreSQL queries run as-is</li>
+                        <li>Kafka producers &amp; consumers just work</li>
                     </ul>
                 </div>
 
@@ -267,12 +296,12 @@
                             <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                         </svg>
                     </div>
-                    <h3 class="methodology-pillar__title">Deploy Anywhere</h3>
-                    <p class="methodology-pillar__description">Docker Compose for development, Kubernetes + Helm for production, or let us manage it. Your infrastructure, your terms.</p>
+                    <h3 class="methodology-pillar__title">Your Infrastructure, Your Rules</h3>
+                    <p class="methodology-pillar__description">Run on Docker for development, Kubernetes for production, or let us manage everything. Your data stays on your servers, in your cloud, under your control.</p>
                     <ul class="methodology-pillar__list">
                         <li>Docker Compose (development)</li>
                         <li>Kubernetes + Helm (production)</li>
-                        <li>SaaS (managed)</li>
+                        <li>Fully managed SaaS option</li>
                     </ul>
                 </div>
             </div>
@@ -307,7 +336,7 @@
                         </svg>
                     </div>
                     <h3 class="deliverable-card__title">Drop-In Migration</h3>
-                    <p class="deliverable-card__description">Wire-protocol compatibility means your existing Redis, PostgreSQL, and Kafka clients connect without code changes.</p>
+                    <p class="deliverable-card__description">Your existing tools connect without changing a single line of code. Redis, PostgreSQL, and Kafka clients work out of the box.</p>
                 </div>
 
                 <div class="deliverable-card">
@@ -335,6 +364,36 @@
 
     <!-- Regular Scroll Content (no snapping) -->
     <div class="regular-scroll-content" id="regular-content">
+        <!-- How It Works Section -->
+        <section class="section how-it-works">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">How It Works</span>
+                    <h2>Up and running in three steps.</h2>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <span class="step-card__number">1</span>
+                        <h3 class="step-card__title">Pick what you need</h3>
+                        <p class="step-card__description">Start with one product or deploy the full platform. Every product works standalone or together.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <span class="step-card__number">2</span>
+                        <h3 class="step-card__title">Deploy your way</h3>
+                        <p class="step-card__description">One Docker Compose command for development. Helm charts for production. Or let us host it.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <span class="step-card__number">3</span>
+                        <h3 class="step-card__title">Connect your existing tools</h3>
+                        <p class="step-card__description">Your Redis, PostgreSQL, and Kafka clients connect unchanged. Zero code rewrites.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Featured Products Section -->
         <section class="section" id="featured-work">
             <div class="container">
@@ -343,141 +402,68 @@
                     <h2>Built for production. Not for demos.</h2>
                 </div>
 
-                <div class="projects-grid">
-                    <!-- Featured: Forged Gate -->
-                    <a href="products/core/gate.html" class="card card--link card--featured">
-                        <div class="card__content">
-                            <span class="card__label">Core Integration</span>
-                            <h3 class="card__title">Forged Gate</h3>
-                            <p class="card__description">
-                                High-performance API gateway with Rust data plane and Go control plane.
-                                Multi-upstream routing, auth integration, rate limiting, and DDoS protection.
-                                Replaces Kong, AWS API Gateway, and Apigee.
-                            </p>
-                            <div class="card__tags">
-                                <span class="tag">Rust + Go</span>
-                                <span class="tag">API Gateway</span>
-                                <span class="tag">Sub-ms Latency</span>
-                                <span class="tag">100K+ RPS</span>
-                            </div>
-                        </div>
-                        <div class="card__visual">
-                            <svg width="340" height="260" viewBox="0 0 340 260" fill="none">
-                                <!-- Client Layer -->
-                                <rect x="15" y="15" width="310" height="45" rx="8" fill="rgba(96,96,96,0.1)" stroke="rgba(96,96,96,0.3)" stroke-width="1"/>
-                                <text x="170" y="32" fill="#606060" font-size="10" font-weight="600" text-anchor="middle" letter-spacing="1">CLIENTS</text>
-                                <rect x="40" y="38" width="60" height="18" rx="3" fill="#353535" stroke="#505050" stroke-width="1"/>
-                                <text x="70" y="51" fill="#909090" font-size="9" text-anchor="middle">Web Apps</text>
-                                <rect x="110" y="38" width="60" height="18" rx="3" fill="#353535" stroke="#505050" stroke-width="1"/>
-                                <text x="140" y="51" fill="#909090" font-size="9" text-anchor="middle">Mobile</text>
-                                <rect x="180" y="38" width="60" height="18" rx="3" fill="#353535" stroke="#505050" stroke-width="1"/>
-                                <text x="210" y="51" fill="#909090" font-size="9" text-anchor="middle">APIs</text>
-                                <rect x="250" y="38" width="60" height="18" rx="3" fill="#353535" stroke="#505050" stroke-width="1"/>
-                                <text x="280" y="51" fill="#909090" font-size="9" text-anchor="middle">IoT</text>
-
-                                <!-- Arrow -->
-                                <line x1="170" y1="60" x2="170" y2="80" stroke="#707070" stroke-width="2"/>
-                                <polygon points="165,76 170,86 175,76" fill="#707070"/>
-
-                                <!-- Gate Layer (Highlighted) -->
-                                <rect x="15" y="90" width="310" height="50" rx="8" fill="rgba(144,144,144,0.12)" stroke="#909090" stroke-width="2"/>
-                                <text x="170" y="108" fill="#909090" font-size="10" font-weight="600" text-anchor="middle" letter-spacing="1">FORGED GATE</text>
-                                <rect x="35" y="116" width="55" height="18" rx="3" fill="#909090"/>
-                                <text x="62" y="129" fill="#0a0a0a" font-size="9" font-weight="600" text-anchor="middle">Auth</text>
-                                <rect x="98" y="116" width="55" height="18" rx="3" fill="#909090"/>
-                                <text x="125" y="129" fill="#0a0a0a" font-size="9" font-weight="600" text-anchor="middle">Rate Limit</text>
-                                <rect x="161" y="116" width="55" height="18" rx="3" fill="#909090"/>
-                                <text x="188" y="129" fill="#0a0a0a" font-size="9" font-weight="600" text-anchor="middle">Route</text>
-                                <rect x="224" y="116" width="55" height="18" rx="3" fill="#909090"/>
-                                <text x="251" y="129" fill="#0a0a0a" font-size="9" font-weight="600" text-anchor="middle">WAF</text>
-
-                                <!-- Arrow -->
-                                <line x1="170" y1="140" x2="170" y2="160" stroke="#707070" stroke-width="2"/>
-                                <polygon points="165,156 170,166 175,156" fill="#707070"/>
-
-                                <!-- Services Layer -->
-                                <rect x="15" y="170" width="310" height="75" rx="8" fill="rgba(64,64,64,0.12)" stroke="rgba(64,64,64,0.4)" stroke-width="1"/>
-                                <text x="170" y="187" fill="#606060" font-size="10" font-weight="600" text-anchor="middle" letter-spacing="1">FORGED SERVICES</text>
-                                <rect x="30" y="197" width="58" height="22" rx="4" fill="#353535" stroke="#505050" stroke-width="1"/>
-                                <text x="59" y="212" fill="#909090" font-size="9" text-anchor="middle">ERP</text>
-                                <rect x="96" y="197" width="58" height="22" rx="4" fill="#353535" stroke="#505050" stroke-width="1"/>
-                                <text x="125" y="212" fill="#909090" font-size="9" text-anchor="middle">CRM</text>
-                                <rect x="162" y="197" width="58" height="22" rx="4" fill="#353535" stroke="#505050" stroke-width="1"/>
-                                <text x="191" y="212" fill="#909090" font-size="9" text-anchor="middle">Stream</text>
-                                <rect x="228" y="197" width="58" height="22" rx="4" fill="#353535" stroke="#505050" stroke-width="1"/>
-                                <text x="257" y="212" fill="#909090" font-size="9" text-anchor="middle">Cache</text>
-                                <rect x="96" y="225" width="58" height="15" rx="3" fill="#252525" stroke="#353535" stroke-width="1"/>
-                                <text x="125" y="235" fill="#505050" font-size="8" text-anchor="middle">+ 14 more</text>
+                <div class="product-highlights">
+                    <!-- Gate -->
+                    <a href="products/core/gate.html" class="product-highlight">
+                        <div class="product-highlight__icon">
+                            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                             </svg>
+                        </div>
+                        <h3 class="product-highlight__title">Forged Gate</h3>
+                        <p class="product-highlight__description">One gateway for all your API traffic &mdash; authentication, rate limiting, routing, and DDoS protection built in.</p>
+                        <div class="product-highlight__replaces">
+                            <span class="replaces-label">Replaces:</span> Kong, AWS API Gateway, Apigee
                         </div>
                     </a>
 
-                    <!-- Featured: Forged ERP -->
-                    <a href="products/business/erp.html" class="card card--link card--featured">
-                        <div class="card__content">
-                            <span class="card__label">Business Application</span>
-                            <h3 class="card__title">Forged ERP</h3>
-                            <p class="card__description">
-                                Full manufacturing ERP with Finance, Inventory, Purchasing, Production,
-                                Quality, and Sales modules. 17 implemented pages, multi-tenant with
-                                row-level security. Replaces SAP, Oracle, and NetSuite.
-                            </p>
-                            <div class="card__tags">
-                                <span class="tag">Next.js 14</span>
-                                <span class="tag">Manufacturing ERP</span>
-                                <span class="tag">Multi-Tenant</span>
-                                <span class="tag">6 Modules</span>
-                            </div>
-                        </div>
-                        <div class="card__visual">
-                            <svg width="340" height="260" viewBox="0 0 340 260" fill="none">
-                                <!-- ERP Modules -->
-                                <text x="170" y="20" fill="#606060" font-size="10" font-weight="600" text-anchor="middle" letter-spacing="1">FORGED ERP MODULES</text>
-                                <!-- Row 1 -->
-                                <rect x="15" y="35" width="100" height="60" rx="6" fill="rgba(144,144,144,0.12)" stroke="#909090" stroke-width="1.5"/>
-                                <text x="65" y="58" fill="#e0e0e0" font-size="11" font-weight="500" text-anchor="middle">Finance</text>
-                                <text x="65" y="74" fill="#707070" font-size="8" text-anchor="middle">GL, AP, AR</text>
-
-                                <rect x="120" y="35" width="100" height="60" rx="6" fill="rgba(144,144,144,0.12)" stroke="#909090" stroke-width="1.5"/>
-                                <text x="170" y="58" fill="#e0e0e0" font-size="11" font-weight="500" text-anchor="middle">Inventory</text>
-                                <text x="170" y="74" fill="#707070" font-size="8" text-anchor="middle">WM, Stock, BOM</text>
-
-                                <rect x="225" y="35" width="100" height="60" rx="6" fill="rgba(144,144,144,0.12)" stroke="#909090" stroke-width="1.5"/>
-                                <text x="275" y="58" fill="#e0e0e0" font-size="11" font-weight="500" text-anchor="middle">Purchasing</text>
-                                <text x="275" y="74" fill="#707070" font-size="8" text-anchor="middle">PO, Vendors</text>
-
-                                <!-- Row 2 -->
-                                <rect x="15" y="105" width="100" height="60" rx="6" fill="rgba(144,144,144,0.12)" stroke="#909090" stroke-width="1.5"/>
-                                <text x="65" y="128" fill="#e0e0e0" font-size="11" font-weight="500" text-anchor="middle">Production</text>
-                                <text x="65" y="144" fill="#707070" font-size="8" text-anchor="middle">Orders, Work Ctrs</text>
-
-                                <rect x="120" y="105" width="100" height="60" rx="6" fill="rgba(144,144,144,0.12)" stroke="#909090" stroke-width="1.5"/>
-                                <text x="170" y="128" fill="#e0e0e0" font-size="11" font-weight="500" text-anchor="middle">Quality</text>
-                                <text x="170" y="144" fill="#707070" font-size="8" text-anchor="middle">Inspections, NCRs</text>
-
-                                <rect x="225" y="105" width="100" height="60" rx="6" fill="rgba(144,144,144,0.12)" stroke="#909090" stroke-width="1.5"/>
-                                <text x="275" y="128" fill="#e0e0e0" font-size="11" font-weight="500" text-anchor="middle">Sales</text>
-                                <text x="275" y="144" fill="#707070" font-size="8" text-anchor="middle">Orders, Quotes</text>
-
-                                <!-- Platform Integration -->
-                                <line x1="30" y1="175" x2="310" y2="175" stroke="#404040" stroke-width="1" stroke-dasharray="4"/>
-                                <text x="170" y="192" fill="#606060" font-size="9" font-weight="600" text-anchor="middle" letter-spacing="1">PLATFORM INTEGRATION</text>
-                                <rect x="25" y="202" width="70" height="20" rx="3" fill="#353535" stroke="#505050" stroke-width="1"/>
-                                <text x="60" y="215" fill="#707070" font-size="8" text-anchor="middle">Gate</text>
-                                <rect x="103" y="202" width="70" height="20" rx="3" fill="#353535" stroke="#505050" stroke-width="1"/>
-                                <text x="138" y="215" fill="#707070" font-size="8" text-anchor="middle">Stream</text>
-                                <rect x="181" y="202" width="70" height="20" rx="3" fill="#353535" stroke="#505050" stroke-width="1"/>
-                                <text x="216" y="215" fill="#707070" font-size="8" text-anchor="middle">Cache</text>
-                                <rect x="259" y="202" width="70" height="20" rx="3" fill="#353535" stroke="#505050" stroke-width="1"/>
-                                <text x="294" y="215" fill="#707070" font-size="8" text-anchor="middle">Observe</text>
+                    <!-- Store -->
+                    <a href="products/data/store.html" class="product-highlight">
+                        <div class="product-highlight__icon">
+                            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
                             </svg>
+                        </div>
+                        <h3 class="product-highlight__title">Forged Store</h3>
+                        <p class="product-highlight__description">A full relational database built on Rust. Your PostgreSQL queries work unchanged, but faster.</p>
+                        <div class="product-highlight__replaces">
+                            <span class="replaces-label">Replaces:</span> Aurora, CockroachDB, RDS
                         </div>
                     </a>
 
-                    <!-- See More Button -->
-                    <div style="grid-column: 1 / -1; text-align: center; padding: var(--space-lg) 0;">
-                        <a href="platform.html" class="btn btn--secondary">View All 18 Products</a>
-                    </div>
+                    <!-- Stream -->
+                    <a href="products/core/stream.html" class="product-highlight">
+                        <div class="product-highlight__icon">
+                            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="product-highlight__title">Forged Stream</h3>
+                        <p class="product-highlight__description">High-throughput event streaming for real-time data pipelines. Your Kafka clients connect without changes.</p>
+                        <div class="product-highlight__replaces">
+                            <span class="replaces-label">Replaces:</span> Kafka, RabbitMQ, AWS SQS
+                        </div>
+                    </a>
+
+                    <!-- ERP -->
+                    <a href="products/business/erp.html" class="product-highlight">
+                        <div class="product-highlight__icon">
+                            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                <line x1="12" y1="22.08" x2="12" y2="12"/>
+                            </svg>
+                        </div>
+                        <h3 class="product-highlight__title">Forged ERP</h3>
+                        <p class="product-highlight__description">Complete manufacturing ERP &mdash; finance, inventory, production, quality, purchasing, and sales in one system.</p>
+                        <div class="product-highlight__replaces">
+                            <span class="replaces-label">Replaces:</span> SAP, Oracle, NetSuite
+                        </div>
+                    </a>
+                </div>
+
+                <div style="text-align: center; padding: var(--space-xl) 0 0;">
+                    <a href="platform.html" class="btn btn--secondary">View All 18 Products &rarr;</a>
                 </div>
             </div>
         </section>
@@ -485,25 +471,60 @@
         <!-- CTA Section -->
         <section class="section cta-section">
             <div class="container">
-                <h2>Ready to simplify your stack?</h2>
-                <p>One platform replaces dozens of tools. Self-hosted or managed. We'll help you deploy it.</p>
+                <h2>Ready to replace your vendor sprawl?</h2>
+                <p>See how one platform replaces dozens of tools. Schedule a 30-minute demo &mdash; no pressure, no sales pitch.</p>
                 <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
-                    <a href="platform.html" class="btn btn--primary btn--large">Explore the Platform</a>
-                    <a href="contact.html" class="btn btn--secondary btn--large">Get Started</a>
+                    <a href="contact.html" class="btn btn--primary btn--large">Schedule a Demo</a>
+                    <a href="platform.html" class="btn btn--secondary btn--large">View the Platform</a>
                 </div>
             </div>
         </section>
 
         <!-- Footer -->
         <footer class="footer">
-            <div class="container footer__content">
-                <p class="footer__text">&copy; 2026 Forged Technologies. Built with focus.</p>
-                <p class="footer__credit">Website Designed & Built by Forged Technologies</p>
-                <ul class="footer__links">
-                    <li><a href="https://www.linkedin.com/in/nathan-murray-311266114/" class="footer__link" target="_blank" rel="noopener">LinkedIn</a></li>
-                    <li><a href="https://github.com/natem1095" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
-                    <li><a href="mailto:nate@forgedintegration.com" class="footer__link">Email</a></li>
-                </ul>
+            <div class="container">
+                <div class="footer__grid">
+                    <div class="footer__brand">
+                        <span class="footer__logo">Forged</span>
+                        <p class="footer__tagline">One Platform. Every Integration.</p>
+                    </div>
+
+                    <div class="footer__col">
+                        <h4 class="footer__heading">Platform</h4>
+                        <ul class="footer__nav">
+                            <li><a href="platform.html#core">Core Integration</a></li>
+                            <li><a href="platform.html#data">Data Infrastructure</a></li>
+                            <li><a href="platform.html#security">Security</a></li>
+                            <li><a href="platform.html#business">Business Apps</a></li>
+                            <li><a href="platform.html#developer">Developer Tools</a></li>
+                            <li><a href="platform.html#operations">Operations</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__col">
+                        <h4 class="footer__heading">Company</h4>
+                        <ul class="footer__nav">
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="enterprise-security.html">Security</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__col">
+                        <h4 class="footer__heading">Connect</h4>
+                        <ul class="footer__nav">
+                            <li><a href="https://www.linkedin.com/in/nathan-murray-311266114/" target="_blank" rel="noopener">LinkedIn</a></li>
+                            <li><a href="https://github.com/natem1095" target="_blank" rel="noopener">GitHub</a></li>
+                            <li><a href="mailto:nate@forgedintegration.com">Email</a></li>
+                        </ul>
+                        <a href="contact.html" class="btn btn--primary footer__cta-btn">Schedule a Demo</a>
+                    </div>
+                </div>
+
+                <div class="footer__bottom">
+                    <p>&copy; 2026 Forged Technologies. Built with focus.</p>
+                </div>
             </div>
         </footer>
     </div><!-- End regular-scroll-content -->
